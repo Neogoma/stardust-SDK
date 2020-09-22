@@ -1,0 +1,3388 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hobodream</name>
+    </assembly>
+    <members>
+        <member name="T:com.Neogoma.HoboDream.Filter.IFilterableObject`1">
+            <inheritdoc />
+            <summary>
+            This interface defines the behavior of an object that can be filtered
+            
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Filter.IFilterableObject`1.FilterUpdated(`0)">
+            <summary>
+            Method called when the filter has been updated and refresh the object status if necessary
+            </summary>        
+            <param name="datas">The updated filter data
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Filter.IFilterableObject`1.FilterObject">
+            <summary>
+            Filters the current object, this method will be called when the object has been filtered
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Filter.IFilterableObject`1.UnfilterObject">
+            <summary>
+            Unfilters the current object, this method will be called when the object will be unfiltered
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Filter.IFilterableObject`1.IsFiltered">
+            <summary>
+            Checks the current state of the object (is it filtered or not)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Filter.IFilterData">
+            <inheritdoc />
+            <summary>
+            Interface used to communicate the data from <see cref="T:com.Neogoma.HoboDream.Filter.IFilterEngine"/> to the <see cref="T:com.Neogoma.HoboDream.Filter.IFilterableObject`1"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Filter.IFilterData.GetValue``1(System.Int32)">
+             <summary>
+             Returns the value of the filter parameter        
+             </summary>
+             <typeparam name="T">Type of value to return
+            </typeparam>
+             <param name="valueKey">Key of the demanded value
+            </param>
+             <returns>The value of the filter parameter
+             </returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Filter.IFilterEngine">
+            <inheritdoc />
+            <summary>
+            This interface defines the behavior of a component that can filter other objects. The component is an <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/> that will notify the his listeners <see cref="T:com.Neogoma.HoboDream.Filter.IFilterableObject`1"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Filter.IFilterEngine.SetupFilter">
+            <summary>
+            This method will setup the filter system (add the system as a listener to the UI elements, initialize the filter data...)        
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Filter.Impl.AbstractFilterableObject`1">
+            <inheritdoc cref="T:com.Neogoma.HoboDream.Filter.IFilterableObject`1"/>
+            <inheritdoc cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/>
+             <summary>
+             Basic implementation of <see cref="T:com.Neogoma.HoboDream.Filter.IFilterableObject`1"/>.<br></br>
+             Listens <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.FILTER_CHANGE"/><br></br>
+             Notifies <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.DISACTIVATE_OBJECT"/>, <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.ACTIVATE_OBJECT"/><br></br>
+             </summary>
+             <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/>
+             <seealso cref="T:com.Neogoma.HoboDream.Filter.IFilterableObject`1"/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Filter.Impl.FilterChangedEvent`1">
+            <inheritdoc />
+            <summary>
+            Event triggered by the filter system in case of changes to the filter, extends <see cref="T:com.Neogoma.HoboDream.Impl.BaseInteractionEvent"/> and uses a <see cref="T:com.Neogoma.HoboDream.Filter.IFilterData"/>
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.BaseInteractionEvent" />
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Filter.Impl.FilterChangedEvent`1.#ctor(com.Neogoma.HoboDream.IInteractiveElement,`0)">
+            <summary>
+            Basic constructor
+            </summary>
+            <param name="source">Source of the event</param>
+            <param name="data">Data to pass in the vent</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.BaseCollisionInteractive">
+            <inheritdoc />
+            <summary>
+            Basic implementation of an <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/> that will trigger event on collision
+            Triggers <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.COLLISION_ENTER"/>
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractCollisionEventActivator"/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.BaseTriggerInteractive">
+            <inheritdoc />
+            <summary>
+            Basic implementation of an <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/> that will trigger event on trigger.
+            Triggers <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_ENTER"/>, <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_EXIT"/>, <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_STAY"/>
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator"/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ButtonUpdateParticleSystem">
+            <inheritdoc />
+            <summary>
+            Button used to update the particle system. Is an extension of <see cref="T:com.Neogoma.HoboDream.UI.Impl.Buttons.NormalBtnScripts"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ButtonUpdateParticleSystem.particleColor">
+            <summary>
+            The particle color
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ButtonUpdateParticleSystem.particle">
+            <summary>
+            The particle engine
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ButtonUpdateParticleSystem.newParticleTexture">
+            <summary>
+            The new particle sprite
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem">
+            <inheritdoc />
+            <summary>
+            Coolhobo particle system used to generate particles of clickable objects    
+            </summary>
+            <seealso cref="T:UnityEngine.MonoBehaviour" />
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.particleTemplate">
+            <summary>
+            The particle template gameobject
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.particleLifetime">
+            <summary>
+            The particle lifetime
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.maxParticles">
+            <summary>
+            The maximum number of particles
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.acceleration">
+            <summary>
+            The acceleration
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.particlesRoot">
+            <summary>
+            The particles root
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.defaultTexture">
+            <summary>
+            The default texture
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.angle">
+            <summary>
+            The angle
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.particleColor">
+            <summary>
+            The particle color
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.ShootParticles(System.Int32)">
+            <summary>
+            Shoots the particles.
+            </summary>
+            <param name="quantity">The quantity of particles to be shot</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.UpdateIntensity(System.Single)">
+            <summary>
+            Updates the intensity of speed of the particles
+            </summary>
+            <param name="intensity">The intensity.</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.CooldownIntensity">
+            <summary>
+            Cooldowns the speed intensity of the particles
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.UpdateParticleTexture(UnityEngine.Texture)">
+            <summary>
+            Updates the particle model.
+            </summary>
+            <param name="newPrefab">The new prefab.</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.UpdateParticleColors(UnityEngine.Color)">
+            <summary>
+            Updates the particle colors.
+            </summary>
+            <param name="color">The color.</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleBehavior">
+            <inheritdoc />
+            <summary>
+            Behavior class used to define how a particle should behave
+            </summary>
+            <seealso cref="T:UnityEngine.MonoBehaviour" />
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleBehavior.scaleMinSize">
+            <summary>
+            Smallest particle size
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleBehavior.scaleManSize">
+            <summary>
+            Biggest particle size
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleBehavior.SetupParticle(com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData,UnityEngine.Texture)">
+            <summary>
+            Setups the particle.
+            </summary>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleBehavior.UpdatePosition(System.Single)">
+            <summary>
+            Updates the position of the particle over time on update
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData">
+            <summary>
+            Class to hold the particles data
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData.Color">
+            <summary>
+            Particle color
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData.Velocity">
+            <summary>
+            Particle velocity
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData.LifeTime">
+            <summary>
+            Particle lifetime
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData.Angle">
+            <summary>
+            Current particle angle
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData.StarterTransform">
+            <summary>
+            transform at particle start
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData.#ctor(UnityEngine.Vector3,System.Single,System.Single,UnityEngine.Transform,UnityEngine.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData"/> class.
+            </summary>
+            <param name="velocity">The velocity.</param>
+            <param name="lifetime">The lifetime.</param>
+            <param name="angle">The angle.</param>
+            <param name="transform">The transform.</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleObjectPool">
+            <inheritdoc />
+            <summary>
+            Object pool for the custom particle system. <br></br>Is an extension of <see cref="T:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1"/> using <see cref="T:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData"/>
+            </summary>    
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleObjectPool.#ctor(UnityEngine.GameObject,UnityEngine.Transform,UnityEngine.Transform,UnityEngine.Texture,com.Neogoma.HoboDream.IInteractiveElementListener[])">
+            <summary>
+            Constructor of the particle object pool
+            </summary>
+            <param name="prefab"><see cref="T:UnityEngine.GameObject">To instantiate</see>/></param>
+            <param name="root"></param>
+            <param name="originTransform"></param>
+            <param name="defaultTexture"></param>
+            <param name="listeners"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleObjectPool.UpdateParticles(System.Single)">
+            <summary>
+            Updates the particles status and positions
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.Navigator.PathNavigatorController">
+            <inheritdoc />
+            <summary>
+            Controls the movement of an object along a path<br></br>
+            Listens <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.START_WAITING"/>, <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.STOP_WAITING"/><br></br>
+            Notifies <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.START"/>, <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.STOP"/>, <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.FINISH"/>, <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.ARRIVED"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.Navigator.PathNavigatorController.allWayPoints">
+            <summary>
+            All the nodes that the controller will follow
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.Navigator.PathNavigatorController.distance">
+            <summary>
+            Distance to move around from the point
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.Navigator.PathNavigatorController.speed">
+            <summary>
+            Movement speed
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.Navigator.PathNavigatorController.startPoint">
+            <summary>
+            Starting point of the path
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Navigator.PathNavigatorController.StartNav">
+            <summary>
+            start navigation
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Navigator.PathNavigatorController.Stop">
+            <summary>
+            stop navigation
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.Navigator.PathNodeController">
+            <inheritdoc />
+            <summary>
+            This class will define the behavior of a path note and can notify when the agent arrives on this node
+            Notifies <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.START_WAITING"/> and <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.STOP_WAITING"/>
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.Reset.PositionReset">
+            <inheritdoc />
+            <summary>
+            Resets the position of an object to its initial position in the scene (WORLD POSITION)
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Reset.PositionReset.ResetPosition">
+            <summary>
+            Resets the position to original position in the scene
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.Shoot">
+            <inheritdoc />
+            <summary>
+            Basic shooting script that requires a <see cref="T:UnityEngine.Rigidbody"/> on an object. The script should be setup on the projectile to be shot
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.Shoot.force">
+            <summary>
+            Force to apply to the rigidbody
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.Shoot.lifetime">
+            <summary>
+            Lifetime of the shoot
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.Shoot.shootingPoint">
+            <summary>
+            The shooting point
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.TextIncrement">
+            <inheritdoc />
+            <summary>
+            Will increment/decrement a text, the script requires a <see cref="T:UnityEngine.UI.Text"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.TextIncrement.initialValue">
+            <summary>
+            Initial text value
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.TextIncrement.incremented">
+            <summary>
+            Event triggered when incremented
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.TextIncrement.decremented">
+            <summary>
+            Event triggered when decremented
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.TextIncrement.minValue">
+            <summary>
+            Minimum value
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.TextIncrement.maxValue">
+            <summary>
+            Maximum value
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.TextIncrement.IncrementText(System.Single)">
+            <summary>
+            Incremenets the text according to specified value
+            </summary>
+            <param name="incrementStep"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.TextIncrement.DecrementText(System.Single)">
+            <summary>
+            Decrements the text with specified value
+            </summary>
+            <param name="decrementStep"></param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.IInteractionEvent">
+            <inheritdoc />
+            <summary>
+            Interface that defines an event triggered by a <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/>. This interface has a base implementation called <see cref="!:BaseInteractionEvent"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.IInteractionEvent.GetEventSource">
+            <summary>
+            Returns the source of the event
+            </summary>
+            <returns> The <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/> that triggered this event
+            </returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.IInteractionEvent.GetEventType">
+            <summary>
+            Returns the type of the event
+            </summary>
+            <returns> The <see cref="T:com.Neogoma.HoboDream.InteractiveEventAction"/> represending the current event type
+            </returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.IInteractiveElement">
+             <inheritdoc />
+             <summary>
+            Base interface for all the elements that can notify their <see cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/>.<br></br> Management of the listener list is up to the implementation.<br></br>
+            Basic implementation exists with AbstractInteractive and AbstractNonMonoInteractive
+             </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.IInteractiveElement.AddInteractiveListener(com.Neogoma.HoboDream.IInteractiveElementListener)">
+             <summary>
+             Adds a listener to the IInteractiveElement
+             </summary>
+             <param name="listener"><see cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/> to add to the element
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.IInteractiveElement.RemoveInteractiveListener(com.Neogoma.HoboDream.IInteractiveElementListener)">
+             <summary>
+             Removes a listener from the IInteractiveElement
+             </summary>
+             <param name="listener"><see cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/> to remove from the element
+            </param>    
+        </member>
+        <member name="M:com.Neogoma.HoboDream.IInteractiveElement.NotifyListeners(com.Neogoma.HoboDream.IInteractionEvent)">
+            <summary>
+            Notify all the listeners with an interactive event
+            </summary>
+            <param name="e"><see cref="T:com.Neogoma.HoboDream.IInteractionEvent"/> triggered by the action        
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.IInteractiveElement.GetGameObject">
+            <summary>
+            Returns the game object associated with the element
+            </summary>
+            <returns><see cref="T:UnityEngine.GameObject"/> associated with the <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/>, can be null        
+            </returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.IInteractiveElementListener">
+            <inheritdoc />
+            <summary>
+            Interface to define an object that can react to an <see cref="T:com.Neogoma.HoboDream.InteractiveEventAction"/>  triggered by an <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/>.
+            In order to react to the event, the <see cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/> must be registered in the <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/>.
+            
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.IInteractiveElementListener.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
+            <summary>       
+            This method is called when an element reacts to a type of event
+            </summary>
+            <param name="e">The event to react to</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.IInteractiveElementListener.GetSupportedEvents">
+            <summary>
+            Returns the type of events supported by the object
+            </summary>
+            <returns>An Array of supported actions by the listener</returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Impl.AbstractCollisionEventActivator">
+            <inheritdoc />
+            <summary>
+            Abstract class for <see cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/> that triggers events on collision
+            The <see cref="T:com.Neogoma.HoboDream.InteractiveEventAction"/> type is defined by the implementations
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Impl.AbstractCollisionEventActivator.collisionEnter">
+            <summary>
+            Inspector event that will be triggered in case of collision
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.AbstractCollisionEventActivator.GetEvent">
+            <summary>
+            Returns the <see cref="T:com.Neogoma.HoboDream.IInteractionEvent"/> returned by this script
+            </summary>
+            <returns><see cref="T:com.Neogoma.HoboDream.IInteractionEvent"/> of this script</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.AbstractCollisionEventActivator.GetEventType">
+            <summary>
+            Returns the <see cref="T:com.Neogoma.HoboDream.InteractiveEventAction"/> type of the event
+            </summary>
+            <returns><see cref="T:com.Neogoma.HoboDream.InteractiveEventAction"/> triggered by this script</returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Impl.AbstractCollisionEventActivator.CollisionEnter">
+            <summary>
+            Event that will reference the current <see cref="T:com.Neogoma.HoboDream.Impl.AbstractCollisionEventActivator"/>
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Impl.AbstractInteractive">
+            <inheritdoc />
+            <summary>
+            Basic abstract class for all the <see cref="T:UnityEngine.MonoBehaviour"/> that implement <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/>.
+            If you inherit this class always use <see cref="M:com.Neogoma.HoboDream.Impl.AbstractInteractive.DoOnAwake"/> and <see cref="M:com.Neogoma.HoboDream.Impl.AbstractInteractive.DoOnDestroy"/>
+            instead of <see cref="M:com.Neogoma.HoboDream.Impl.AbstractInteractive.Awake"/> and <see cref="M:com.Neogoma.HoboDream.Impl.AbstractInteractive.OnDestroy"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Impl.AbstractInteractive.allListenersToAdd">
+            <summary>
+            List of objects with <see cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/> for this interactive element
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Impl.AbstractInteractive.AllListeners">
+            <summary>
+            Gets all listeners.
+            </summary>
+            <value>
+            All listeners, the list is <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>
+            </value>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.AbstractInteractive.DoOnDestroy">
+            <summary>
+            Method called on Destroy, used to replace the <see cref="M:com.Neogoma.HoboDream.Impl.AbstractInteractive.OnDestroy"/> mtehod
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.AbstractInteractive.DoOnAwake">
+            <summary>
+            Method called on awake, use it instead of <see cref="M:com.Neogoma.HoboDream.Impl.AbstractInteractive.Awake"/> method
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Impl.GameObjectAndListenerNames">
+            <summary>
+            Used to associate list of gameobjects with list of listeners
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator">
+            <inheritdoc />
+            <summary>
+            Abstract class that will define all the <see cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/> that will generate <see cref="T:com.Neogoma.HoboDream.IInteractionEvent"/> on triggers.
+            Events are defined in the subclasses
+            </summary>    
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.enterEvent">
+            <summary>
+            Inspector event that will be triggered in case of trigger enter
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.stayEvent">
+            <summary>
+            Inspector event that will be triggered in case of trigger stay
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.exitEvent">
+            <summary>
+            Inspector event that will be triggered in case of trigger exit
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.GetTriggerStayEvent(UnityEngine.Collider)">
+            <summary>
+            Returns the event for Stay unity action
+            </summary>
+            <param name="collision">Collided object</param>
+            <returns><see cref="T:com.Neogoma.HoboDream.IInteractionEvent"/></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.GetTriggerStayEventType">
+            <summary>
+            Returns the event type for stay action
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.GetTriggerEnterEvent(UnityEngine.Collider)">
+            <summary>
+            Returns the event for Trigger enter unity action
+            </summary>
+            <param name="collision">Collided object</param>
+            <returns><see cref="T:com.Neogoma.HoboDream.IInteractionEvent"/></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.GetTriggerEnterEventType">
+            <summary>
+            Returns the event type for trigger enter action
+            </summary>
+            <returns><see cref="T:com.Neogoma.HoboDream.InteractiveEventAction"/></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.GetTriggerExitEvent(UnityEngine.Collider)">
+            <summary>
+            Returns the event for trigger exit unity action
+            </summary>
+            <param name="collision">The collided object</param>
+            <returns><see cref="T:com.Neogoma.HoboDream.IInteractionEvent"/></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.GetTriggerExitEventType">
+            <summary>
+            Returns the event type for  trigger exit
+            </summary>
+            <returns><see cref="T:com.Neogoma.HoboDream.InteractiveEventAction"/></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.Enter(UnityEngine.Collider)">
+            <summary>
+            Enters in a trigger, this method can be overriden by subclasses
+            </summary>
+            <param name="collision">Collided trigger</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.Stay(UnityEngine.Collider)">
+            <summary>
+            Stays in a trigger, this method can be overriden by subclasses
+            </summary>
+            <param name="collision">Collided trigger</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.Exit(UnityEngine.Collider)">
+            <summary>
+            Exits in a trigger, this method can be overriden by subclasses
+            </summary>
+            <param name="collision">Collided trigger</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.TriggerEnter">
+            <summary>
+            Unity inspector event for trigger enter
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.TriggerStay">
+            <summary>
+            Unity inspector event for trigger stay
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator.TriggerExit">
+            <summary>
+            Unity inspector event for trigger exit
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Impl.BaseInteractionEvent">
+            <inheritdoc />
+            <summary>
+            Base class of all the <see cref="T:com.Neogoma.HoboDream.IInteractionEvent"/>, can be extended
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.BaseInteractionEvent.#ctor(com.Neogoma.HoboDream.IInteractiveElement,com.Neogoma.HoboDream.InteractiveEventAction)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="source">Source of the event</param>
+            <param name="type">Type of the event</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.BaseInteractionEvent.UpdateEvent(com.Neogoma.HoboDream.InteractiveEventAction)">
+            <summary>
+            Updates the event type to a new one
+            </summary>
+            <param name="newType"><see cref="T:com.Neogoma.HoboDream.InteractiveEventAction"/> the new type of the event</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Impl.AbstractNonMonoInteractive">
+            <inheritdoc />
+            <summary>
+            Non monobehavior abstract implementation of IInteractiveElement (so the objects are not bounds to monobehavior)    
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElement"/>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Impl.AbstractNonMonoInteractive.AllListeners">
+            <summary>
+            Allows access to listeners via a read only collection
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Impl.AbstractNonMonoInteractive.ClearListeners">
+            <summary>
+            Cleans up all the listener list
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.InteractiveEventAction">
+            <summary>
+            Class used to store all the actions possible in the applications for the <see cref="T:com.Neogoma.HoboDream.IInteractionEvent"/> .
+            Be careful not to create an action already defined here.
+            All actions are identified by an single int.
+            In order to create your own events, you need to extend this class and use your extension EVERYWHERE in your app
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.CLICK">
+            <summary>
+            Main Click action
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.DOUBLE_CLICK">
+            <summary>
+            Double Click action
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.RIGHT_CLICK">
+            <summary>
+            Right click action
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.NEXT">
+            <summary>
+            Next action. Can be used for next scene, next page, next product...
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.BACK">
+            <summary>
+            Back action. Can be used for previous scene, previous page, previous product...
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.FOCUS">
+            <summary>
+            Focus action. Can be used for focus on specific things (objects, target, country, product...)
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.UNFOCUS">
+            <summary>
+            Unfocus action. Can be used for unfocus on specific things (objects, target, country, product...)
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.SUCCESS">
+            <summary>
+            Successful action. Use it for succesful events (export, AR scan, Database interrogation...)        
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.FAILURE">
+            <summary>
+            Failure action. Use it for failed events (export, AR scan, Database interrogation...)
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.START">
+            <summary>
+            Start action. Use it for starting something event (playing video, record data...)
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.STOP">
+            <summary>
+            Stop action. Use it for stopping something event (playing video, record data...)
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.FINISH">
+            <summary>
+            Finish action. Use it when an actions has been finished (playing video, add to shopping cart, buy action...)
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.CONFIRM">
+            <summary>
+            Confirm action. Use it when an action needs confirmation
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.CANCEL">
+            <summary>
+            Cancel action. Use it when an action neeed to be canceled
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.ACTIVATE_OBJECT">
+            <summary>
+            Object activated action        
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.DISACTIVATE_OBJECT">
+            <summary>
+            Object disactivated action
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_ENTER">
+            <summary>
+            Trigger enter action
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_STAY">
+            <summary>
+            Trigger stay action
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_EXIT">
+            <summary>
+            Trigger exit action
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.COLLISION_ENTER">
+            <summary>
+            Collision enter action
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.COLLISION_STAY">
+            <summary>
+            Collision stay action
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.COLLISION_EXIT">
+            <summary>
+            Collision exit action
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.VISIBILITY_UPDATE">
+            <summary>
+            Update the visibility of an object
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.FILTER_CHANGE">
+            <summary>
+            Change a filter state
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.START_LOADSCENE">
+            <summary>
+            Start to load scene.
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.VIDEO_PLAY">
+            <summary>
+            Play the video.
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.VIDEO_PAUSE">
+            <summary>
+            Pause the video.
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.VIDEO_FORWARD">
+            <summary>
+            Forward the video.
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.VIDEO_FULLSCREEN">
+            <summary>
+            Set video full screen
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.VIDEO_NORMALSCREEN">
+            <summary>
+            Set video normal screen
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.VIDEO_BUFFERING">
+            <summary>
+            Video buffering event
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.VIDEO_TOUCHSCREEN">
+            <summary>
+            Touch the screen while a video is playing
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.SEARCH_ITEM">
+            <summary>
+            Searching an Item
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.SLIDER_UP">
+            <summary>
+            The user swipes up
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.SLIDER_DOWN">
+            <summary>
+            The user swipes down
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.PICTURE_PICKED">
+            <summary>
+            The user Clicks an image
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.TOGGLE_ON">
+            <summary>
+            The user toggles an element ON
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.TOGGLE_OFF">
+            <summary>
+            The user toggles an element OFF
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.EXIT">
+            <summary>
+            User exits something
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.ADD_COMMENT">
+            <summary>
+            Adding a comment
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.BOTTOM_LIST">
+            <summary>
+            The list reached the bottom
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.LIST_UPDATED">
+            <summary>
+            The list has just been updated
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.LOGIN">
+            <summary>
+            Event type when you log in
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.REGISTER">
+            <summary>
+            Event type when you need to register
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.RESET_PASSWORD">
+            <summary>
+            Event type when you reset your password
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.LOGOUT">
+            <summary>
+            Event type when you log out
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.UPDATE">
+            <summary>
+            Event type for generic update
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.DRAG">
+            <summary>
+            Event type when you drag the object
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.HOLD">
+            <summary>
+            Event type when you hold the object
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.RELEASE">
+            <summary>
+            Event type when you relesse the object
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.PAGE_HIDDEN">
+            <summary>
+            Event called when the page has been hidden
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.PAGE_SHOWED">
+            <summary>
+            Event called when the page has been showed
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.TRANSITION_START">
+            <summary>
+            Event called when the page transition has started
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.PAGE_BACK">
+            <summary>
+            Event called when you come back to the current page
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.MIC_ENABLE">
+            <summary>
+            The microphone is enabled
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.MIC_DISABLE">
+            <summary>
+            The microphone is disabled
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.LANGUAGE_CHANGED">
+            <summary>
+            The language and font changed
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.MOBILE_NETWORK_TOGGLE_ON">
+            <summary>
+            The mobile network toggle on
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.MOBILE_NETWORK_TOGGLE_OFF">
+            <summary>
+            The mobile network toggle off
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.RECOMMAND">
+            <summary>
+            Recommend something to the user
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.SCREENSHOT">
+            <summary>
+            Take a screen shot
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.NO_NETWORK">
+            <summary>
+            no network
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.SERVER_PROBLEM">
+            <summary>
+            Triggered when a 5xx error has been detected during a request
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.SEND">
+            <summary>
+            Used to send something
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.RESET">
+            <summary>
+            Used to reset something
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.ARRIVED">
+            <summary>
+            Arrived at the waypoint
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.START_WAITING">
+            <summary>
+            start waiting at the waypoint
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.STOP_WAITING">
+            <summary>
+            stop waiting at the waypoint
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.SCREEN_SLIDING">
+            <summary>
+            Screen sliding event
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.COLOR">
+            <summary>
+            Notify a color change
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.START_DOWNLOAD">
+            <summary>
+            Notify the start of a download
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.InteractiveEventAction.START_PLAY">
+            <summary>
+            Notify the start of playing a bundle
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.InteractiveEventAction.AllEvents">
+            <summary>
+            All the basics events available
+            所有基础事件都可用
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.InteractiveEventAction.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.InteractiveEventAction.GetID">
+            <summary>
+            Returns the code of the Action
+            返回Action的代码
+            </summary>
+            <returns>Code of the action
+            返回Action的代码
+            </returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.InteractiveEventAction.Equals(System.Object)">
+            <summary>
+            Basic equals method
+            </summary>
+            <param name="obj">an InteractiveEventAction of the same type</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.InteractiveEventAction.GetHashCode">
+            <summary>
+            Returns the hashcode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.InteractiveEventAction.op_Equality(com.Neogoma.HoboDream.InteractiveEventAction,com.Neogoma.HoboDream.InteractiveEventAction)">
+            <summary>
+            Override operator ==
+            </summary>
+            <param name="obj1"></param>
+            <param name="obj2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.InteractiveEventAction.op_Inequality(com.Neogoma.HoboDream.InteractiveEventAction,com.Neogoma.HoboDream.InteractiveEventAction)">
+            <summary>
+            Override operator !=
+            </summary>
+            <param name="obj1"></param>
+            <param name="obj2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Language.ISourceCodeLanguageProvider">
+            <inheritdoc />
+            <summary>
+            This interface defines an item that can be localized for the <see cref="T:com.Neogoma.HoboDream.Language.LanguageManager"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Language.ISourceCodeLanguageProvider.GetAllProvidedKeys">
+            <summary>
+            Gets all provided keys.
+            </summary>
+            <returns>List of string containing the JSON keys used by the current item</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Language.ISourceCodeLanguageProvider.GetGameObject">
+            <summary>
+            Gets the game object.
+            </summary>
+            <returns>The <see cref="T:UnityEngine.GameObject"/> attached to current script</returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Language.LanguageData">
+            <summary>
+            Data model item for localization
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Language.LanguageData.allItems">
+            <summary>
+            Array containing all the localization items for the app
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Language.LocalizationItem">
+            <summary>
+            Item for localization
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Language.LocalizationItem.key">
+            <summary>
+            The key of the gameobject text
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Language.LocalizationItem.value">
+            <summary>
+            The value string of the gameobject text
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Language.LocalizationItem.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="key">Key of the item</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Language.LanguageManager">
+            <inheritdoc />
+            <summary>
+            This class will manage the language file management, you need only one per scene. The loading will be done only once and transfered from scene to scene.
+            Notifies <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.LANGUAGE_CHANGED"/> when the language has been changed.
+            </summary>    
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Language.LanguageManager.Instance">
+            <summary>
+            Returns te instance of the Language manager
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Language.LanguageManager.SetLanguage(UnityEngine.SystemLanguage)">
+            <summary>
+            Sets the language using the language name based on unity
+            </summary>
+            <param name="language">The language name based on unity
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Language.LanguageManager.GetCurrentUsedLanguage">
+            <summary>
+            Gets the current used language.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Language.LanguageManager.LoadBundleLanguageFile(System.Collections.Generic.List{UnityEngine.AssetBundle})">
+            <summary>
+            Loads the bundle language file. Warning! There is NO override with the base files! 
+            </summary>
+            <param name="loadedBundles">The loaded bundles.        
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Language.LanguageManager.GetLocalizedValue(System.String)">
+            <summary>
+            Gets the localized value of the key given in parameter
+            </summary>
+            <param name="key">The key of the textfield to retrieve in the list
+            </param>
+            <returns>
+            The string value of the key
+            </returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IBundleDownloader`2">
+            <inheritdoc />
+            <summary>
+            This interface defines a class that will be able to download assetbundles online.
+            When all the assetbundles will be loaded, the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> method will be called.
+            The download progress is notified at each step with the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/>
+            The implementation should make sure that the scenes are loaded last to avoid any problems with unloaded assets.
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String)">
+            <inheritdoc />
+            <summary>
+            Sends a bundle request using the url and the name bundle
+            </summary>
+            <param name="url">Folder URL of the bundle
+            </param>
+            <param name="bundleName">Name of the bundle
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String,`0[])">
+            <inheritdoc />
+            <summary>
+            Sends a bundle request using the url and the name bundle.
+            <br></br> <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> is called in case of sucess <br></br>
+            <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/> is called at each step
+            </summary>
+            <param name="url">Folder URL of the bundle
+            </param>
+            <param name="bundleName">Name of the bundle</param>
+            <param name="listenerKey">Key of the listener</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String,System.Boolean,`0[])">
+            <inheritdoc />
+            <summary>
+            Sends a bundle request using the url and the name bundle.
+            <br></br> <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> is called in case of sucess <br></br>
+            <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/> is called at each step
+            </summary>
+            <param name="url">Folder URL of the bundle</param>
+            <param name="bundleName">Name of the bundle</param>
+            <param name="clearListenerOnSuccess">Will cleanup the listeners when the request ends succesfully</param>
+            <param name="listenerKey">Key of the listener</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String,UnityEngine.Hash128,`0[])">
+            <inheritdoc />
+            <summary>
+            Sends a bundle request using the url and the name bundle Notifies the listener at the end of the request.
+            <br></br>This method takes <see cref="T:UnityEngine.Hash128"/> check in parameter to evaluate the version.
+            <br></br>If you want to use the unity bundle cache you should call this method !
+            <br></br> <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> is called in case of sucess <br></br>
+            <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/> is called at each step
+            </summary>
+            <param name="url">
+            Folder URL of the bundle</param>
+            <param name="bundleName">Name of the bundle</param>
+            <param name="listenerKey">Key of the listener</param>
+            <param name="hash">Hash code of the required assetbundle
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String,UnityEngine.Hash128,System.Boolean,`0[])">
+            <inheritdoc />
+            <summary>
+            Sends a bundle request using the url and the name bundle Notifies the listener at the end of the request.
+            <br></br>This method takes <see cref="T:UnityEngine.Hash128"/> check in parameter to evaluate the version.
+            <br></br>If you want to use the unity bundle cache you should call this method !
+            <br></br> <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> is called in case of sucess <br></br>
+            <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/> is called at each step
+            </summary>
+            <param name="url">
+            Folder URL of the bundle</param>
+            <param name="bundleName">Name of the bundle</param>
+            <param name="listenerKey">Key of the listener</param>
+            <param name="clearListenerOnSuccess">Will cleanup the listeners when the request ends succesfully</param>
+            <param name="hash">Hash code of the required assetbundle</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.CheckIfBundleLoaded(System.String,System.String,System.String)">
+            <inheritdoc />
+            <summary>
+            Checks if the bundle version has already been downloaded.<br></br>
+            If the bundle has already been downloaded it will load it automatically, the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsCached(System.String)"/> will be called <br></br>
+            followed by the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> in case of success<br></br>
+            If the bundle is not cached then the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsNotCached(UnityEngine.Hash128,System.String)"/> will be called
+            </summary>
+            <param name="url">Folder URL of the bundle       </param>
+            <param name="bundleName">Name of the  </param>
+            <param name="listenerKey">Key of the listener </param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.CheckIfBundleLoaded(System.String,System.String,System.Boolean,System.String)">
+            <inheritdoc />
+            <summary>
+            Checks if the bundle version has already been downloaded.<br></br>
+            If the bundle has already been downloaded it will load it automatically, the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsCached(System.String)"/> will be called <br></br>
+            followed by the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> in case of success<br></br>
+            If the bundle is not cached then the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsNotCached(UnityEngine.Hash128,System.String)"/> will be called
+            </summary>
+            <param name="url">Folder URL of the bundle
+            </param>
+            <param name="bundleName">Name of the bundle
+            </param>
+            <param name="clearListenerOnSuccess">Will cleanup the listeners when the request ends succesfully</param>
+            <param name="listenerKey">Key of the listener
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.ClearCache">
+            <summary>
+            Clears the cache of all the bundles on disk
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.ClearCachedBundle(System.String)">
+            <summary>
+            Clears the cache for specific bundle on disk
+            </summary>
+            <param name="name">Name of the bundle to delete</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.UnloadAndCleanupAssets">
+            <summary>
+            Unloads and cleanup the assets in memory
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IBundleDownloadListener">
+            <inheritdoc />
+            <summary>
+            Listener used to listen to the result of a bundle download, this listener will be able to get the available scenes as well as all the assets names
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)">
+            <summary>
+            This method is triggered whenever the asset bundle loading worked correctly.
+            </summary>
+            <param name="allScenesPath">Array that contains the path to every scenes (*.unity)
+            </param>
+            <param name="allBundles">Array that contains all the assetbundles
+            </param>
+            <param name="key">String Key of the listener
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsCached(System.String)">
+            <summary>
+            Called when the searched bundle is already cached on disk
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsNotCached(UnityEngine.Hash128,System.String)">
+            <summary>
+            Called when the searched bundle is not cached on disk
+            </summary>
+            <param name="currentHash">Online hash value</param>
+            <param name="listenerKey">Listener key to notify</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)">
+            <summary>
+            Updates the progress status of the download
+            </summary>
+            <param name="progressEvent">The progress event (between 0 and 1).</param>
+            <param name="listenerKey">The listener key.</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.ICacheCheckedEvent`2">
+            <inheritdoc />
+            <summary>
+            Interface for <see cref="T:com.Neogoma.HoboDream.IInteractionEvent"/> triggered when checking the disk cache
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="K"></typeparam>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.ICacheCheckedEvent`2.GetCachedData">
+            <summary>
+            Returns the cached data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.ICacheCheckedEvent`2.GetDataContainer">
+            <summary>
+            Returns the data container for the event
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.ICacheHandler`2">
+            <inheritdoc />
+            <summary>
+            Interface that defines a cached system using <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.ICacheHandler`2.FindCachedData(System.String,UnityEngine.WWWForm,System.Boolean,`1[])">
+            <summary>
+            Launches a coroutine to retrieve the cached data
+            </summary>
+            <param name="url">URL to check</param>
+            <param name="form">Form to use</param>
+            <param name="listenerKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.ICacheHandler`2.StoreData(System.String,UnityEngine.Networking.UnityWebRequest)">
+            <summary>
+            Stores the data in the cache
+            </summary>
+            <param name="name">data identifier</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.ICacheHandler`2.CleanupDownloadedData(System.String)">
+            <summary>
+            Cleanup downloaded texture from the cache! Delete the file or the JSON file....
+            </summary>
+            <param name="name">Name of the texture</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IFileDownloaderListener">
+            <inheritdoc />
+            <summary>
+            Called when the request was sucessfully completed, the method also communicates which listener was called. Used to manage Files results
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IFileDownloaderListener.DownloadComplete(System.String,System.String,System.Byte[])">
+             <summary>
+             Called when the request was sucessfully completed
+             </summary>
+             <param name="listenerKey">>String Key of the listener
+            </param>       
+             <param name="fileName">Name of the downloaded file
+             </param>
+             <param name="data">Bytes array result of the request
+            </param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IHTTPConnector`2">
+             <inheritdoc />
+             <summary>
+             Interface used to define an Connector class to communicate with a server, all the HTTP request will go trough this interface. Classes implementing this interface will have to maintain a list of Listeners all identified with a key. This connector will communicate with the server using HTTP requests
+             </summary>
+             <typeparam name="T">
+             Type of key to retrieve the listener
+            </typeparam>
+             <typeparam name="L">The type of listener
+             </typeparam>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.RequestURL(System.String,`0[])">
+             <summary>
+             Request an URL to the server, the listener associated with the key will be notified with the request results
+             </summary>
+             <param name="url">URL Request
+            </param>
+             <param name="listenerKeys">Listeners keys to me notified at the end of the request
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.RequestURL(System.String,System.Boolean,`0[])">
+             <summary>
+             Request an URL to the server, the listener associated with the key will be notified with the request results
+             </summary>
+             <param name="url">URL Request
+            </param>
+             <param name="clearListeners">TRUE if the listeners should be removed from the List after notification,
+             FALSE otherwise
+             </param>
+             <param name="listenerKeys">Listeners keys to be notified at the end of the request
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.RequestURL(System.String,UnityEngine.WWWForm,`0[])">
+             <summary>
+             Request an URL to the server using a form, the listener associated with the key will be notified with the request results
+             </summary>
+             <param name="url">URL Request
+            </param>
+             <param name="form">WWWForm to use for the request
+             </param>
+             <param name="listenerKeys">Listeners keys to be notified at the end of the request
+             </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.RequestURL(System.String,UnityEngine.WWWForm,System.Boolean,`0[])">
+            <summary>
+            Request an URL to the server using a form, the listener associated with the key will be notified with the request results
+            </summary>
+            <param name="url">URL Request
+            </param>
+            <param name="form">WWWForm to use for the request
+            </param>
+            <param name="clearListeners">TRUE if the listeners should be removed from the List after notification,
+            FALSE otherwise
+            </param>
+            <param name="listenerKeys">Listeners keys to me notified at the end of the request
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.DeleteSecurityToken">
+            <summary>
+            Delete the JSON security token
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2">
+            <inheritdoc />
+            <summary>
+            Class that defines an HTTP Connector element that has listeners
+            </summary>
+            <typeparam name="T">
+            Type of key to retrieve the listener
+            </typeparam>
+            <typeparam name="L">The type of listener
+            </typeparam>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IJSonRequestListener">
+            <inheritdoc />
+             <summary>
+             Interface used to listen the JSON/Text data requests triggered by <see cref="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2"/>
+             </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IJSonRequestListener.RequestSucess(System.String,System.String)">
+            <summary>
+            Called when the request was sucessfully completed, the method also communicates which listener was called. Used to manage JSOnResults
+            </summary>
+            <param name="jsonResult">String resulting from the parameter
+            </param>
+            <param name="key">String Key of the listener
+            </param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IKeyListenerItem">
+            <inheritdoc />
+            <summary>
+            Interface that defines the behavior of a class that will associate a keytype with a value type
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:com.Neogoma.HoboDream.Network.IKeyListenerItem.GetListenerType" -->
+        <!-- Badly formed XML comment ignored for member "M:com.Neogoma.HoboDream.Network.IKeyListenerItem.GetKeyType" -->
+        <member name="M:com.Neogoma.HoboDream.Network.IKeyListenerItem.Logout">
+            <summary>
+            Performs all the logout logic
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3">
+            <inheritdoc />
+            <summary>
+            Abstract implementation of the IHTTPConnector
+            </summary>
+            <typeparam name="T">
+            Type of key to retrieve the listener
+            </typeparam>
+            <typeparam name="L">The type of listener
+            </typeparam>
+            <seealso cref="T:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2"/>
+            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/>
+            <seealso cref="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2"/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.GetDownloadHandler">
+            <summary>
+            Allows the child classes to specify their own download handlers!
+            </summary>
+            <returns>The specific download handler for the class
+            </returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.GetMethod(System.String)">
+            <summary>
+            Returns the method to be used
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.GetCacheHandler">
+            <summary>
+            Returns the cache handler of the downloader
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.NotifyListenerOfRequestSucess(`0,`1,UnityEngine.Networking.UnityWebRequest)">
+            <summary>
+            This method will notify the listener and execute the necessaries operation when the result will be received from the HTTP request
+            </summary>
+            <param name="listenerKey">Key of the listener</param>
+            <param name="listener">Reference to the listener</param>
+            <param name="wwRequest">Result of the HTTP request</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.NotifyListenerWithLocalCache(`0,`1,`2)">
+             <summary>
+            This method will notify the listener and execute the necessaries operation when the result will be received from the cache
+             </summary>
+             <param name="listenerKey">Key of the listener</param>
+             <param name="listener">Reference to the listener</param>
+             <param name="cachedValue">Result of the HTTP request</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2">
+            <inheritdoc />
+            <summary>
+            Abstract implementation with a dictionary
+            </summary>
+            <typeparam name="T">
+            Type of key to retrieve the listener
+            </typeparam>
+            <typeparam name="L">The type of listener   
+            </typeparam>
+            <seealso cref="T:com.Neogoma.HoboDream.Network.IWebNotifier`2"/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2.Logout">
+            <summary>
+            Runs the logout routine on the connector
+            在连接器上运行注销例程
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader">
+            <inheritdoc />
+            <summary>
+            Downloader for assetbundles
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Network.IBundleDownloader`2"/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.LoadAsset(System.String,System.String,System.Collections.Generic.Queue{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{UnityEngine.AssetBundle},System.Boolean,System.String[])">
+            <param name="assetsInQueue">Queue of assets to load
+            要加载的资产队列
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.NotifyListenersWithFailed(System.String,System.String[])">
+            <summary>
+            异常处理
+            Error Dispatcher
+            </summary>
+            <param name="jsonResult"></param>
+            <param name="listenerKeys"></param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.AssetBundleManager">
+            <inheritdoc />
+            <summary>
+            This class is used to cache the bundle asset values to avoid reloading multiple times the same bundles
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler">
+            <inheritdoc />
+            <summary>
+            Cache handler implementation for texture 2d
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.GetTexturePath(System.String)">
+            <summary>
+            Returns the texture path
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.ExtractPicNameFromURL(System.String)">
+            <summary>
+            Gets the picture name from the given URL
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.WritingFilesThread">
+            <summary>
+            Thread class to write file on disk
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.WritingFilesThread.WritePictureOnDisk">
+            <summary>
+            Writes the picture on disk
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.TextureLoadedEvent">
+            <summary>
+            Base private implementation of the cache checked event
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.FileDownloader">
+            <inheritdoc />
+            <summary>
+            Class used to download files
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3"/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.JSonDownloader">
+            <inheritdoc />
+            <summary>
+            Class used for basic text downloads    
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3"/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.TextureDownloader">
+            <inheritdoc />
+            <summary>
+            Basic implementation of the texture downloader    
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3"/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.RequestDataContainer`1">
+            <inheritdoc />
+            <summary>
+            Class used to pass the HTTP request parameters data to different requests in order to retrieve cash
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IRequestHandlerListener`1">
+            <inheritdoc />
+             <summary>
+             Interface used to listen the Failed requests
+             </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IRequestHandlerListener`1.RequestFailed(System.String,`0)">
+            <summary>
+            Called when the request was Failed , the method also communicates which listener was called.
+            </summary>
+            <param name="jsonResult">String resulting from the parameter
+            </param>
+            <param name="key">String Key of the listener
+            </param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.ITextureDownloadListener">
+            <inheritdoc />
+            <summary>
+            Interface that defines the behavior of a listener for a loading texture request
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.ITextureDownloadListener.TextureLoaded(System.String,UnityEngine.Texture2D)">
+            <summary>
+            Called when a texture has been completely downloaded
+            </summary>
+            <param name="listenerKey">Key of the listener
+            </param>
+            <param name="texture">Texture downloaded from the WWW request
+            </param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IWebNotifier`2">
+            <inheritdoc />
+            <summary>
+            This interface defines the behavior of an web notifier class. This class will maintain a list of listeners and notify the listeners with a request result
+            </summary>
+            <typeparam name="T">
+            Type of key to retrieve the listener
+            </typeparam>
+            <typeparam name="L">The type of listener
+            </typeparam>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IWebNotifier`2.AddRequestListener(`0,`1)">
+            <summary>
+            Adds a listener to the connector
+            </summary>
+            <param name="callKey">Key of the listener
+            </param>
+            <param name="listener">Listener to add
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IWebNotifier`2.AddRequestListener(`0,`1,System.Boolean)">
+            <summary>
+            Adds a listener to the connector with the option to force the replacement if the listener is already registered
+            </summary>
+            <param name="callKey">Key of the listener
+            </param>
+            <param name="listener">
+            Listener to add
+            </param>
+            <param name="force">True if you want to replace the listener if it already exists, false otherwise
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IWebNotifier`2.RemoveRequestListener(`0)">
+            <summary>
+            Removes the associated listener from the Connector
+            </summary>
+            <param name="listenerKey">Key of the listener
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IWebNotifier`2.GetListeners(`0)">
+            <summary>
+            Returns the associated listener with the key        
+            </summary>
+            <param name="key">Key of the listener
+            </param>
+            <returns>
+            Listener associated with the key
+            </returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.NetworkProvider">
+            <summary>
+            Factory class that will provide the user with the necessaries class for internet calls.<br></br>
+            It's recommended to use the method <see cref="M:com.Neogoma.HoboDream.Network.NetworkProvider.GetDefaultHTTPNotifier``1"/> to get the default loader.    <br></br>
+            If you implemented your own versions of the listener then:<br></br>
+            You can define your own downloaders with their own behaviors by implementing <see cref="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2"/>, it will be automatically loaded in the Network Prodivder.<br></br>
+            If you want to get the specific downloader you need to use the <see cref="M:com.Neogoma.HoboDream.Network.NetworkProvider.GetDownloader``1"/> method and specify your <see cref="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2"/> type
+            </summary>    
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.GetDownloader``1">
+            <summary>
+            Returns the downloader that match the characteristics of the type in parameter
+            </summary>
+            <typeparam name="T">Type of downloader to request
+            </typeparam>
+            <returns>Returns the downloader that match the parameters
+            </returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.GetDefaultHTTPNotifier``1">
+            <summary>
+            This method will return the default downloader for the specified listener
+            The default downloader is the one using string as key
+            </summary>
+            <typeparam name="L">Type of listener to used by the notifier
+            </typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.IsLoggedIn">
+            <summary>
+            Returns the logged in status of the current user using the token
+            </summary>
+            <returns>
+            TRUE if user is logged in
+            FALSE otherwise
+            </returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.Logout">
+            <summary>
+            Cleanup all the security json tokens
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation">
+            <summary>
+            System used to evaluate the Platform DLC name
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.ANDROID">
+            <summary>
+            The android platform constant name
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.IOS">
+            <summary>
+            The ios platform constant name
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.WINDOWS">
+            <summary>
+            The windows platform constant name
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.WEB_GL">
+            <summary>
+            The webGl platform constant name
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.MAC">
+            <summary>
+            The mac platform constant name
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.LINUX">
+            <summary>
+            The linux platform constant name
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.GetBundleOSName">
+            <summary>
+            Gets the name of the bundle os.
+            </summary>
+            <returns><see cref="T:UnityEngine.RuntimePlatform"/> type </returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Utils.Reset.IResetObject">
+            <inheritdoc/>
+            <summary>
+            Interface that defines the behavior of an object that can be reset
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Utils.Reset.IResetObject.SetUpInit">
+            <summary>
+            Save initial state
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Utils.Reset.IResetObject.ResetInteractive">
+            <summary>
+            Return to the initial state setup by <see cref="M:com.Neogoma.HoboDream.Utils.Reset.IResetObject.SetUpInit"/>
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Utils.Reset.IResetObjectListener">
+            <inheritdoc/>
+            <summary>
+            Interface that defines an Listener that can be reset
+            </summary>
+            <seealso cref="!:Coolhobo.HoboDream.Utils.Reset.IResetObject" />
+            <seealso cref="!:Coolhobo.HoboDream.IInteractiveElementListener" />
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Buttons.AbstractButtonInteractive">
+            <inheritdoc/>
+            <summary>
+            Abstract class for UI screen buttons. Remember to override the <see cref="M:com.Neogoma.HoboDream.UI.Buttons.AbstractButtonInteractive.DoOnAwake"/> and <see cref="M:com.Neogoma.HoboDream.UI.Buttons.AbstractButtonInteractive.DoOnAwake"/> method.
+            The event is defined in the implementation of <see cref="M:com.Neogoma.HoboDream.UI.Buttons.AbstractButtonInteractive.GetEventType"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Buttons.AbstractButtonInteractive.dynamicEvent">
+            <summary>
+            the event is dynamic or not, a dynamic event will 
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Buttons.AbstractButtonInteractive.click">
+            <summary>
+            Event triggered on the button click
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.UI.Buttons.AbstractButtonInteractive.ButtonObject">
+            <summary>
+            Button game object
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Buttons.AbstractButtonInteractive.GetButtonEvent">
+            <summary>
+            Returns the event triggered by this button. This method will use a <see cref="T:com.Neogoma.HoboDream.Impl.BaseInteractionEvent"/> by default, override this method if you need to define a custom event.
+            </summary>
+            <returns>the event triggered by this button
+            </returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Buttons.AbstractButtonInteractive.ClickAction">
+            <summary>
+            Runs the action of this button. Every function or modification executed by this button should be explained here
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Buttons.AbstractButtonInteractive.GetEventType">
+            <summary>
+            Returns the event type of this button
+            </summary>
+            <returns><see cref="T:com.Neogoma.HoboDream.InteractiveEventAction"/></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Buttons.AbstractButtonInteractive.InitOnStart">
+            <summary>
+            Virtual method for start
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Buttons.AbstractTouchOnObject">
+            <inheritdoc />
+            <summary>
+            Abstract class to manage the touch for every object displayed in world coordnates<br></br>
+            Notifies: <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.CLICK"/>
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Buttons.AbstractTouchOnObject.GetEventType">
+            <summary>
+            The even type triggered by this 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Buttons.AbstractTouchOnObject.OnTouch">
+            <summary>
+            Action called when the object is touched
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Buttons.AbstractTouchOnObject.OnHold">
+            <summary>
+            Action called when the object is hold
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Buttons.AbstractTouchOnObject.OnRelease">
+            <summary>
+            Action called when the object is released
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Errors.ErrorBehavior">
+             <summary>
+            This class will display the errors in a defined hint object.<br></br>
+             This system uses the Localization system and assumes that keys <see cref="F:com.Neogoma.HoboDream.UI.Errors.ErrorBehavior.NO_NETWORK_KEY"/>, <see cref="F:com.Neogoma.HoboDream.UI.Errors.ErrorBehavior.SERVER_PROBLEM"/> and <see cref="F:com.Neogoma.HoboDream.UI.Errors.ErrorBehavior.NET_HINT_REFRESH_KEY"/><br></br>
+             Listens <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.NO_NETWORK"/>, <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.SERVER_PROBLEM"/>, <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.LANGUAGE_CHANGED"/>
+             </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Errors.ErrorBehavior.hintObject">
+            <summary>
+            Hint gameobject
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Errors.ErrorBehavior.headText">
+            <summary>        
+            hint text
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Errors.ErrorBehavior.subtitleText">
+            <summary>
+            Hint subtext
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Errors.ErrorBehavior.manager">
+            <summary>
+            Language manager for hint localizations        
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Errors.ErrorBehavior.errorDispatcher">
+            <summary>
+            Error Dispatcher
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Errors.ErrorBehavior.NO_NETWORK_KEY">
+            <summary>
+            Localization key for the text to display when there is no network
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Errors.ErrorBehavior.SERVER_PROBLEM">
+            <summary>
+            Localization key for the text to display when there is a problem with the server
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Errors.ErrorBehavior.NET_HINT_REFRESH_KEY">
+            <summary>
+            Localization key for the tet to display when user needs to refresh
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Errors.ErrorDispatcher">
+            <inheritdoc/>
+            <summary>
+            this class is Error Dispatcher:Centrally handle network problems and the server returns errors , and send events to <see cref="T:com.Neogoma.HoboDream.UI.Errors.ErrorBehavior"/><br></br>
+            Listens: <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.FAILURE"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Errors.ErrorDispatcher.gPSManager">
+            <summary>
+            GPS Manager
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.IFunctionRunner">
+            <inheritdoc/>
+            <summary>
+            Defines a delegate item that runs function for a button
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.IFunctionRunner.Run">
+            <summary>
+            Runs the function 
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Impl.Buttons.BackButtonBehaviorManagement">
+            <summary>
+            Class that will modify the behavior of the backbutton according to the submenu
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Buttons.BackButtonBehaviorManagement.backButtonScript">
+            <summary>
+            Back button component to modify
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Buttons.BackButtonBehaviorManagement.tableToUpdate">
+            <summary>
+            Objects to toggle when this submenu is active
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Impl.Buttons.LoadSceneBtn">
+            <inheritdoc/>
+            <summary>
+            Implementation of <see cref="T:com.Neogoma.HoboDream.UI.Impl.Buttons.NormalBtnScripts"/> used to load scenes, this should be linked with a <see cref="T:com.Neogoma.HoboDream.UI.Loading.SceneLoadingController"/><br></br>
+            Triggers: <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.START_LOADSCENE"/>
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.UI.Impl.Buttons.NormalBtnScripts"/>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Buttons.LoadSceneBtn.sceneIndexToLoad">
+            <summary>
+            The scene index to load
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Impl.Buttons.NormalBtnScripts">
+            <inheritdoc/>
+            <summary>
+            The script for the normal buttons,when click active and inactive gameobjects,switch button sprite etc.<br></br>
+            Triggers <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.CLICK"/>
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.UI.Buttons.AbstractButtonInteractive"/>
+            <seealso cref="T:com.Neogoma.HoboDream.UI.IFunctionRunner"/>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Buttons.NormalBtnScripts.objsToBeReset">
+            <summary>
+            The buttons to be reset(reset sprite) when click the button.
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Buttons.NormalBtnScripts.objsToBeToggled">
+            <summary>
+            The objects to be toggled (if active will be set inactive and vice versa)
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Buttons.NormalBtnScripts.imageAfterClick">
+            <summary>
+            Change to this image after click the button.
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Impl.Buttons.SimpleCommonButton">
+            <summary>
+            Extension of <see cref="T:com.Neogoma.HoboDream.UI.Impl.Buttons.NormalBtnScripts"/> to setup quick actions
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Impl.Buttons.SimpleCommonButton.EventType">
+            <summary>
+            List <see cref="T:com.Neogoma.HoboDream.UI.Impl.Buttons.SimpleCommonButton.EventType"/> triggered when you click on this button
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Buttons.SimpleCommonButton.eventType">
+            <summary>
+            <see cref="T:com.Neogoma.HoboDream.UI.Impl.Buttons.SimpleCommonButton.EventType"/> triggered when the button is clicked
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Impl.Buttons.Toggle3DBtnScript">
+            <summary>
+            3D button with a toggle behavior each click will toggle or untoggle the behavior, events are notified <br></br>
+            Triggers <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TOGGLE_ON"/>, <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TOGGLE_OFF"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Buttons.Toggle3DBtnScript.defaultEnabled">
+             <summary>
+             Sets up the default button status (TRUE of toggled, false otherwise)
+            设置默认按钮状态（切换为TRUE，否则为false）
+             </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Buttons.Toggle3DBtnScript.toggledOn">
+            <summary>
+            Unity Event called if you toggle the button on
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Buttons.Toggle3DBtnScript.toggledOff">
+            <summary>
+            Unity event called if you toggle the button off
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.UI.Impl.Buttons.Toggle3DBtnScript.IsToggleOn">
+            <summary>
+            Returns the current status of the button
+            返回按钮的当前状态
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Impl.Buttons.ToggleScript">
+            <inheritdoc/>
+            <summary>
+            <see cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/> Script to use with unity toggle components. <br></br>
+            Notify <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TOGGLE_OFF"/> and <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TOGGLE_ON"/>.<br></br>
+            Requires a <see cref="T:UnityEngine.UI.Toggle"/> component
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Impl.Slider.FilterSlider">
+            <summary>
+            Script that will manage a filter slider, this script works with a <see cref="T:UnityEngine.UI.Slider"/> component
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Slider.FilterSlider.LeftSlider">
+            <summary>
+            Transform for the left slider
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Slider.FilterSlider.RightSlider">
+            <summary>
+            Transform for the right slider
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Slider.FilterSlider.fillJauge">
+            <summary>
+            Transform for the fill jauge between the two sliders
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Slider.FilterSlider.displayStartAndEndValues">
+            <summary>
+            Should we display values at the beginning and the end of the slider ?
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Slider.FilterSlider.minValue">
+            <summary>
+            Minimum value of the filter
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Slider.FilterSlider.maxValue">
+            <summary>
+            Maximum value of the filter
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Slider.FilterSlider.minText">
+            <summary>
+            Label for the minimum text
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Slider.FilterSlider.maxText">
+            <summary>
+            Label for the maximum text
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Slider.FilterSlider.wholeNumbers">
+            <summary>
+            Should use whole numbers only
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Slider.FilterSlider.valueChangedEvent">
+            <summary>
+            Event triggered when a value has been changed
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Impl.Slider.FilterSliderData">
+            <summary>
+            Class used to pass the sliderdata values
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.UI.Impl.Slider.FilterSliderData.Min">
+            <summary>
+            Minimum value
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.UI.Impl.Slider.FilterSliderData.Max">
+            <summary>
+            Maximum value
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Impl.Slider.SliderButtonEventTrigger">
+            <inheritdoc/>
+            <summary>
+            Defines a slider button behavior for the filter system
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Slider.SliderButtonEventTrigger.dragStart">
+            <summary>
+            Event triggered on drag start
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Slider.SliderButtonEventTrigger.drag">
+            <summary>
+            Event trigger on drag ongoing
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Slider.SliderButtonEventTrigger.dragEnd">
+            <summary>
+            Event triggered on drag end
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Slider.SliderButtonEventTrigger.isLeft">
+            <summary>
+            Should we drag to the left
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Impl.Language.LanguageLoader">
+            <inheritdoc/>
+            <summary>
+            This class is used by every text to dynamically change the text according to the language.<br></br>
+            Listens: <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.LANGUAGE_CHANGED"/>
+            <br></br>Works with <see cref="T:UnityEngine.UI.Text"/> unity component
+            </summary>
+            <seealso cref="T:UnityEngine.MonoBehaviour" />    
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Impl.Language.LanguageLoader.textKey">
+            <summary>
+            The text key in the json file for translation
+            json文件中的文本键用于翻译
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Loading.SceneLoadingController">
+            <summary>
+            Implementation of <see cref="T:com.Neogoma.HoboDream.UI.Loading.AbstractLoadingController"/> that will load a scene.<br></br>
+            Listens <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.START_LOADSCENE"/>
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.UI.Loading.AbstractLoadingController"/>
+            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Loading.WebLoadingController">
+            <inheritdoc/>
+            <summary>
+            Implementation of <see cref="T:com.Neogoma.HoboDream.UI.Loading.AbstractLoadingController"/> that will show the loading while waiting for text datas <br></br>
+            Listens: <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.CLICK"/>
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingController`2">
+            <inheritdoc/>
+            <summary>
+            Script that will manage a scrolling list of objects
+            </summary>
+            <typeparam name="T">Type of modelobject to be manipulated by the list
+            </typeparam>
+            <typeparam name="O">Type of the object pool used by the list
+            </typeparam>
+            <seealso cref="T:com.Neogoma.HoboDream.UI.Loading.AbstractLoadingController"/>    
+        </member>
+        <member name="P:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingController`2.ScrollRect">
+            <summary>
+            Scroll rect representing the list to be updated
+            滚动矩形, 表示要更新的列表
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingController`2.ObjectPoolManager">
+            <summary>
+            Object pool used by the list
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingController`2.GetObjectPoolManager">
+            <summary>
+            Returns the object pool manager instance to use
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingController`2.StartLoadingData">
+            <summary>
+            Start loading the next batch of datas for the list
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingController`2.UnLockLoading">
+            <summary>
+            Unlocks the data loading, you should call this method once you finished the data treatment to allow updating again
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingController`2.ActionOnBlock">
+            <summary>
+            Called when you reach the bottom of the list
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingWebController`2">
+            <inheritdoc/>
+            <summary>
+            Class that will manage the behavior of a dynamic list loading. It will do the database request as well as maintain the indexes to make sure we always request for the latests datas
+            </summary>
+            <typeparam name="T">Type of object models to be manipulated by the list
+            </typeparam>
+            <typeparam name="O">Object pool manager class of the list
+            </typeparam>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingWebController`2.PARAM_SKIP">
+            <summary>
+            Constant for the skip form parameter
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingWebController`2.Notifier">
+            <summary>
+            Interface to launch HTTP request notifying JSon results
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingWebController`2.GetForm">
+            <summary>
+            Retuns the basic form filled with the skip data value
+            </summary>
+            <returns>Basic POST form to request on the database</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingWebController`2.UpdateLastIndex(System.Int32)">
+            <summary>
+            Update the last index with the latests results
+            </summary>
+            <param name="lenght">Lenght of the array parsed by the JSonHelper
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingWebController`2.ResetIndex">
+            <summary>
+            Reset the list index
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingWebController`2.UpdateLists(`0[],System.String)">
+            <summary>
+            Method used to update the object pools
+            </summary>
+            <param name="jsonResult">Json result of the HTTP request
+            </param>
+            <param name="key">Key used to call the request
+            </param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Loading.AbstractLoadingController">
+            <inheritdoc/>
+            <summary>
+            Base class for all the objects that will use a loading screen
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Loading.AbstractLoadingController.loadingObject">
+            <summary>
+            Loading game object
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractLoadingController.ShowLoading">
+            <summary>
+            Method (overridable) used to show the loading object
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractLoadingController.CloseLoading">
+            <summary>
+            Method (overridable) used to hide the loading object
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractLoadingController.InitOnBuild">
+            <summary>
+            Method called when constructor is called, use this if you need to init some attributes
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Loading.AbstractWebObjectPoolList`2">
+            <inheritdoc/>
+            <summary>
+            Abstract class to work with <see cref="T:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1"/>
+            </summary>
+            <typeparam name="T">Type of object to manipulate
+            </typeparam>
+            <typeparam name="O"><see cref="T:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1"/> to use
+            </typeparam>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractWebObjectPoolList`2.GetURL">
+            <summary>
+            Returns the URL to be used for the Request
+            返回用于Request的URL
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractWebObjectPoolList`2.GetKey">
+            <summary>
+            Returns the key to notify
+            返回要通知的密钥
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Loading.Impl.SceneLoadingEvent">
+            <inheritdoc/>
+            <summary>
+            <see cref="T:com.Neogoma.HoboDream.Impl.BaseInteractionEvent"/> extension for loading a scene using index <br></br>
+            Event type <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.START_LOADSCENE"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.Impl.SceneLoadingEvent.#ctor(com.Neogoma.HoboDream.IInteractiveElement,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="source">Event source</param>
+            <param name="sceneIndex">Scene index to load</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Loading.Impl.SceneNameEvent">
+            <inheritdoc/>
+            <summary>
+            <see cref="T:com.Neogoma.HoboDream.Impl.BaseInteractionEvent"/> extension to load a scene by name
+            Event type <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.START_LOADSCENE"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.Impl.SceneNameEvent.#ctor(com.Neogoma.HoboDream.IInteractiveElement)">
+            <summary>
+            Constructor without scene name
+            </summary>
+            <param name="source">Event source</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.Impl.SceneNameEvent.#ctor(com.Neogoma.HoboDream.IInteractiveElement,System.String)">
+            <summary>
+            Constructor with scene name
+            </summary>
+            <param name="source">Event source</param>
+            <param name="sceneName">Name of the scene to load</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.Impl.SceneNameEvent.UpdateSceneName(System.String)">
+            <summary>
+            Updates the same name of this event
+            </summary>
+            <param name="newName">Name of the scene to load</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.ModalBox.ModalBoxBehavior">
+            <inheritdoc/>
+            <summary>
+            Basic script for an implementation of classic Modal box behavior<br></br>
+            The modal box will disappear after 3 seconds
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.ModalBox.ModalBoxBehavior.txtTitle">
+            <summary>
+            Title of the modal box
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.ModalBox.ModalBoxBehavior.txtSubtitle">
+            <summary>        
+            Subtitle
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.ModalBox.ModalBoxBehavior.ShowModalBox(System.String,System.String,System.Boolean)">
+            <summary>
+            display the given message
+             显示给定信息的提示
+            </summary>
+            <param name="title"></param>
+            <param name="subtitle"></param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Suggestion.ClickSuggestionEvent">
+            <summary>
+            Event used for the suggestions boxes with API<br></br>
+            Type <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.SEARCH_ITEM"/>
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1">
+            <inheritdoc/>
+            <summary>
+            Suggestion box system that will display suggestions following an API    <br></br>
+            Listens <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.CLICK"/>
+            Notify <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.SEARCH_ITEM"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1.apiURL">
+            <summary>
+            URL to the API endpoint to retrieve suggestions
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1.databaseParameterToCheck" -->
+        <member name="F:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1.UISuggestionsList">
+            <summary>
+            Dropdown where the suggestions will be displayed
+            将显示建议的下拉列表
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1.inputField">
+            <summary>
+            Input Field component of the attached GameObject
+            附加游戏对象的输入字段分量
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1.optionsPanel">
+            <summary>
+            Panel holding the background of suggestions
+            具有建议背景的小组
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1.optionsText">
+            <summary>
+            Template text for a suggestion item
+            建议项目的模板文本
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1.optionsTextList">
+            <summary>
+            List of created suggestion items
+            已创建建议项的列表
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1.OnValueChange">
+            <summary>
+            Called when the value of the textbox changes
+            当文本框的值更改时调用
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1.OnValueSubmitted">
+            <summary>
+            Called when the value of the textbox is submitted
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1.RequestAPI(System.String)">
+            <summary>
+            Make the call to the API
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1.RequestSucess(System.String,System.String)">
+            <summary>
+            Called when the API returns a successful response
+            Fills the combo box with the list of suggestions
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1.UpdateListHeight(System.Single)">
+            <summary>
+            Updates the height of the list
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1.ClickSuggestion">
+            <summary>
+            Called when a suggestion is clicked, fills the input field with the clicked suggestion
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestion`1.ResetSuggestions">
+            <summary>
+            Resets the list of suggestions in the panel
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Suggestion.InputSuggestionDefault">
+            <inheritdoc/>
+            <summary>
+            Script that will manage a suggestion input box for simple data
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Suggestion.DefaultSuggestion">
+            <summary>
+            Simple default suggestion result object 
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Suggestion.DefaultSuggestion.result">
+            <summary>
+            Name of the item
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.UI.Suggestion.DefaultSuggestion.id">
+            <summary>
+            ID of the item in database
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Suggestion.DefaultSuggestion.GetName">
+            <summary>
+            Returns the name
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Suggestion.DefaultSuggestion.GetID">
+            <summary>
+            Returns the ID of the item in a database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.ISuggestionElement">
+            <inheritdoc/>
+            <summary>
+            Interface that defines an element usable in the InputSuggestion field
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:com.Neogoma.HoboDream.ISuggestionElement.GetName" -->
+        <member name="M:com.Neogoma.HoboDream.ISuggestionElement.GetID">
+            <summary>
+            Returns the ID of the selected item in database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.ConstantUtils">
+            <summary>
+            Utility class to store all the unity values that are recreated at each call. <br></br> 
+            This class will also define the Coolhobo font system as well as reading the database configuration file. <br></br>
+            IMPORTANT: The calls to the REST api are only possible when <see cref="F:com.Neogoma.HoboDream.Util.ConstantUtils.DB_READY"/> is set to TRUE.<br></br>
+            The configuration is read from the *dbconfig.json* file  in the StreamingAssets folder<br></br>
+            NOTE: The system will never use the production on a developement build (if you check Development build on the build settings)
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.ConstantUtils.DB_READY">
+            <summary>
+            Turns to true wen the database is ready to be used
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.ConstantUtils.useLocalDatabase">
+            <summary>
+            Modify this to use the local database
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.ConstantUtils.usePreprodDatabase">
+            <summary>
+            Modify this to use preprod
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.ConstantUtils.BASE_URL">
+            <summary>
+            Root url read from the configuration file
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.ConstantUtils.URL_API">
+            <summary>
+            Returns the API URL
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.CoroutineManager">
+            <summary>
+            The coroutine manager is a singleton to run unity coroutines even on disabled objects or Non monobehaviors objects
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.CoroutineManager.Instance">
+            <summary>
+            Returns the instance of the manager
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.DatabaseConfiguration">
+            <summary>
+            Model class to read the dbconfig.json file
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.DatabaseConfiguration.preproduction_url">
+            <summary>
+            Url of preproduction
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.DatabaseConfiguration.production_url">
+            <summary>
+            URL of production
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.DatabaseConfiguration.development_url">
+            <summary>
+            Development URL
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.DatabaseConfiguration.local_url">
+            <summary>
+            Local URL
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.DatabaseConfiguration.use_preprod">
+            <summary>
+            use_preprod parsing value
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.DatabaseConfiguration.IsPreproduction">
+            <summary>
+            Should we use the preproduction environment
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.DatabaseConfiguration.use_local">
+            <summary>
+            use_local parsing value
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.DatabaseConfiguration.IsLocal">
+            <summary>
+            Should we use the local environment
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.ExitApp">
+            <summary>
+            exit app or move task to backgroud when click the back btn on the phone
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:com.Neogoma.HoboDream.Util.GPSManager" -->
+        <member name="F:com.Neogoma.HoboDream.Util.GPSManager.maxWaitTime">
+            <summary>
+            The maximum wait time for start location service
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.GPSManager.keepAliveTime">
+            <summary>
+            The keep GPS service alive time
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.GPSManager.StartGPSService">
+            <summary>
+            Starts the GPS service.
+            开启GPS服务
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.GPSEvent">
+            <summary>
+            this class is event to carry longitude and latitude
+            这个类是用来携带经纬度的事件
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.GPSEvent.Longitude">
+            <summary>
+            Gets the longitude.
+            </summary>
+            <value>
+            The longitude.
+            </value>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.GPSEvent.Latitude">
+            <summary>
+            Gets the latitude.
+            </summary>
+            <value>
+            The latitude.
+            </value>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.ImageHelper">
+            <summary>
+            Class used to manage the different methods linked to manipulating images with unity
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.ImageHelper.PictureType">
+            <summary>
+            type of pictures exported by unity
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.ImageHelper.CalculateMaskedImage(UnityEngine.UI.Image,UnityEngine.UI.Image)">
+            <summary>
+            Saves the current image cropped with the mask in parameter
+            </summary>
+            <param name="currentImg">Image to crop
+            </param>
+            <param name="maskedImage">The mask to apply
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.ImageHelper.SaveTextureOnDisk(UnityEngine.Texture2D,System.String,com.Neogoma.HoboDream.Util.ImageHelper.PictureType)">
+            <summary>
+            Saves a texture on the disk on the PersistentDataPath+/Picture/ folder of the application
+            </summary>
+            <param name="tex">Texture to save on the disk
+            </param>
+            <param name="name">name of the file to be created (No exstension)
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.ImageHelper.CreateSpriteFromTexture(UnityEngine.Texture2D)">
+            <summary>
+            Creates a sprite directly from a texture2D
+            </summary>
+            <param name="texture">Texture to get the sprite from
+            </param>
+            <returns>A newly created sprite
+            </returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.ImageHelper.CropSquareSpFromTexture(UnityEngine.Texture2D)">
+            <summary>
+            crop the central part of given texture2D and create a square sprite,no matter with different size
+            </summary>
+            <param name="texture">
+            texture to get the sprite form
+            </param>
+            <returns>
+            new created sprite with square texture
+            </returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.ImageHelper.ScreenShot">
+            <summary>
+            screen shot directly from the screen,but must be called in coroutine,and wait for the frame render end(WaitForEndFrame())
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.ImageHelper.ScreenShot(UnityEngine.Camera)">
+            <summary>
+            screen shot by the given camera just render
+            </summary>
+            <param name="targetCam">the screen from which camera.</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.ImageHelper.ReSizeImg(UnityEngine.UI.Image,System.Int32,System.Int32)">
+            <summary>
+            this method is for making given img component adjust to same size scale as screen
+            </summary>
+            <param name="img"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.ImageHelper.RotateTexture(UnityEngine.Texture2D,System.Int32)">
+            <summary>
+            rotate the texture to correct orientation
+            </summary>
+            <param name="originalTexture">the origin texture</param>
+            <param name="orientation">the orientation tag. Rules:6=90°,3=180°,8=270°</param>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.JsonHelper">
+            <summary>
+            Provide a data parsing interface
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.JsonHelper.GetJsonArray``1(System.String)">
+            <summary>
+            Returns an array based on the JSON result and the model provided in generic parameter
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.LookAt">
+            <summary>
+            Basic look at utility script
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.LookAt.target">
+            <summary>
+            Target to look at
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.LookAt.isInverse">
+            <summary>
+            True if axis should be inverted
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.LookAt.lookUp">
+            <summary>
+            True if the current transform should look up
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.LookAt.axis">
+            <summary>
+            Defines which axis should we align
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.LookAtCamera">
+            <summary>
+            Util script to always orient an object towards the camera     
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.MathHelper">
+            <summary>
+            Utility class used to make
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:com.Neogoma.HoboDream.Util.MathHelper.LineLineIntersection(UnityEngine.Vector3@,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3)" -->
+        <member name="M:com.Neogoma.HoboDream.Util.MathHelper.TruncateValue(System.Single,System.Int32)">
+            <summary>
+            Truncates the value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="decomals">The decomals.</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.MathHelper.CalculateNormalVectorForTriangle(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3)">
+            <summary>
+            Calculates the normal vector for triangle.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <param name="c">The c.</param>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.MouseControlCamera">
+            <summary>
+            Utility script to move the camera using the mouse
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1">
+            <inheritdoc />
+            <summary>
+            Class used to manage <see cref="T:UnityEngine.GameObject"/> pools that are children of the <see cref="P:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1.Root"/> transform.
+            <br></br>The gameobjects will represent a <see cref="!:T"/> type
+            </summary>
+            <typeparam name="T">Type of objects managed by this objectpoolmanager
+            </typeparam>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1.#ctor(UnityEngine.GameObject,UnityEngine.Transform,com.Neogoma.HoboDream.IInteractiveElementListener[])">
+            <summary>
+            Constructor
+            </summary>        
+            <param name="prefab">Prefab used as a template for the object pool
+            </param>
+            <param name="root">Root of the object pool
+            </param>
+            /// <param name="listeners">Objects that will listen to the newly created prefabs
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1.AddItems(`0[])">
+            <summary>
+            Create the items in the object pool
+            </summary>
+            <param name="itemsToSetup">
+            List of items to create
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1.AddItem(`0)">
+            <summary>
+            Create the item in the object pool
+            </summary>
+            <param name="itemToSetup">
+            Item to create
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1.Clean">
+            <summary>
+            Cleanup all the objects in the objectpool
+            </summary>
+            <param name="root"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1.PutObjectBackIntoPool(UnityEngine.GameObject)">
+            <summary>
+                Use this method to put an object back to the pool of objects
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1.UpdateGameObject(UnityEngine.GameObject,com.Neogoma.HoboDream.IInteractiveElementListener[],`0)">
+            <summary>
+            Setup a gameobject that was already found in the pool
+            </summary>
+            <param name="node">Free gameobject that was found
+            </param>
+            <param name="listener">Listener that will interact with the newly created gameobject
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1.InitializeGameobject(UnityEngine.GameObject,com.Neogoma.HoboDream.IInteractiveElementListener[],`0)">
+            <summary>
+            Initialize a gameobject that was newly created in the pool
+            </summary>
+            <param name="node">Gameobject that was created
+            </param>
+            <param name="listener">Listener that will interact with the newly created gameobject
+            </param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.ReflectionHelper">
+            <summary>
+            Helper class for reflection functions
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.ReflectionHelper.GetAllImplementationsForInterace``1">
+            <summary>
+            Return all classes implementing a given interface. Cache the result as this method uses reflection and may give performances issues.
+            </summary>
+            <typeparam name="T">Interface type you want to get
+            </typeparam>
+            <returns>A list of all the objects that implement the interface
+            </returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.RouteVisualization.BezierPoint">
+            <summary>
+            attached to every end point,
+            </summary>
+            <seealso cref="T:UnityEngine.MonoBehaviour" />
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.RouteVisualization.BezierPoint.HandleMode">
+            <summary>
+            handle mode
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierPoint.LocalPosition">
+            <summary>
+            Gets or sets the local position.
+            </summary>
+            <value>
+            The local position.
+            </value>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierPoint.Position">
+            <summary>
+            Gets or sets the position.
+            </summary>
+            <value>
+            The position.
+            </value>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierPoint.PrecedingControlPointLocalPosition">
+            <summary>
+            Gets or sets the preceding control point local position.
+            </summary>
+            <value>
+            The preceding control point local position.
+            </value>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierPoint.PrecedingControlPointPosition">
+            <summary>
+            Gets or sets the preceding control point position.
+            </summary>
+            <value>
+            The preceding control point position.
+            </value>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierPoint.FollowingControlPointLocalPosition">
+            <summary>
+            Gets or sets the following control point local position.
+            </summary>
+            <value>
+            The following control point local position.
+            </value>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierPoint.FollowingControlPointPosition">
+            <summary>
+            Gets or sets the following control point position.
+            </summary>
+            <value>
+            The following control point position.
+            </value>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierPoint.HandleModeType">
+            <summary>
+            Gets or sets the handle mode.
+            </summary>
+            <value>
+            The handle mode.
+            </value>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.RouteVisualization.BezierSpline">
+            <summary>
+            Used to customize the move path
+            用于自定义移动路径
+            </summary>
+            <seealso cref="T:UnityEngine.MonoBehaviour" />
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierSpline.loop">
+            <summary>
+            is loop or not
+            是否循环移动
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierSpline.drawGizmos">
+            <summary>
+            是否渲染出路径
+            if draw gizmos for the path or not
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierSpline.Count">
+            <summary>
+            Gets the count of endPoints
+            得到节点的数量
+            </summary>
+            <value>
+            The count.
+            </value>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierSpline.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:com.Neogoma.HoboDream.Util.RouteVisualization.BezierPoint"/> at the specified index.
+            </summary>
+            <value>
+            The <see cref="T:com.Neogoma.HoboDream.Util.RouteVisualization.BezierPoint"/>.
+            </value>
+            <param name="index">The index.</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.RouteVisualization.BezierSpline.Initialize(System.Int32)">
+            <summary>
+            Initializes the specified end points count.
+            初始化特定数量的路径点
+            </summary>
+            <param name="endPointsCount">The end points count.</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.RouteVisualization.BezierSpline.Refresh">
+            <summary>
+            Refreshes end points
+            刷新路径点
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.RouteVisualization.BezierSpline.GetPoint(System.Single)">
+            <summary>
+            Gets a point from the spline
+            得到样条上的点
+            </summary>
+            <param name="normalizedT">The normalized t.</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.RouteVisualization.BezierSpline.GetTangent(System.Single)">
+            <summary>
+            gives the direction of the movement at a given point on the spline. 
+            Can be used to determine which direction an object on the spline should look at at a given point.
+            给出了在样条上给定点的运动方向。可用于确定样条上的对象在给定点上应注视的方向。
+            </summary>
+            <param name="normalizedT">The normalized t.</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.RouteVisualization.BezierSpline.MoveAlongSpline(System.Single@,System.Single,System.Int32)">
+             <summary>
+            Moves a point (normalizedT) on the spline deltaMovement units ahead and returns the resulting point.
+            The normalizedT parameter is passed by reference to keep track of the new *t* parameter.
+            在样条deltaMovement单元上向前移动一个点(normalizedT)并返回结果点
+             </summary>
+             <param name="normalizedT">The normalized t.</param>
+             <param name="deltaMovement">The delta movement.</param>
+             <param name="accuracy">The accuracy.</param>
+             <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerLocomotion">
+            <inheritdoc/>
+            <summary>
+            this class allows you to move a number of objects together with this object on a spline.
+            This component must be attached to an object with a BezierWalker component (tail objects don't need a BezierWalker, though). 
+            Look Forward and Rotation Lerp Modifier parameters affect the tail objects. 
+            If you attach this component to a BezierWalkerWithTime object, it is recommended that you set its Movement Lerp Modifier to something big, like 1000.
+            </summary>
+            <seealso cref="T:UnityEngine.MonoBehaviour" />
+            <seealso cref="!:Coolhobo.HoboDream.Util.RouteVisualization.IBezierWalker" />
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerLocomotion.TailLength">
+            <summary>
+            Gets the length of the tail objects
+            得到尾随对象的长度
+            </summary>
+            <value>
+            The length of the tail.
+            </value>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerLocomotion.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:UnityEngine.Transform"/> at the specified index.
+            得到该索引物体的transform 组件
+            </summary>
+            <value>
+            The <see cref="T:UnityEngine.Transform"/>.
+            </value>
+            <param name="index">The index.</param>
+            <returns></returns>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerLocomotion.rotationLerpModifier">
+            <summary>
+            The rotation lerp modifier
+            旋转插值
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerLocomotion.lookForward">
+            <summary>
+            if the tail objects look forward
+            尾随对象是否向前看
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerLocomotion.Spline">
+            <summary>
+            Gets the spline.
+            得到路径样条
+            </summary>
+            <value>
+            The spline.
+            </value>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerLocomotion.NormalizedT">
+            <summary>
+            Gets the normalized t.
+            </summary>
+            <value>
+            The normalized t.
+            </value>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerLocomotion.MovingForward">
+            <summary>
+            Gets a value indicating whether [moving forward].
+            </summary>
+            <value>
+              <c>true</c> if [moving forward]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerLocomotion.AddToTail(UnityEngine.Transform,System.Single)">
+            <summary>
+            Add a object to tail.
+            添加尾随对象
+            </summary>
+            <param name="transform">The transform.</param>
+            <param name="distanceToPreviousObject">The distance to previous object.</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerLocomotion.InsertIntoTail(System.Int32,UnityEngine.Transform,System.Single)">
+            <summary>
+            Inserts an object into tail.
+            插入尾随对象
+            </summary>
+            <param name="index">The index.</param>
+            <param name="transform">The transform.</param>
+            <param name="distanceToPreviousObject">The distance to previous object.</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerLocomotion.RemoveFromTail(UnityEngine.Transform)">
+            <summary>
+            Removes objects from tail.
+            移除尾随对象
+            </summary>
+            <param name="transform">The transform.</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithSpeed">
+            <inheritdoc/>
+            <summary>
+            move with specific speed
+            </summary>
+            <seealso cref="T:UnityEngine.MonoBehaviour" />
+            <seealso cref="!:Coolhobo.HoboDream.Util.RouteVisualization.IBezierWalker" />
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithSpeed.TravelMode">
+            <summary>
+            travel mode
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithSpeed.spline">
+            <summary>
+            The spline
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithSpeed.travelMode">
+            <summary>
+            The travel mode
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithSpeed.speed">
+            <summary>
+            The speed
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithSpeed.Spline">
+            <summary>
+            Gets the spline.
+            </summary>
+            <value>
+            The spline.
+            </value>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithSpeed.NormalizedT">
+            <summary>
+            Gets or sets the normalized t.
+            </summary>
+            <value>
+            The normalized t.
+            </value>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithSpeed.rotationLerpModifier">
+            <summary>
+            The rotation lerp modifier
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithSpeed.lookForward">
+            <summary>
+            The look forward
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithSpeed.MovingForward">
+            <summary>
+            Gets a value indicating whether [moving forward].
+            </summary>
+            <value>
+              <c>true</c> if [moving forward]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithSpeed.onPathCompleted">
+            <summary>
+            The on path completed
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithTime">
+            <inheritdoc/>
+            <summary>
+            Travels a spline in Travel Time seconds. 
+            Movement Lerp Modifier parameter defines the smoothness applied to the position of the object.
+            该脚本用于在特定时间内走完样条全程
+            </summary>
+            <seealso cref="T:UnityEngine.MonoBehaviour" />
+            <seealso cref="!:Coolhobo.HoboDream.Util.RouteVisualization.IBezierWalker" />
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithTime.TravelMode">
+            <summary>
+            travel mode
+            行走模式
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithTime.spline">
+            <summary>
+            The spline
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithTime.travelMode">
+            <summary>
+            The travel mode
+            行走模式
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithTime.travelTime">
+            <summary>
+            The travel time
+            行走时间
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithTime.Spline">
+            <summary>
+            Gets the spline.
+            </summary>
+            <value>
+            The spline.
+            </value>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithTime.NormalizedT">
+            <summary>
+            Gets or sets the normalized t.
+            </summary>
+            <value>
+            The normalized t.
+            </value>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithTime.movementLerpModifier">
+            <summary>
+            The movement lerp modifier
+            移动插值
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithTime.rotationLerpModifier">
+            <summary>
+            The rotation lerp modifier
+            旋转插值
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithTime.lookForward">
+            <summary>
+            if the walker look forward
+            行走者是否朝前看
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithTime.MovingForward">
+            <summary>
+            Gets a value indicating whether [moving forward].
+            获取一个值，该值指示是否[向前移动]。
+            </summary>
+            <value>
+              <c>true</c> if [moving forward]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.RouteVisualization.BezierWalkerWithTime.onPathCompleted">
+            <summary>
+            the event triggered when the path is completed
+            完成路径时触发的事件
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.RouteVisualization.IBezierWalker">
+            <inheritdoc/>
+            <summary>
+            used to define the common traveling behavior of the walker
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.StringHelper">
+            <summary>
+            This class provides string related methods
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.StringHelper.TruncateText(System.String,System.Int32,System.String)">
+            <summary>
+            Allows truncating a text if the side is bigger than the number parameter
+            </summary>
+            <param name="text">Text to truncate</param>
+            <param name="number">Maximum number of characters to display</param>
+            <param name="replaceStr">Replacement string (can be "...", "etc..."</param>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Util.VideoControl">
+            <summary>
+            Controller for the video player component, requires a <see cref="T:UnityEngine.Video.VideoPlayer"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.VideoControl.PlayVideo">
+            <summary>
+            Plays the video
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.VideoControl.PrepareVideo">
+            <summary>
+            Prepares the video
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.VideoControl.PauseVideo">
+            <summary>
+            Pauses the video
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.VideoControl.StopVideo">
+            <summary>
+            Stops the video
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.UI.Loading.ISceneLoadingEvent">
+            <inheritdoc/>
+            <summary>
+            <see cref="!:BaseInteractionEvent"/> extension for loading a scene using index <br></br>
+            Event type <see cref="!:InteractiveEventAction.START_LOADSCENE"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.UI.Loading.ISceneLoadingEvent.GetSceneIndex">
+            <summary>
+            Returns the index of the scene to load
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.UI.Loading.ISceneNameEvent">
+            <summary>
+            Interface that defines an event that will load a scene with a name
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.UI.Loading.ISceneNameEvent.GetSceneName">
+            <summary>
+            Name of the scene to load
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
