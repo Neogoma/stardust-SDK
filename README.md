@@ -65,4 +65,5 @@ The SDK has an **AbstractMapManager** class which is used to compare phone data 
 The method ` protected override void OnMapDownloaded(GameObject map)` is called once your map is downloaded and has your map representation in Unity space.
 If you need to use standard listener system you don't need to implement **IInteractiveElementListener** again. The methods **HandleSubEvent** and **GetSupportedEventsForSubclass** are substitute to the classic listener methods.
 
-
+## Request Limitation
+10 maps and 400 pictures per map are free for an account,the usage can be seen on dashboard
