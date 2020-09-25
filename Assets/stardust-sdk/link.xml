@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<linker>
+  <assembly fullname="Unity.XR.ARFoundation" preserve="all" ignoreIfMissing="1" />
+  <assembly fullname="Unity.XR.ARKit" preserve="all" ignoreIfMissing="1" />
+  <assembly fullname="I18N">
+    <type fullname="I18N.Common.Manager" preserve="all" />
+  </assembly>
+  <assembly fullname="I18N.CJK">
+    <type fullname="I18N.CJK.CP936" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine">
+    <type fullname="UnityEngine.Avatar" preserve="all"/>
+    <type fullname="UnityEngine.SkinnedMeshRenderer" preserve="all"/>
+    <type fullname="UnityEngine.SphereCollider" preserve="all"/>
+    <type fullname="UnityEngine.CapsuleCollider" preserve="all"/>
+    <type fullname="UnityEngine.Animation" preserve="all"/>
+  </assembly>
+</linker>
