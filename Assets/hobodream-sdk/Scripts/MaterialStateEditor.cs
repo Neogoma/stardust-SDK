@@ -4,9 +4,9 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using static Coolhobo.HoboDream.Framework.MaterialEditor.MaterialStateEditor;
+using static com.Neogoma.HoboDream.Framework.MaterialEditor.MaterialStateEditor;
 
-namespace Coolhobo.HoboDream.Framework.MaterialEditor
+namespace com.Neogoma.HoboDream.Framework.MaterialEditor
 {
     /// <summary>
     /// Editor to manage different states for the material

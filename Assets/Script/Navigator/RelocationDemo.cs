@@ -56,6 +56,7 @@ namespace Neogoma.Stardust.Demo.Navigator
         {
 
             ShowMatchResults("Located sucessfully!", Color.green);
+            Debug.Log("pos: " + positionMatched);
         }
 
         protected override void OnPositionMatchFailed()
@@ -81,7 +82,7 @@ namespace Neogoma.Stardust.Demo.Navigator
             for (int i = 0; i < allSessions.Length; i++)
             {
 
-                mapListDatas.Add(allSessions[i].id);
+                mapListDatas.Add(allSessions[i].name);
 
             }
 
@@ -107,7 +108,7 @@ namespace Neogoma.Stardust.Demo.Navigator
         {
 
             mapList.interactable = false;
-            GetDataForMap(int.Parse(mapList.options[val].text));
+            GetDataForMap(mapList.options[val].text);
 
 
         }

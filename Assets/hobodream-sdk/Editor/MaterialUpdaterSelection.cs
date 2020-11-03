@@ -1,10 +1,10 @@
 ﻿#if UNITY_EDITOR
-using Coolhobo.HoboDream.Framework.MaterialEditor;
+using com.Neogoma.HoboDream.Framework.MaterialEditor;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Coolhobo.HoboDream.EditorTools
+namespace com.Neogoma.HoboDream.EditorTools
 {
     /// <summary>
     /// Editor script used to add a menu to every material state editor in order to select which items to update

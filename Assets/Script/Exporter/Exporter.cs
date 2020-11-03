@@ -58,7 +58,7 @@ namespace Neogoma.Stardust.Demo.Mapper
 
         private void SessionCreated(Session session)
         {
-            idSession.text = session.id;
+            idSession.text = session.name;
             sessionInitialized.Invoke();
             SetSession(session);
 

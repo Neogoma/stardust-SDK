@@ -1,4 +1,4 @@
-﻿using com.Neogoma.HoboDream;
+using com.Neogoma.HoboDream;
 using com.Neogoma.HoboDream.UI.Impl.Buttons;
 using com.Neogoma.Stardust.API;
 using com.Neogoma.Stardust.API.PersistenceObject;
@@ -100,8 +100,9 @@ namespace Neogoma.Stardust.Demo.Mapper
             {
                 Vector3 pos = cam.position + cam.forward;
                 Quaternion rot = Quaternion.LookRotation(pos-cam.position,Vector3.up);
-                
-                PersistenceModel persistenceModel = new PersistenceModel(pos,rot,Vector3.one*0.1f, sessionText.text, selectedBundle);
+                var local = rot.eulerAngles;
+
+                PersistenceModel persistenceModel = new PersistenceModel(pos,Quaternion.Euler(0,local.y,0), sessionText.text, Vector3.one*0.1f,  selectedBundle);
 
 
                 //create obj

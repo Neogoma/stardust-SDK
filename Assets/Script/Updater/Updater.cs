@@ -58,8 +58,8 @@ namespace Neogoma.Stardust.Demo.Updater
             for (int i = 0; i < allSessions.Length; i++)
             {
 
-                idToSession.Add(allSessions[i].id, allSessions[i]);
-                mapList.Add(allSessions[i].id);
+                idToSession.Add(allSessions[i].name, allSessions[i]);
+                mapList.Add(allSessions[i].name);
             }
 
             mapSelectionDropdown.AddOptions(mapList);

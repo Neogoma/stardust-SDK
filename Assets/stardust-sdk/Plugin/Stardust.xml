@@ -103,14 +103,9 @@
             Frequency to send the data
             </summary>
         </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.AbstractDataUploader.pointCloudManager">
+        <member name="P:com.Neogoma.Stardust.API.Mapping.AbstractDataUploader.Name">
             <summary>
-            PointCloudManager
-            </summary>
-        </member>
-        <member name="P:com.Neogoma.Stardust.API.Mapping.AbstractDataUploader.ID">
-            <summary>
-            Returns the session ID
+            Returns the session Name
             </summary>
         </member>
         <member name="P:com.Neogoma.Stardust.API.Mapping.AbstractDataUploader.HTTPConnector">
@@ -416,7 +411,7 @@
             <summary>
             delete all persistence objects for a session
             </summary>
-            <param name="session_id"></param>
+            <param name="name"></param>
         </member>
         <member name="M:com.Neogoma.Stardust.API.PersistenceObject.ObjectController.DeleteInstance(com.Neogoma.Stardust.Datamodel.PersistenceModel)">
             <summary>
@@ -450,11 +445,11 @@
             Returns the http connector
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Relocation.AbstractMapManager.GetDataForMap(System.Int32)">
+        <member name="M:com.Neogoma.Stardust.API.Relocation.AbstractMapManager.GetDataForMap(System.String)">
             <summary>
             Requests the datas for map ID given in parameter
             </summary>
-            <param name="sessionId"></param>
+            <param name="name"></param>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Relocation.AbstractMapManager.LocateCurrentPosition">
             <summary>
