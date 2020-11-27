@@ -65,6 +65,8 @@ pathfindingManager.ShowPathToTarget(target);
 
 This will automatically find the shortest path from your position to the designated target. Again this only works in navigable areas defined in mapping/update.
 
+**Note** Path to target will automatically generate the prefabs you setup as a parameter in the **PathfindingManager** separated by 0.5m by default, you can specify the distance yourself using the second parameter of __ShowPathToTarget__
+
 ## Editor
 You can open any map on the editor and select the navigation icon to switch to navigation mode
 
