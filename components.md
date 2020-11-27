@@ -192,9 +192,13 @@ Before calling the relocation you will need to setup the session you want to rel
 
 ```
 public void SelectSession(Session session){
-    MapRelocationManager.Instance.GetDataForMap(selectedSession.uuid);                
+    MapRelocationManager.Instance.GetDataForMap(selectedSession);                
 }
 ```
+
+When the relocation is done it will trigger the  __mapDownloadedSucessfully__ event. The event will contain 2 datas:
+- The session that was requested
+- The gameobject that contains the map data
 
 ### Run relocation
 In order to run the relocation you just have to do the following call
