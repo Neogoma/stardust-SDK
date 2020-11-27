@@ -27,16 +27,16 @@ public void Start(){
     PathFindingManager  pathfindingManager = PathFindingManager.Instance;
 
     //Triggered when the navigation data download starts
-    pathfindingManager.startingDownload.AddListener(DownloadStarted);
+    pathfindingManager.onStartingNavigationDatasDownload.AddListener(DownloadStarted);
     
     //Triggered when the navigation data downlad is finished
-    pathfindingManager.navigationReady.AddListener(PathFindingReady);
+    pathfindingManager.onNavigationDatasReady.AddListener(PathFindingReady);
  
     //Triggered when the system starts calculating pathfinding
-    pathfindingManager.pathCalculated.AddListener(FinishedPathFinding);
+    pathfindingManager.onStartCalculatingPath.AddListener(StartPathfinding);
 
     //Triggered when the system had finished calculating pathfinding
-    pathfindingManager.pathCalculated.AddListener(PathFindingReady);
+    pathfindingManager.onPathCalculated.AddListener(PathFindingCalculated);
 }
 
 //Called when targets have been retrieved
@@ -52,7 +52,7 @@ private void StartPathfinding(){
     Debug.Log("Pathfinding calculation started");
 }
 
-private void FinishedPathfinding(){
+private void PathFindingCalculated(IGraphNode startingPosition){
     Debug.Log("Pathfinding calculation finished);
 }
 ```

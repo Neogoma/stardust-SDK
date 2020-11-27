@@ -155,16 +155,16 @@ public void Start{
     MapRelocationManager relocationManager = MapRelocationManager.Instance;
 
     //Called when the map has been sucessfully downloaded
-    relocationManager.mapDownloadedSucessfully.AddListener(OnMapDownloaded);
+    relocationManager.onMapDownloadedSucessfully.AddListener(OnMapDownloaded);
 
     //Called when the map starts downloading
-    relocationManager.mapDownloadStarted.AddListener(OnMapStartDownloading);
+    relocationManager.onMapDownloadStarted.AddListener(OnMapStartDownloading);
 
     //Called when the position in map has been found after relocation request
-    relocationManager.positionFound.AddListener(OnPositionMatched);
+    relocationManager.onPositionFound.AddListener(OnPositionMatched);
 
     //Called when the position in map has not been found after relocation request
-    relocationManager.positionNotFound.AddListener(OnPositionMatchFailed);
+    relocationManager.onPositionNotFound.AddListener(OnPositionMatchFailed);
 }
 
 private void OnMapDownloaded(Session sesison,GameObject map)
