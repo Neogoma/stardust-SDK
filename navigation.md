@@ -16,13 +16,13 @@ The Navigator component prefab is separated from the other prefab because not al
 
 ### Pathfinding manager
 The pathfinding manager is the main component responsible for calculating paths to destination. As every basic component it's a singleton that you can get with the following command.
-```
+```cs
 PathFindingManager  pathfindingManager = PathFindingManager.Instance;
 ```
 
 ### Events
 
-```
+```cs
 public void Start(){
     PathFindingManager  pathfindingManager = PathFindingManager.Instance;
 
@@ -59,7 +59,7 @@ private void PathFindingCalculated(IGraphNode startingPosition){
 
 ### Display path to target
 Once you selected a target you can just show the path to the target using the following code.
-```
+```cs
 pathfindingManager.ShowPathToTarget(target);
 ```
 

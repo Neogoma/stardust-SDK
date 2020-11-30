@@ -18,7 +18,7 @@ The SDK requires you to have a **valid Stardust** account. You can apply for a d
 ### Clone the project
 First clone the repository on your drive.
 
-```
+```bash
 git clone https://github.com/Neogoma/stardust-SDK.git
 ```
 
