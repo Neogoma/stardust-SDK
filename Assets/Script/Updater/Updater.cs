@@ -3,21 +3,35 @@ using com.Neogoma.Stardust.API;
 using com.Neogoma.Stardust.API.Mapping;
 using com.Neogoma.Stardust.Datamodel;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Neogoma.Stardust.Demo.Updater
 {
-    public class Updater : AbstractDataUploader
+    /// <summary>
+    /// Demo for update use case
+    /// </summary>
+    public class Updater: MonoBehaviour
     {
+        /// <summary>
+        /// Text showing picture taken
+        /// </summary>
         public Text pictureTaken;
 
+        /// <summary>
+        /// Text showing pictures sucesffully sent
+        /// </summary>
         public Text pictureSent;
 
+        /// <summary>
+        /// Text showing data limit reached
+        /// </summary>
         public Text dataLimitReachedText;
 
-
-
+        /// <summary>
+        /// Dropdown to select map
+        /// </summary>
         public Dropdown mapSelectionDropdown;
 
 
@@ -25,29 +39,22 @@ namespace Neogoma.Stardust.Demo.Updater
 
 
         private SessionController sessionController;
-
+        private MapDataUploader dataUploader;
         private Dictionary<string, Session> idToSession = new Dictionary<string, Session>();
 
-        protected override void DoOnAwake()
+        public void Awake()
         {
             sessionController = SessionController.Instance;
             mapSelectionDropdown.onValueChanged.AddListener(delegate { ValueUpdated(); });            
             sessionController.onAllSessionsRetrieved.AddListener(AllSessionsRetrieved);
 
             GetDatas();
+
+            dataUploader = MapDataUploader.Instance;
+            dataUploader.onDataCapturedSucessfully.AddListener(OnDataCaptured);
+            dataUploader.onDataSentSucessfully.AddListener(OnDataSentSuccess);
+            dataUploader.onDatalimitReached.AddListener(OnDataLimitReached);
         }
-
-
-        protected override void HandleRequestFailed(string jsonResult, string key)
-        {
-
-        }
-
-        protected override void HandleSubEvent(IInteractionEvent e)
-        {
-
-        }
-
 
         private void AllSessionsRetrieved(Session[] allSessions)
         {
@@ -77,39 +84,24 @@ namespace Neogoma.Stardust.Demo.Updater
         {
             string selection = mapSelectionDropdown.options[mapSelectionDropdown.value].text;
             Session selectedSession = idToSession[selection];
-            SetSession(selectedSession);
+            dataUploader.SetSession(selectedSession);
             pictureSent.text = selectedSession.PicturesNumber.ToString();
             pictureTaken.text = selectedSession.PicturesNumber.ToString();
             mapSelected.Invoke();
         }
-        protected override void OnDataCaptured()
+        private void OnDataCaptured(int count)
         {
-            pictureTaken.text = DataCapturedCount.ToString();
+            pictureTaken.text = count.ToString();
         }
 
-        protected override void OnDataSentSuccess()
+        private void OnDataSentSuccess(int count)
         {
-            pictureSent.text = DataSentCount.ToString();
+            pictureSent.text = count.ToString();
         }
 
-        protected override void HandleRequest(string jsonResult, string key)
-        {
-//nothing to do
-
-        }
-
-        protected override void OnDataLimitReached()
+        private void OnDataLimitReached()
         {
             dataLimitReachedText.gameObject.SetActive(true);
-        }
-
-        protected override void OnDataSentFailure()
-        {   
-        }
-
-        protected override InteractiveEventAction[] GetSupportedEventsForSubclass()
-        {
-            return null;
         }
     }
 }

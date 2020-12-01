@@ -1,0 +1,1065 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Stardust</name>
+    </assembly>
+    <members>
+        <member name="T:com.Neogoma.Stardust.API.APIAutoLogin">
+            <summary>
+            Monobehavior script used to login the user on startup use this to login on awake automatically
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.APIAutoLogin.email">
+            <summary>
+            User email
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.APIAutoLogin.password">
+            <summary>
+            User password
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.AbstractImageDataController">
+            <summary>
+            Abstract to define a class that is using image and intrisics datas from the camera
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.AbstractImageDataController.SetDeviceLocationProvider(com.Neogoma.Stardust.API.IDeviceLocationProvider)">
+            <summary>
+            Returns the device location provider
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.AbstractImageDataController.SetupIntrisicsProvider(com.Neogoma.Stardust.API.ICameraImageIntrisicsProvider)">
+            <summary>
+            Returns an intrisics provider, if not overriden will use the default implementation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.AbstractImageDataController.SetupImageProvider(com.Neogoma.Stardust.API.ICameraImageProvider)">
+            <summary>
+            Returns an intrisics provider if not overriden will use the default implementation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.IDeviceLocationProvider">
+            <summary>
+            Defines a class that will provide the SDK with the device position in real time
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.IDeviceLocationProvider.GetPosition">
+            <summary>
+            This method will returns the device position in real time IN THE MAP
+            </summary>
+            <returns>Returns the device position in a <see cref="T:UnityEngine.Vector3"/> format</returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.IDeviceLocationProvider.GetRotation">
+            <summary>
+            This method will return the device rotation in real time IN THE MAP
+            </summary>
+            <returns><see cref="T:UnityEngine.Quaternion"/> that represents the rotation</returns>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Impl.ARFoundationPositionProvider">
+            <summary>
+            Implementation of the <see cref="T:com.Neogoma.Stardust.API.IDeviceLocationProvider"/> for ARFoundation camera position
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Impl.CameraImageProvider">
+            <summary>
+            This class provides the camera image as a byte array in an <see cref="T:com.Neogoma.Stardust.API.Impl.PictureProcessingReady"/> event<br></br>
+            Notifies:<br></br>
+            <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.SUCCESS"/> with a <see cref="T:com.Neogoma.Stardust.API.Impl.PictureProcessingReady"/> in case of sucess<br></br>
+            <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.FAILURE"/> in case or failure to get the picutre
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Impl.CameraImageProvider.#ctor(UnityEngine.XR.ARFoundation.ARCameraManager)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="cameraManager"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Impl.CameraImageProvider.InitializeCamera">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Impl.CameraImageProvider.ComputeImageData">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Impl.CameraIntrisicsProvider">
+            <summary>
+            Implementation of <see cref="T:com.Neogoma.Stardust.API.ICameraImageIntrisicsProvider"/> basic
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Impl.CameraIntrisicsProvider.#ctor(UnityEngine.XR.ARFoundation.ARCameraManager)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="cameraManager"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Impl.CameraIntrisicsProvider.GetCameraInstrinscs">
+            <summary>
+            Returns the intrisics data for the camera
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Impl.PictureProcessingReady">
+            <summary>
+            <see cref="T:com.Neogoma.HoboDream.Impl.BaseInteractionEvent"/> used to transfer the picture data from the <see cref="T:com.Neogoma.Stardust.API.Impl.CameraImageProvider"/>
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.Impl.PictureProcessingReady.Data">
+            <summary>
+            Returns the picture data as a byte array
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Impl.PictureProcessingReady.GetJPEGData">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.IPictureDataReady">
+            <summary>
+            Interface that defines an event to transmit processed picture data from <see cref="T:com.Neogoma.Stardust.API.ICameraImageProvider"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.IPictureDataReady.GetJPEGData">
+            <summary>
+            Returns the byte data of the JPEG picture
+            </summary>
+            <returns>byte array of the JPEG data</returns>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.LoginController">
+            <summary>
+            Monobehavior used to log the user in the server
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.LoginController.Login(System.String,System.String)">
+            <summary>
+            Logs the user into the system
+            </summary>
+            <param name="email">User email</param>
+            <param name="password">User's password</param>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Mapping.MapDataUploader">
+            <summary>
+            Class used to send sending mapping datas to server. 
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.Instance">
+            <summary>
+            Instance of <see cref="T:com.Neogoma.Stardust.API.Mapping.MapDataUploader"/>
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Mapping.MapDataUploader.DataUpdateFrequency">
+            <summary>
+            Designating the frequency
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onDataCapturedSucessfully">
+            <summary>
+            Event triggered when the data was captured sucessfully
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onDataSentSucessfully">
+            <summary>
+            Event triggered when the data was sent sucessfully
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onDataSentFailure">
+            <summary>
+            Event triggered when the latest data upload failed
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onDatalimitReached">
+            <summary>
+            Event triggered when user reached his quota of datas
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.updateFrequency">
+            <summary>
+            Frequency to send the data
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.Name">
+            <summary>
+            Returns the session Name
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.HTTPConnector">
+            <summary>
+            Returns the HTTP connector
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.GenerateMap">
+            <summary>
+            Generates the map
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.UpdateMap">
+            <summary>
+            Updates the map with latest pictures
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.StartSendingData">
+            <summary>
+            Start sending datas to the server
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.StopSendingDatas">
+            <summary>
+            Stop sending datas to the server
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.SetSession(com.Neogoma.Stardust.Datamodel.Session)">
+            <summary>
+            Sets the current session
+            </summary>
+            <param name="sessionData"></param>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.ICameraImageIntrisicsProvider">
+            <summary>
+            This class will provide the camera intrisics data in real time.
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.ICameraImageIntrisicsProvider.GetCameraInstrinscs">
+            <summary>
+            Returns the current camera intrisics
+            </summary>
+            <returns><see cref="T:com.Neogoma.Stardust.Datamodel.IntrisicsData"/> containing the intrisics of the camera</returns>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.ICameraImageProvider">
+            <summary>
+            This interface defines a class that converts the camera seen by the device
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.ICameraImageProvider.InitializeCamera">
+            <summary>
+            This method initializes the camera device (setup resolution/frequency....)
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.ICameraImageProvider.ComputeImageData">
+            <summary>
+            This methods is used to start transforming the current image in a proper format.<br></br>
+            Once the picture process conversion is finished, it should notify an <see cref="T:com.Neogoma.Stardust.API.IPictureDataReady"/> event with <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.SUCCESS"/> type if the picture can be processed<br></br>
+            It notifies an <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.FAILURE"/> event in case of failure to process the picture
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer">
+            <summary>
+            Load bundle abstract prefab extend this class to define your own behaviors
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.loadingEvent">
+            <summary>
+            When the loading starts
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.downloadFailed">
+            <summary>
+            When the download fails
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.downloadFinished">
+            <summary>
+            When the download is finished
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.CurrentPersistenceModel">
+            <summary>
+            Returns the current model used by the displayer
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.Initialize(com.Neogoma.HoboDream.Network.IBundleDownloader{System.String,com.Neogoma.HoboDream.Network.IBundleDownloadListener},com.Neogoma.HoboDream.Network.IHTTPConnector{System.String,com.Neogoma.HoboDream.Network.IJSonRequestListener},com.Neogoma.Stardust.Datamodel.PersistentObject)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="bundledownloader"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.InstantiateBundle(com.Neogoma.HoboDream.Network.IBundleDownloadListener)">
+            <summary>
+            create gameObject
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.Redownload">
+            <summary>
+            redownload bundle
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.CheckBundleStatus(System.String,System.String,com.Neogoma.HoboDream.Network.IBundleDownloader{System.String,com.Neogoma.HoboDream.Network.IBundleDownloadListener})">
+            <summary>
+            Check Bundle Status
+            </summary>
+            <param name="markerID"></param>
+            <param name="bundleId"></param>
+            <param name="bundledownloader"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.DownloadBundle(System.String,System.String,UnityEngine.Hash128,com.Neogoma.HoboDream.Network.IBundleDownloader{System.String,com.Neogoma.HoboDream.Network.IBundleDownloadListener})">
+            <summary>
+            Download Bundle
+            </summary>
+            <param name="bundleName"></param>
+            <param name="bundleId"></param>
+            <param name="bundledownloader"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.ObjectLoadedSucessfully(UnityEngine.GameObject)">
+            <summary>
+            Called when the object has sucessfully been created
+            </summary>
+            <param name="obj">Instance of the object</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.OnDownloadUpdate(System.Single)">
+            <summary>
+            Called when an update occurs on the download
+            </summary>
+            <param name="percentage">Download status from 0 to 1</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.ObjectLoadedFailure">
+            <summary>
+            Called when the object download has failed
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Persistence.BundleDisplayerExample">
+            <summary>
+            Base extension of <see cref="T:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Persistence.BundleDisplayerExample.progressBg">
+            <summary>
+            Object used to display the loading progresses
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.BundleDisplayerExample.ObjectLoadedFailure">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.BundleDisplayerExample.ObjectLoadedSucessfully(UnityEngine.GameObject)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.BundleDisplayerExample.OnDownloadUpdate(System.Single)">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Persistence.ObjectCacher">
+            <summary>
+            cache object
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectCacher.SetupDownloadStatus(System.String)">
+            <summary>
+            setup bundle downloading occuring state
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectCacher.IsDownloadingNow(System.String)">
+            <summary>
+            check if current bundle is donwloading or not
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectCacher.AddToDictionary(System.String,UnityEngine.GameObject)">
+            <summary>
+            cache loaded bundle gameobject
+            </summary>
+            <param name="id"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectCacher.GetObject(System.String)">
+            <summary>
+            get current cached bundle gameobject
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectCacher.IsBundleInCache(System.String)">
+            <summary>
+            check if bundle is in cache or not
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Persistence.ObjectController">
+            <summary>
+            Class used for all the object management
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Persistence.ObjectController.bundleHolder">
+            <summary>
+            bundle holder prefab
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.Awake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.Clean">
+            <summary>
+            Destroy all the objects in memory
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateInstance(com.Neogoma.Stardust.Datamodel.PersistentObject,UnityEngine.Transform)">
+            <summary>
+            Create instance of the object in scene
+            </summary>
+            <param name="persistenceModel">Model to save</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateAndSaveObject(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,com.Neogoma.Stardust.Datamodel.Session,com.Neogoma.Stardust.Datamodel.Bundle,UnityEngine.Transform)">
+            <summary>
+            Instanciates the object in scene and saves it in database
+            </summary>
+            <param name="position">Position of the object in the map</param>
+            <param name="rotation">Rotation of the object in the map</param>
+            <param name="session">Session to add the object to</param>
+            <param name="parent">Parent of the newly created object (can be null)</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.GetGameObjectForModel(com.Neogoma.Stardust.Datamodel.PersistentObject)">
+            <summary>
+            Returns the <see cref="T:UnityEngine.GameObject"></see> associated with the model
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:com.Neogoma.Stardust.API.Persistence.ObjectController.GetAllModelsInScene" -->
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.GetAllObjectsInScene">
+            <summary>
+            Returns the list of all the <seealso cref="T:UnityEngine.GameObject"/> in scene
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.SaveObjectInstance(com.Neogoma.Stardust.Datamodel.PersistentObject)">
+            <summary>
+            Saves the persistent object on server
+            </summary>
+            <param name="persistentObject">Object to save</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateObjectInstances(com.Neogoma.Stardust.Datamodel.PersistentObject[],UnityEngine.Transform)">
+            <summary>
+            Instanciates a an array of object in scene
+            </summary>
+            <param name="objectList">Array of object to create</param>
+            <param name="parent">Parent of the newly instantiated objects</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.DeleteAllObjects(System.String)">
+            <summary>
+            Deletes all the objects in db for a map
+            </summary>
+            <param name="name">Map name</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.DeleteInstance(com.Neogoma.Stardust.Datamodel.PersistentObject)">
+            <summary>
+            Deletes an object in database
+            </summary>
+            <param name="persistenceModel">Object to delete</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.RequestAllObjects">
+            <summary>
+            Request the list of all the available bundles to create
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.GetAllAvailableObjects">
+            <summary>
+            Returns the list of all the available bundles to create
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.RequestSucess(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.RequestFailed(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.BundleIsCached(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.BundleIsNotCached(UnityEngine.Hash128,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.DownloadProgress(System.Single,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Persistence.SaveObject">
+            <summary>
+            Unity event using a string
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Relocation.MapRelocationManager">
+            <summary>
+            Abstract class to manage the maps datas. This class will be in charge of the relocation as well as downloading the maps data.
+            <br></br><see cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/> and <see cref="T:com.Neogoma.HoboDream.Network.IJSonRequestListener"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.originPrefab">
+            <summary>
+            Prefab to show the map origin (NOT MANDATORY)
+            </summary>        
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.onPositionFound">
+            <summary>
+            Event triggered when the position has been found
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.onPositionNotFound">
+            <summary>
+            Event triggered when the position has not been found
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.onPositionRequestFailed">
+            <summary>
+            Event triggered when the position request failed
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.onMapDownloadedSucessfully">
+            <summary>
+            Event triggered when the map has been sucessfully downloaded and loaded into scene
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.onMapDownloadStarted">
+            <summary>
+            Event triggered when the map download has been started
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.onMapDownloadFailed">
+            <summary>
+            Event triggered when the map download has failed
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.HTTPConnector">
+            <summary>
+            Returns the http connector
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.Awake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.GetDataForMap(com.Neogoma.Stardust.Datamodel.Session)">
+            <summary>
+            Requests the map data using the session
+            </summary>
+            <param name="session">Session to get data from</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.LocateCurrentPosition">
+            <summary>
+            Requests to locate the current position
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.GetSupportedEvents">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestSucess(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestFailed(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.PositionFoundEvent">
+            <summary>
+            Unity event triggered when position was found
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.NoPositionFoundEvent">
+            <summary>
+            Unity event triggered when position was not found
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.StartDownloadMapEvent">
+            <summary>
+            Unity event triggered when you start downloading a map
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.MapDownloadedEvent">
+            <summary>
+            Unity event triggered when the map is downloaded, the gameobject will be the map gameobject
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Relocation.MapLocationPositioner">
+            <summary>
+            This class will reposition the map properly on the scene
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapLocationPositioner.#ctor(UnityEngine.GameObject)">
+            <summary>
+            datas for point cloud map
+            </summary>
+            <param name="mapObject"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapLocationPositioner.MoveMapToPosition(com.Neogoma.Stardust.API.Relocation.CameraCheckData,com.Neogoma.Stardust.Datamodel.MatchingPosition)">
+            <summary>
+            Moves the map to position. IF YOU READ THIS METHOD I STRONGLY SUGGEST YOU GO TO https://www.mathsisfun.com/algebra/vectors.html
+            Use of a pen and paper is recommended to understand this method, last but not least:
+            Abandon hope all ye who enter here
+            </summary>        
+            <param name="pictureDatas">The picture position.</param>
+            <param name="positionMatchedData">The position matched data.</param>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Relocation.PointCloudPositioner">
+            <summary>
+            Class used to position the map in the world according to received datas
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.PointCloudPositioner.#ctor(com.Neogoma.Stardust.API.Persistence.ObjectController,UnityEngine.GameObject,UnityEngine.Material)">
+            <summary>
+            Default construction of the point cloud positioner
+            </summary>
+            <param name="originPrefab"></param>
+            <param name="objectController"></param>
+            <param name="mat"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.PointCloudPositioner.GetMapObjectForSession(com.Neogoma.Stardust.Datamodel.Session)">
+            <summary>
+            Creates an instantiate the map according to sessions datas
+            </summary>
+            <param name="session"></param>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.SessionController">
+            <summary>
+            Class used to manage all the sessions manipulations
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.SessionController.CreateMappingSession">
+            <summary>
+            Creates a new map
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.SessionController.GetAllSessionsReady">
+            <summary>
+            Retrieves all sessions that are ready to relocate
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.SessionController.SessionEvent">
+            <summary>
+            Events triggered with a session
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.SessionController.GetAllSessionsEvent">
+            <summary>
+            Events triggered with a list of session
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.StardustSDK">
+            <summary>
+            Initializes all the Stardust SDK systems
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.StardustSDK.ApiKey">
+            <summary>
+            Developer API key
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.CameraData.ColorExtractor">
+            <summary>
+            Class used to extract the camera color of a point passed in parameter
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Datamodel.AbstractDatamodelNode">
+            <summary>
+            Defines a model that cna be used as a graph node
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Datamodel.Array`1">
+            <summary>
+            Class to represent an array of items to send to the API
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Datamodel.MatchingPosition">
+            <summary>    
+            datamodel for returned results
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Datamodel.Session">
+            <summary>
+            Class to represent a database session
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Maths.KalmanFilter`1">
+             <summary>A Kalman filter implementation for any type of value which can added and multiplied.</summary>
+             <remarks>
+             Determining whether the type can be added and multiplied occurs at runtime via the <c>dynamic</c> keyword.
+             Note that if you use this with the incorrect data type (such as a <c>Quaternion</c>, which cannot be added),
+             the error will occur at runtime.
+            
+             <c>dynamic</c> also incurs a runtime cost, so if performance is crucial, it is suggested a concrete Kalman
+             filter implementation be used such as <c>KalmanFilterFloat</c> or <c>KalmanFilterVector3</c>.
+             </remarks>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Maths.KalmanFilterFloat">
+            <summary>A Kalman filter implementation for <c>float</c> values.</summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Maths.KalmanFilterVector3">
+            <summary>A Kalman filter implementation for <c>Vector3</c> values.</summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Maths.KalmanFilterVector4">
+            <summary>A Kalman filter implementation for <c>Vector4</c> values.</summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Maths.PointMathHelper">
+            <summary>
+            Helper class for maths with points
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Maths.PointMathHelper.Truncate(System.Single,System.Int32)">
+            <summary>
+            Truncates the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="digits">The digits.</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Maths.PointMathHelper.TruncateVector(UnityEngine.Vector3)">
+            <summary>
+            Truncates the vector.
+            </summary>
+            <param name="vec">The vec.</param>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Navigation.Graph.GameObjectTarget">
+            <summary>
+            <seealso cref="T:com.Neogoma.Stardust.Graph.ITarget"/> represented by a gameobject
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Graph.GameObjectTarget.SetName(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Graph.GameObjectTarget.GetTargetName">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Navigation.Graph.GameObjectNode">
+            <summary>
+            Basic implementation of graph node
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Graph.GameObjectNode.AddNeighboor(com.Neogoma.Stardust.Graph.IGraphNode)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Graph.GameObjectNode.GetColor">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Graph.GameObjectNode.GetCoordnates">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Graph.GameObjectNode.GetRotation">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Graph.GameObjectNode.GetDistanceWithNode(com.Neogoma.Stardust.Graph.IGraphNode)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Graph.GameObjectNode.GetNeighboors">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Graph.GameObjectNode.GetNodeId">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Navigation.Rendering.ItemRenderData">
+            <summary>
+            Used to render the arrows on the path
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Navigation.Rendering.ItemRenderData.Rotation">
+            <summary>
+            Rotation of the arrow
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Navigation.Rendering.ItemRenderData.Position">
+            <summary>
+            Position of the arrow
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Rendering.ItemRenderData.#ctor(UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="position">Position</param>
+            <param name="yRotation">Rotation</param>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Navigation.Rendering.ArrowObjectPool">
+            <summary>
+            Gameobject pool for displaying the direction arrows
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Rendering.ArrowObjectPool.#ctor(UnityEngine.GameObject,UnityEngine.Transform,com.Neogoma.HoboDream.IInteractiveElementListener[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="prefab"></param>
+            <param name="root"></param>
+            <param name="listeners"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Rendering.ArrowObjectPool.InitializeGameobject(UnityEngine.GameObject,com.Neogoma.HoboDream.IInteractiveElementListener[],com.Neogoma.Stardust.Navigation.Rendering.ItemRenderData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Rendering.ArrowObjectPool.UpdateGameObject(UnityEngine.GameObject,com.Neogoma.HoboDream.IInteractiveElementListener[],com.Neogoma.Stardust.Navigation.Rendering.ItemRenderData)">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Navigation.Rendering.PathRenderer">
+            <summary>
+            This class is used to display a path between a <see cref="T:com.Neogoma.Stardust.Graph.IGraphNode"/> and an <see cref="T:com.Neogoma.Stardust.Graph.ITarget"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Rendering.PathRenderer.#ctor(UnityEngine.GameObject,UnityEngine.Transform)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="prefab"></param>
+            <param name="transformOrigin"></param>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Navigation.Navigator">
+            <summary>
+            This class will manage the navigation routine 
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Navigator.SetNodes(System.Collections.Generic.List{com.Neogoma.Stardust.Graph.IGraphNode})">
+            <summary>
+            Updates the node of the navigator for calculating path
+            </summary>
+            <param name="graph"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Navigator.GetShortestPath(com.Neogoma.Stardust.Graph.IGraphNode,com.Neogoma.Stardust.Graph.ITarget)">
+            <summary>
+            Returns the shortest path between the node and the target as a stack
+            </summary>
+            <param name="start"></param>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Navigation.PathFindingManager">
+            <summary>
+            Monobehavior used to render a path on screen. In order to use the relocation you need a <see cref="T:com.Neogoma.Stardust.API.Relocation.MapRelocationManager"/> in scene
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.Navigation.PathFindingManager.prefab">
+            <summary>
+            Prefab for the directions
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.Navigation.PathFindingManager.onStartingNavigationDatasDownload">
+            <summary>
+            Event triggered when the download was started.
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.Navigation.PathFindingManager.onNavigationDatasReady">
+            <summary>
+            Event triggered when the navigation is ready to run
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.Navigation.PathFindingManager.onStartCalculatingPath">
+            <summary>
+            Event triggered when path starts calculating
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.Navigation.PathFindingManager.onPathCalculated">
+            <summary>
+            Event triggered when path was calculated
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.Navigation.PathFindingManager.userPosition">
+            <summary>
+            User position
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.Awake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.RequestSucess(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.ShowPathToTarget(com.Neogoma.Stardust.Graph.ITarget,System.Single)">
+            <summary>
+            Will calculate and show the path to the target
+            </summary>
+            <param name="target">Target to navigate to</param>
+            /// <param name="distanceBetweenTwoItems">Distance between two path items</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.ClearPath">
+            <summary>
+            Clears all the path arrows
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.RequestFailed(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Navigation.NavigationReady">
+            <summary>
+            Event to trigger when the navigation is ready
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Navigation.PathCalculated">
+            <summary>
+            Event triggered when the path was calculated returns the first navigation node
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Graph.BasicGraphNode">
+            <summary>
+            Basic implementation of graph node
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.BasicGraphNode.#ctor(UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="position"></param>
+            <param name="rotation"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.BasicGraphNode.AddNeighboor(com.Neogoma.Stardust.Graph.IGraphNode)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.BasicGraphNode.GetColor">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.BasicGraphNode.GetCoordnates">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.BasicGraphNode.GetRotation">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.BasicGraphNode.GetDistanceWithNode(com.Neogoma.Stardust.Graph.IGraphNode)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.BasicGraphNode.GetNeighboors">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.BasicGraphNode.GetNodeId">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Graph.BasicGraphTarget">
+             <summary>
+             Basic definition of a <see cref="T:com.Neogoma.Stardust.Graph.ITarget"/> used to generate a graph
+             </summary>
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.BasicGraphTarget.#ctor(System.String,UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="name"></param>
+            <param name="position"></param>
+            <param name="rotation"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.BasicGraphTarget.GetTargetName">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Graph.GraphGenerator">
+            <summary>
+            Generate a graph based on an unordered list of nodes. Can also integrate targets to link
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.GraphGenerator.GenerateGraphWithCurrentTarget(System.Collections.Generic.ICollection{com.Neogoma.Stardust.Graph.IGraphNode},com.Neogoma.Stardust.Graph.ITarget,System.Single,System.Single,com.Neogoma.Stardust.Graph.IGraphNode)">
+            <summary>
+            Generates the graph based on the provided datas
+            </summary>
+            <param name="originalNodeCollection">Original collection of nodes</param>
+            <param name="target">Target to link</param>
+            <param name="nodeRange">Maximum distance between 2 nodes</param>
+            <param name="minDistanceFilter">Minimum distance between 2 nodes</param>
+            <param name="firstNode">The first node to generate the graph from</param>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Graph.IGraphNode">
+            <summary>
+            Represents a node of a graph
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.IGraphNode.GetDistanceWithNode(com.Neogoma.Stardust.Graph.IGraphNode)">
+            <summary>
+            Returns the distance between this node and another
+            </summary>
+            <param name="node">Distance to evaluate the node with</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.IGraphNode.GetNeighboors">
+            <summary>
+            Returns all the neighboors from this node
+            </summary>
+            <returns>Unsorted list of all the neighboors</returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.IGraphNode.AddNeighboor(com.Neogoma.Stardust.Graph.IGraphNode)">
+            <summary>
+            Adds a neighboor to this node
+            </summary>
+            <param name="node">Neighboor to add</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.IGraphNode.GetNodeId">
+            <summary>
+            Returns the node id
+            </summary>
+            <returns>A node ID</returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.IGraphNode.GetRotation">
+            <summary>
+            Returns the rotation of this node
+            </summary>
+            <returns><see cref="T:UnityEngine.Quaternion"/> representing the rotation</returns>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Graph.ITarget">
+            <summary>
+            Defines a special node that acts like a navigation target
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.ITarget.GetTargetName">
+            <summary>
+            Returns the name of the target
+            </summary>
+            <returns>Name of the target</returns>
+        </member>
+        <member name="T:com.Neogoma.Stardust.DataRendering.PCLDisplayer">
+            <summary>
+            Class used to render the point cloud as a mesh efficientily
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.DataRendering.PCLDisplayer.#ctor(UnityEngine.Material)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="mat"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.DataRendering.PCLDisplayer.CreatePointCloudMeshNoOctree(System.String,System.Collections.Generic.List{com.Neogoma.Octree.IOctreeCoordnateObject})">
+            <summary>
+            Generates a pointcloudmesh
+            </summary>
+            <param name="pointCloudID">ID of the point cloud</param>
+            <param name="points">List of Points</param>
+            <returns>The gameobject that represents the resulting point cloud</returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.DataRendering.PCLDisplayer.CreatePointCloudMesh(System.String,System.Collections.Generic.List{com.Neogoma.Octree.IOctreeCoordnateObject})">
+            <summary>
+            Generates a point cloud mesh with octree using a list of points
+            </summary>
+            <param name="pointCloudId">ID of the point cloud</param>
+            <param name="points">List of points</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.DataRendering.PCLDisplayer.CreatePointCloudMesh(System.String,com.Neogoma.Octree.PointOctree{com.Neogoma.Octree.IOctreeCoordnateObject})">
+            <summary>
+            Generates a point cloud mesh with octree using an octree of points
+            </summary>
+            <param name="pointCloudId"></param>
+            <param name="octree"></param>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.Stardust.DataRendering.ConvertedPointdata">
+            <summary>
+            Converted datas of <see cref="T:com.Neogoma.Stardust.Datamodel.FeaturePoint"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.DataRendering.ConvertedPointdata.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="x">x coordnate</param>
+            <param name="y">y coordnate</param>
+            <param name="z">z coordnate</param>
+            <param name="r">R color</param>
+            <param name="g">G color</param>
+            <param name="b">B color</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.DataRendering.ConvertedPointdata.GetCoordnates">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.DataRendering.ConvertedPointdata.GetColor">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Utils.AndroidPermissionsManager">
+            <summary>
+            Manages the android permissions
+            </summary>
+        </member>
+    </members>
+</doc>

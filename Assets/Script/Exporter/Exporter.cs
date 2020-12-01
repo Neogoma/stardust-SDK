@@ -1,4 +1,3 @@
-using com.Neogoma.HoboDream;
 using com.Neogoma.Stardust.API;
 using com.Neogoma.Stardust.API.Mapping;
 using com.Neogoma.Stardust.Datamodel;
@@ -11,7 +10,7 @@ namespace Neogoma.Stardust.Demo.Mapper
     /// <summary>
     /// Class used to export data to the pointcloud API
     /// </summary>
-    public class Exporter : AbstractDataUploader
+    public class Exporter: MonoBehaviour
     {
         /// <summary>
         /// Text element to show how many pictures were taken
@@ -39,16 +38,28 @@ namespace Neogoma.Stardust.Demo.Mapper
         public UnityEvent sessionInitialized = new UnityEvent();
 
         /// <summary>
+        /// Object manager for setting up the session
+        /// </summary>
+        public ObjectManager objectManager;
+
+        /// <summary>
         /// Showing the session ID
         /// </summary>
         public Text idSession;
 
-        protected override void DoOnAwake()
+        private MapDataUploader dataUploader;
+
+        public void Awake()
         {
             sessionController = SessionController.Instance;
             sessionController.onSessionCreationSucess.AddListener(SessionCreated);
             CreateSession();
 
+            dataUploader = MapDataUploader.Instance;
+            
+            dataUploader.onDataCapturedSucessfully.AddListener(OnDataCaptured);
+            dataUploader.onDataSentSucessfully.AddListener(OnDataSentSuccess);
+            dataUploader.onDatalimitReached.AddListener(OnDataLimitReached);
         }
 
         private void CreateSession()
@@ -59,51 +70,29 @@ namespace Neogoma.Stardust.Demo.Mapper
         private void SessionCreated(Session session)
         {
             idSession.text = session.name;
+            objectManager.SetupSession(session);
+            
             sessionInitialized.Invoke();
-            SetSession(session);
+            
 
         }
-
-        protected override void HandleRequest(string jsonResult, string key)
-        {
-        }
-
 
     
 
-        protected override void HandleRequestFailed(string jsonResult, string key)
+        private void OnDataCaptured(int datacount)
         {
-          
+            pictureTakenText.text = datacount.ToString();
         }
 
-
-        protected override void OnDataCaptured()
+        private void OnDataSentSuccess(int uploadCount)
         {
-            pictureTakenText.text = DataCapturedCount.ToString();
+            pictureSentText.text = uploadCount.ToString();
         }
 
-        protected override void OnDataSentSuccess()
-        {
-            pictureSentText.text = DataSentCount.ToString();
-        }
-
-        protected override void OnDataLimitReached()
+        private void OnDataLimitReached()
         {
             dataLimitReached.gameObject.SetActive(true);
             
-        }
-
-        protected override void HandleSubEvent(IInteractionEvent e)
-        {
-        }
-
-        protected override void OnDataSentFailure()
-        {   
-        }
-
-        protected override InteractiveEventAction[] GetSupportedEventsForSubclass()
-        {
-            return null;
         }
     }
 }

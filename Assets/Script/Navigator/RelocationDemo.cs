@@ -1,6 +1,4 @@
-﻿using com.Neogoma.HoboDream;
-using com.Neogoma.HoboDream.Network;
-using com.Neogoma.Stardust.API;
+﻿using com.Neogoma.Stardust.API;
 using com.Neogoma.Stardust.API.Relocation;
 using com.Neogoma.Stardust.Datamodel;
 using System.Collections;
@@ -10,84 +8,103 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 namespace Neogoma.Stardust.Demo.Navigator
 {
-    public class RelocationDemo : AbstractMapManager
+    /// <summary>
+    /// Demo for a relocation use case
+    /// </summary>
+    public class RelocationDemo:MonoBehaviour
     {
-
-
+        /// <summary>
+        /// Text used to show the download picture status
+        /// </summary>
         public Text downloadingData;
 
+        /// <summary>
+        /// Text used to show the results of the server matching
+        /// </summary>
         public Text matchingResult;
 
-        public Dropdown mapList;
+        /// <summary>
+        /// Dropdown to select the map
+        /// </summary>
+        public Dropdown mapSelectionDropDown;
 
+        /// <summary>
+        /// Button to locate the user
+        /// </summary>
         public Button locateMeButton;
 
         public UnityEvent showResultsEvent = new UnityEvent();
-
+        
         private SessionController sessionController;
+        private MapRelocationManager relocationManager;
+        private Dictionary<int, Session> indexToSession = new Dictionary<int, Session>();
+        
+        
 
+        
+        private Session selectedSession;
 
-        protected override void DoOnAwake()
+        public void Awake()
         {
             sessionController = SessionController.Instance;            
-            mapList.onValueChanged.AddListener(OnMapSelected);
+            mapSelectionDropDown.onValueChanged.AddListener(OnMapSelected);
             sessionController.onAllSessionsRetrieved.AddListener(MapListDownloaded);
             RequireMapList();
+
+            relocationManager = MapRelocationManager.Instance;
+            relocationManager.onMapDownloadedSucessfully.AddListener(OnMapDownloaded);
+            relocationManager.onMapDownloadStarted.AddListener(OnMapStartDownloading);
+            relocationManager.onPositionFound.AddListener(OnPositionMatched);
+            relocationManager.onPositionNotFound.AddListener(OnPositionMatchFailed);
+
+            
         }
 
 
-        protected override InteractiveEventAction[] GetSupportedEventsForSubclass()
-        {
-            return null;
-        }
-
-        protected override void OnMapDownloaded(GameObject map)
+      
+        private void OnMapDownloaded(Session sesison,GameObject map)
         {
             downloadingData.gameObject.SetActive(false);
             locateMeButton.gameObject.SetActive(true);
         }
 
-        protected override void OnMapStartDownloading()
+        private void OnMapStartDownloading()
         {
             downloadingData.gameObject.SetActive(true);
         }
 
-        protected override void OnPositionMatched(MatchingPosition positionMatched)
+        private void OnPositionMatched(MatchingPosition positionMatched)
         {
-
+            
             ShowMatchResults("Located sucessfully!", Color.green);
-            Debug.Log("pos: " + positionMatched);
+            locateMeButton.gameObject.SetActive(false);
+
         }
 
-        protected override void OnPositionMatchFailed()
+        private void OnPositionMatchFailed()
         {
             ShowMatchResults("Failed to locate", Color.red);
         }
 
-        protected override void OnRequestFailed(string jsonResult, string key)
-        {
-        }
-
-        protected override void OnRequestSucess(string jsonResult, string key)
-        {
-        }
-
-
 
         private void MapListDownloaded(Session[] allSessions)
         {
-
+            indexToSession.Clear();
             List<string> mapListDatas = new List<string>();
             mapListDatas.Add("NONE");
+
             for (int i = 0; i < allSessions.Length; i++)
             {
+                Session currentSession = allSessions[i];
+                mapListDatas.Add(currentSession.name);
 
-                mapListDatas.Add(allSessions[i].name);
+
+                indexToSession.Add(i+1, currentSession);
 
             }
 
-            mapList.AddOptions(mapListDatas);
-            mapList.gameObject.SetActive(true);
+            mapSelectionDropDown.AddOptions(mapListDatas);
+            mapSelectionDropDown.gameObject.SetActive(true);
         }
 
         private void ShowMatchResults(string text, Color color)
@@ -95,7 +112,7 @@ namespace Neogoma.Stardust.Demo.Navigator
             matchingResult.color = color;
             matchingResult.text = text;
             matchingResult.gameObject.SetActive(true);
-            StartCoroutine(TextDissapearCoroutine());
+            StartCoroutine(HideTextCoroutine());
             showResultsEvent.Invoke();
         }
 
@@ -107,21 +124,23 @@ namespace Neogoma.Stardust.Demo.Navigator
         private void OnMapSelected(int val)
         {
 
-            mapList.interactable = false;
-            GetDataForMap(mapList.options[val].text);
+
+            selectedSession = indexToSession[val];
 
 
-        }
+            if (selectedSession != null)
+            {
+                mapSelectionDropDown.gameObject.SetActive(false);
+                relocationManager.GetDataForMap(selectedSession);
 
-        private IEnumerator TextDissapearCoroutine()
+            }            
+        }        
+
+        private IEnumerator HideTextCoroutine()
         {
             yield return new WaitForSeconds(3);
             matchingResult.gameObject.SetActive(false);
         }
 
-        protected override void OnHandleEvent(IInteractionEvent eve)
-        {
-
-        }
     }
 }

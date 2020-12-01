@@ -1,7 +1,4 @@
-using com.Neogoma.HoboDream;
-using com.Neogoma.HoboDream.UI.Impl.Buttons;
-using com.Neogoma.Stardust.API;
-using com.Neogoma.Stardust.API.PersistenceObject;
+using com.Neogoma.Stardust.API.Persistence;
 using com.Neogoma.Stardust.Datamodel;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,12 +9,8 @@ namespace Neogoma.Stardust.Demo.Mapper
     /// <summary>
     /// example for creating object
     /// </summary>
-    public class ObjectManager : MonoBehaviour, IInteractiveElementListener
+    public class ObjectManager : MonoBehaviour
     {
-        /// <summary>
-        /// create object button
-        /// </summary>
-        public SimpleCommonButton createObjBtn;
 
         /// <summary>
         /// objectController
@@ -44,18 +37,25 @@ namespace Neogoma.Stardust.Demo.Mapper
         /// </summary>
         private Bundle selectedBundle;
 
+        private Session currentSession;
+
         private Dictionary<int, Bundle> objectDictionary = new Dictionary<int, Bundle>();
         private Transform cam;
-        private InteractiveEventAction[] actions = { InteractiveEventAction.CLICK};
+        
         // Start is called before the first frame update
         void Start()
         {
             objectController = ObjectController.Instance;
-            createObjBtn.AddInteractiveListener(this);
+            
             cam = Camera.main.transform;
             objectController.objectListDownloaded.AddListener(InitializeObjects);
 
+            
             RequestAllObjects();
+        }
+
+        public void SetupSession(Session session) {
+            currentSession = session;
         }
 
         private void RequestAllObjects()
@@ -89,31 +89,14 @@ namespace Neogoma.Stardust.Demo.Mapper
 
             selectedBundle = objectDictionary[prefabDropdown.value];
         }
-        public InteractiveEventAction[] GetSupportedEvents()
+
+        public void CreateSelectedObject()
         {
-            return actions;
+            Vector3 pos = cam.position + cam.forward;
+            Quaternion rot = Quaternion.LookRotation(pos - cam.position, Vector3.up);
+            var local = rot.eulerAngles;
+
+            objectController.CreateAndSaveObject(pos, Quaternion.Euler(0, local.y, 0), Vector3.one * 0.1f,currentSession , selectedBundle, parent);
         }
-
-        public void HandleEvent(IInteractionEvent e)
-        {
-            if (e.GetEventType() == InteractiveEventAction.CLICK)
-            {
-                Vector3 pos = cam.position + cam.forward;
-                Quaternion rot = Quaternion.LookRotation(pos-cam.position,Vector3.up);
-                var local = rot.eulerAngles;
-
-                PersistenceModel persistenceModel = new PersistenceModel(pos,Quaternion.Euler(0,local.y,0), sessionText.text, Vector3.one*0.1f,  selectedBundle);
-
-
-                //create obj
-                objectController.CreateInstance(persistenceModel,parent);
-                objectController.SaveObjectInstance(persistenceModel);
-            }
-        }
-
-       
-        
-
-       
     }
 }
