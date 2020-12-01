@@ -7,14 +7,14 @@ The SDK has multiple controllers each one managing a different part. We divided 
 
 ## Session controller
 The session controller is a singleton that can be called via:
-```
+```cs
 SessionController sessionController=SessionController.Instance();
 ```
 ### Create a new session
 To create a new session you need to call the __CreateMappingSession()__ method AFTER setting up a listener method on the __onSessionCreationSuccess__ event.
 
 The name will be generated randomly but you can modify it in the dashboard.
-```
+```cs
 public void Start(){
 
     //Get the session controller instance
@@ -36,7 +36,7 @@ private void SessionCreated(Session session)
 
 ### Get the list of session
 The session manager also has a method to retrieve the list of **READY** sessions (ready means the session can be relocated).
-```
+```cs
 public void Start(){
     //Get the session controller instance
     SessionController sessionController=SessionController.Instance();
@@ -61,13 +61,13 @@ private void MapListDownloaded(Session[] allSessions)
 
 ## Map Data Uploader
 The Map data uploader is a singleton that can be called via 
-```
+```cs
 MapDataUploader dataUploader = MapDataUploader.Instance;
 ```
 
 ### Events
 The map data uploader has multiple events depending on the situation
-```
+```cs
 public void Start(){
     //Get instance
     MapDataUploader dataUploader = MapDataUploader.Instance;
@@ -103,7 +103,7 @@ private void OnDataLimitReached()
 You can easily control when you send datas or when you stop sending datas via the methods provided by the singleton.
 
 Please note that if you stop the capture, the datas that are stored on device but not sent will still be sent to server.
-```
+```cs
 //Start sending data to server
 public void StartCapturingData(){
     MapDataUploader.Instance.StartSendingData();
@@ -118,7 +118,7 @@ public void StopCapturingData(){
 ### Run generation (new map)
 If you run a generation, be aware that the generation will be done on **UPLOADED DATAS ONLY**.
 
-```
+```cs
 public void GenerateMap(){
     MapDataUploader.Instance.GenerateMap();
 }
@@ -126,7 +126,7 @@ public void GenerateMap(){
 
 ### Run update (existing map)
 In order to update a map you need to setup the session first
-```
+```cs
 public void SetActiveSession(Session session){
     MapDataUploader.Instance.SetSession(selectedSession);
 }
@@ -134,7 +134,7 @@ public void SetActiveSession(Session session){
 
 Once the active session has been setup you can start uploading datas. Once the needed datas have been uploaded you can call the update with the following call
 
-```
+```cs
 public void UpdateMap(){
     MapDataUploader.Instance.UpdateMap();
 }
@@ -142,29 +142,29 @@ public void UpdateMap(){
 
 ## Map relocation manager
 The Map relocation manager is a singleton that can be called via 
-```
+```cs
 MapRelocationManager objectController = MapRelocationManager.Instance;
 ```
 
 ### Events
 The Map relocation manager handles the download of the map data as well as the relocation requests.
 
-```
+```cs
 public void Start{
     //Get instance
     MapRelocationManager relocationManager = MapRelocationManager.Instance;
 
     //Called when the map has been sucessfully downloaded
-    relocationManager.mapDownloadedSucessfully.AddListener(OnMapDownloaded);
+    relocationManager.onMapDownloadedSucessfully.AddListener(OnMapDownloaded);
 
     //Called when the map starts downloading
-    relocationManager.mapDownloadStarted.AddListener(OnMapStartDownloading);
+    relocationManager.onMapDownloadStarted.AddListener(OnMapStartDownloading);
 
     //Called when the position in map has been found after relocation request
-    relocationManager.positionFound.AddListener(OnPositionMatched);
+    relocationManager.onPositionFound.AddListener(OnPositionMatched);
 
     //Called when the position in map has not been found after relocation request
-    relocationManager.positionNotFound.AddListener(OnPositionMatchFailed);
+    relocationManager.onPositionNotFound.AddListener(OnPositionMatchFailed);
 }
 
 private void OnMapDownloaded(Session sesison,GameObject map)
@@ -190,15 +190,19 @@ private void OnPositionMatchFailed()
 ### Setup the map first
 Before calling the relocation you will need to setup the session you want to relocate in using the __GetDataForMap__ function. It will download the map data and setup the relocation manager on this session.
 
-```
+```cs
 public void SelectSession(Session session){
-    MapRelocationManager.Instance.GetDataForMap(selectedSession.uuid);                
+    MapRelocationManager.Instance.GetDataForMap(selectedSession);                
 }
 ```
 
+When the relocation is done it will trigger the  __mapDownloadedSucessfully__ event. The event will contain 2 datas:
+- The session that was requested
+- The gameobject that contains the map data
+
 ### Run relocation
 In order to run the relocation you just have to do the following call
-```
+```cs
 MapRelocationManager.Instance.LocateCurrentPosition();
 ```
 
@@ -206,13 +210,13 @@ If the position can be found then the __positionFound__ event will be triggered 
 
 ## Object controller
 The Object controller is a singleton that can be called via 
-```
+```cs
 ObjectController objectController = ObjectController.Instance;
 ```
 
 ### Get the list of available objects
 The object manager has a method to get your objects as well as every public objects.
-```
+```cs
 public void Start(){
     //Get the instance of the object controller
     ObjectController objectController = ObjectController.Instance;
@@ -241,7 +245,7 @@ First you need to setup the prefab in the Object Controller. A simple example pr
 You can create your own prefab with your own implementation of **AbstractBundleDisplayer** or reuse **BundleDisplayerExample**.
 #### Write the code
 This operation requires a bundle so make sure you know exactly which bundle you want to create, you can use the method above to know the list of bundles you can select from.
-```
+```cs
 //Session has to be setup from outside
 private Session session;
 

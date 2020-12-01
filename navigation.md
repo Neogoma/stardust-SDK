@@ -16,27 +16,27 @@ The Navigator component prefab is separated from the other prefab because not al
 
 ### Pathfinding manager
 The pathfinding manager is the main component responsible for calculating paths to destination. As every basic component it's a singleton that you can get with the following command.
-```
+```cs
 PathFindingManager  pathfindingManager = PathFindingManager.Instance;
 ```
 
 ### Events
 
-```
+```cs
 public void Start(){
     PathFindingManager  pathfindingManager = PathFindingManager.Instance;
 
     //Triggered when the navigation data download starts
-    pathfindingManager.startingDownload.AddListener(DownloadStarted);
+    pathfindingManager.onStartingNavigationDatasDownload.AddListener(DownloadStarted);
     
     //Triggered when the navigation data downlad is finished
-    pathfindingManager.navigationReady.AddListener(PathFindingReady);
+    pathfindingManager.onNavigationDatasReady.AddListener(PathFindingReady);
  
     //Triggered when the system starts calculating pathfinding
-    pathfindingManager.pathCalculated.AddListener(FinishedPathFinding);
+    pathfindingManager.onStartCalculatingPath.AddListener(StartPathfinding);
 
     //Triggered when the system had finished calculating pathfinding
-    pathfindingManager.pathCalculated.AddListener(PathFindingReady);
+    pathfindingManager.onPathCalculated.AddListener(PathFindingCalculated);
 }
 
 //Called when targets have been retrieved
@@ -52,18 +52,20 @@ private void StartPathfinding(){
     Debug.Log("Pathfinding calculation started");
 }
 
-private void FinishedPathfinding(){
+private void PathFindingCalculated(IGraphNode startingPosition){
     Debug.Log("Pathfinding calculation finished);
 }
 ```
 
 ### Display path to target
 Once you selected a target you can just show the path to the target using the following code.
-```
+```cs
 pathfindingManager.ShowPathToTarget(target);
 ```
 
 This will automatically find the shortest path from your position to the designated target. Again this only works in navigable areas defined in mapping/update.
+
+**Note** Path to target will automatically generate the prefabs you setup as a parameter in the **PathfindingManager** separated by 0.5m by default, you can specify the distance yourself using the second parameter of __ShowPathToTarget__
 
 ## Editor
 You can open any map on the editor and select the navigation icon to switch to navigation mode
