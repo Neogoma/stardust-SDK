@@ -3663,8 +3663,9 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 238537070}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: GenerateMap
+        m_TargetAssemblyTypeName: com.Neogoma.Stardust.API.Mapping.MapDataUploader,
+          Stardust
+        m_MethodName: UpdateMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
