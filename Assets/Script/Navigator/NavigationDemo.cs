@@ -1,4 +1,6 @@
 ﻿using com.Neogoma.Stardust.API.Persistence;
+using com.Neogoma.Stardust.API.Relocation;
+using com.Neogoma.Stardust.Datamodel;
 using com.Neogoma.Stardust.Graph;
 using com.Neogoma.Stardust.Navigation;
 using System;
@@ -32,14 +34,14 @@ namespace Neogoma.Stardust.Demo.Navigator
         private void Start()
         {
             pathfindingManager = PathFindingManager.Instance;
-            pathfindingManager.onNavigationDatasReady.AddListener(PathFindingReady);
-            pathfindingManager.onPathCalculated.AddListener(Delta);
+            pathfindingManager.onNavigationDatasReady.AddListener(PathFindingReady);            
             targetSelectionDropDown.onValueChanged.AddListener(OnTargetSelected);
+            MapRelocationManager.Instance.onPositionFound.AddListener(PositionFound);
         }
 
-        private void Delta(IGraphNode arg0)
+        private void PositionFound(MatchingPosition arg0)
         {
-            Debug.Log(arg0.GetCoordnates());
+            targetSelectionDropDown.gameObject.SetActive(targetSelectionDropDown.options.Count > 1);
         }
 
         /// <summary>
