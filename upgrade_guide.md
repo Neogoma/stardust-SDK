@@ -7,6 +7,8 @@
 
 ### After importing the package
 - You can delete the old **StardustComponents** and **StardustComponentsNoAutoLogin** from your project.
-- Import the new **StardustComponents** from the new SDK.
+- Import the prefab **StardustComponents** from the new SDK in your scene.
+- Import the prefab **HobodreamComponents** from the new SDK in your scene.
 - Get your developer api key from the [dashboard](https://stardust.neogoma.com/profile).
+- Fill the API key into the __Stardust SDK__ script of the **StardustComponents**.
 - For better naming conventions **ALL** Uunity events have been renamed with the "on" prefix for example __dataCapturedSucessfully__ has been renamed to __onDataCapturedSucessfully__. Just rename all your event refrences with the prefix "on"
