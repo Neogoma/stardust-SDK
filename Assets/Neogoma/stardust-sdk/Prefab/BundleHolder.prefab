@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 3327516573674027846}
   - component: {fileID: 3644044717729808975}
   - component: {fileID: 7113190411638046054}
-  - component: {fileID: 9085559077641626523}
+  - component: {fileID: 6281838472765659014}
   m_Layer: 5
   m_Name: progressBackground
   m_TagString: Untagged
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &9085559077641626523
+--- !u!95 &6281838472765659014
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -295,7 +295,7 @@ Animator:
   m_GameObject: {fileID: 2693497688399115782}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd0854df4caee7644b25ec11ad3d1377, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8cb9cb2f96f8bac4fb4f2479d3e826eb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
