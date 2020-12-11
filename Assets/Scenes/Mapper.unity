@@ -2128,6 +2128,7 @@ GameObject:
   - component: {fileID: 1211965102}
   - component: {fileID: 1211965101}
   - component: {fileID: 1211965100}
+  - component: {fileID: 1211965104}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: MainCamera
@@ -2235,6 +2236,22 @@ Transform:
   m_Father: {fileID: 852817723}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1211965104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211965098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15f82cc229284894964d2d30806969d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HumanSegmentationStencilMode: 1
+  m_HumanSegmentationDepthMode: 1
+  m_EnvironmentDepthMode: 1
+  m_OcclusionPreferenceMode: 0
 --- !u!1 &1216181880
 GameObject:
   m_ObjectHideFlags: 0
