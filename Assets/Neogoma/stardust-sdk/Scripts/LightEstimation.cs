@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.XR.ARFoundation;
 
 namespace Neogoma.Stardust.LightEstimation
@@ -9,63 +10,79 @@ namespace Neogoma.Stardust.LightEstimation
         
         private Light lightComponent;
 
+        private ARCameraManager arCameraManager;
+
         ///<inheritdoc/>
         public void Start()
         {
 
-            ARCameraManager cameraManager = FindObjectOfType<ARCameraManager>();
+            arCameraManager = FindObjectOfType<ARCameraManager>();
 
-            if (cameraManager == null)
+            if (arCameraManager == null)
             {
                 Debug.LogWarning("No camera manager in scene, light estimation can't be done");
 
                 return;
             }
 
-            cameraManager.frameReceived += OnFrameReceived;
 
             lightComponent = GetComponent<Light>();            
         }
 
-        private void OnFrameReceived(ARCameraFrameEventArgs obj)
+        ///<inheritdoc>/>
+        public void OnEnable()
         {
-            ARLightEstimationData lightEstimation = obj.lightEstimation;
+            arCameraManager.frameReceived -= OnFrameReceived;
 
-            if (lightEstimation.averageBrightness.HasValue)
-            {
-                lightComponent.intensity = lightEstimation.averageBrightness.Value;
+            arCameraManager.frameReceived += OnFrameReceived;
+
+        }
+
+        ///<inheritdoc/>
+        public void OnDisable()
+        {
+            arCameraManager.frameReceived -= OnFrameReceived;
+        }
+
+        private void OnFrameReceived(ARCameraFrameEventArgs args)
+        {
+
+            if (args.lightEstimation.averageBrightness.HasValue)
+            {   
+                lightComponent.intensity = args.lightEstimation.averageBrightness.Value;
             }
 
-            if (lightEstimation.averageColorTemperature.HasValue)
-            {
-                lightComponent.colorTemperature = lightEstimation.averageColorTemperature.Value;
+            if (args.lightEstimation.averageColorTemperature.HasValue)
+            {   
+                lightComponent.colorTemperature = args.lightEstimation.averageColorTemperature.Value;
             }
 
-            if (lightEstimation.colorCorrection.HasValue)
-            {
-                lightComponent.color = lightEstimation.colorCorrection.Value;
+            if (args.lightEstimation.colorCorrection.HasValue)
+            {   
+                lightComponent.color = args.lightEstimation.colorCorrection.Value;
             }
 
-            if (lightEstimation.mainLightDirection.HasValue)
-            {
-                lightComponent.transform.rotation = Quaternion.LookRotation(lightEstimation.mainLightDirection.Value);
+            if (args.lightEstimation.mainLightDirection.HasValue)
+            {   
+                lightComponent.transform.rotation = Quaternion.LookRotation(args.lightEstimation.mainLightDirection.Value);
             }
 
-            if (lightEstimation.mainLightColor.HasValue)
+            if (args.lightEstimation.mainLightColor.HasValue)
             {
-                lightComponent.color = lightEstimation.mainLightColor.Value;
+                
+                lightComponent.color = args.lightEstimation.mainLightColor.Value;
             }
 
-            if (lightEstimation.mainLightIntensityLumens.HasValue)
-            {
-                lightComponent.intensity = lightEstimation.averageMainLightBrightness.Value;
+            if (args.lightEstimation.mainLightIntensityLumens.HasValue)
+            {   
+                lightComponent.intensity = args.lightEstimation.averageMainLightBrightness.Value;
             }
 
-            if (lightEstimation.ambientSphericalHarmonics.HasValue)
-            {
-                RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
-                RenderSettings.ambientProbe = lightEstimation.ambientSphericalHarmonics.Value;
-            }
+            if (args.lightEstimation.ambientSphericalHarmonics.HasValue)
+            {                
+                RenderSettings.ambientMode = AmbientMode.Skybox;
+                RenderSettings.ambientProbe = args.lightEstimation.ambientSphericalHarmonics.Value;
+            }         
         }
     }
 
