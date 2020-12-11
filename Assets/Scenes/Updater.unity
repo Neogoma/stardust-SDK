@@ -583,7 +583,7 @@ MonoBehaviour:
   m_FocusMode: -1
   m_LightEstimationMode: -1
   m_AutoFocus: 1
-  m_LightEstimation: 27
+  m_LightEstimation: 28
   m_FacingDirection: 1
 --- !u!114 &167903134
 MonoBehaviour:
