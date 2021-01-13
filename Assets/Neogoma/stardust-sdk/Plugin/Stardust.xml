@@ -4,6 +4,27 @@
         <name>Stardust</name>
     </assembly>
     <members>
+        <member name="T:com.Neogoma.Stardust.Datamodel.AbstractDatamodelNode">
+            <summary>
+            Defines a model that cna be used as a graph node
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Datamodel.Array`1">
+            <summary>
+            Class to represent an array of items to send to the API
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Datamodel.MatchingPosition">
+            <summary>    
+            datamodel for returned results
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Datamodel.Session">
+            <summary>
+            Class to represent a database session
+            </summary>
+        </member>
         <member name="T:com.Neogoma.Stardust.API.APIAutoLogin">
             <summary>
             Monobehavior script used to login the user on startup use this to login on awake automatically
@@ -187,6 +208,15 @@
             Returns the HTTP connector
             </summary>
         </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.Awake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.GetSupportedEvents">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
+            <inheritdoc/>
+        </member>
         <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.GenerateMap">
             <summary>
             Generates the map
@@ -196,6 +226,12 @@
             <summary>
             Updates the map with latest pictures
             </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.RequestFailed(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.RequestSucess(System.String,System.String)">
+            <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.StartSendingData">
             <summary>
@@ -212,6 +248,11 @@
             Sets the current session
             </summary>
             <param name="sessionData"></param>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Mapping.EventWithCount">
+            <summary>
+            Event with a picture count
+            </summary>
         </member>
         <member name="T:com.Neogoma.Stardust.API.ICameraImageIntrisicsProvider">
             <summary>
@@ -246,14 +287,14 @@
             Load bundle abstract prefab extend this class to define your own behaviors
             </summary>
         </member>
-        <member name="F:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.loadingEvent">
-            <summary>
-            When the loading starts
-            </summary>
-        </member>
         <member name="F:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.downloadFailed">
             <summary>
             When the download fails
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.bundleNotAvailableForPlatform">
+            <summary>
+            When the bundle is not available for current platform
             </summary>
         </member>
         <member name="F:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.downloadFinished">
@@ -266,13 +307,16 @@
             Returns the current model used by the displayer
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.Initialize(com.Neogoma.HoboDream.Network.IBundleDownloader{System.String,com.Neogoma.HoboDream.Network.IBundleDownloadListener},com.Neogoma.HoboDream.Network.IHTTPConnector{System.String,com.Neogoma.HoboDream.Network.IJSonRequestListener},com.Neogoma.Stardust.Datamodel.PersistentObject)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.Initialize(com.Neogoma.HoboDream.Network.IBundleDownloader{System.String,com.Neogoma.HoboDream.Network.IBundleDownloadListener},com.Neogoma.HoboDream.Network.IOBJFilesDownloader{System.String,com.Neogoma.HoboDream.Network.IObjFilesDownloadListener},com.Neogoma.HoboDream.Network.IHTTPConnector{System.String,com.Neogoma.HoboDream.Network.IJSonRequestListener},com.Neogoma.Stardust.Datamodel.PersistentObject)">
             <summary>
             Initialize
             </summary>
             <param name="bundledownloader"></param>
+            <param name="objectDownloader"></param>
+            <param name="connector"></param>
+            <param name="persistenceModel"></param>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.InstantiateBundle(com.Neogoma.HoboDream.Network.IBundleDownloadListener)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.InstantiateBundle">
             <summary>
             create gameObject
             </summary>
@@ -282,21 +326,29 @@
             redownload bundle
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.CheckBundleStatus(System.String,System.String,com.Neogoma.HoboDream.Network.IBundleDownloader{System.String,com.Neogoma.HoboDream.Network.IBundleDownloadListener})">
-            <summary>
-            Check Bundle Status
-            </summary>
-            <param name="markerID"></param>
-            <param name="bundleId"></param>
-            <param name="bundledownloader"></param>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.BundleIsCached(System.String)">
+            <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.DownloadBundle(System.String,System.String,UnityEngine.Hash128,com.Neogoma.HoboDream.Network.IBundleDownloader{System.String,com.Neogoma.HoboDream.Network.IBundleDownloadListener})">
-            <summary>
-            Download Bundle
-            </summary>
-            <param name="bundleName"></param>
-            <param name="bundleId"></param>
-            <param name="bundledownloader"></param>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.BundleIsNotCached(UnityEngine.Hash128,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.DownloadProgress(System.Single,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.RequestSucess(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.RequestFailed(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.ObjectFilesDownloaded(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.OnDestroy">
+            <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.ObjectLoadedSucessfully(UnityEngine.GameObject)">
             <summary>
@@ -315,24 +367,10 @@
             Called when the object download has failed
             </summary>
         </member>
-        <member name="T:com.Neogoma.Stardust.API.Persistence.BundleDisplayerExample">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.ObjectNotAvailable">
             <summary>
-            Base extension of <see cref="T:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer"/>
+            Called when the object is not available on the current platform
             </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Persistence.BundleDisplayerExample.progressBg">
-            <summary>
-            Object used to display the loading progresses
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.BundleDisplayerExample.ObjectLoadedFailure">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.BundleDisplayerExample.ObjectLoadedSucessfully(UnityEngine.GameObject)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.BundleDisplayerExample.OnDownloadUpdate(System.Single)">
-            <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.Stardust.API.Persistence.ObjectCacher">
             <summary>
@@ -383,6 +421,31 @@
             bundle holder prefab
             </summary>
         </member>
+        <member name="F:com.Neogoma.Stardust.API.Persistence.ObjectController.onObjectSavedSuccess">
+            <summary>
+            Event triggered on object saved successfully
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Persistence.ObjectController.onObjectListDownloaded">
+            <summary>
+            Event triggered on object list downloaded
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Persistence.ObjectController.onObjectSavedFailed">
+            <summary>
+            Event triggered on object save filed
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Persistence.ObjectController.onObjectDeleted">
+            <summary>
+            Event triggered on object deletion
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Persistence.ObjectController.onAllObjectsCreatedEvent">
+            <summary>
+            Event triggered on all objects created
+            </summary>
+        </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.Awake">
             <inheritdoc/>
         </member>
@@ -396,6 +459,7 @@
             Create instance of the object in scene
             </summary>
             <param name="persistenceModel">Model to save</param>
+            <param name="parent">Parent of the newly created object</param>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateAndSaveObject(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,com.Neogoma.Stardust.Datamodel.Session,com.Neogoma.Stardust.Datamodel.Bundle,UnityEngine.Transform)">
             <summary>
@@ -403,6 +467,8 @@
             </summary>
             <param name="position">Position of the object in the map</param>
             <param name="rotation">Rotation of the object in the map</param>
+            <param name="scale">Scale of the object on XYZ axis</param>
+            <param name="bundle">Bundle used by the new instance</param>
             <param name="session">Session to add the object to</param>
             <param name="parent">Parent of the newly created object (can be null)</param>
         </member>
@@ -413,7 +479,12 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:com.Neogoma.Stardust.API.Persistence.ObjectController.GetAllModelsInScene" -->
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.GetAllModelsInScene">
+            <summary>
+            Returns the list of all the <see cref="T:com.Neogoma.Stardust.Datamodel.PersistentObject"/> in scene
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.List`1"/></returns>
+        </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.GetAllObjectsInScene">
             <summary>
             Returns the list of all the <seealso cref="T:UnityEngine.GameObject"/> in scene
@@ -462,9 +533,6 @@
         <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.RequestFailed(System.String,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)">
-            <inheritdoc/>
-        </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.BundleIsCached(System.String)">
             <inheritdoc/>
         </member>
@@ -474,10 +542,30 @@
         <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.DownloadProgress(System.Single,System.String)">
             <inheritdoc/>
         </member>
-        <member name="T:com.Neogoma.Stardust.API.Persistence.SaveObject">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.OnDestroy">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Persistence.SaveObjectEvent">
             <summary>
             Unity event using a string
             </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Persistence.AllObjectsCreatedEvent">
+            <summary>
+            event invoked when are objects are created and pass the objects
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AllObjectsCreatedEvent.GetAllObjects">
+            <summary>
+            get all created objects
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AllObjectsCreatedEvent.AddObject(UnityEngine.GameObject)">
+            <summary>
+            add object to list
+            </summary>
+            <param name="obj"></param>
         </member>
         <member name="T:com.Neogoma.Stardust.API.Relocation.MapRelocationManager">
             <summary>
@@ -626,6 +714,12 @@
             Retrieves all sessions that are ready to relocate
             </summary>
         </member>
+        <member name="M:com.Neogoma.Stardust.API.SessionController.RequestSucess(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.SessionController.RequestFailed(System.String,System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:com.Neogoma.Stardust.API.SessionController.SessionEvent">
             <summary>
             Events triggered with a session
@@ -646,30 +740,28 @@
             Developer API key
             </summary>
         </member>
+        <member name="P:com.Neogoma.Stardust.API.StardustSDK.SDKVersion">
+            <summary>
+            Get current version
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.StardustSDK.VersionCorrect">
+            <summary>
+            True if the version is correct according to server, false otherwise
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.StardustSDK.Awake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.StardustSDK.RequestSucess(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.StardustSDK.RequestFailed(System.String,System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:com.Neogoma.Stardust.API.CameraData.ColorExtractor">
             <summary>
             Class used to extract the camera color of a point passed in parameter
-            </summary>
-        </member>
-        <member name="T:com.Neogoma.Stardust.Datamodel.AbstractDatamodelNode">
-            <summary>
-            Defines a model that cna be used as a graph node
-            </summary>
-        </member>
-        <member name="T:com.Neogoma.Stardust.Datamodel.Array`1">
-            <summary>
-            Class to represent an array of items to send to the API
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="T:com.Neogoma.Stardust.Datamodel.MatchingPosition">
-            <summary>    
-            datamodel for returned results
-            </summary>
-        </member>
-        <member name="T:com.Neogoma.Stardust.Datamodel.Session">
-            <summary>
-            Class to represent a database session
             </summary>
         </member>
         <member name="T:com.Neogoma.Stardust.Maths.KalmanFilter`1">

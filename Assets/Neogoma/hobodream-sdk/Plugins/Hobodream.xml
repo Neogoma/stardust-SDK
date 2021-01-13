@@ -120,6 +120,80 @@
             <param name="source">Source of the event</param>
             <param name="data">Data to pass in the vent</param>
         </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.Events.IMaterialUpdateEvent">
+            <summary>
+            Event triggered to update material, by convention this event should be of type <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.UPDATE_MATERIAL"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Events.IMaterialUpdateEvent.GetNewMaterial">
+            <summary>
+            Returns the new material to apply
+            </summary>
+            <returns><see cref="T:UnityEngine.Material"/> updated</returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.Events.IMeshUpdateEvent">
+            <summary>
+            Event triggered to update material, by convention this event should be of type <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.UPDATE_MESH"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Events.IMeshUpdateEvent.GetNewMesh">
+            <summary>
+            Returns the new mesh to apply
+            </summary>
+            <returns><see cref="T:UnityEngine.Mesh"/> updated</returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.Events.IUpdateColorEvent">
+            <summary>
+            Event triggered to update material, by convention this event should be of type <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.COLOR"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Events.IUpdateColorEvent.GetNewColor">
+            <summary>
+            Get the updated color
+            </summary>
+            <returns><see cref="T:UnityEngine.Color"/> to apply</returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.IDraggableObjectOnSurface">
+            <summary>
+            Interface that defines an object that can be dragged on a surface
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElement" />
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.IDraggableObjectOnSurface.DragObjectOnSurface(UnityEngine.Vector3)">
+            <summary>
+            Drags the object on the surface at the desired position
+            </summary>
+            <param name="point">The point.</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.IDraggableSurface">
+            <summary>
+            Defines a surface where <see cref="T:com.Neogoma.HoboDream.Framework.IDraggableObjectOnSurface"/>
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElement" />
+            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElementListener" />
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.IDraggableSurface.SetObjectToMove(com.Neogoma.HoboDream.Framework.IDraggableObjectOnSurface)">
+            <summary>
+            Sets the object to move.
+            </summary>
+            <param name="obj">The object.</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.IDraggableSurface.ClearObjectToMove">
+            <summary>
+            Clears the object to move.
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.IEnableDisableBehavior">
+            <summary>
+            Interface to define a behavior that can be enabled/disabled
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.IEnableDisableBehavior.SetBehaviorActive(System.Boolean)">
+            <summary>
+            Sets the behavior active.
+            </summary>
+            <param name="active">if set to <c>true</c> [active].</param>
+        </member>
         <member name="T:com.Neogoma.HoboDream.Framework.BaseCollisionInteractive">
             <inheritdoc />
             <summary>
@@ -128,6 +202,18 @@
             </summary>
             <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractCollisionEventActivator"/>
         </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.BaseCollisionInteractive.DoOnAwake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.BaseCollisionInteractive.DoOnDestroy">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.BaseCollisionInteractive.GetEvent">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.BaseCollisionInteractive.GetEventType">
+            <inheritdoc/>
+        </member>
         <member name="T:com.Neogoma.HoboDream.Framework.BaseTriggerInteractive">
             <inheritdoc />
             <summary>
@@ -135,6 +221,30 @@
             Triggers <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_ENTER"/>, <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_EXIT"/>, <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_STAY"/>
             </summary>
             <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator"/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.BaseTriggerInteractive.DoOnAwake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.BaseTriggerInteractive.DoOnDestroy">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.BaseTriggerInteractive.GetTriggerEnterEvent(UnityEngine.Collider)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.BaseTriggerInteractive.GetTriggerEnterEventType">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.BaseTriggerInteractive.GetTriggerExitEvent(UnityEngine.Collider)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.BaseTriggerInteractive.GetTriggerExitEventType">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.BaseTriggerInteractive.GetTriggerStayEvent(UnityEngine.Collider)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.BaseTriggerInteractive.GetTriggerStayEventType">
+            <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ButtonUpdateParticleSystem">
             <inheritdoc />
@@ -156,6 +266,9 @@
             <summary>
             The new particle sprite
             </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ButtonUpdateParticleSystem.ClickAction">
+            <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem">
             <inheritdoc />
@@ -204,6 +317,9 @@
             The particle color
             </summary>
         </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.Awake">
+            <inheritdoc/>
+        </member>
         <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.ShootParticles(System.Int32)">
             <summary>
             Shoots the particles.
@@ -233,6 +349,14 @@
             </summary>
             <param name="color">The color.</param>
         </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.Update">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.CoolParticleSystem.StopParticles">
+            <summary>
+            Stops all particles emission
+            </summary>
+        </member>
         <member name="T:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleBehavior">
             <inheritdoc />
             <summary>
@@ -250,11 +374,20 @@
             Biggest particle size
             </summary>
         </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleBehavior.particleRenderer">
+            <summary>
+            Particle object renderer
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleBehavior.Awake">
+            <inheritdoc/>
+        </member>
         <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleBehavior.SetupParticle(com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData,UnityEngine.Texture)">
             <summary>
             Setups the particle.
             </summary>
             <param name="data">The data.</param>
+            <param name="textureToApply">Texture to apply on the particle</param>
         </member>
         <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleBehavior.UpdatePosition(System.Single)">
             <summary>
@@ -286,11 +419,6 @@
             Current particle angle
             </summary>
         </member>
-        <member name="P:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData.StarterTransform">
-            <summary>
-            transform at particle start
-            </summary>
-        </member>
         <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData.#ctor(UnityEngine.Vector3,System.Single,System.Single,UnityEngine.Transform,UnityEngine.Color)">
             <summary>
             Initializes a new instance of the <see cref="T:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData"/> class.
@@ -299,6 +427,7 @@
             <param name="lifetime">The lifetime.</param>
             <param name="angle">The angle.</param>
             <param name="transform">The transform.</param>
+            <param name="color">The color of the particle at start</param>
         </member>
         <member name="T:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleObjectPool">
             <inheritdoc />
@@ -315,6 +444,12 @@
             <param name="originTransform"></param>
             <param name="defaultTexture"></param>
             <param name="listeners"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleObjectPool.InitializeGameobject(UnityEngine.GameObject,com.Neogoma.HoboDream.IInteractiveElementListener[],com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleObjectPool.UpdateGameObject(UnityEngine.GameObject,com.Neogoma.HoboDream.IInteractiveElementListener[],com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleData)">
+            <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.HoboDream.Framework.CoolParticleSystem.ParticleObjectPool.UpdateParticles(System.Single)">
             <summary>
@@ -345,6 +480,9 @@
             Release object
             </summary>
         </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Interactions.NormalTouchClickObject.Start">
+            <inheritdoc/>
+        </member>
         <member name="M:com.Neogoma.HoboDream.Framework.Interactions.NormalTouchClickObject.OnDrag(UnityEngine.Vector3,UnityEngine.Vector3)">
             <summary>
             Drag object Event 
@@ -367,11 +505,44 @@
             <typeparam name="T">Component to return</typeparam>
             <returns></returns>
         </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Interactions.NormalTouchClickObject.OnStart">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Interactions.NormalTouchClickObject.ClickObject(UnityEngine.Vector3)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Interactions.NormalTouchClickObject.ReleaseObject">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Interactions.NormalTouchClickObject.DragObject(UnityEngine.Vector3,UnityEngine.Vector3)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Interactions.NormalTouchClickObject.DoOnDestroy">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Interactions.NormalTouchClickObject.DoOnAwake">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.Interactions.ObjectDragged">
+            <summary>
+            Event triggered in case of drag
+            </summary>
+        </member>
         <member name="T:com.Neogoma.HoboDream.Framework.Interactions.DragInteractionEvent">
             <summary>
             Drag Interaction Event
-            拖拽交互事件
             </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Framework.Interactions.DragInteractionEvent.DragPosition">
+            <summary>
+            Position of the finger post drag
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Interactions.DragInteractionEvent.#ctor(com.Neogoma.HoboDream.IInteractiveElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="source"></param>
         </member>
         <member name="T:com.Neogoma.HoboDream.Framework.IObjectGeneratedEvent">
             <summary>
@@ -391,6 +562,28 @@
             
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Framework.IRaycasterObject">
+            <summary>
+            Interface to define an object that can be raycaset by a CameraRayCaster
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.IRaycasterObject.RaycastStayObject(UnityEngine.Vector3)">
+            <summary>
+            Raycasts stay on the object.
+            </summary>
+            <param name="position">The position.</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.IRaycasterObject.RaycastOnObject(UnityEngine.Vector3)">
+            <summary>
+            Raycasts just on the object.
+            </summary>
+            <param name="position">The position.</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.IRaycasterObject.RaycastLoseObject">
+            <summary>
+            Raycasts lose the object.
+            </summary>
         </member>
         <member name="T:com.Neogoma.HoboDream.Framework.ITouchClickObject">
             <inheritdoc />
@@ -452,6 +645,18 @@
             Starting point of the path
             </summary>
         </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Navigator.PathNavigatorController.GetSupportedEvents">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Navigator.PathNavigatorController.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Navigator.PathNavigatorController.Start">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Navigator.PathNavigatorController.Update">
+            <inheritdoc/>
+        </member>
         <member name="M:com.Neogoma.HoboDream.Framework.Navigator.PathNavigatorController.StartNav">
             <summary>
             start navigation
@@ -462,6 +667,12 @@
             stop navigation
             </summary>
         </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Navigator.PathNavigatorController.DoOnDestroy">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Navigator.PathNavigatorController.DoOnAwake">
+            <inheritdoc/>
+        </member>
         <member name="T:com.Neogoma.HoboDream.Framework.Navigator.PathNodeController">
             <inheritdoc />
             <summary>
@@ -469,11 +680,34 @@
             Notifies <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.START_WAITING"/> and <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.STOP_WAITING"/>
             </summary>
         </member>
+        <member name="F:com.Neogoma.HoboDream.Framework.Navigator.PathNodeController.waitTime">
+            <summary>
+            waiting time between 2 nodes
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Navigator.PathNodeController.Start">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Navigator.PathNodeController.Arrived(com.Neogoma.HoboDream.IInteractionEvent)">
+            <summary>
+            Action triggered when the agent has arived at a node
+            </summary>
+            <param name="arrived"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Navigator.PathNodeController.DoOnDestroy">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Navigator.PathNodeController.DoOnAwake">
+            <inheritdoc/>
+        </member>
         <member name="T:com.Neogoma.HoboDream.Framework.Reset.PositionReset">
             <inheritdoc />
             <summary>
             Resets the position of an object to its initial position in the scene (WORLD POSITION)
             </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Framework.Reset.PositionReset.Start">
+            <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.HoboDream.Framework.Reset.PositionReset.ResetPosition">
             <summary>
@@ -508,6 +742,1104 @@
             <summary>
             Shoots the object from the starting point
             </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.OBJFilesDownloader.DownloadComplete(System.String,System.String,System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.OBJFilesDownloader.DownloadObjectFiles(System.String,System.String[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.OBJFilesDownloader.DownloadObjectFiles(System.String,System.String,System.String[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.OBJFilesDownloader.DownloadObjectFiles(System.String,System.String,System.String[],System.String[],System.String[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.OBJFilesDownloader.Logout">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.OBJFilesDownloader.RequestFailed(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3">
+            <inheritdoc />
+            <summary>
+            Abstract implementation of the IHTTPConnector
+            </summary>
+            <typeparam name="T">
+            Type of key to retrieve the listener
+            </typeparam>
+            <typeparam name="L">The type of listener
+            </typeparam>
+            <typeparam name="R">The type of listener
+            </typeparam>
+            <seealso cref="T:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2"/>
+            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/>
+            <seealso cref="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2"/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.GetDownloadHandler">
+            <summary>
+            Allows the child classes to specify their own download handlers!
+            </summary>
+            <returns>The specific download handler for the class
+            </returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.GetMethod(System.String)">
+            <summary>
+            Returns the method to be used
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.GetCacheHandler">
+            <summary>
+            Returns the cache handler of the downloader
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.NotifyListenerOfRequestSucess(`0,`1,UnityEngine.Networking.UnityWebRequest)">
+            <summary>
+            This method will notify the listener and execute the necessaries operation when the result will be received from the HTTP request
+            </summary>
+            <param name="listenerKey">Key of the listener</param>
+            <param name="listener">Reference to the listener</param>
+            <param name="wwRequest">Result of the HTTP request</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.NotifyListenerWithLocalCache(`0,`1,`2)">
+             <summary>
+            This method will notify the listener and execute the necessaries operation when the result will be received from the cache
+             </summary>
+             <param name="listenerKey">Key of the listener</param>
+             <param name="listener">Reference to the listener</param>
+             <param name="cachedValue">Result of the HTTP request</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2">
+            <inheritdoc />
+            <summary>
+            Abstract implementation with a dictionary
+            </summary>
+            <typeparam name="T">
+            Type of key to retrieve the listener
+            </typeparam>
+            <typeparam name="L">The type of listener   
+            </typeparam>
+            <seealso cref="T:com.Neogoma.HoboDream.Network.IWebNotifier`2"/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2.AddRequestListener(`0,`1)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2.AddRequestListener(`0,`1,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2.RemoveRequestListener(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2.GetListeners(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2.Logout">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader">
+            <inheritdoc />
+            <summary>
+            Downloader for assetbundles
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Network.IBundleDownloader`2"/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.RequestBundle(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.RequestBundle(System.String,System.String,System.String[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.RequestBundle(System.String,System.String,UnityEngine.Hash128,System.String[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.CheckIfBundleLoaded(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.RequestBundle(System.String,System.String,System.Boolean,System.String[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.RequestBundle(System.String,System.String,UnityEngine.Hash128,System.Boolean,System.String[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.CheckIfBundleLoaded(System.String,System.String,System.Boolean,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.Logout">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.UnloadAndCleanupAssets">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.NotifyListenersWithFailed(System.String,System.String[])">
+            <summary>
+            异常处理
+            Error Dispatcher
+            </summary>
+            <param name="jsonResult"></param>
+            <param name="listenerKeys"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.ClearCachedBundle(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.AssetBundleManager">
+            <inheritdoc />
+            <summary>
+            This class is used to cache the bundle asset values to avoid reloading multiple times the same bundles
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler">
+            <inheritdoc />
+            <summary>
+            Cache handler implementation for texture 2d
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.GetTexturePath(System.String)">
+            <summary>
+            Returns the texture path
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.ExtractPicNameFromURL(System.String)">
+            <summary>
+            Gets the picture name from the given URL
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.WritingFilesThread">
+            <summary>
+            Thread class to write file on disk
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.WritingFilesThread.WritePictureOnDisk">
+            <summary>
+            Writes the picture on disk
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.TextureLoadedEvent">
+            <summary>
+            Base private implementation of the cache checked event
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.FileDownloader">
+            <inheritdoc />
+            <summary>
+            Class used to download files
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3"/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.JSonDownloader">
+            <inheritdoc />
+            <summary>
+            Class used for basic text downloads    
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3"/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.Internal.TextureDownloader">
+            <inheritdoc />
+            <summary>
+            Basic implementation of the texture downloader    
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3"/>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IOBJFilesDownloader`2">
+            <summary>
+            Downloader t
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="L"></typeparam>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IOBJFilesDownloader`2.DownloadObjectFiles(System.String,`0[])">
+            <summary>
+            Simple downloader with only the OBJ url, will notify <see cref="M:com.Neogoma.HoboDream.Network.IObjFilesDownloadListener.ObjectFilesDownloaded(System.String,System.String)"/> on sucess
+            </summary>
+            <param name="objectUrl">URL of the object to download</param>
+            <param name="listenerKeys">Listeners to notify</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IOBJFilesDownloader`2.DownloadObjectFiles(System.String,System.String,`0[])">
+            <summary>
+            Simple downloader with object and an identifier (to put in a specific directory), will notify <see cref="M:com.Neogoma.HoboDream.Network.IObjFilesDownloadListener.ObjectFilesDownloaded(System.String,System.String)"/> on sucess
+            </summary>
+            <param name="objectUrl">URL of the obj file to download</param>
+            <param name="directory">Local directory in <see cref="P:UnityEngine.Application.streamingAssetsPath"/></param>
+            <param name="listenerKeys">Listeners to notify</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IOBJFilesDownloader`2.DownloadObjectFiles(System.String,System.String,System.String[],System.String[],`0[])">
+            <summary>
+            Downloader that takes an array of string representing .mtl files and textures files URL's
+            </summary>
+            <param name="objectUrl">URL of the object</param>
+            <param name="directory">Local directory in <see cref="P:UnityEngine.Application.streamingAssetsPath"/></param>
+            <param name="matUrl">Array of string containing url's to the .mtl files</param>
+            <param name="texUrl">Array of string containing url's to the texture files</param>
+            <param name="listenerKeys">Listeners to notify</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IObjFilesDownloadListener">
+            <summary>
+            Listener for OBJ Files download operations
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IObjFilesDownloadListener.ObjectFilesDownloaded(System.String,System.String)">
+            <summary>
+            Triggered when all the files requested have been downloaded.
+            </summary>
+            <param name="objectPath">The main .obj path file</param>
+            <param name="key">The listener key</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IObjFilesDownloadListener.DownloadProgress(System.Single,System.String)">
+            <summary>
+            Triggered when download progress updates
+            </summary>
+            <param name="progress">Float represending the download progress (between 0 and 1)</param>
+            <param name="key">The listener key</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IBundleDownloader`2">
+            <inheritdoc />
+            <summary>
+            This interface defines a class that will be able to download assetbundles online.
+            When all the assetbundles will be loaded, the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> method will be called.
+            The download progress is notified at each step with the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/>
+            The implementation should make sure that the scenes are loaded last to avoid any problems with unloaded assets.
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String)">
+            <inheritdoc />
+            <summary>
+            Sends a bundle request using the url and the name bundle
+            </summary>
+            <param name="url">Folder URL of the bundle
+            </param>
+            <param name="bundleName">Name of the bundle
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String,`0[])">
+            <inheritdoc />
+            <summary>
+            Sends a bundle request using the url and the name bundle.
+            <br></br> <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> is called in case of sucess <br></br>
+            <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/> is called at each step
+            </summary>
+            <param name="url">Folder URL of the bundle
+            </param>
+            <param name="bundleName">Name of the bundle</param>
+            <param name="listenerKey">Key of the listener</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String,System.Boolean,`0[])">
+            <inheritdoc />
+            <summary>
+            Sends a bundle request using the url and the name bundle.
+            <br></br> <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> is called in case of sucess <br></br>
+            <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/> is called at each step
+            </summary>
+            <param name="url">Folder URL of the bundle</param>
+            <param name="bundleName">Name of the bundle</param>
+            <param name="clearListenerOnSuccess">Will cleanup the listeners when the request ends succesfully</param>
+            <param name="listenerKey">Key of the listener</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String,UnityEngine.Hash128,`0[])">
+            <inheritdoc />
+            <summary>
+            Sends a bundle request using the url and the name bundle Notifies the listener at the end of the request.
+            <br></br>This method takes <see cref="T:UnityEngine.Hash128"/> check in parameter to evaluate the version.
+            <br></br>If you want to use the unity bundle cache you should call this method !
+            <br></br> <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> is called in case of sucess <br></br>
+            <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/> is called at each step
+            </summary>
+            <param name="url">
+            Folder URL of the bundle</param>
+            <param name="bundleName">Name of the bundle</param>
+            <param name="listenerKey">Key of the listener</param>
+            <param name="hash">Hash code of the required assetbundle
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String,UnityEngine.Hash128,System.Boolean,`0[])">
+            <inheritdoc />
+            <summary>
+            Sends a bundle request using the url and the name bundle Notifies the listener at the end of the request.
+            <br></br>This method takes <see cref="T:UnityEngine.Hash128"/> check in parameter to evaluate the version.
+            <br></br>If you want to use the unity bundle cache you should call this method !
+            <br></br> <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> is called in case of sucess <br></br>
+            <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/> is called at each step
+            </summary>
+            <param name="url">
+            Folder URL of the bundle</param>
+            <param name="bundleName">Name of the bundle</param>
+            <param name="listenerKey">Key of the listener</param>
+            <param name="clearListenerOnSuccess">Will cleanup the listeners when the request ends succesfully</param>
+            <param name="hash">Hash code of the required assetbundle</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.CheckIfBundleLoaded(System.String,System.String,System.String)">
+            <inheritdoc />
+            <summary>
+            Checks if the bundle version has already been downloaded.<br></br>
+            If the bundle has already been downloaded it will load it automatically, the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsCached(System.String)"/> will be called <br></br>
+            followed by the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> in case of success<br></br>
+            If the bundle is not cached then the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsNotCached(UnityEngine.Hash128,System.String)"/> will be called
+            </summary>
+            <param name="url">Folder URL of the bundle       </param>
+            <param name="bundleName">Name of the  </param>
+            <param name="listenerKey">Key of the listener </param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.CheckIfBundleLoaded(System.String,System.String,System.Boolean,System.String)">
+            <inheritdoc />
+            <summary>
+            Checks if the bundle version has already been downloaded.<br></br>
+            If the bundle has already been downloaded it will load it automatically, the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsCached(System.String)"/> will be called <br></br>
+            followed by the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> in case of success<br></br>
+            If the bundle is not cached then the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsNotCached(UnityEngine.Hash128,System.String)"/> will be called
+            </summary>
+            <param name="url">Folder URL of the bundle
+            </param>
+            <param name="bundleName">Name of the bundle
+            </param>
+            <param name="clearListenerOnSuccess">Will cleanup the listeners when the request ends succesfully</param>
+            <param name="listenerKey">Key of the listener
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.ClearCache">
+            <summary>
+            Clears the cache of all the bundles on disk
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.ClearCachedBundle(System.String)">
+            <summary>
+            Clears the cache for specific bundle on disk
+            </summary>
+            <param name="name">Name of the bundle to delete</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.UnloadAndCleanupAssets">
+            <summary>
+            Unloads and cleanup the assets in memory
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IBundleDownloadListener">
+            <inheritdoc />
+            <summary>
+            Listener used to listen to the result of a bundle download, this listener will be able to get the available scenes as well as all the assets names
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)">
+            <summary>
+            This method is triggered whenever the asset bundle loading worked correctly.
+            </summary>
+            <param name="allScenesPath">Array that contains the path to every scenes (*.unity)
+            </param>
+            <param name="allBundles">Array that contains all the assetbundles
+            </param>
+            <param name="key">String Key of the listener
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsCached(System.String)">
+            <summary>
+            Called when the searched bundle is already cached on disk
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsNotCached(UnityEngine.Hash128,System.String)">
+            <summary>
+            Called when the searched bundle is not cached on disk
+            </summary>
+            <param name="currentHash">Online hash value</param>
+            <param name="listenerKey">Listener key to notify</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)">
+            <summary>
+            Updates the progress status of the download
+            </summary>
+            <param name="progressPercentage">The progress percentage (between 0 and 1).</param>
+            <param name="listenerKey">The listener key.</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.ICacheCheckedEvent`2">
+            <inheritdoc />
+            <summary>
+            Interface for <see cref="T:com.Neogoma.HoboDream.IInteractionEvent"/> triggered when checking the disk cache
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="K"></typeparam>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.ICacheCheckedEvent`2.GetCachedData">
+            <summary>
+            Returns the cached data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.ICacheCheckedEvent`2.GetDataContainer">
+            <summary>
+            Returns the data container for the event
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.ICacheHandler`2">
+            <inheritdoc />
+            <summary>
+            Interface that defines a cached system using <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.ICacheHandler`2.FindCachedData(System.String,UnityEngine.WWWForm,System.Boolean,`1[])">
+            <summary>
+            Launches a coroutine to retrieve the cached data
+            </summary>
+            <param name="url">URL to check</param>
+            <param name="form">Form to use</param>
+            <param name="clearListeners">TRue if clear the listeners at the end of request</param>
+            <param name="listenerKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.ICacheHandler`2.StoreData(System.String,UnityEngine.Networking.UnityWebRequest)">
+            <summary>
+            Stores the data in the cache
+            </summary>
+            <param name="name">data identifier</param>
+            <param name="webrequest">Request</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.ICacheHandler`2.CleanupDownloadedData(System.String)">
+            <summary>
+            Cleanup downloaded texture from the cache! Delete the file or the JSON file....
+            </summary>
+            <param name="name">Name of the texture</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IFileDownloaderListener">
+            <inheritdoc />
+            <summary>
+            Called when the request was sucessfully completed, the method also communicates which listener was called. Used to manage Files results
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IFileDownloaderListener.DownloadComplete(System.String,System.String,System.Byte[])">
+             <summary>
+             Called when the request was sucessfully completed
+             </summary>
+             <param name="listenerKey">>String Key of the listener
+            </param>       
+             <param name="fileName">Name of the downloaded file
+             </param>
+             <param name="data">Bytes array result of the request
+            </param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IHTTPConnector`2">
+             <inheritdoc />
+             <summary>
+             Interface used to define an Connector class to communicate with a server, all the HTTP request will go trough this interface. Classes implementing this interface will have to maintain a list of Listeners all identified with a key. This connector will communicate with the server using HTTP requests
+             </summary>
+             <typeparam name="T">
+             Type of key to retrieve the listener
+            </typeparam>
+             <typeparam name="L">The type of listener
+             </typeparam>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.RequestURL(System.String,`0[])">
+             <summary>
+             Request an URL to the server, the listener associated with the key will be notified with the request results
+             </summary>
+             <param name="url">URL Request
+            </param>
+             <param name="listenerKeys">Listeners keys to me notified at the end of the request
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.RequestURL(System.String,System.Boolean,`0[])">
+             <summary>
+             Request an URL to the server, the listener associated with the key will be notified with the request results
+             </summary>
+             <param name="url">URL Request
+            </param>
+             <param name="clearListeners">TRUE if the listeners should be removed from the List after notification,
+             FALSE otherwise
+             </param>
+             <param name="listenerKeys">Listeners keys to be notified at the end of the request
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.RequestURL(System.String,UnityEngine.WWWForm,`0[])">
+             <summary>
+             Request an URL to the server using a form, the listener associated with the key will be notified with the request results
+             </summary>
+             <param name="url">URL Request
+            </param>
+             <param name="form">WWWForm to use for the request
+             </param>
+             <param name="listenerKeys">Listeners keys to be notified at the end of the request
+             </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.RequestURL(System.String,UnityEngine.WWWForm,System.Boolean,`0[])">
+            <summary>
+            Request an URL to the server using a form, the listener associated with the key will be notified with the request results
+            </summary>
+            <param name="url">URL Request
+            </param>
+            <param name="form">WWWForm to use for the request
+            </param>
+            <param name="clearListeners">TRUE if the listeners should be removed from the List after notification,
+            FALSE otherwise
+            </param>
+            <param name="listenerKeys">Listeners keys to me notified at the end of the request
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.DeleteSecurityToken">
+            <summary>
+            Delete the JSON security token
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2">
+            <inheritdoc />
+            <summary>
+            Class that defines an HTTP Connector element that has listeners
+            </summary>
+            <typeparam name="T">
+            Type of key to retrieve the listener
+            </typeparam>
+            <typeparam name="L">The type of listener
+            </typeparam>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IJSonRequestListener">
+            <inheritdoc />
+             <summary>
+             Interface used to listen the JSON/Text data requests triggered by <see cref="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2"/>
+             </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IJSonRequestListener.RequestSucess(System.String,System.String)">
+            <summary>
+            Called when the request was sucessfully completed, the method also communicates which listener was called. Used to manage JSOnResults
+            </summary>
+            <param name="jsonResult">String resulting from the parameter
+            </param>
+            <param name="key">String Key of the listener
+            </param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IKeyListenerItem">
+            <inheritdoc />
+            <summary>
+            Interface that defines the behavior of a class that will associate a keytype with a value type
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IKeyListenerItem.GetListenerType">
+            <summary>
+            Returns the type of listener used by this notifier
+            </summary>
+            <returns>/// Returns the type of listener used by this notifier</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IKeyListenerItem.GetKeyType">
+            <summary>
+            Returns the type of key used by this notifier
+            </summary>
+            <returns>Returns the type of key used by this notifier</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IKeyListenerItem.Logout">
+            <summary>
+            Performs all the logout logic
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.RequestDataContainer`1">
+            <inheritdoc />
+            <summary>
+            Class used to pass the HTTP request parameters data to different requests in order to retrieve cash
+            </summary>
+            <typeparam name="T">Type of listeners</typeparam>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Network.RequestDataContainer`1.URL">
+            <summary>
+            Requested URL
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Network.RequestDataContainer`1.Form">
+            <summary>
+            Requested url form
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Network.RequestDataContainer`1.ListenerKeys">
+            <summary>
+            Listeners keys
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Network.RequestDataContainer`1.ClearListeners">
+            <summary>
+            Clears all listeners
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.RequestDataContainer`1.#ctor(System.String,UnityEngine.WWWForm,System.Boolean,`0[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="url">URL of the Request</param>
+            <param name="form">Form of the request</param>
+            <param name="clearListeners">If set to true will cleanup all listeners on end</param>
+            <param name="listenerKeys">Listeners ot notify</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IRequestHandlerListener`1">
+            <inheritdoc />
+             <summary>
+             Interface used to listen the Failed requests
+             </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IRequestHandlerListener`1.RequestFailed(System.String,`0)">
+            <summary>
+            Called when the request was Failed , the method also communicates which listener was called.
+            </summary>
+            <param name="error">String error triggered
+            </param>
+            <param name="key">String Key of the listener
+            </param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.ITextureDownloadListener">
+            <inheritdoc />
+            <summary>
+            Interface that defines the behavior of a listener for a loading texture request
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.ITextureDownloadListener.TextureLoaded(System.String,UnityEngine.Texture2D)">
+            <summary>
+            Called when a texture has been completely downloaded
+            </summary>
+            <param name="listenerKey">Key of the listener
+            </param>
+            <param name="texture">Texture downloaded from the WWW request
+            </param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IWebNotifier`2">
+            <inheritdoc />
+            <summary>
+            This interface defines the behavior of an web notifier class. This class will maintain a list of listeners and notify the listeners with a request result
+            </summary>
+            <typeparam name="T">
+            Type of key to retrieve the listener
+            </typeparam>
+            <typeparam name="L">The type of listener
+            </typeparam>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IWebNotifier`2.AddRequestListener(`0,`1)">
+            <summary>
+            Adds a listener to the connector
+            </summary>
+            <param name="callKey">Key of the listener
+            </param>
+            <param name="listener">Listener to add
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IWebNotifier`2.AddRequestListener(`0,`1,System.Boolean)">
+            <summary>
+            Adds a listener to the connector with the option to force the replacement if the listener is already registered
+            </summary>
+            <param name="callKey">Key of the listener
+            </param>
+            <param name="listener">
+            Listener to add
+            </param>
+            <param name="force">True if you want to replace the listener if it already exists, false otherwise
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IWebNotifier`2.RemoveRequestListener(`0)">
+            <summary>
+            Removes the associated listener from the Connector
+            </summary>
+            <param name="listenerKey">Key of the listener
+            </param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IWebNotifier`2.GetListeners(`0)">
+            <summary>
+            Returns the associated listener with the key        
+            </summary>
+            <param name="key">Key of the listener
+            </param>
+            <returns>
+            Listener associated with the key
+            </returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.NetworkProvider">
+            <summary>
+            Factory class that will provide the user with the necessaries class for internet calls.<br></br>
+            It's recommended to use the method <see cref="M:com.Neogoma.HoboDream.Network.NetworkProvider.GetDefaultHTTPNotifier``1"/> to get the default loader.    <br></br>
+            If you implemented your own versions of the listener then:<br></br>
+            You can define your own downloaders with their own behaviors by implementing <see cref="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2"/>, it will be automatically loaded in the Network Prodivder.<br></br>
+            If you want to get the specific downloader you need to use the <see cref="M:com.Neogoma.HoboDream.Network.NetworkProvider.GetDownloader``1"/> method and specify your <see cref="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2"/> type
+            </summary>    
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Network.NetworkProvider.Instance">
+            <summary>
+            Get the instance of the <see cref="T:com.Neogoma.HoboDream.Network.NetworkProvider"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.Awake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.GetDownloader``1">
+            <summary>
+            Returns the downloader that match the characteristics of the type in parameter
+            </summary>
+            <typeparam name="T">Type of downloader to request
+            </typeparam>
+            <returns>Returns the downloader that match the parameters
+            </returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.GetDefaultHTTPNotifier``1">
+            <summary>
+            This method will return the default downloader for the specified listener
+            The default downloader is the one using string as key
+            </summary>
+            <typeparam name="L">Type of listener to used by the notifier
+            </typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.IsLoggedIn">
+            <summary>
+            Returns the logged in status of the current user using the token
+            </summary>
+            <returns>
+            TRUE if user is logged in
+            FALSE otherwise
+            </returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.Logout">
+            <summary>
+            Cleanup all the security json tokens
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.OnDestroy">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.SetAPIToken(System.String)">
+            <summary>
+            Sets the API token for all requests
+            </summary>
+            <param name="token">Token to register</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.IsAPITokenSetup">
+            <summary>
+            Indicates if the API token is setup or not 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation">
+            <summary>
+            System used to evaluate the Platform DLC name
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.ANDROID">
+            <summary>
+            The android platform constant name
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.IOS">
+            <summary>
+            The ios platform constant name
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.WINDOWS">
+            <summary>
+            The windows platform constant name
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.WEB_GL">
+            <summary>
+            The webGl platform constant name
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.MAC">
+            <summary>
+            The mac platform constant name
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.LINUX">
+            <summary>
+            The linux platform constant name
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.GetBundleOSName">
+            <summary>
+            Gets the name of the bundle os.
+            </summary>
+            <returns><see cref="T:UnityEngine.RuntimePlatform"/> type </returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.OBJImport.CharWordReader">
+            <summary>
+            read the characters on a stream
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.OBJImport.MTLLoader">
+            <summary>
+            This class is used to load the material data files
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.MTLLoader.TextureLoadFunction(System.String,System.Boolean)">
+            <summary>
+            The texture loading function. Overridable for stream loading purposes.
+            </summary>
+            <param name="path">The path supplied by the OBJ file, converted to OS path seperation</param>
+            <param name="isNormalMap">Whether the loader is requesting we convert this into a normal map</param>
+            <returns>Texture2D if found, or NULL if missing</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.MTLLoader.Load(System.IO.Stream)">
+            <summary>
+            Loads a *.mtl file
+            </summary>
+            <param name="input">The input stream from the MTL file</param>
+            <returns>Dictionary containing loaded materials</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.MTLLoader.Load(System.String)">
+            <summary>
+            Loads a *.mtl file
+            </summary>
+            <param name="path">The path to the MTL file</param>
+            <returns>Dictionary containing loaded materials</returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.OBJImport.OBJLoader">
+            <summary>
+            use this class to load obj files
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.OBJImport.OBJLoader.SplitMode">
+            <summary>
+            Determines how objects will be created
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.OBJImport.OBJLoader.Instance">
+            <summary>
+            Returns the instance of the object loader
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJLoader.LoadMaterialLibrary(System.String)">
+            <summary>
+            Helper function to load mtllib statements
+            </summary>
+            <param name="mtlLibPath"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJLoader.Load(System.IO.Stream)">
+            <summary>
+            Load an OBJ file from a stream. No materials will be loaded, and will instead be supplemented by a blank white material.
+            </summary>
+            <param name="input">Input OBJ stream</param>
+            <returns>Returns a GameObject represeting the OBJ file, with each imported object as a child.</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJLoader.Load(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Load an OBJ and MTL file from a stream.
+            </summary>
+            <param name="input">Input OBJ stream</param>
+            /// <param name="mtlInput">Input MTL stream</param>
+            <returns>Returns a GameObject represeting the OBJ file, with each imported object as a child.</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJLoader.Load(System.String,System.String)">
+            <summary>
+            Load an OBJ and MTL file from a file path.
+            </summary>
+            <param name="path">Input OBJ path</param>
+            /// <param name="mtlPath">Input MTL path</param>
+            <returns>Returns a GameObject represeting the OBJ file, with each imported object as a child.</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJLoader.Load(System.String)">
+            <summary>
+            Load an OBJ file from a file path. This function will also attempt to load the MTL defined in the OBJ file.
+            </summary>
+            <param name="path">Input OBJ path</param>
+            <returns>Returns a GameObject represeting the OBJ file, with each imported object as a child.</returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.OBJImport.OBJLoaderHelper">
+            <summary>
+            Helper for obj loader
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJLoaderHelper.EnableMaterialTransparency(UnityEngine.Material)">
+            <summary>
+            Enables transparency mode on standard materials
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJLoaderHelper.FastFloatParse(System.String)">
+            <summary>
+            Modified from https://codereview.stackexchange.com/a/76891. Faster than float.Parse
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJLoaderHelper.FastIntParse(System.String)">
+            <summary>
+            Modified from http://cc.davelozinski.com/c-sharp/fastest-way-to-convert-a-string-to-an-int. Faster than int.Parse
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJLoaderHelper.CreateNullMaterial">
+            <summary>
+            Instantiate a default material
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJLoaderHelper.VectorFromStrArray(System.String[])">
+            <summary>
+            Creates a vector from a string array
+            </summary>
+            <param name="cmps"></param>
+            <returns><see cref="T:UnityEngine.Vector3"/> structure</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJLoaderHelper.ColorFromStrArray(System.String[],System.Single)">
+            <summary>
+            Create a color from string array
+            </summary>
+            <param name="cmps"></param>
+            <param name="scalar"></param>
+            <returns><see cref="T:UnityEngine.Color"/> structure</returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.OBJImport.OBJObjectBuilder">
+            <summary>
+            <see cref="T:UnityEngine.GameObject"/> builder with the given datas
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.OBJImport.OBJObjectBuilder.PushedFaceCount">
+            <summary>
+            Number of faces in surface
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.OBJImport.OBJObjectBuilder.ObjLoopHash">
+            <summary>
+            Loop hasher helper class
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJObjectBuilder.Build">
+            <summary>
+            Builds the gameobject using the provided datas
+            </summary>
+            <returns><see cref="T:UnityEngine.GameObject"/> built gameobject</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJObjectBuilder.SetMaterial(System.String)">
+            <summary>
+            Set the object material
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJObjectBuilder.PushFace(System.String,System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Updat the face data
+            </summary>
+            <param name="material">Material for face</param>
+            <param name="vertexIndices">All vertices indexes</param>
+            <param name="normalIndices">All normals indexes</param>
+            <param name="uvIndices">All UV indexes</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.OBJObjectBuilder.#ctor(System.String,com.Neogoma.HoboDream.OBJImport.OBJLoader)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="name">Name of object</param>
+            <param name="loader">Loader to use</param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.OBJImport.StringExtensions">
+            <summary>
+            Extension for <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.StringExtensions.Clean(System.String)">
+            <summary>
+            Cleans the string from tabs and double spaces for proper parsing
+            </summary>
+            <param name="str">Current string</param>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.OBJImport.BinaryExtensions">
+            <summary>
+            Extends the <see cref="T:System.IO.BinaryReader"/> class
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.BinaryExtensions.ReadColor32RGBR(System.IO.BinaryReader)">
+            <summary>
+            Returns a <see cref="T:UnityEngine.Color32"/> color based on the reading
+            </summary>
+            <param name="r"></param>
+            <returns>Color in RGBR format</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.BinaryExtensions.ReadColor32RGBA(System.IO.BinaryReader)">
+            <summary>
+            Returns a <see cref="T:UnityEngine.Color32"/> color 
+            </summary>
+            <param name="r"></param>
+            <returns>Color in RGBA format</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.BinaryExtensions.ReadColor32RGB(System.IO.BinaryReader)">
+            <summary>
+            Returns a <see cref="T:UnityEngine.Color32"/> color
+            </summary>
+            <param name="r"></param>
+            <returns>Color in RGB format</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.BinaryExtensions.ReadColor32BGR(System.IO.BinaryReader)">
+            <summary>
+            Return a <see cref="T:UnityEngine.Color32"/> color
+            </summary>
+            <param name="r"></param>
+            <returns>Color in BGR format</returns>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.OBJImport.Extensions.ColorExtensions">
+            <summary>
+            Extension class for <see cref="T:UnityEngine.Color"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.Extensions.ColorExtensions.FlipRB(UnityEngine.Color)">
+            <summary>
+            Swaps R and B components
+            </summary>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.Extensions.ColorExtensions.FlipRB(UnityEngine.Color32)">
+            <summary>
+            Swaps R and B component
+            </summary>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.ImageLoader.SetNormalMap(UnityEngine.Texture2D@)">
+            <summary>
+            Converts a DirectX normal map to Unitys expected format
+            </summary>
+            <param name="tex">Texture to convert</param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.ImageLoader.LoadTexture(System.IO.Stream,com.Neogoma.HoboDream.OBJImport.ImageLoader.TextureFormat)">
+            <summary>
+            Loads a texture from a stream
+            </summary>
+            <param name="stream">The stream</param>
+            <param name="format">The format **NOT UNITYENGINE.TEXTUREFORMAT**</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.ImageLoader.LoadTexture(System.String)">
+            <summary>
+            Loads a texture from a file
+            </summary>
+            <param name="fn"></param>        
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.ImageLoaderHelper.VerifyFormat(UnityEngine.Texture2D)">
+            <summary>
+            Verifies that a 32bpp texture is actuall 32bpp
+            </summary>
+            <returns>The verified texture</returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.ImageLoaderHelper.FillPixelArray(UnityEngine.Color32[],System.Byte[],System.Int32,System.Boolean)">
+            <summary>
+            A cluster for creating arrays of Unity Color 
+            </summary>
+            <param name="fillArray"></param>
+            <param name="pixelData"></param>
+            <param name="bytesPerPixel"></param>
+            <param name="bgra"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.TGALoader.Load(System.String)">
+            <summary>
+            Loads a texture using file name
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.TGALoader.Load(System.Byte[])">
+            <summary>
+            Loads a testure using bytes array
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.OBJImport.TGALoader.Load(System.IO.Stream)">
+            <summary>
+            Loads a texture using stream
+            </summary>
+            <param name="TGAStream"></param>
+            <returns></returns>
         </member>
         <member name="T:com.Neogoma.HoboDream.Util.UndoRedo.GameobjectActiveUndoRedo">
             <summary>
@@ -635,6 +1967,11 @@
             The coroutine manager is a singleton to run unity coroutines even on disabled objects or Non monobehaviors objects
             </summary>
         </member>
+        <member name="F:com.Neogoma.HoboDream.Util.CoroutineManager.objectLoadedMaterial">
+            <summary>
+            Material for OBJ loaded
+            </summary>
+        </member>
         <member name="P:com.Neogoma.HoboDream.Util.CoroutineManager.Instance">
             <summary>
             Returns the instance of the manager
@@ -688,7 +2025,14 @@
             Should we use the local environment
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:com.Neogoma.HoboDream.Util.GPSManager" -->
+        <member name="T:com.Neogoma.HoboDream.Util.GPSManager">
+            <inheritdoc/>
+            <summary>
+            this class manage the GPS location service usage<br></br>
+            Notify<br></br> <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.STOP"/><br></br><see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.FAILURE"/><br></br><see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.STOP"/>
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive" />
+        </member>
         <member name="F:com.Neogoma.HoboDream.Util.GPSManager.maxWaitTime">
             <summary>
             The maximum wait time for start location service
@@ -699,11 +2043,19 @@
             The keep GPS service alive time
             </summary>
         </member>
+        <member name="M:com.Neogoma.HoboDream.Util.GPSManager.DoOnAwake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.GPSManager.OnEnable">
+            <inheritdoc/>
+        </member>
         <member name="M:com.Neogoma.HoboDream.Util.GPSManager.StartGPSService">
             <summary>
-            Starts the GPS service.
-            开启GPS服务
+            Starts the GPS service.        
             </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.GPSManager.DoOnDestroy">
+            <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.HoboDream.Util.GPSEvent">
             <summary>
@@ -726,6 +2078,12 @@
             <value>
             The latitude.
             </value>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.GPSEvent.#ctor(com.Neogoma.HoboDream.IInteractiveElement)">
+            <summary>
+            Event for the GPS sucess
+            </summary>
+            <param name="source"></param>
         </member>
         <member name="T:com.Neogoma.HoboDream.Util.ImageHelper">
             <summary>
@@ -817,6 +2175,17 @@
             <param name="json"></param>
             <returns></returns>
         </member>
+        <member name="T:com.Neogoma.HoboDream.Util.JsonHelper.Wrapper`1">
+            <summary>
+            Class used to wrap an array into JSON
+            </summary>
+            <typeparam name="T">Type of object to wrap in</typeparam>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Util.JsonHelper.Wrapper`1.array">
+            <summary>
+            Array of object 
+            </summary>
+        </member>
         <member name="T:com.Neogoma.HoboDream.Util.LookAt">
             <summary>
             Basic look at utility script
@@ -842,6 +2211,14 @@
             Defines which axis should we align
             </summary>
         </member>
+        <member name="T:com.Neogoma.HoboDream.Util.LookAt.Axis">
+            <summary>
+            Different axises for the lookat
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.LookAt.Update">
+            <inheritdoc/>
+        </member>
         <member name="T:com.Neogoma.HoboDream.Util.LookAtCamera">
             <summary>
             Util script to always orient an object towards the camera     
@@ -849,10 +2226,22 @@
         </member>
         <member name="T:com.Neogoma.HoboDream.Util.MathHelper">
             <summary>
-            Utility class used to make
+            Utility class used for mathematics functions
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:com.Neogoma.HoboDream.Util.MathHelper.LineLineIntersection(UnityEngine.Vector3@,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3)" -->
+        <member name="M:com.Neogoma.HoboDream.Util.MathHelper.LineLineIntersection(UnityEngine.Vector3@,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3)">
+             <summary>
+            Calculate the intersection point of two lines. Returns true if lines intersect, otherwise false.
+            Note that in 3d, two lines do not intersect most of the time. So if the two lines are not in the 
+            same plane, use ClosestPointsOnTwoLines() instead.
+             </summary>
+             <param name="intersection">The intersection.</param>
+             <param name="linePoint1">The line point1.</param>
+             <param name="lineVec1">The line vec1.</param>
+             <param name="linePoint2">The line point2.</param>
+             <param name="lineVec2">The line vec2.</param>
+             <returns></returns>
+        </member>
         <member name="M:com.Neogoma.HoboDream.Util.MathHelper.TruncateValue(System.Single,System.Int32)">
             <summary>
             Truncates the value.
@@ -1029,6 +2418,9 @@
             <value>
             The handle mode.
             </value>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Util.RouteVisualization.BezierPoint.Awake">
+            <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.HoboDream.Util.RouteVisualization.BezierSpline">
             <summary>
@@ -1373,7 +2765,7 @@
         <member name="T:com.Neogoma.HoboDream.IInteractionEvent">
             <inheritdoc />
             <summary>
-            Interface that defines an event triggered by a <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/>. This interface has a base implementation called <see cref="!:BaseInteractionEvent"/>
+            Interface that defines an event triggered by a <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/>. This interface has a base implementation called <see cref="T:com.Neogoma.HoboDream.Impl.BaseInteractionEvent"/>
             </summary>
         </member>
         <member name="M:com.Neogoma.HoboDream.IInteractionEvent.GetEventSource">
@@ -1530,6 +2922,16 @@
         <member name="T:com.Neogoma.HoboDream.Impl.GameObjectAndListenerNames">
             <summary>
             Used to associate list of gameobjects with list of listeners
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Impl.GameObjectAndListenerNames.gameObject">
+            <summary>
+            Gameobject found with listener
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.HoboDream.Impl.GameObjectAndListenerNames.listenerClassesToAdd">
+            <summary>
+            All available listeners on the object
             </summary>
         </member>
         <member name="T:com.Neogoma.HoboDream.Impl.AbstractTriggerEventActivator">
@@ -2222,715 +3624,6 @@
         <member name="M:com.Neogoma.HoboDream.Language.LanguageManager.DoOnAwake">
             <inheritdoc/>
         </member>
-        <member name="T:com.Neogoma.HoboDream.Network.IBundleDownloader`2">
-            <inheritdoc />
-            <summary>
-            This interface defines a class that will be able to download assetbundles online.
-            When all the assetbundles will be loaded, the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> method will be called.
-            The download progress is notified at each step with the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/>
-            The implementation should make sure that the scenes are loaded last to avoid any problems with unloaded assets.
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String)">
-            <inheritdoc />
-            <summary>
-            Sends a bundle request using the url and the name bundle
-            </summary>
-            <param name="url">Folder URL of the bundle
-            </param>
-            <param name="bundleName">Name of the bundle
-            </param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String,`0[])">
-            <inheritdoc />
-            <summary>
-            Sends a bundle request using the url and the name bundle.
-            <br></br> <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> is called in case of sucess <br></br>
-            <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/> is called at each step
-            </summary>
-            <param name="url">Folder URL of the bundle
-            </param>
-            <param name="bundleName">Name of the bundle</param>
-            <param name="listenerKey">Key of the listener</param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String,System.Boolean,`0[])">
-            <inheritdoc />
-            <summary>
-            Sends a bundle request using the url and the name bundle.
-            <br></br> <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> is called in case of sucess <br></br>
-            <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/> is called at each step
-            </summary>
-            <param name="url">Folder URL of the bundle</param>
-            <param name="bundleName">Name of the bundle</param>
-            <param name="clearListenerOnSuccess">Will cleanup the listeners when the request ends succesfully</param>
-            <param name="listenerKey">Key of the listener</param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String,UnityEngine.Hash128,`0[])">
-            <inheritdoc />
-            <summary>
-            Sends a bundle request using the url and the name bundle Notifies the listener at the end of the request.
-            <br></br>This method takes <see cref="T:UnityEngine.Hash128"/> check in parameter to evaluate the version.
-            <br></br>If you want to use the unity bundle cache you should call this method !
-            <br></br> <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> is called in case of sucess <br></br>
-            <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/> is called at each step
-            </summary>
-            <param name="url">
-            Folder URL of the bundle</param>
-            <param name="bundleName">Name of the bundle</param>
-            <param name="listenerKey">Key of the listener</param>
-            <param name="hash">Hash code of the required assetbundle
-            </param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.RequestBundle(System.String,System.String,UnityEngine.Hash128,System.Boolean,`0[])">
-            <inheritdoc />
-            <summary>
-            Sends a bundle request using the url and the name bundle Notifies the listener at the end of the request.
-            <br></br>This method takes <see cref="T:UnityEngine.Hash128"/> check in parameter to evaluate the version.
-            <br></br>If you want to use the unity bundle cache you should call this method !
-            <br></br> <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> is called in case of sucess <br></br>
-            <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)"/> is called at each step
-            </summary>
-            <param name="url">
-            Folder URL of the bundle</param>
-            <param name="bundleName">Name of the bundle</param>
-            <param name="listenerKey">Key of the listener</param>
-            <param name="clearListenerOnSuccess">Will cleanup the listeners when the request ends succesfully</param>
-            <param name="hash">Hash code of the required assetbundle</param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.CheckIfBundleLoaded(System.String,System.String,System.String)">
-            <inheritdoc />
-            <summary>
-            Checks if the bundle version has already been downloaded.<br></br>
-            If the bundle has already been downloaded it will load it automatically, the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsCached(System.String)"/> will be called <br></br>
-            followed by the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> in case of success<br></br>
-            If the bundle is not cached then the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsNotCached(UnityEngine.Hash128,System.String)"/> will be called
-            </summary>
-            <param name="url">Folder URL of the bundle       </param>
-            <param name="bundleName">Name of the  </param>
-            <param name="listenerKey">Key of the listener </param>
-            <returns></returns>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.CheckIfBundleLoaded(System.String,System.String,System.Boolean,System.String)">
-            <inheritdoc />
-            <summary>
-            Checks if the bundle version has already been downloaded.<br></br>
-            If the bundle has already been downloaded it will load it automatically, the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsCached(System.String)"/> will be called <br></br>
-            followed by the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)"/> in case of success<br></br>
-            If the bundle is not cached then the <see cref="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsNotCached(UnityEngine.Hash128,System.String)"/> will be called
-            </summary>
-            <param name="url">Folder URL of the bundle
-            </param>
-            <param name="bundleName">Name of the bundle
-            </param>
-            <param name="clearListenerOnSuccess">Will cleanup the listeners when the request ends succesfully</param>
-            <param name="listenerKey">Key of the listener
-            </param>
-            <returns></returns>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.ClearCache">
-            <summary>
-            Clears the cache of all the bundles on disk
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.ClearCachedBundle(System.String)">
-            <summary>
-            Clears the cache for specific bundle on disk
-            </summary>
-            <param name="name">Name of the bundle to delete</param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloader`2.UnloadAndCleanupAssets">
-            <summary>
-            Unloads and cleanup the assets in memory
-            </summary>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.IBundleDownloadListener">
-            <inheritdoc />
-            <summary>
-            Listener used to listen to the result of a bundle download, this listener will be able to get the available scenes as well as all the assets names
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)">
-            <summary>
-            This method is triggered whenever the asset bundle loading worked correctly.
-            </summary>
-            <param name="allScenesPath">Array that contains the path to every scenes (*.unity)
-            </param>
-            <param name="allBundles">Array that contains all the assetbundles
-            </param>
-            <param name="key">String Key of the listener
-            </param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsCached(System.String)">
-            <summary>
-            Called when the searched bundle is already cached on disk
-            </summary>
-            <param name="key"></param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.BundleIsNotCached(UnityEngine.Hash128,System.String)">
-            <summary>
-            Called when the searched bundle is not cached on disk
-            </summary>
-            <param name="currentHash">Online hash value</param>
-            <param name="listenerKey">Listener key to notify</param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IBundleDownloadListener.DownloadProgress(System.Single,System.String)">
-            <summary>
-            Updates the progress status of the download
-            </summary>
-            <param name="progressEvent">The progress event (between 0 and 1).</param>
-            <param name="listenerKey">The listener key.</param>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.ICacheCheckedEvent`2">
-            <inheritdoc />
-            <summary>
-            Interface for <see cref="T:com.Neogoma.HoboDream.IInteractionEvent"/> triggered when checking the disk cache
-            </summary>
-            <typeparam name="T"></typeparam>
-            <typeparam name="K"></typeparam>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.ICacheCheckedEvent`2.GetCachedData">
-            <summary>
-            Returns the cached data
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.ICacheCheckedEvent`2.GetDataContainer">
-            <summary>
-            Returns the data container for the event
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.ICacheHandler`2">
-            <inheritdoc />
-            <summary>
-            Interface that defines a cached system using <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/>
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.ICacheHandler`2.FindCachedData(System.String,UnityEngine.WWWForm,System.Boolean,`1[])">
-            <summary>
-            Launches a coroutine to retrieve the cached data
-            </summary>
-            <param name="url">URL to check</param>
-            <param name="form">Form to use</param>
-            <param name="listenerKeys"></param>
-            <returns></returns>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.ICacheHandler`2.StoreData(System.String,UnityEngine.Networking.UnityWebRequest)">
-            <summary>
-            Stores the data in the cache
-            </summary>
-            <param name="name">data identifier</param>
-            <param name="value">value</param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.ICacheHandler`2.CleanupDownloadedData(System.String)">
-            <summary>
-            Cleanup downloaded texture from the cache! Delete the file or the JSON file....
-            </summary>
-            <param name="name">Name of the texture</param>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.IFileDownloaderListener">
-            <inheritdoc />
-            <summary>
-            Called when the request was sucessfully completed, the method also communicates which listener was called. Used to manage Files results
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IFileDownloaderListener.DownloadComplete(System.String,System.String,System.Byte[])">
-             <summary>
-             Called when the request was sucessfully completed
-             </summary>
-             <param name="listenerKey">>String Key of the listener
-            </param>       
-             <param name="fileName">Name of the downloaded file
-             </param>
-             <param name="data">Bytes array result of the request
-            </param>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.IHTTPConnector`2">
-             <inheritdoc />
-             <summary>
-             Interface used to define an Connector class to communicate with a server, all the HTTP request will go trough this interface. Classes implementing this interface will have to maintain a list of Listeners all identified with a key. This connector will communicate with the server using HTTP requests
-             </summary>
-             <typeparam name="T">
-             Type of key to retrieve the listener
-            </typeparam>
-             <typeparam name="L">The type of listener
-             </typeparam>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.RequestURL(System.String,`0[])">
-             <summary>
-             Request an URL to the server, the listener associated with the key will be notified with the request results
-             </summary>
-             <param name="url">URL Request
-            </param>
-             <param name="listenerKeys">Listeners keys to me notified at the end of the request
-            </param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.RequestURL(System.String,System.Boolean,`0[])">
-             <summary>
-             Request an URL to the server, the listener associated with the key will be notified with the request results
-             </summary>
-             <param name="url">URL Request
-            </param>
-             <param name="clearListeners">TRUE if the listeners should be removed from the List after notification,
-             FALSE otherwise
-             </param>
-             <param name="listenerKeys">Listeners keys to be notified at the end of the request
-            </param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.RequestURL(System.String,UnityEngine.WWWForm,`0[])">
-             <summary>
-             Request an URL to the server using a form, the listener associated with the key will be notified with the request results
-             </summary>
-             <param name="url">URL Request
-            </param>
-             <param name="form">WWWForm to use for the request
-             </param>
-             <param name="listenerKeys">Listeners keys to be notified at the end of the request
-             </param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.RequestURL(System.String,UnityEngine.WWWForm,System.Boolean,`0[])">
-            <summary>
-            Request an URL to the server using a form, the listener associated with the key will be notified with the request results
-            </summary>
-            <param name="url">URL Request
-            </param>
-            <param name="form">WWWForm to use for the request
-            </param>
-            <param name="clearListeners">TRUE if the listeners should be removed from the List after notification,
-            FALSE otherwise
-            </param>
-            <param name="listenerKeys">Listeners keys to me notified at the end of the request
-            </param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IHTTPConnector`2.DeleteSecurityToken">
-            <summary>
-            Delete the JSON security token
-            </summary>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2">
-            <inheritdoc />
-            <summary>
-            Class that defines an HTTP Connector element that has listeners
-            </summary>
-            <typeparam name="T">
-            Type of key to retrieve the listener
-            </typeparam>
-            <typeparam name="L">The type of listener
-            </typeparam>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.IJSonRequestListener">
-            <inheritdoc />
-             <summary>
-             Interface used to listen the JSON/Text data requests triggered by <see cref="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2"/>
-             </summary>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IJSonRequestListener.RequestSucess(System.String,System.String)">
-            <summary>
-            Called when the request was sucessfully completed, the method also communicates which listener was called. Used to manage JSOnResults
-            </summary>
-            <param name="jsonResult">String resulting from the parameter
-            </param>
-            <param name="key">String Key of the listener
-            </param>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.IKeyListenerItem">
-            <inheritdoc />
-            <summary>
-            Interface that defines the behavior of a class that will associate a keytype with a value type
-            </summary>
-        </member>
-        <!-- Badly formed XML comment ignored for member "M:com.Neogoma.HoboDream.Network.IKeyListenerItem.GetListenerType" -->
-        <!-- Badly formed XML comment ignored for member "M:com.Neogoma.HoboDream.Network.IKeyListenerItem.GetKeyType" -->
-        <member name="M:com.Neogoma.HoboDream.Network.IKeyListenerItem.Logout">
-            <summary>
-            Performs all the logout logic
-            </summary>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3">
-            <inheritdoc />
-            <summary>
-            Abstract implementation of the IHTTPConnector
-            </summary>
-            <typeparam name="T">
-            Type of key to retrieve the listener
-            </typeparam>
-            <typeparam name="L">The type of listener
-            </typeparam>
-            <seealso cref="T:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2"/>
-            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/>
-            <seealso cref="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2"/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.GetDownloadHandler">
-            <summary>
-            Allows the child classes to specify their own download handlers!
-            </summary>
-            <returns>The specific download handler for the class
-            </returns>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.GetMethod(System.String)">
-            <summary>
-            Returns the method to be used
-            </summary>
-            <param name="url"></param>
-            <returns></returns>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.GetCacheHandler">
-            <summary>
-            Returns the cache handler of the downloader
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.NotifyListenerOfRequestSucess(`0,`1,UnityEngine.Networking.UnityWebRequest)">
-            <summary>
-            This method will notify the listener and execute the necessaries operation when the result will be received from the HTTP request
-            </summary>
-            <param name="listenerKey">Key of the listener</param>
-            <param name="listener">Reference to the listener</param>
-            <param name="wwRequest">Result of the HTTP request</param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3.NotifyListenerWithLocalCache(`0,`1,`2)">
-             <summary>
-            This method will notify the listener and execute the necessaries operation when the result will be received from the cache
-             </summary>
-             <param name="listenerKey">Key of the listener</param>
-             <param name="listener">Reference to the listener</param>
-             <param name="cachedValue">Result of the HTTP request</param>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2">
-            <inheritdoc />
-            <summary>
-            Abstract implementation with a dictionary
-            </summary>
-            <typeparam name="T">
-            Type of key to retrieve the listener
-            </typeparam>
-            <typeparam name="L">The type of listener   
-            </typeparam>
-            <seealso cref="T:com.Neogoma.HoboDream.Network.IWebNotifier`2"/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2.AddRequestListener(`0,`1)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2.AddRequestListener(`0,`1,System.Boolean)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2.RemoveRequestListener(`0)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2.GetListeners(`0)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractWebNotifier`2.Logout">
-            <inheritdoc/>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader">
-            <inheritdoc />
-            <summary>
-            Downloader for assetbundles
-            </summary>
-            <seealso cref="T:com.Neogoma.HoboDream.Network.IBundleDownloader`2"/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.RequestBundle(System.String,System.String)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.RequestBundle(System.String,System.String,System.String[])">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.RequestBundle(System.String,System.String,UnityEngine.Hash128,System.String[])">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.CheckIfBundleLoaded(System.String,System.String,System.String)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.RequestBundle(System.String,System.String,System.Boolean,System.String[])">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.RequestBundle(System.String,System.String,UnityEngine.Hash128,System.Boolean,System.String[])">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.CheckIfBundleLoaded(System.String,System.String,System.Boolean,System.String)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.Logout">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.LoadAsset(System.String,System.String,System.Collections.Generic.Queue{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{UnityEngine.AssetBundle},System.Boolean,System.String[])">
-            <summary>
-            Coroutine used to load the sub assets
-            </summary>
-            <param name="baseURL">Base url of the asset folder
-            </param>
-            <param name="assetsInQueue">Queue of assets to load
-            </param>
-            <returns></returns>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.UnloadAndCleanupAssets">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.NotifyListenersWithFailed(System.String,System.String[])">
-            <summary>
-            异常处理
-            Error Dispatcher
-            </summary>
-            <param name="jsonResult"></param>
-            <param name="listenerKeys"></param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.ClearCachedBundle(System.String)">
-            <inheritdoc/>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.Internal.AssetBundleManager">
-            <inheritdoc />
-            <summary>
-            This class is used to cache the bundle asset values to avoid reloading multiple times the same bundles
-            </summary>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler">
-            <inheritdoc />
-            <summary>
-            Cache handler implementation for texture 2d
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.GetTexturePath(System.String)">
-            <summary>
-            Returns the texture path
-            </summary>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.ExtractPicNameFromURL(System.String)">
-            <summary>
-            Gets the picture name from the given URL
-            </summary>
-            <param name="url"></param>
-            <returns></returns>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.WritingFilesThread">
-            <summary>
-            Thread class to write file on disk
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.WritingFilesThread.WritePictureOnDisk">
-            <summary>
-            Writes the picture on disk
-            </summary>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.Internal.Texture2DCacheHandler.TextureLoadedEvent">
-            <summary>
-            Base private implementation of the cache checked event
-            </summary>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.Internal.FileDownloader">
-            <inheritdoc />
-            <summary>
-            Class used to download files
-            </summary>
-            <seealso cref="T:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3"/>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.Internal.JSonDownloader">
-            <inheritdoc />
-            <summary>
-            Class used for basic text downloads    
-            </summary>
-            <seealso cref="T:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3"/>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.Internal.TextureDownloader">
-            <inheritdoc />
-            <summary>
-            Basic implementation of the texture downloader    
-            </summary>
-            <seealso cref="T:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`3"/>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.RequestDataContainer`1">
-            <inheritdoc />
-            <summary>
-            Class used to pass the HTTP request parameters data to different requests in order to retrieve cash
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.IRequestHandlerListener`1">
-            <inheritdoc />
-             <summary>
-             Interface used to listen the Failed requests
-             </summary>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IRequestHandlerListener`1.RequestFailed(System.String,`0)">
-            <summary>
-            Called when the request was Failed , the method also communicates which listener was called.
-            </summary>
-            <param name="jsonResult">String resulting from the parameter
-            </param>
-            <param name="key">String Key of the listener
-            </param>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.ITextureDownloadListener">
-            <inheritdoc />
-            <summary>
-            Interface that defines the behavior of a listener for a loading texture request
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.ITextureDownloadListener.TextureLoaded(System.String,UnityEngine.Texture2D)">
-            <summary>
-            Called when a texture has been completely downloaded
-            </summary>
-            <param name="listenerKey">Key of the listener
-            </param>
-            <param name="texture">Texture downloaded from the WWW request
-            </param>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.IWebNotifier`2">
-            <inheritdoc />
-            <summary>
-            This interface defines the behavior of an web notifier class. This class will maintain a list of listeners and notify the listeners with a request result
-            </summary>
-            <typeparam name="T">
-            Type of key to retrieve the listener
-            </typeparam>
-            <typeparam name="L">The type of listener
-            </typeparam>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IWebNotifier`2.AddRequestListener(`0,`1)">
-            <summary>
-            Adds a listener to the connector
-            </summary>
-            <param name="callKey">Key of the listener
-            </param>
-            <param name="listener">Listener to add
-            </param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IWebNotifier`2.AddRequestListener(`0,`1,System.Boolean)">
-            <summary>
-            Adds a listener to the connector with the option to force the replacement if the listener is already registered
-            </summary>
-            <param name="callKey">Key of the listener
-            </param>
-            <param name="listener">
-            Listener to add
-            </param>
-            <param name="force">True if you want to replace the listener if it already exists, false otherwise
-            </param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IWebNotifier`2.RemoveRequestListener(`0)">
-            <summary>
-            Removes the associated listener from the Connector
-            </summary>
-            <param name="listenerKey">Key of the listener
-            </param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IWebNotifier`2.GetListeners(`0)">
-            <summary>
-            Returns the associated listener with the key        
-            </summary>
-            <param name="key">Key of the listener
-            </param>
-            <returns>
-            Listener associated with the key
-            </returns>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.NetworkProvider">
-            <summary>
-            Factory class that will provide the user with the necessaries class for internet calls.<br></br>
-            It's recommended to use the method <see cref="M:com.Neogoma.HoboDream.Network.NetworkProvider.GetDefaultHTTPNotifier``1"/> to get the default loader.    <br></br>
-            If you implemented your own versions of the listener then:<br></br>
-            You can define your own downloaders with their own behaviors by implementing <see cref="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2"/>, it will be automatically loaded in the Network Prodivder.<br></br>
-            If you want to get the specific downloader you need to use the <see cref="M:com.Neogoma.HoboDream.Network.NetworkProvider.GetDownloader``1"/> method and specify your <see cref="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`2"/> type
-            </summary>    
-        </member>
-        <member name="P:com.Neogoma.HoboDream.Network.NetworkProvider.Instance">
-            <summary>
-            Get the instance of the <see cref="T:com.Neogoma.HoboDream.Network.NetworkProvider"/>
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.Awake">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.GetDownloader``1">
-            <summary>
-            Returns the downloader that match the characteristics of the type in parameter
-            </summary>
-            <typeparam name="T">Type of downloader to request
-            </typeparam>
-            <returns>Returns the downloader that match the parameters
-            </returns>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.GetDefaultHTTPNotifier``1">
-            <summary>
-            This method will return the default downloader for the specified listener
-            The default downloader is the one using string as key
-            </summary>
-            <typeparam name="L">Type of listener to used by the notifier
-            </typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.IsLoggedIn">
-            <summary>
-            Returns the logged in status of the current user using the token
-            </summary>
-            <returns>
-            TRUE if user is logged in
-            FALSE otherwise
-            </returns>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.Logout">
-            <summary>
-            Cleanup all the security json tokens
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.OnDestroy">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.SetAPIToken(System.String)">
-            <summary>
-            Sets the API token for all requests
-            </summary>
-            <param name="token">Token to register</param>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.IsAPITokenSetup">
-            <summary>
-            Indicates if the API token is setup or not 
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation">
-            <summary>
-            System used to evaluate the Platform DLC name
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.ANDROID">
-            <summary>
-            The android platform constant name
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.IOS">
-            <summary>
-            The ios platform constant name
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.WINDOWS">
-            <summary>
-            The windows platform constant name
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.WEB_GL">
-            <summary>
-            The webGl platform constant name
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.MAC">
-            <summary>
-            The mac platform constant name
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.LINUX">
-            <summary>
-            The linux platform constant name
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.HoboDream.Network.PlatformDLCEvaluation.GetBundleOSName">
-            <summary>
-            Gets the name of the bundle os.
-            </summary>
-            <returns><see cref="T:UnityEngine.RuntimePlatform"/> type </returns>
-        </member>
         <member name="T:com.Neogoma.HoboDream.Utils.Reset.IResetObject">
             <inheritdoc/>
             <summary>
@@ -3441,6 +4134,19 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:com.Neogoma.HoboDream.UI.Loading.ISceneLoadingEvent">
+            <inheritdoc/>
+            <summary>
+            <see cref="!:BaseInteractionEvent"/> extension for loading a scene using index <br></br>
+            Event type <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.START_LOADSCENE"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.ISceneLoadingEvent.GetSceneIndex">
+            <summary>
+            Returns the index of the scene to load
+            </summary>
+            <returns>Index of the scene</returns>
+        </member>
         <member name="T:com.Neogoma.HoboDream.UI.Loading.Impl.SceneLoadingEvent">
             <inheritdoc/>
             <summary>
@@ -3481,125 +4187,48 @@
             </summary>
             <param name="newName">Name of the scene to load</param>
         </member>
-        <member name="T:com.Neogoma.Hobodream.Framework.Events.IMaterialUpdateEvent">
-            <summary>
-            Event triggered to update material, by convention this event should be of type <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.UPDATE_MATERIAL"/>
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Hobodream.Framework.Events.IMaterialUpdateEvent.GetNewMaterial">
-            <summary>
-            Returns the new material to apply
-            </summary>
-            <returns><see cref="T:UnityEngine.Material"/> updated</returns>
-        </member>
-        <member name="T:com.Neogoma.Hobodream.Framework.Events.IMeshUpdateEvent">
-            <summary>
-            Event triggered to update material, by convention this event should be of type <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.UPDATE_MESH"/>
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Hobodream.Framework.Events.IMeshUpdateEvent.GetNewMesh">
-            <summary>
-            Returns the new mesh to apply
-            </summary>
-            <returns><see cref="T:UnityEngine.Mesh"/> updated</returns>
-        </member>
-        <member name="T:com.Neogoma.Hobodream.Framework.Events.IUpdateColorEvent">
-            <summary>
-            Event triggered to update material, by convention this event should be of type <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.COLOR"/>
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Hobodream.Framework.Events.IUpdateColorEvent.GetNewColor">
-            <summary>
-            Get the updated color
-            </summary>
-            <returns><see cref="T:UnityEngine.Color"/> to apply</returns>
-        </member>
-        <member name="T:com.Neogoma.Hobodream.Framework.IDraggableObjectOnSurface">
-            <summary>
-            Interface that defines an object that can be dragged on a surface
-            </summary>
-            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElement" />
-        </member>
-        <member name="M:com.Neogoma.Hobodream.Framework.IDraggableObjectOnSurface.DragObjectOnSurface(UnityEngine.Vector3)">
-            <summary>
-            Drags the object on the surface at the desired position
-            </summary>
-            <param name="point">The point.</param>
-        </member>
-        <member name="T:com.Neogoma.Hobodream.Framework.IDraggableSurface">
-            <summary>
-            Defines a surface where <see cref="T:com.Neogoma.Hobodream.Framework.IDraggableObjectOnSurface"/>
-            </summary>
-            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElement" />
-            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElementListener" />
-        </member>
-        <member name="M:com.Neogoma.Hobodream.Framework.IDraggableSurface.SetObjectToMove(com.Neogoma.Hobodream.Framework.IDraggableObjectOnSurface)">
-            <summary>
-            Sets the object to move.
-            </summary>
-            <param name="obj">The object.</param>
-        </member>
-        <member name="M:com.Neogoma.Hobodream.Framework.IDraggableSurface.ClearObjectToMove">
-            <summary>
-            Clears the object to move.
-            </summary>
-        </member>
-        <member name="T:com.Neogoma.Hobodream.Framework.IEnableDisableBehavior">
-            <summary>
-            Interface to define a behavior that can be enabled/disabled
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Hobodream.Framework.IEnableDisableBehavior.SetBehaviorActive(System.Boolean)">
-            <summary>
-            Sets the behavior active.
-            </summary>
-            <param name="active">if set to <c>true</c> [active].</param>
-        </member>
-        <member name="T:com.Neogoma.Hobodream.Framework.IRaycasterObject">
-            <summary>
-            Interface to define an object that can be raycaset by a CameraRayCaster
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Hobodream.Framework.IRaycasterObject.RaycastStayObject(UnityEngine.Vector3)">
-            <summary>
-            Raycasts stay on the object.
-            </summary>
-            <param name="position">The position.</param>
-        </member>
-        <member name="M:com.Neogoma.Hobodream.Framework.IRaycasterObject.RaycastOnObject(UnityEngine.Vector3)">
-            <summary>
-            Raycasts just on the object.
-            </summary>
-            <param name="position">The position.</param>
-        </member>
-        <member name="M:com.Neogoma.Hobodream.Framework.IRaycasterObject.RaycastLoseObject">
-            <summary>
-            Raycasts lose the object.
-            </summary>
-        </member>
-        <member name="T:com.Neogoma.Hobodream.UI.Loading.ISceneLoadingEvent">
-            <inheritdoc/>
-            <summary>
-            <see cref="!:BaseInteractionEvent"/> extension for loading a scene using index <br></br>
-            Event type <see cref="!:InteractiveEventAction.START_LOADSCENE"/>
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Hobodream.UI.Loading.ISceneLoadingEvent.GetSceneIndex">
-            <summary>
-            Returns the index of the scene to load
-            </summary>
-            <returns>Index of the scene</returns>
-        </member>
-        <member name="T:com.Neogoma.Hobodream.UI.Loading.ISceneNameEvent">
+        <member name="T:com.Neogoma.HoboDream.UI.Loading.ISceneNameEvent">
             <summary>
             Interface that defines an event that will load a scene with a name
             </summary>
         </member>
-        <member name="M:com.Neogoma.Hobodream.UI.Loading.ISceneNameEvent.GetSceneName">
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.ISceneNameEvent.GetSceneName">
             <summary>
             Name of the scene to load
             </summary>
             <returns>Name of the scene</returns>
+        </member>
+        <member name="T:com.Neogoma.Octree.BoundsOctree`1">
+            <summary>
+             A Dynamic, Loose Octree for storing any objects that can be described with AABB bounds
+             See also: PointOctree, where objects are stored as single points and some code can be simplified<br></br>
+             Octree:	An octree is a tree data structure which divides 3D space into smaller partitions (nodes)
+            			and places objects into the appropriate nodes. This allows fast access to objects
+            			in an area of interest without having to check every object.<br></br>
+             Dynamic: The octree grows or shrinks as required when objects as added or removed
+            			It also splits and merges nodes as appropriate. There is no maximum depth.
+            			Nodes have a constant - numObjectsAllowed - which sets the amount of items allowed in a node before it splits.<br></br>
+             Loose:	The octree's nodes can be larger than 1/2 their parent's length and width, so they overlap to some extent.
+            			This can alleviate the problem of even tiny objects ending up in large nodes if they're near boundaries.
+            			A looseness value of 1.0 will make it a "normal" octree.<br></br>
+             T:		The content of the octree can be anything, since the bounds data is supplied separately.<br></br>
+             Originally written for my game Scraps (http:///www.scrapsgame.com) but intended to be general-purpose.
+             Copyright 2014 Nition, BSD licence (see LICENCE file). www.momentstudio.co.nz
+             Unity-based, but could be adapted to work in pure C#
+             Note: For loops are often used here since in some cases (e.g. the IsColliding method)
+             they actually give much better performance than using Foreach, even in the compiled build.
+             Using a LINQ expression is worse again than Foreach.
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Octree.BoundsOctree`1.Count">
+            <summary>
+            The total amount of objects currently in the tree
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Octree.BoundsOctree`1.rootNode">
+            <summary>
+            Root node of the octree
+            </summary>
         </member>
         <member name="M:com.Neogoma.Octree.BoundsOctree`1.#ctor(System.Single,UnityEngine.Vector3,System.Single,System.Single)">
             <summary>
@@ -3663,6 +4292,19 @@
             <param name="checkRay">ray to check.</param>
             <param name="maxDistance">distance to check.</param>
             <returns>Objects that intersect with the specified ray.</returns>
+        </member>
+        <member name="M:com.Neogoma.Octree.BoundsOctree`1.GetWithinFrustum(UnityEngine.Camera)">
+            <summary>
+            Get the nodes within the view
+            </summary>
+            <param name="cam"></param>
+            <returns><see cref="T:System.Collections.Generic.List`1"/> of nodes within the frustrum</returns>
+        </member>
+        <member name="M:com.Neogoma.Octree.BoundsOctree`1.GetMaxBounds">
+            <summary>
+            Get the maximum bouds
+            </summary>
+            <returns><see cref="T:UnityEngine.Bounds"/> of the tree</returns>
         </member>
         <member name="M:com.Neogoma.Octree.BoundsOctree`1.DrawAllBounds">
             <summary>

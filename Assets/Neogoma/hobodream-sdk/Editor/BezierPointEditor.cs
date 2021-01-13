@@ -6,7 +6,6 @@ namespace com.Neogoma.HoboDream.Util.RouteVisualization
 {
     /// <summary>
     /// used to show the bezier function when add a point
-    /// 当添加一个路径点时用此类显示贝塞尔的曲线编辑功能
     /// </summary>
     /// <seealso cref="UnityEditor.Editor" />
     [CustomEditor( typeof( BezierPoint ) )]

@@ -48,7 +48,7 @@ namespace Neogoma.Stardust.Demo.Mapper
             objectController = ObjectController.Instance;
             
             cam = Camera.main.transform;
-            objectController.objectListDownloaded.AddListener(InitializeObjects);
+            objectController.onObjectListDownloaded.AddListener(InitializeObjects);
 
             
             RequestAllObjects();

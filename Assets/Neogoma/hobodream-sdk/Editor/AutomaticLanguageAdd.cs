@@ -14,7 +14,6 @@ namespace Neogoma.HoboDream.EditorTools
 {
     /// <summary>
     /// EditorScript script to create a tool that will allow to quickly and automatically add the languages keys
-    /// 使用此脚本可以创建可以快速自动添加语言键的工具
     /// </summary>
     /// <seealso cref="UnityEditor.EditorWindow" />
     public class AutomaticLanguageAdd : EditorWindow

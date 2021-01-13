@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using com.Neogoma.HoboDream.OBJImport;
+using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.XR.ARFoundation;
 
@@ -7,13 +8,13 @@ namespace Neogoma.Stardust.LightEstimation
     [RequireComponent(typeof(Light))]
     public class LightEstimation : MonoBehaviour
     {
-        
+
         private Light lightComponent;
 
         private ARCameraManager arCameraManager;
 
         ///<inheritdoc/>
-        public void Start()
+        public void Awake()
         {
 
             arCameraManager = FindObjectOfType<ARCameraManager>();
@@ -26,12 +27,14 @@ namespace Neogoma.Stardust.LightEstimation
             }
 
 
-            lightComponent = GetComponent<Light>();            
+            lightComponent = GetComponent<Light>();
         }
 
         ///<inheritdoc>/>
         public void OnEnable()
         {
+
+            
             arCameraManager.frameReceived -= OnFrameReceived;
 
             arCameraManager.frameReceived += OnFrameReceived;
@@ -48,41 +51,41 @@ namespace Neogoma.Stardust.LightEstimation
         {
 
             if (args.lightEstimation.averageBrightness.HasValue)
-            {   
+            {
                 lightComponent.intensity = args.lightEstimation.averageBrightness.Value;
             }
 
             if (args.lightEstimation.averageColorTemperature.HasValue)
-            {   
+            {
                 lightComponent.colorTemperature = args.lightEstimation.averageColorTemperature.Value;
             }
 
             if (args.lightEstimation.colorCorrection.HasValue)
-            {   
+            {
                 lightComponent.color = args.lightEstimation.colorCorrection.Value;
             }
 
             if (args.lightEstimation.mainLightDirection.HasValue)
-            {   
+            {
                 lightComponent.transform.rotation = Quaternion.LookRotation(args.lightEstimation.mainLightDirection.Value);
             }
 
             if (args.lightEstimation.mainLightColor.HasValue)
             {
-                
+
                 lightComponent.color = args.lightEstimation.mainLightColor.Value;
             }
 
             if (args.lightEstimation.mainLightIntensityLumens.HasValue)
-            {   
+            {
                 lightComponent.intensity = args.lightEstimation.averageMainLightBrightness.Value;
             }
 
             if (args.lightEstimation.ambientSphericalHarmonics.HasValue)
-            {                
+            {
                 RenderSettings.ambientMode = AmbientMode.Skybox;
                 RenderSettings.ambientProbe = args.lightEstimation.ambientSphericalHarmonics.Value;
-            }         
+            }
         }
     }
 

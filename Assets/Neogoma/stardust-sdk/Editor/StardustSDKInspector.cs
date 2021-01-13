@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿using com.Neogoma.HoboDream.Network;
+using UnityEditor;
+using UnityEngine;
 
 namespace com.Neogoma.Stardust.API.CustomsEditor
 {
@@ -18,6 +20,14 @@ namespace com.Neogoma.Stardust.API.CustomsEditor
 
         public override void OnInspectorGUI()
         {
+
+            EditorGUILayout.HelpBox("SDK Version "+StardustSDK.SDKVersion, MessageType.Info);
+
+            if (GUILayout.Button("Open documentation"))
+            {
+                Application.OpenURL("https://neogoma.github.io/stardust-SDK/");
+            }
+
             //EditorGUILayout.PropertyField();
             lastApiKey = EditorGUILayout.TextField("ApiKey", lastApiKey);
 
@@ -27,18 +37,14 @@ namespace com.Neogoma.Stardust.API.CustomsEditor
                 serializedObject.ApplyModifiedProperties();
                 EditorUtility.SetDirty(target);
 
-               
+
             }
 
-             if (string.IsNullOrEmpty(lastApiKey))
-                {
-                    EditorGUILayout.HelpBox("The API Key is mandatory", MessageType.Error);
-                }
-
-
-
+            if (string.IsNullOrEmpty(lastApiKey))
+            {
+                EditorGUILayout.HelpBox("The API Key is mandatory", MessageType.Error);
+            }
+           
         }
-
-
     }
 }

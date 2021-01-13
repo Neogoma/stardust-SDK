@@ -6,7 +6,6 @@ namespace com.Neogoma.HoboDream.Util.RouteVisualization
 {
     /// <summary>
     /// used to draw Bezier
-    /// 用来画贝塞尔曲线的工具类
     /// </summary>
     public static class BezierUtils
 	{

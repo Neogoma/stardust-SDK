@@ -6,7 +6,6 @@ namespace Neogoma.HoboDream.EditorTools
 {
     /// <summary>
     /// Class used for editor utilities functions
-    /// 用于编辑器实用程序功能的类
     /// </summary>
     /// <seealso cref="UnityEngine.MonoBehaviour" />
     public class EditorUtils : MonoBehaviour
@@ -22,8 +21,6 @@ namespace Neogoma.HoboDream.EditorTools
         /// <summary>
         /// Use this method to get all loaded objects of some type, including inactive objects. 
         /// This is an alternative to Resources.FindObjectsOfTypeAll (returns project assets, including prefabs), and GameObject.FindObjectsOfTypeAll (deprecated).
-        /// 使用此方法获取某些类型的所有已加载对象，包括非活动对象。
-        ///这是Resources.FindObjectsOfTypeAll（返回项目资产，包括预制件）和GameObject.FindObjectsOfTypeAll（不建议使用）的替代方法。
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
