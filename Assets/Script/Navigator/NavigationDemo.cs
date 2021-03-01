@@ -1,11 +1,12 @@
-﻿using com.Neogoma.Stardust.API.Persistence;
-using com.Neogoma.Stardust.API.Relocation;
+﻿using com.Neogoma.Stardust.API.Relocation;
 using com.Neogoma.Stardust.Datamodel;
 using com.Neogoma.Stardust.Graph;
 using com.Neogoma.Stardust.Navigation;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Neogoma.Stardust.Demo.Navigator
@@ -26,22 +27,38 @@ namespace Neogoma.Stardust.Demo.Navigator
         /// </summary>
         public GameObject locationPrefab;
 
+        /// <summary>
+        /// The target reached hint
+        /// </summary>
+        public GameObject targetReachedHint;
+
+        public UnityEvent targetReached = new UnityEvent();
+
         private GameObject locationInstance;
         private PathFindingManager pathfindingManager;
         private int selectedTargetIndex;
         private Dictionary<int, ITarget> indexToTarget = new Dictionary<int, ITarget>();
+        private Transform mainCameraTransform;
+        public List<ITarget> targets;
 
         private void Start()
         {
+            mainCameraTransform = Camera.main.transform;
             pathfindingManager = PathFindingManager.Instance;
-            pathfindingManager.onNavigationDatasReady.AddListener(PathFindingReady);            
+            pathfindingManager.onNavigationDatasReady.AddListener(PathFindingReady);
+            pathfindingManager.onPathCalculated.AddListener(Delta);
             targetSelectionDropDown.onValueChanged.AddListener(OnTargetSelected);
             MapRelocationManager.Instance.onPositionFound.AddListener(PositionFound);
         }
 
-        private void PositionFound(MatchingPosition arg0)
+        private void PositionFound(RelocationResults arg0, CoordinateSystem arg1)
         {
-            targetSelectionDropDown.gameObject.SetActive(targetSelectionDropDown.options.Count > 1);
+            targetSelectionDropDown.gameObject.SetActive(targets.Count>0); 
+        }
+
+        private void Delta(IGraphNode arg0)
+        {
+            Debug.Log(arg0.GetCoordnates());
         }
 
         /// <summary>
@@ -62,8 +79,10 @@ namespace Neogoma.Stardust.Demo.Navigator
                     }
 
                     locationInstance.transform.position = target.GetCoordnates();
+                    locationInstance.SetActive(true);
 
                 }
+                StartCoroutine(ReachTarget());
             }
             catch (KeyNotFoundException nokey)
             {
@@ -73,6 +92,7 @@ namespace Neogoma.Stardust.Demo.Navigator
 
         private void PathFindingReady(List<ITarget> allTargets)
         {
+            targets = allTargets;
             targetSelectionDropDown.ClearOptions();
 
             List<string> allTargetNames = new List<string>();
@@ -84,12 +104,49 @@ namespace Neogoma.Stardust.Demo.Navigator
                 indexToTarget.Add(i+1, allTargets[i]);
             }
             targetSelectionDropDown.AddOptions(allTargetNames);
+            
 
         }
 
         private void OnTargetSelected(int val)
         {
             this.selectedTargetIndex = val;
+            if (val == 0)
+            { 
+                pathfindingManager.ClearPath();
+                locationInstance.SetActive(false);
+            
+            }
         }
+
+
+        IEnumerator ReachTarget()
+        {
+            yield return new WaitForFixedUpdate();
+            if (locationInstance != null)
+            {
+                Vector3 currentPos = new Vector3(mainCameraTransform.position.x, locationInstance.transform.position.y, mainCameraTransform.position.z);
+                
+                if (Vector3.Distance(currentPos, locationInstance.transform.position) < 1f)
+                {
+
+                    targetReached.Invoke();
+                    yield return new WaitForSeconds(3f);
+                    locationInstance.gameObject.SetActive(false);
+                    targetReachedHint.gameObject.SetActive(false);
+                    
+                    StopAllCoroutines();
+
+                }
+                else
+                {
+                    StartCoroutine(ReachTarget());
+                }
+            }
+
+
+        }
+
+        
     }
 }

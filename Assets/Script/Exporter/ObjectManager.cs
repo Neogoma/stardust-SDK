@@ -1,4 +1,5 @@
 using com.Neogoma.Stardust.API.Persistence;
+using com.Neogoma.Stardust.API.Relocation;
 using com.Neogoma.Stardust.Datamodel;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,19 +19,19 @@ namespace Neogoma.Stardust.Demo.Mapper
         private ObjectController objectController;
 
         /// <summary>
-        /// session id text
+        /// Root for user created content
         /// </summary>
-        public Text sessionText;
-
-        /// <summary>
-        /// objects root
-        /// </summary>
-        public Transform parent;
+        public Transform userCreatedParent;
 
         /// <summary>
         /// objects dropdown
         /// </summary>
         public Dropdown prefabDropdown;
+
+        /// <summary>
+        /// distance in front of camera
+        /// </summary>
+        public float forwardCamera = 1;
 
         /// <summary>
         /// current selected bundle
@@ -41,19 +42,26 @@ namespace Neogoma.Stardust.Demo.Mapper
 
         private Dictionary<int, Bundle> objectDictionary = new Dictionary<int, Bundle>();
         private Transform cam;
-        
+        private Transform currentParent;
+
         // Start is called before the first frame update
         void Start()
         {
+
+            currentParent = userCreatedParent;
             objectController = ObjectController.Instance;
             
             cam = Camera.main.transform;
             objectController.onObjectListDownloaded.AddListener(InitializeObjects);
 
-            
+            MapRelocationManager.Instance.onMapDownloadedSucessfully.AddListener(MapDownloadedSucessfully);            
             RequestAllObjects();
         }
 
+        /// <summary>
+        /// Setup the session
+        /// </summary>
+        /// <param name="session"></param>
         public void SetupSession(Session session) {
             currentSession = session;
         }
@@ -90,13 +98,21 @@ namespace Neogoma.Stardust.Demo.Mapper
             selectedBundle = objectDictionary[prefabDropdown.value];
         }
 
+        /// <summary>
+        /// Creates and instanciates the selected object 
+        /// </summary>
         public void CreateSelectedObject()
-        {
-            Vector3 pos = cam.position + cam.forward;
-            Quaternion rot = Quaternion.LookRotation(pos - cam.position, Vector3.up);
-            var local = rot.eulerAngles;
+        {   
 
-            objectController.CreateAndSaveObject(pos, Quaternion.Euler(0, local.y, 0), Vector3.one * 0.1f,currentSession , selectedBundle, parent);
+            Vector3 position = cam.position + cam.forward*forwardCamera;
+            Quaternion rot = Quaternion.Euler(0,cam.rotation.eulerAngles.y,0);
+
+            objectController.CreateAndSaveObject(position, rot, Vector3.one, currentSession, selectedBundle, currentParent, ObjectController.CreationSpace.World);
+        }
+
+        private void MapDownloadedSucessfully(Session session,GameObject map)
+        {
+            currentParent = map.transform;
         }
     }
 }

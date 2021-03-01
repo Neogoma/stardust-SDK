@@ -28,23 +28,8 @@ namespace Neogoma.Stardust.LightEstimation
 
 
             lightComponent = GetComponent<Light>();
-        }
-
-        ///<inheritdoc>/>
-        public void OnEnable()
-        {
-
-            
-            arCameraManager.frameReceived -= OnFrameReceived;
 
             arCameraManager.frameReceived += OnFrameReceived;
-
-        }
-
-        ///<inheritdoc/>
-        public void OnDisable()
-        {
-            arCameraManager.frameReceived -= OnFrameReceived;
         }
 
         private void OnFrameReceived(ARCameraFrameEventArgs args)

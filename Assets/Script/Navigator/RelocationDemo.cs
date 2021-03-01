@@ -29,6 +29,11 @@ namespace Neogoma.Stardust.Demo.Navigator
         public Dropdown mapSelectionDropDown;
 
         /// <summary>
+        /// Name of the selected session
+        /// </summary>
+        public Text sessionName;
+
+        /// <summary>
         /// Button to locate the user
         /// </summary>
         public Button locateMeButton;
@@ -38,9 +43,6 @@ namespace Neogoma.Stardust.Demo.Navigator
         private SessionController sessionController;
         private MapRelocationManager relocationManager;
         private Dictionary<int, Session> indexToSession = new Dictionary<int, Session>();
-        
-        
-
         
         private Session selectedSession;
 
@@ -62,7 +64,7 @@ namespace Neogoma.Stardust.Demo.Navigator
 
 
       
-        private void OnMapDownloaded(Session sesison,GameObject map)
+        private void OnMapDownloaded(Session session,GameObject map)
         {
             downloadingData.gameObject.SetActive(false);
             locateMeButton.gameObject.SetActive(true);
@@ -73,7 +75,8 @@ namespace Neogoma.Stardust.Demo.Navigator
             downloadingData.gameObject.SetActive(true);
         }
 
-        private void OnPositionMatched(MatchingPosition positionMatched)
+
+        private void OnPositionMatched(RelocationResults positionMatched,CoordinateSystem newCoords)
         {
             
             ShowMatchResults("Located sucessfully!", Color.green);
@@ -124,15 +127,13 @@ namespace Neogoma.Stardust.Demo.Navigator
 
         private void OnMapSelected(int val)
         {
-
-
             selectedSession = indexToSession[val];
-
 
             if (selectedSession != null)
             {
                 mapSelectionDropDown.gameObject.SetActive(false);
                 relocationManager.GetDataForMap(selectedSession);
+                sessionName.text = selectedSession.name;
 
             }            
         }        

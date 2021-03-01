@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Login.unity
+    guid: 504ffea590fd18a40ad19bcd03f36af4
+  - enabled: 1
     path: Assets/Scenes/SelectionScene.unity
     guid: 867dc1d86c340f148a717c69e33e9285
   - enabled: 1
@@ -15,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Updater.unity
     guid: a222c7e940df1a84bb83cf748ddd4050
   - enabled: 1
-    path: Assets/Scenes/Relocation.unity
-    guid: 72ea70513cc220942aa5fff9f3c60804
+    path: Assets/Scenes/Relocate-Update.unity
+    guid: 555d7e2dd3caa874e815650ac9df8ef4
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 4b93ee4485fe2954381b9f604d1dddb6,
       type: 2}

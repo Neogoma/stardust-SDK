@@ -18,6 +18,11 @@ namespace Neogoma.Stardust.Demo.Mapper
         public Text pictureTakenText;
 
         /// <summary>
+        /// User input for hte session name
+        /// </summary>
+        public InputField mapName;
+
+        /// <summary>
         /// Text element to show how many pictures were sucessfully uploaded
         /// </summary>
         public Text pictureSentText;
@@ -27,15 +32,6 @@ namespace Neogoma.Stardust.Demo.Mapper
         /// </summary>
         public Text dataLimitReached;
 
-        /// <summary>
-        /// Session controller to manage the different sessions
-        /// </summary>
-        private SessionController sessionController;
-
-        /// <summary>
-        /// Event triggered when session is initialized
-        /// </summary>
-        public UnityEvent sessionInitialized = new UnityEvent();
 
         /// <summary>
         /// Object manager for setting up the session
@@ -47,13 +43,25 @@ namespace Neogoma.Stardust.Demo.Mapper
         /// </summary>
         public Text idSession;
 
+        /// <summary>
+        /// Session controller to manage the different sessions
+        /// </summary>
+        private SessionController sessionController;
+
+        /// <summary>
+        /// Event triggered when session is initialized
+        /// </summary>
+        public UnityEvent sessionInitialized = new UnityEvent();
+
+        
+
         private MapDataUploader dataUploader;
 
         public void Awake()
         {
             sessionController = SessionController.Instance;
             sessionController.onSessionCreationSucess.AddListener(SessionCreated);
-            CreateSession();
+            
 
             dataUploader = MapDataUploader.Instance;
             
@@ -62,9 +70,9 @@ namespace Neogoma.Stardust.Demo.Mapper
             dataUploader.onDatalimitReached.AddListener(OnDataLimitReached);
         }
 
-        private void CreateSession()
+        public void CreateSession()
         {
-            sessionController.CreateMappingSession();
+            sessionController.CreateMappingSession(mapName.text);
         }
 
         private void SessionCreated(Session session)
