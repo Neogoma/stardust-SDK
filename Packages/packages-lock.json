@@ -24,20 +24,20 @@
     },
     "com.unity.editorcoroutines": {
       "version": "1.0.0",
-      "depth": 2,
+      "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.cn"
     },
     "com.unity.ext.nunit": {
-      "version": "1.0.0",
+      "version": "1.0.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.cn"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.3",
+      "version": "2.0.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -166,11 +166,11 @@
       "url": "https://packages.unity.cn"
     },
     "com.unity.xr.oculus": {
-      "version": "1.5.0",
+      "version": "1.7.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.xr.management": "3.0.6",
+        "com.unity.xr.management": "3.2.16",
         "com.unity.ugui": "1.0.0"
       },
       "url": "https://packages.unity.cn"
