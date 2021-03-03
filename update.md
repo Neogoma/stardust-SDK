@@ -10,6 +10,8 @@
     * Send data at any coordinates: allow the **MapDataUploader** to send datas at other origins than (0,0,0), if you want to send data after relocating you can now do it
     * Send object at any coordinates: following previous point, we also allow users to create objects in Unity space or in map space.
     * Cross-platform mapping/relocation: Android phones can relocate on IPhone maps and vice versa
+    * Renamed **MatchingPosition** to **RelocationResults**
+    * **MapRelocationManager.onPositionFound** now triggers an even with **RelocationResults** and a **CoordinateSystem**
 * Editor
     * Fast manipulation shortcuts
     * Display the point cloud

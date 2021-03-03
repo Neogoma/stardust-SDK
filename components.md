@@ -167,7 +167,7 @@ public void Start{
     relocationManager.onPositionNotFound.AddListener(OnPositionMatchFailed);
 }
 
-private void OnMapDownloaded(Session sesison,GameObject map)
+private void OnMapDownloaded(Session session,GameObject map)
 {
     Debug.Log("Map downloaded");    
 }
