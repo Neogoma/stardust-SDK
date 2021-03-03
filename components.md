@@ -59,7 +59,7 @@ private void MapListDownloaded(Session[] allSessions)
 }
 ```
 
-## Map Data Uploader
+## Map data uploader
 The Map data uploader is a singleton that can be called via 
 ```cs
 MapDataUploader dataUploader = MapDataUploader.Instance;
