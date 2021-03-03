@@ -45,8 +45,7 @@ namespace Neogoma.Stardust.Demo.Navigator
         {
             mainCameraTransform = Camera.main.transform;
             pathfindingManager = PathFindingManager.Instance;
-            pathfindingManager.onNavigationDatasReady.AddListener(PathFindingReady);
-            pathfindingManager.onPathCalculated.AddListener(Delta);
+            pathfindingManager.onNavigationDatasReady.AddListener(PathFindingReady);            
             targetSelectionDropDown.onValueChanged.AddListener(OnTargetSelected);
             MapRelocationManager.Instance.onPositionFound.AddListener(PositionFound);
         }
@@ -54,11 +53,6 @@ namespace Neogoma.Stardust.Demo.Navigator
         private void PositionFound(RelocationResults arg0, CoordinateSystem arg1)
         {
             targetSelectionDropDown.gameObject.SetActive(targets.Count>0); 
-        }
-
-        private void Delta(IGraphNode arg0)
-        {
-            Debug.Log(arg0.GetCoordnates());
         }
 
         /// <summary>
