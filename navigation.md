@@ -78,4 +78,3 @@ Once the navigation icon is selected you will see the navigable area as a green 
 
 ### Note
 You can put a target anywhere you want but be aware that if you do not put your target on an navigable area the pathfinding algorithm can't guarantee the correct result of your navigation. If you want to make an area navigable just your map.
-

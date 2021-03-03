@@ -4,7 +4,7 @@
 * SDK
     * Upgrade to Unity 2020.2.x and ARFoundation    
     * Increase data resolution: we increased the volume of data extracted from pictures, this will result in longer upload times and longer relocation times
-    * Updated the 
+    * Updated the relocation algorithm: data 
     * Point cloud: extract and send point cloud datas to server
     * Memory management: reduced the memory consuption of the SDK on phone  
     * Send data at any coordinates: allow the **MapDataUploader** to send datas at other origins than (0,0,0), if you want to send data after relocating you can now do it
