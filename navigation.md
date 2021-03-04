@@ -76,5 +76,15 @@ Once the navigation icon is selected you will see the navigable area as a green 
 
 ![Overlay](_img/editor_path.jpg)
 
+### Known issues
+In some cases (for example if the phone slam isn't good enough) the mapping has somme issues and you can end up with a map with the following path:
+
+![Bad path](_img/bad_path.png)
+
+This makes the map impossible to navigate (navigation can freeze), all path should be somehow connected by them. In order to solve this issue you should update your map to cover the gaps. 
+
+![Correct path](_img/correct_map.jpg)
+
+
 ### Note
 You can put a target anywhere you want but be aware that if you do not put your target on an navigable area the pathfinding algorithm can't guarantee the correct result of your navigation. If you want to make an area navigable just your map.
