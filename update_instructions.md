@@ -27,5 +27,20 @@ private void PositionFound(RelocationResults positionMatched,CoordinateSystem ne
     MapDataUploader.Instance.UpdateCoordinateSystem(newCoords);    
 }
 ```
+
+## Creating objects during an update
+If you wish to add objects after relocation you can do so by specifying that you are sending the object in WORLD space in the object controller.
+```cs
+public void CreateObjectAfterRelocation()
+{
+    Vector3 position = cam.position + cam.forward*forwardCamera;
+    Quaternion rot = Quaternion.Euler(0,cam.rotation.eulerAngles.y,0);
+
+    //Specify world space so the object controller can automatically convert into map space when sending datas to API
+    ObjectController.Instance.CreateAndSaveObject(position, rot, Vector3.one, currentSession, selectedBundle, currentParent, ObjectController.CreationSpace.World);
+}
+```
+
+
 ## Data quality
 To increase the accuracy of relocation, try to update the map at different times of the day and/or with different lighting conditions.
