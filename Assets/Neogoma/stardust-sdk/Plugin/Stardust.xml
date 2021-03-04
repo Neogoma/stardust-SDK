@@ -814,6 +814,12 @@
             </summary>
             <param name="session">Session to get data from</param>
         </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.GetDataForMap(System.String)">
+            <summary>
+            Requests the map data using the UUID
+            </summary>
+            <param name="uuid">UUID of the session (can be retrieved from the dashboard)</param>
+        </member>
         <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.LocateCurrentPosition">
             <summary>
             Requests to locate the current position
