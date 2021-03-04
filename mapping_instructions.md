@@ -7,6 +7,9 @@
 - The datas that will be used for data generation are the data SENT, if a data is captured but NOT SENT it will not be taken into account during the data generation.
 - Depending on your data the map generation can take up to 10 minutes.
 
+## Navigation
+All the navigation will be generated from the mapped area, if you plan to use navigation, make sure to have a good coverage of the surface. You can check an overview of the navigable area in the editor. More instructions about navigation [here](navigation.md)
+
 ## Sending point cloud datas
 If you want to send point cloud datas druing, make sure you setup the AR Point cloud manager in your AR Session Origin.
 
