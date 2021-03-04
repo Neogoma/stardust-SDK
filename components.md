@@ -59,7 +59,7 @@ private void MapListDownloaded(Session[] allSessions)
 }
 ```
 
-## Map Data Uploader
+## Map data uploader
 The Map data uploader is a singleton that can be called via 
 ```cs
 MapDataUploader dataUploader = MapDataUploader.Instance;
@@ -167,7 +167,7 @@ public void Start{
     relocationManager.onPositionNotFound.AddListener(OnPositionMatchFailed);
 }
 
-private void OnMapDownloaded(Session sesison,GameObject map)
+private void OnMapDownloaded(Session session,GameObject map)
 {
     Debug.Log("Map downloaded");    
 }
@@ -177,7 +177,7 @@ private void OnMapStartDownloading()
     Debug.Log("Start to download the map");
 }
 
-private void OnPositionMatched(MatchingPosition positionMatched)
+private void OnPositionMatched(RelocationResults positionMatched,CoordinateSystem newCoords)
 {
     Debug.Log("You are at " + positionMatched.LocatedPosition);  
 }
@@ -188,12 +188,19 @@ private void OnPositionMatchFailed()
 }
 ```
 ### Setup the map first
-Before calling the relocation you will need to setup the session you want to relocate in using the __GetDataForMap__ function. It will download the map data and setup the relocation manager on this session.
+Before calling the relocation you will need to setup the session you want to relocate in using the __GetDataForMap__ function. It will download the map data and setup the relocation manager on this session. You can use a Session instance or a UUID.
 
 ```cs
+//Get the map datas using the Session instance
 public void SelectSession(Session session){
     MapRelocationManager.Instance.GetDataForMap(selectedSession);                
 }
+
+//Get the map datas using the Session UUID (from the dashboard)
+public void SelectSession(string uuid){
+    MapRelocationManager.Instance.GetDataForMap(uuid);                
+}
+
 ```
 
 When the relocation is done it will trigger the  __mapDownloadedSucessfully__ event. The event will contain 2 datas:

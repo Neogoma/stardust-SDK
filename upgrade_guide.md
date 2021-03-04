@@ -1,5 +1,16 @@
 # Stardust upgrade guide
 
+## Upgrade from 0.2/0.3 to 0.5
+
+### MapRelocationManager major change
+- Update to Unity 2020.2.x
+- Update to ARFoundation 4.1.5 (Unity package)
+- Update to AR subsystems 4.1.5 (Unity package)
+- Update to Unity ARKit plugin 4.1.5 (Unity package)
+- Update to Unity ARCore XR plugin 4.1.5 (Unity package)
+- **MatchingPosition** has been renamed to **RelocationResults**
+- **MapRelocationManager** __onPositionFound__ event now returns 2 objects: **RelocationResults** and **CoordinateSystem**
+
 ## Upgrade from 0.1x to 0.2
 
 ### Before importing the package

@@ -2,8 +2,10 @@
 Since version 0.2 the Stardust SDK includes a navigation component.
 
 ## Principle
-The mapping system automatically generates a navigable area based on the datas you sent. So the more you map/update, the better your navigation will be.
-Navigations targets are destinations that the user can navigate to in your map. For now the navigation targets can only be defined in the online editor.
+The mapping system automatically generates a navigable area based on the datas you sent. So the **more you map/update, the better your navigation will be**.
+
+Navigations targets are destinations that the user can navigate to in your map. They can be defined either in the mapper samples or in the editor.
+
 The editor will display the navigable area so you can easily see what areas you can go to and what areas you should update. 
 
 **Note** You can setup your target while the map is training.
@@ -76,6 +78,15 @@ Once the navigation icon is selected you will see the navigable area as a green 
 
 ![Overlay](_img/editor_path.jpg)
 
+### Known issues
+In some cases (for example if the phone slam isn't good enough) the mapping has somme issues and you can end up with a map with the following path:
+
+![Bad path](_img/bad_path.png)
+
+This makes the map impossible to navigate (navigation can freeze), all path should be somehow connected by them. In order to solve this issue you should update your map to cover the gaps. 
+
+![Correct path](_img/correct_map.jpg)
+
+
 ### Note
 You can put a target anywhere you want but be aware that if you do not put your target on an navigable area the pathfinding algorithm can't guarantee the correct result of your navigation. If you want to make an area navigable just your map.
-

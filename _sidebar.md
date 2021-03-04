@@ -1,10 +1,14 @@
-* Getting started
+* Getting started  
   * [Quick start](quickstart.md)
   * [Upgrade guide](upgrade_guide.md)
   * [Stardust basic components](components.md)
   * [Stardust navigation components](navigation.md)
+  * [Uploading my objects](my_objects.md) 
+  * [SDK update log](update.md)
+
+* Detailed instructions
   * [Mapping instructions](mapping_instructions.md)
-  * [Uploading my objects](my_objects.md)  
+  * [Update instructions](update_instructions.md)
 
 * Editor
   * [Basic commands](editor_commands.md)

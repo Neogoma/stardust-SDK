@@ -4,11 +4,11 @@
 The SDK requires you to have a **valid Stardust** account. You can apply for a developer account for free [here](https://stardust.neogoma.com/).
 
 ## Compatibility
-- Unity 2020.1.x or higher
-- ARFoundation 4.1.1 (Unity package)
-- AR subsystems 4.1.1 (Unity package)
-- Unity ARKit plugin 4.1.1 (Unity package)
-- Unity ARCore XR plugin 4.1.1 (Unity package)
+- Unity 2020.2.x or higher
+- ARFoundation 4.1.5 (Unity package)
+- AR subsystems 4.1.5 (Unity package)
+- Unity ARKit plugin 4.1.5 (Unity package)
+- Unity ARCore XR plugin 4.1.5 (Unity package)
 
 ## Supported devices
 - All IPhones compatible with ARKit
