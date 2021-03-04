@@ -16,6 +16,9 @@ OBJ format is the easiest because you only have to upload the file and they will
 
 ## Unity asset bundle format
 
+Unity asset bundle format is a little bit longer to process but comes with the benefits of allowing scripts on gameobjects allowing more interactivity in the content of the bundle.
+
+
 ### Video of the process
 
 [![How to create asset bundle](https://img.youtube.com/vi/TRg6cKWQMqI/0.jpg)](https://www.youtube.com/watch?v=TRg6cKWQMqI)

@@ -26,7 +26,6 @@ private void PositionFound(RelocationResults positionMatched,CoordinateSystem ne
     //2. Update the coordinate system   
     MapDataUploader.Instance.UpdateCoordinateSystem(newCoords);    
 }
-
 ```
 ## Data quality
 To increase the accuracy of relocation, try to update the map at different times of the day and/or with different lighting conditions.

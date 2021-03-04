@@ -177,7 +177,7 @@ private void OnMapStartDownloading()
     Debug.Log("Start to download the map");
 }
 
-private void OnPositionMatched(MatchingPosition positionMatched)
+private void OnPositionMatched(RelocationResults positionMatched,CoordinateSystem newCoords)
 {
     Debug.Log("You are at " + positionMatched.LocatedPosition);  
 }
