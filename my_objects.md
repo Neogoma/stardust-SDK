@@ -9,7 +9,7 @@ OBJ format is the easiest because you only have to upload the file and they will
 - Select the option "Upload an OBJ file"
 - Fill in the name
 - Select the "Public object" checkbox if you want to share with other users of the platform
-- Upload the OBJ file (max size 10 mb)
+- Upload the OBJ file (max size 10 mb). **The name should NOT contain spaces!**
 - Optional: Upload the MTL files
 - Optional: Upload the Texture files (max size 40 mb)
 - Click on "Create object"
