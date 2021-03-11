@@ -4,131 +4,19 @@
         <name>Stardust</name>
     </assembly>
     <members>
-        <member name="T:com.Neogoma.Stardust.Datamodel.CoordinateSystem">
+        <member name="T:com.Neogoma.Stardust.API.ImageQuality">
             <summary>
-            Defines a custom coordnate system
+            Picture quality
             </summary>
         </member>
-        <member name="P:com.Neogoma.Stardust.Datamodel.CoordinateSystem.Origin">
+        <member name="F:com.Neogoma.Stardust.API.ImageQuality.HIGH">
             <summary>
-            Origin of the coordnate system
+            High quality
             </summary>
         </member>
-        <member name="P:com.Neogoma.Stardust.Datamodel.CoordinateSystem.Rotation">
+        <member name="F:com.Neogoma.Stardust.API.ImageQuality.LOW">
             <summary>
-            Rotation of the coordnate system
-            </summary>
-        </member>
-        <member name="P:com.Neogoma.Stardust.Datamodel.CoordinateSystem.Forward">
-            <summary>
-            Forward direction of the system
-            </summary>
-        </member>
-        <member name="P:com.Neogoma.Stardust.Datamodel.CoordinateSystem.Up">
-            <summary>
-            Up direction of the system
-            </summary>
-        </member>
-        <member name="P:com.Neogoma.Stardust.Datamodel.CoordinateSystem.Right">
-            <summary>
-            Right direction of the system
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Stardust.Datamodel.CoordinateSystem.#ctor">
-            <summary>
-            Default constructor
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Stardust.Datamodel.CoordinateSystem.#ctor(UnityEngine.Vector3,UnityEngine.Quaternion)">
-            <summary>
-            Constructor
-            </summary>
-            <param name="origin">Origin of the system</param>
-            <param name="rotation">Rotation of the system</param>
-        </member>
-        <member name="T:com.Neogoma.Stardust.Datamodel.AbstractDatamodelNode">
-            <summary>
-            Defines a model that cna be used as a graph node
-            </summary>
-        </member>
-        <member name="T:com.Neogoma.Stardust.Datamodel.Array`1">
-            <summary>
-            Class to represent an array of items to send to the API
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="T:com.Neogoma.Stardust.Datamodel.RelocationResults">
-            <summary>    
-            datamodel for returned results
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.Datamodel.RelocationResults.state">
-            <summary>
-            State returned by server
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.Datamodel.RelocationResults.q">
-            <summary>
-            Rotation returned by server
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.Datamodel.RelocationResults.t">
-            <summary>
-            Translation returned by server
-            </summary>
-        </member>
-        <member name="P:com.Neogoma.Stardust.Datamodel.RelocationResults.PositionFound">
-            <summary>
-            True if position was found, false otherwise
-            </summary>
-        </member>
-        <member name="P:com.Neogoma.Stardust.Datamodel.RelocationResults.LocatedPosition">
-            <summary>
-            Returns
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Stardust.Datamodel.PersistentObject.#ctor(UnityEngine.Vector3,UnityEngine.Quaternion,System.String,UnityEngine.Vector3,com.Neogoma.Stardust.Datamodel.Bundle)">
-            <summary>
-            Constructor
-            </summary>
-            <param name="position">Position of the object in map</param>
-            <param name="rotation">Rotation of the object in map</param>
-            <param name="mapUUID">UUID of the map</param>
-            <param name="scale">Scale of the object in map</param>
-            <param name="bundle">Bundle used by the object</param>
-        </member>
-        <member name="M:com.Neogoma.Stardust.Datamodel.PersistentObject.UpdateModel(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3)">
-            <summary>
-            Update the model with new values
-            </summary>
-            <param name="position">Update the position</param>
-            <param name="rotation">Update the rotation</param>
-            <param name="scale">Update the scale</param>
-        </member>
-        <member name="P:com.Neogoma.Stardust.Datamodel.PersistentObject.Position">
-            <summary>
-            Position of the object ON MAP
-            </summary>
-        </member>
-        <member name="P:com.Neogoma.Stardust.Datamodel.PersistentObject.Rotation">
-            <summary>
-            Rotation of the object ON MAP
-            </summary>
-        </member>
-        <member name="P:com.Neogoma.Stardust.Datamodel.PersistentObject.Scale">
-            <summary>
-            Scale of the object ON MAP
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Stardust.Datamodel.PersistentObject.GenerateRandomID">
-            <summary>
-            Returns a random name
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:com.Neogoma.Stardust.Datamodel.Session">
-            <summary>
-            Class to represent a database session
+            Low quality
             </summary>
         </member>
         <member name="T:com.Neogoma.Stardust.API.APIAutoLogin">
@@ -344,6 +232,11 @@
             Event triggered when user reached his quota of datas
             </summary>
         </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onMemoryLimitReached">
+            <summary>
+            Event triggered when phone limit has been reached
+            </summary>
+        </member>
         <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.capturePointData">
             <summary>
             If set to true will capture the point data 
@@ -444,6 +337,12 @@
             Once the picture process conversion is finished, it should notify an <see cref="T:com.Neogoma.Stardust.API.IPictureDataReady"/> event with <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.SUCCESS"/> type if the picture can be processed<br></br>
             It notifies an <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.FAILURE"/> event in case of failure to process the picture
             </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.ICameraImageProvider.SetQuality(com.Neogoma.Stardust.API.ImageQuality)">
+            <summary>
+            Update the image quality
+            </summary>
+            <param name="quality"><see cref="T:com.Neogoma.Stardust.API.ImageQuality"/> to setup</param>
         </member>
         <member name="T:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer">
             <summary>
@@ -984,6 +883,133 @@
         <member name="T:com.Neogoma.Stardust.API.CameraData.ColorExtractor">
             <summary>
             Class used to extract the camera color of a point passed in parameter
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Datamodel.CoordinateSystem">
+            <summary>
+            Defines a custom coordnate system
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Datamodel.CoordinateSystem.Origin">
+            <summary>
+            Origin of the coordnate system
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Datamodel.CoordinateSystem.Rotation">
+            <summary>
+            Rotation of the coordnate system
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Datamodel.CoordinateSystem.Forward">
+            <summary>
+            Forward direction of the system
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Datamodel.CoordinateSystem.Up">
+            <summary>
+            Up direction of the system
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Datamodel.CoordinateSystem.Right">
+            <summary>
+            Right direction of the system
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Datamodel.CoordinateSystem.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Datamodel.CoordinateSystem.#ctor(UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="origin">Origin of the system</param>
+            <param name="rotation">Rotation of the system</param>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Datamodel.AbstractDatamodelNode">
+            <summary>
+            Defines a model that cna be used as a graph node
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Datamodel.Array`1">
+            <summary>
+            Class to represent an array of items to send to the API
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Datamodel.RelocationResults">
+            <summary>    
+            datamodel for returned results
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.Datamodel.RelocationResults.state">
+            <summary>
+            State returned by server
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.Datamodel.RelocationResults.q">
+            <summary>
+            Rotation returned by server
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.Datamodel.RelocationResults.t">
+            <summary>
+            Translation returned by server
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Datamodel.RelocationResults.PositionFound">
+            <summary>
+            True if position was found, false otherwise
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Datamodel.RelocationResults.LocatedPosition">
+            <summary>
+            Returns
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Datamodel.PersistentObject.#ctor(UnityEngine.Vector3,UnityEngine.Quaternion,System.String,UnityEngine.Vector3,com.Neogoma.Stardust.Datamodel.Bundle)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="position">Position of the object in map</param>
+            <param name="rotation">Rotation of the object in map</param>
+            <param name="mapUUID">UUID of the map</param>
+            <param name="scale">Scale of the object in map</param>
+            <param name="bundle">Bundle used by the object</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Datamodel.PersistentObject.UpdateModel(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3)">
+            <summary>
+            Update the model with new values
+            </summary>
+            <param name="position">Update the position</param>
+            <param name="rotation">Update the rotation</param>
+            <param name="scale">Update the scale</param>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Datamodel.PersistentObject.Position">
+            <summary>
+            Position of the object ON MAP
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Datamodel.PersistentObject.Rotation">
+            <summary>
+            Rotation of the object ON MAP
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Datamodel.PersistentObject.Scale">
+            <summary>
+            Scale of the object ON MAP
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Datamodel.PersistentObject.GenerateRandomID">
+            <summary>
+            Returns a random name
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Datamodel.Session">
+            <summary>
+            Class to represent a database session
             </summary>
         </member>
         <member name="T:com.Neogoma.Stardust.Maths.KalmanFilter`1">
