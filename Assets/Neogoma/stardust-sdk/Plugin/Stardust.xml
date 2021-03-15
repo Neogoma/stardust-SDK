@@ -862,9 +862,20 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:com.Neogoma.Stardust.API.StardustSDK.IsGuestAccount">
+            <summary>
+            Returns true if the system is using a guest account
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:com.Neogoma.Stardust.API.StardustSDK.Logout">
             <summary>
             Clears the API token stored on cache
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.StardustSDK.LoginGuest">
+            <summary>
+            Use limited guest account for login
             </summary>
         </member>
         <member name="M:com.Neogoma.Stardust.API.StardustSDK.Login(System.String,System.String)">
