@@ -1,5 +1,4 @@
-﻿using com.Neogoma.HoboDream.OBJImport;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.XR.ARFoundation;
 

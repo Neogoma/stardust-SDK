@@ -37,7 +37,7 @@ namespace com.Neogoma.HoboDream.Util.RouteVisualization
 
 
         /// <summary>
-        /// Draws the spline detailed.        
+        /// Draws the spline detailed.
         /// </summary>
         /// <param name="spline">The spline.</param>
         public static void DrawSplineDetailed( BezierSpline spline )

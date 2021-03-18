@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9104020491661349344}
   - component: {fileID: 9104020491661349347}
   - component: {fileID: 9104020491661349150}
+  - component: {fileID: 3450457716587683644}
   m_Layer: 0
   m_Name: NeogomaComponents
   m_TagString: Untagged
@@ -59,8 +60,6 @@ MonoBehaviour:
   m_Script: {fileID: -2047301770, guid: 2999f4906079f8b4780052013c1981db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectLoadedMaterial: {fileID: 2100000, guid: c853ac0df77ebbe48878327e9ac598e8,
-    type: 2}
 --- !u!114 &9104020491661349150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,3 +72,16 @@ MonoBehaviour:
   m_Script: {fileID: 1821597891, guid: 2999f4906079f8b4780052013c1981db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3450457716587683644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104020491661349346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1582424897, guid: 2999f4906079f8b4780052013c1981db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allListenersToAdd: []

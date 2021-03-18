@@ -20,7 +20,7 @@ namespace Neogoma.HoboDream.EditorTools
 
         /// <summary>
         /// Use this method to get all loaded objects of some type, including inactive objects. 
-        /// This is an alternative to Resources.FindObjectsOfTypeAll (returns project assets, including prefabs), and GameObject.FindObjectsOfTypeAll (deprecated).
+        /// This is an alternative to Resources.FindObjectsOfTypeAll (returns project assets, including prefabs), and GameObject.FindObjectsOfTypeAll (deprecated).        
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
@@ -75,7 +75,6 @@ namespace Neogoma.HoboDream.EditorTools
                                 allTransforms.Add(newTransform);
                             }
                         }
-                        //allTransforms.AddRange(gochild);
                     }
 
 
