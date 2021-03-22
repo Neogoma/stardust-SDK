@@ -5,10 +5,14 @@
     * Creating a store account for App store
     * Updating to the latest hobodream package
 
+* Editor
+    * Upgrade editor to Unity 2020.2.x, you can now create your bundles on Unity 2020
+    * Update the datas cache to make the map display faster
+
 ## 0.52
 * SDK
     * Fixed a memory leak by blocking the data capture
-    * Making relocation faster
+    * Making relocation faster by reducing amount of data required
 
 ## 0.51
 * SDK
