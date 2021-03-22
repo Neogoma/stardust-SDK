@@ -1,5 +1,19 @@
 # Update log
 
+## 0.53
+* SDK
+    * Creating a store account for App store
+    * Updating to the latest hobodream package
+
+## 0.52
+* SDK
+    * Fixed a memory leak by blocking the picture intake
+    * Making relocation faster
+
+## 0.51
+* SDK
+    * Creating GetDataForMap that uses a map UUID rather than a session object
+
 ## 0.5 "Constellation"
 * SDK
     * Upgrade to Unity 2020.2.x and ARFoundation    
