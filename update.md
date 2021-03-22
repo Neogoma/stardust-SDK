@@ -7,7 +7,7 @@
 
 ## 0.52
 * SDK
-    * Fixed a memory leak by blocking the picture intake
+    * Fixed a memory leak by blocking the data capture
     * Making relocation faster
 
 ## 0.51
