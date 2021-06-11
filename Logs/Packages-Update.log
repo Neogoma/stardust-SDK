@@ -139,3 +139,17 @@ The following packages were updated:
   com.unity.timeline from version 1.2.6 to 1.4.6
   com.unity.xr.arkit from version 4.0.10 to 4.0.12
   com.unity.xr.oculus from version 1.7.0 to 1.8.1
+
+=== Fri Jun 11 16:16:59 2021
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.timeline from version 1.4.6 to 1.4.7
+  com.unity.xr.arcore from version 4.1.5 to 4.1.7
+  com.unity.xr.arfoundation from version 4.1.5 to 4.1.7
+  com.unity.xr.arkit from version 4.0.12 to 4.1.7
+  com.unity.xr.arkit-face-tracking from version 4.1.5 to 4.1.7
+  com.unity.xr.arsubsystems from version 4.0.8 to 4.1.7
+  com.unity.xr.oculus from version 1.8.1 to 1.9.0

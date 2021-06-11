@@ -94,6 +94,24 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:com.Neogoma.Stardust.API.IDeviceLocationProvider.GetForward">
+            <summary>
+            Returns the forward vector in the map space
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.IDeviceLocationProvider.GetRight">
+            <summary>
+            Returns the right vector in the map space
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.IDeviceLocationProvider.GetUp">
+            <summary>
+            Returns the up vector in the map space
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:com.Neogoma.Stardust.API.Impl.ARFoundationPositionProvider">
             <summary>
             Implementation of the <see cref="T:com.Neogoma.Stardust.API.IDeviceLocationProvider"/> for ARFoundation camera position
@@ -203,6 +221,11 @@
         <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onMemoryLimitReached">
             <summary>
             Event triggered when phone limit has been reached
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onMovingTooFast">
+            <summary>
+            Event triggered when user moved too fast
             </summary>
         </member>
         <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.capturePointData">
