@@ -1,12 +1,23 @@
-# Mapping instructions
+## Running the mapping 
+- You first need to make sure that your phone **SLAM** is stable enough to send proper datas to the server.
+- Then when you start mapping a place you need to make sure that you walk **normally**
 
-## Mapping/Update
-- Make sure the 3 Axes is stable before moving around (the different axis of different colors, it's position will determine the origin of your map). You can use the compass to make sure the SLAM is stable and your mapping sends correct datas
-- Walk at an **easy pace** so there are not brutal changes between two data captures otherwise ARFoundation will lose the phone tracking and your data may have a problem.
-- If you turn, **turn slowly** otherwise, the relocation at turn positions will have issues.
-- The datas that will be used for data generation are the data SENT, if a data is captured but NOT SENT it will not be taken into account during the data generation.
-- Depending on your data the map generation can take up to 10 minutes.
+## Examples
+### Good mapping example
+The following video is a simple example of **GOOD MAPPING**
+
+[Good mapping](_videos/good_mapping.mp4  ':include :type=video width:50px')
+
+The user walk slowly and turns the camera slowly during rotations.
+You should consider
 
 
-## Data plan
-If you are a free user your plan is capped to a maximum of 200 frames but we had very good recognition rates with 100 pictures (original mapping) in our office.
+### Bad mapping example
+The following video is a simple example of **BAD MAPPING**
+
+[Bad mapping](_videos/bad_mapping.mp4 ':include :type=video :size=50%')
+
+**What is wrong ?**
+1. The user turned the camera fast so some frames will be low quality
+2. The user was running while mapping which made frame inconsistent in quality
+3. Because of the fast movements, maybe the SLAM datas of the phones are also

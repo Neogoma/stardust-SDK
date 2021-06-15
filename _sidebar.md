@@ -1,18 +1,23 @@
 * Getting started  
   * [Quick start](quickstart.md)
   * [Upgrade guide](upgrade_guide.md)
-  * [Stardust basic components](components.md)
-  * [Stardust navigation components](navigation.md)
-  * [Uploading my objects](my_objects.md) 
-  * [SDK update log](update.md)
 
 * Detailed instructions
   * [Mapping instructions](mapping_instructions.md)
   * [Update instructions](update_instructions.md)
 
+* Classes overview
+  * [Session controller](comp_session_controller.md)
+  * [Data uploader](comp_map_data_uploader.md)
+  * [Map relocation manager](comp_map_relocation_manager.md)
+  * [Object controller](comp_object_controller.md)
+
+
 * Editor
   * [Basic commands](editor_commands.md)
-
+  * [Uploading my objects](my_objects.md) 
+  
+* [SDK update log](update.md)
 * Links
   
   [🌐Website](https://neogoma.com)
