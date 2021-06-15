@@ -1,5 +1,10 @@
 # Update log
 
+
+## 0.55
+* **SDK**
+    * Updating the data capture method
+
 ## 0.53
 * **SDK**
     * Creating a store account for App store

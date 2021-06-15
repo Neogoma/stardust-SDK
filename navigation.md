@@ -55,7 +55,7 @@ private void StartPathfinding(){
 }
 
 private void PathFindingCalculated(IGraphNode startingPosition){
-    Debug.Log("Pathfinding calculation finished);
+    Debug.Log("Pathfinding calculation finished");
 }
 ```
 
