@@ -198,6 +198,11 @@
             Event triggered when the data was sent sucessfully
             </summary>
         </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onQueueUpdated">
+            <summary>
+            Event triggered when the queue has been updated
+            </summary>
+        </member>
         <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onDataSentFailure">
             <summary>
             Event triggered when the latest data upload failed
@@ -647,9 +652,9 @@
             <br></br><see cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/> and <see cref="T:com.Neogoma.HoboDream.Network.IJSonRequestListener"/>
             </summary>
         </member>
-        <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.originPrefab">
+        <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.contentPrefab">
             <summary>
-            Prefab to show the map origin (NOT MANDATORY)
+            Prefab provided by the user (not mandatory)
             </summary>        
         </member>
         <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.onPositionFound">
@@ -829,6 +834,21 @@
         <member name="F:com.Neogoma.Stardust.API.StardustSDK.ApiKey">
             <summary>
             Developer API key
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.StardustSDK.onLoginSuceed">
+            <summary>
+            Triggered when the login succeded
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.StardustSDK.onLoginFailed">
+            <summary>
+            Triggered when the login failed
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.StardustSDK.onVersionChecked">
+            <summary>
+            Triggered when the version has been checked from server
             </summary>
         </member>
         <member name="P:com.Neogoma.Stardust.API.StardustSDK.SDKVersion">
@@ -1014,6 +1034,11 @@
         <member name="T:com.Neogoma.Stardust.Datamodel.Session">
             <summary>
             Class to represent a database session
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Datamodel.Session.PicturesNumber">
+            <summary>
+            Number of pictures in current maps
             </summary>
         </member>
         <member name="T:com.Neogoma.Stardust.Maths.KalmanFilter`1">
