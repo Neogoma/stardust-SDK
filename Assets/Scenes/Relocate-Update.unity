@@ -5014,7 +5014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSelectionDropDown: {fileID: 814678821}
-  locationPrefab: {fileID: 1739782500668422220, guid: c71a1d9e267179d4e855c6dc9ef24859,
+  locationPrefab: {fileID: 919132149155446097, guid: 806f45f1f1ae38442981ad48e166a834,
     type: 3}
   targetReachedHint: {fileID: 838472236}
   targetReached:

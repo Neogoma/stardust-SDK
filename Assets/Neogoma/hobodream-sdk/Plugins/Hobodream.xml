@@ -998,6 +998,18 @@
             <param name="progress">Float represending the download progress (between 0 and 1)</param>
             <param name="key">The listener key</param>
         </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IRequestProgressListener`1">
+            <summary>
+            Listener to get the progress of web requests
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IRequestProgressListener`1.RequestProgress(System.Single,`0)">
+            <summary>
+            Updates when the request updates
+            </summary>
+            <param name="progressPercentage">Percentage</param>
+            <param name="key"></param>
+        </member>
         <member name="T:com.Neogoma.HoboDream.Network.IBundleDownloader`2">
             <inheritdoc />
             <summary>
@@ -1544,6 +1556,12 @@
             <summary>
             Cleanup all the security json tokens
             </summary>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.SetupToken(System.String)">
+            <summary>
+            Manually overrides and setup the API token
+            </summary>
+            <param name="token">Token to use</param>
         </member>
         <member name="M:com.Neogoma.HoboDream.Network.NetworkProvider.OnDestroy">
             <inheritdoc/>
@@ -4563,6 +4581,17 @@
             <summary>
             Default octree generator
             </summary>
+        </member>
+        <member name="M:com.Neogoma.Octree.OctreeGenerator.GeneratePointOctree``1(System.Single,UnityEngine.Vector3,System.Single,System.Collections.Generic.List{``0})">
+            <summary>
+            Generates an octree
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="initialWorldSize"></param>
+            <param name="originPosition"></param>
+            <param name="minimumSize"></param>
+            <param name="allDatas"></param>
+            <returns></returns>
         </member>
         <member name="M:com.Neogoma.Octree.PointOctree`1.#ctor(System.Single,UnityEngine.Vector3,System.Single)">
             <summary>

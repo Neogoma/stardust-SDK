@@ -188,6 +188,11 @@
             Instance of <see cref="T:com.Neogoma.Stardust.API.Mapping.MapDataUploader"/>
             </summary>
         </member>
+        <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.CurrentUploadProgres">
+            <summary>
+            Return the current upload progress
+            </summary>
+        </member>
         <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onDataCapturedSucessfully">
             <summary>
             Event triggered when the data was captured sucessfully
@@ -231,6 +236,11 @@
         <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onMovingTooFast">
             <summary>
             Event triggered when user moved too fast
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onRequestProgress">
+            <summary>
+            Event triggered when the upload progresses
             </summary>
         </member>
         <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.capturePointData">
@@ -297,6 +307,9 @@
             Sets the current session
             </summary>
             <param name="sessionData"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.RequestProgress(System.Single,System.String)">
+            <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.Stardust.API.Mapping.EventWithCount">
             <summary>
@@ -792,6 +805,36 @@
         <member name="T:com.Neogoma.Stardust.API.SessionController">
             <summary>
             Class used to manage all the sessions manipulations
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.SessionController.onSessionCreationSucess">
+            <summary>
+            Event triggered when the session has been created sucessfully
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.SessionController.onSessionCreationFailure">
+            <summary>
+            Event triggered when the session couldn't be created
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.SessionController.onSessionLimitReached">
+            <summary>
+            Event triggered when the session limit has been reached
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.SessionController.onAllSessionsRetrieved">
+            <summary>
+            Event triggered when all the session have been retrieved sucessfully
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.SessionController.onAllSessionsRetrievedFailed">
+            <summary>
+            Event triggered when all sessions couldn't be retrieved
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.SessionController.Instance">
+            <summary>
+            Public instance of the session controller
             </summary>
         </member>
         <member name="M:com.Neogoma.Stardust.API.SessionController.CreateMappingSession">
@@ -1387,12 +1430,13 @@
             <param name="points">List of Points</param>
             <returns>The gameobject that represents the resulting point cloud</returns>
         </member>
-        <member name="M:com.Neogoma.Stardust.DataRendering.PCLDisplayer.CreatePointCloudMesh(System.String,System.Collections.Generic.List{com.Neogoma.Octree.IOctreeCoordnateObject})">
+        <member name="M:com.Neogoma.Stardust.DataRendering.PCLDisplayer.CreatePointCloudMesh(System.String,System.Collections.Generic.List{com.Neogoma.Octree.IOctreeCoordnateObject},System.Single)">
             <summary>
             Generates a point cloud mesh with octree using a list of points
             </summary>
             <param name="pointCloudId">ID of the point cloud</param>
             <param name="points">List of points</param>
+            <param name="nodeSize">Minimum node size</param>
             <returns></returns>
         </member>
         <member name="M:com.Neogoma.Stardust.DataRendering.PCLDisplayer.CreatePointCloudMesh(System.String,com.Neogoma.Octree.PointOctree{com.Neogoma.Octree.IOctreeCoordnateObject})">
@@ -1428,6 +1472,38 @@
         <member name="T:com.Neogoma.Stardust.Utils.AndroidPermissionsManager">
             <summary>
             Manages the android permissions
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Utils.EditorPCDownloader">
+            <summary>
+            Class in editor to download the point cloud
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Utils.EditorPCDownloader.Progress">
+            <summary>
+            Returns the current status of download
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Utils.EditorPCDownloader.DownloadFinished">
+            <summary>
+            True when the download is finished
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Utils.EditorPCDownloader.Points">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Utils.EditorPCDownloader.DownloadPointCloud(System.String,System.String)">
+            <summary>
+            Download the point cloud from cloud
+            </summary>
+            <param name="apiKey"></param>
+            <param name="mapUUID"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Utils.EditorPCDownloader.FastFloatParse(System.String)">
+            <summary>
+            Modified from https://codereview.stackexchange.com/a/76891. Faster than float.Parse
             </summary>
         </member>
     </members>
