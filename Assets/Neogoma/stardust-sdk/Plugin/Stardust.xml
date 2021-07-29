@@ -188,6 +188,11 @@
             Instance of <see cref="T:com.Neogoma.Stardust.API.Mapping.MapDataUploader"/>
             </summary>
         </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.useSmoothingFilter">
+            <summary>
+            Check if you want to use a smoothing filter
+            </summary>
+        </member>
         <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.CurrentUploadProgres">
             <summary>
             Return the current upload progress
@@ -236,6 +241,11 @@
         <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onMovingTooFast">
             <summary>
             Event triggered when user moved too fast
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onEmergencyCut">
+            <summary>
+            Event triggered in case of emergency cut
             </summary>
         </member>
         <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onRequestProgress">
@@ -310,6 +320,11 @@
         </member>
         <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.RequestProgress(System.Single,System.String)">
             <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.OnDestroy">
+            <summary>
+            <inheritdoc/>
+            </summary>
         </member>
         <member name="T:com.Neogoma.Stardust.API.Mapping.EventWithCount">
             <summary>
@@ -685,6 +700,11 @@
             Event triggered when the position request failed
             </summary>
         </member>
+        <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.onPositionRequestTimeout">
+            <summary>
+            Event triggered when the position request timed out
+            </summary>
+        </member>
         <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.onMapDownloadedSucessfully">
             <summary>
             Event triggered when the map has been sucessfully downloaded and loaded into scene
@@ -729,6 +749,12 @@
             <summary>
             Requests to locate the current position
             </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.SetTimeout(System.Single)">
+            <summary>
+            Sets the manual timeout for requests
+            </summary>
+            <param name="timeout">Time out for the request</param>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
             <inheritdoc/>
@@ -1089,45 +1115,21 @@
             Number of pictures in current maps
             </summary>
         </member>
-        <member name="T:com.Neogoma.Stardust.Maths.KalmanFilter`1">
-             <summary>A Kalman filter implementation for any type of value which can added and multiplied.</summary>
-             <remarks>
-             Determining whether the type can be added and multiplied occurs at runtime via the <c>dynamic</c> keyword.
-             Note that if you use this with the incorrect data type (such as a <c>Quaternion</c>, which cannot be added),
-             the error will occur at runtime.
-            
-             <c>dynamic</c> also incurs a runtime cost, so if performance is crucial, it is suggested a concrete Kalman
-             filter implementation be used such as <c>KalmanFilterFloat</c> or <c>KalmanFilterVector3</c>.
-             </remarks>
-        </member>
-        <member name="T:com.Neogoma.Stardust.Maths.KalmanFilterFloat">
-            <summary>A Kalman filter implementation for <c>float</c> values.</summary>
-        </member>
-        <member name="T:com.Neogoma.Stardust.Maths.KalmanFilterVector3">
-            <summary>A Kalman filter implementation for <c>Vector3</c> values.</summary>
-        </member>
-        <member name="T:com.Neogoma.Stardust.Maths.KalmanFilterVector4">
-            <summary>A Kalman filter implementation for <c>Vector4</c> values.</summary>
-        </member>
-        <member name="T:com.Neogoma.Stardust.Maths.PointMathHelper">
+        <member name="T:com.Neogoma.Stardust.Navigation.IPathRenderer">
             <summary>
-            Helper class for maths with points
+            Interface to define how to render a path after calculating the navigation
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.Maths.PointMathHelper.Truncate(System.Single,System.Int32)">
+        <member name="M:com.Neogoma.Stardust.Navigation.IPathRenderer.DisplayPath(System.Collections.Generic.List{com.Neogoma.Octree.IOctreeCoordnateObject})">
             <summary>
-            Truncates the specified value.
+            Displays the path
             </summary>
-            <param name="value">The value.</param>
-            <param name="digits">The digits.</param>
-            <returns></returns>
+            <param name="allNavigationsPoint"></param>
         </member>
-        <member name="M:com.Neogoma.Stardust.Maths.PointMathHelper.TruncateVector(UnityEngine.Vector3)">
+        <member name="M:com.Neogoma.Stardust.Navigation.IPathRenderer.ClearPath">
             <summary>
-            Truncates the vector.
+            Clears the path
             </summary>
-            <param name="vec">The vec.</param>
-            <returns></returns>
         </member>
         <member name="T:com.Neogoma.Stardust.Navigation.Graph.GameObjectTarget">
             <summary>
@@ -1219,6 +1221,16 @@
             <param name="prefab"></param>
             <param name="transformOrigin"></param>
         </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Rendering.PathRenderer.ClearPath">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Rendering.PathRenderer.DisplayPath(System.Collections.Generic.List{com.Neogoma.Octree.IOctreeCoordnateObject})">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
         <member name="T:com.Neogoma.Stardust.Navigation.Navigator">
             <summary>
             This class will manage the navigation routine 
@@ -1291,6 +1303,12 @@
             Clears all the path arrows
             </summary>
         </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.SetPathRenderer(com.Neogoma.Stardust.Navigation.IPathRenderer)">
+            <summary>
+            Updates the path renderer
+            </summary>
+            <param name="renderer">New renderer to use</param>
+        </member>
         <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.RequestFailed(System.String,System.String)">
             <inheritdoc/>
         </member>
@@ -1303,6 +1321,46 @@
             <summary>
             Event triggered when the path was calculated returns the first navigation node
             </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Maths.KalmanFilter`1">
+             <summary>A Kalman filter implementation for any type of value which can added and multiplied.</summary>
+             <remarks>
+             Determining whether the type can be added and multiplied occurs at runtime via the <c>dynamic</c> keyword.
+             Note that if you use this with the incorrect data type (such as a <c>Quaternion</c>, which cannot be added),
+             the error will occur at runtime.
+            
+             <c>dynamic</c> also incurs a runtime cost, so if performance is crucial, it is suggested a concrete Kalman
+             filter implementation be used such as <c>KalmanFilterFloat</c> or <c>KalmanFilterVector3</c>.
+             </remarks>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Maths.KalmanFilterFloat">
+            <summary>A Kalman filter implementation for <c>float</c> values.</summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Maths.KalmanFilterVector3">
+            <summary>A Kalman filter implementation for <c>Vector3</c> values.</summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Maths.KalmanFilterVector4">
+            <summary>A Kalman filter implementation for <c>Vector4</c> values.</summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Maths.PointMathHelper">
+            <summary>
+            Helper class for maths with points
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Maths.PointMathHelper.Truncate(System.Single,System.Int32)">
+            <summary>
+            Truncates the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="digits">The digits.</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Maths.PointMathHelper.TruncateVector(UnityEngine.Vector3)">
+            <summary>
+            Truncates the vector.
+            </summary>
+            <param name="vec">The vec.</param>
+            <returns></returns>
         </member>
         <member name="T:com.Neogoma.Stardust.Graph.BasicGraphNode">
             <summary>
