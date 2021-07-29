@@ -38,7 +38,6 @@ namespace Neogoma.Stardust.Demo.Mapper
         /// </summary>
         public Text dataLimitReached;
 
-
         /// <summary>
         /// Object manager for setting up the session
         /// </summary>
@@ -74,7 +73,7 @@ namespace Neogoma.Stardust.Demo.Mapper
             dataUploader.onQueueUpdated.AddListener(OnDataCaptured);
             dataUploader.onDataSentSucessfully.AddListener(OnDataSentSuccess);
             dataUploader.onDatalimitReached.AddListener(OnDataLimitReached);
-            dataUploader.onRequestProgress.AddListener(OnRequestProgres);
+            dataUploader.onRequestProgress.AddListener(OnRequestProgres);            
         }
 
         private void OnRequestProgres(float arg0)
