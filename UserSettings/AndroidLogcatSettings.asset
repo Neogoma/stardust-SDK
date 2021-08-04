@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "HT84T1A03177",
         "name": "com.neogoma.stardustsdksample",
-        "processId": 4928,
+        "processId": 6364,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -42,6 +42,12 @@
             "deviceId": "HT84T1A03177",
             "name": "com.neogoma.stardustsdksample",
             "processId": 4928,
+            "exited": false
+        },
+        {
+            "deviceId": "HT84T1A03177",
+            "name": "com.neogoma.stardustsdksample",
+            "processId": 6364,
             "exited": false
         }
     ],
