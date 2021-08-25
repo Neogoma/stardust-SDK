@@ -164,7 +164,7 @@
             Returns the picture data as a byte array
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Impl.PictureProcessingReady.GetJPEGData">
+        <member name="M:com.Neogoma.Stardust.API.Impl.PictureProcessingReady.GetPictureDatas">
             <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.Stardust.API.IPictureDataReady">
@@ -172,7 +172,7 @@
             Interface that defines an event to transmit processed picture data from <see cref="T:com.Neogoma.Stardust.API.ICameraImageProvider"/>
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.IPictureDataReady.GetJPEGData">
+        <member name="M:com.Neogoma.Stardust.API.IPictureDataReady.GetPictureDatas">
             <summary>
             Returns the byte data of the JPEG picture
             </summary>
@@ -275,6 +275,9 @@
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.SetupImageProvider(com.Neogoma.Stardust.API.ICameraImageProvider)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.SaveTarget(UnityEngine.Vector3,System.String)">
@@ -731,6 +734,9 @@
             </summary>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.Awake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.SetupImageProvider(com.Neogoma.Stardust.API.ICameraImageProvider)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.GetDataForMap(com.Neogoma.Stardust.Datamodel.Session)">
