@@ -820,24 +820,31 @@
             <param name="pictureDatas">the picture taken when click locate.</param>
             <param name="positionMatchedData">The position matched data.</param>
         </member>
-        <member name="T:com.Neogoma.Stardust.API.Relocation.PointCloudPositioner">
+        <member name="T:com.Neogoma.Stardust.API.Relocation.MapPositioner">
             <summary>
             Class used to position the map in the world according to received datas
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Relocation.PointCloudPositioner.#ctor(com.Neogoma.Stardust.API.Persistence.ObjectController,UnityEngine.GameObject,UnityEngine.Material)">
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapPositioner.#ctor(com.Neogoma.Stardust.API.Persistence.ObjectController,UnityEngine.GameObject,UnityEngine.Material)">
             <summary>
             Default construction of the point cloud positioner
             </summary>
-            <param name="originPrefab"></param>
+            <param name="contentPrefab"></param>
             <param name="objectController"></param>
             <param name="mat"></param>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Relocation.PointCloudPositioner.GetMapObjectForSession(com.Neogoma.Stardust.Datamodel.Session)">
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapPositioner.GetMapObjectForSession(com.Neogoma.Stardust.Datamodel.Session)">
             <summary>
             Creates an instantiate the map according to sessions datas
             </summary>
             <param name="session"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapPositioner.GetMapObjectForSession(System.String)">
+            <summary>
+            Instantiate the data with only
+            </summary>
+            <param name="uuid"></param>
             <returns></returns>
         </member>
         <member name="T:com.Neogoma.Stardust.API.SessionController">
