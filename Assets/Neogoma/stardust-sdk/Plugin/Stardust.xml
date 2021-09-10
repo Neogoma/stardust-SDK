@@ -756,6 +756,12 @@
             Requests to locate the current position
             </summary>
         </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.LocateCurrentPosition(System.String)">
+            <summary>
+            Requests to locate the current position with map UUID in parameter
+            </summary>
+            <param name="uuid">UUID of the map to relocate on</param>
+        </member>
         <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.SetTimeout(System.Single)">
             <summary>
             Sets the manual timeout for requests
