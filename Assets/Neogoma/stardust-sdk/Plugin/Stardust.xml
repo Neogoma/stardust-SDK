@@ -698,6 +698,11 @@
             Event triggered when the position has not been found
             </summary>
         </member>
+        <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.onMaxRequestReached">
+            <summary>
+            Event triggered when the maximum of request has been reached
+            </summary>
+        </member>
         <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.onPositionRequestFailed">
             <summary>
             Event triggered when the position request failed
@@ -1065,6 +1070,11 @@
             State returned by server
             </summary>
         </member>
+        <member name="F:com.Neogoma.Stardust.Datamodel.RelocationResults.max">
+            <summary>
+            Resutns the max status from server
+            </summary>
+        </member>
         <member name="F:com.Neogoma.Stardust.Datamodel.RelocationResults.q">
             <summary>
             Rotation returned by server
@@ -1078,6 +1088,11 @@
         <member name="P:com.Neogoma.Stardust.Datamodel.RelocationResults.PositionFound">
             <summary>
             True if position was found, false otherwise
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Datamodel.RelocationResults.MaximumRequest">
+            <summary>
+            True if reached the maximum of requests
             </summary>
         </member>
         <member name="P:com.Neogoma.Stardust.Datamodel.RelocationResults.LocatedPosition">
