@@ -3227,7 +3227,7 @@ GameObject:
   - component: {fileID: 1011893244}
   - component: {fileID: 1011893243}
   m_Layer: 5
-  m_Name: SessionLimit
+  m_Name: RelocateLimit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3300,7 +3300,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Session limit has been reached
+  m_Text: Relocations limit has been reached
 --- !u!222 &1011893245
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5668,6 +5668,46 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6088304132979679708, guid: 26d30353eeebb7d4184a9bd11d0b7caf,
         type: 3}
+    - target: {fileID: 1035069907851283414, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onMaxRequestReached.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035069907851283414, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onMaxRequestReached.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035069907851283414, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onMaxRequestReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1011893241}
+    - target: {fileID: 1035069907851283414, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onMaxRequestReached.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035069907851283414, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onMaxRequestReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035069907851283414, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onMaxRequestReached.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035069907851283414, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onMaxRequestReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035069907851283414, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onMaxRequestReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2984943813717090983, guid: 942c79d70961db648b1f8d08938a27af,
         type: 3}
       propertyPath: ApiKey
@@ -5861,7 +5901,7 @@ PrefabInstance:
     - target: {fileID: 8904686026771092338, guid: 942c79d70961db648b1f8d08938a27af,
         type: 3}
       propertyPath: onSessionLimitReached.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8904686026771092338, guid: 942c79d70961db648b1f8d08938a27af,
         type: 3}
