@@ -131,9 +131,6 @@
             </summary>
             <param name="cameraManager"></param>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Impl.CameraImageProvider.InitializeCamera">
-            <inheritdoc/>
-        </member>
         <member name="M:com.Neogoma.Stardust.API.Impl.CameraImageProvider.ComputeImageData">
             <inheritdoc/>
         </member>
@@ -348,11 +345,6 @@
         <member name="T:com.Neogoma.Stardust.API.ICameraImageProvider">
             <summary>
             This interface defines a class that converts the camera seen by the device
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.ICameraImageProvider.InitializeCamera">
-            <summary>
-            This method initializes the camera device (setup resolution/frequency....)
             </summary>
         </member>
         <member name="M:com.Neogoma.Stardust.API.ICameraImageProvider.ComputeImageData">
