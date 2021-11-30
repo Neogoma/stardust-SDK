@@ -1067,6 +1067,11 @@
             Resutns the max status from server
             </summary>
         </member>
+        <member name="F:com.Neogoma.Stardust.Datamodel.RelocationResults.level">
+            <summary>
+            Reliability of the relocation
+            </summary>
+        </member>
         <member name="F:com.Neogoma.Stardust.Datamodel.RelocationResults.q">
             <summary>
             Rotation returned by server
@@ -1085,6 +1090,11 @@
         <member name="P:com.Neogoma.Stardust.Datamodel.RelocationResults.MaximumRequest">
             <summary>
             True if reached the maximum of requests
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Datamodel.RelocationResults.RelocationReliable">
+            <summary>
+            True if the relocation is reliable
             </summary>
         </member>
         <member name="P:com.Neogoma.Stardust.Datamodel.RelocationResults.LocatedPosition">
