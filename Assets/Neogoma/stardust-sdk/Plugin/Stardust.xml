@@ -725,6 +725,11 @@
             Event triggered when relocation has not finished processing
              </summary>
         </member>
+        <member name="F:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.onRequestProgress">
+            <summary>
+            Event triggered when the request progress is updated
+            </summary>
+        </member>
         <member name="P:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.HTTPConnector">
             <summary>
             Returns the http connector
@@ -775,6 +780,9 @@
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestFailed(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestProgress(System.Single,System.String)">
             <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.PositionFoundEvent">
@@ -1060,6 +1068,11 @@
         <member name="F:com.Neogoma.Stardust.Datamodel.RelocationResults.state">
             <summary>
             State returned by server
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.Datamodel.RelocationResults.relocation">
+            <summary>
+            Resolut of the relocation
             </summary>
         </member>
         <member name="F:com.Neogoma.Stardust.Datamodel.RelocationResults.max">
