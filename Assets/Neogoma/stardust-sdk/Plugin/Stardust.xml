@@ -547,20 +547,45 @@
             Destroy all the objects in memory
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateInstance(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,com.Neogoma.Stardust.Datamodel.Bundle,System.String,UnityEngine.Transform,com.Neogoma.Stardust.API.Persistence.ObjectController.CreationSpace)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateView(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,System.String,com.Neogoma.Stardust.Datamodel.Bundle)">
             <summary>
-            Instantiates an object with all datas necessary. The object will be created in map space only and will NOT be stored in the cloud
+            Instantiates a view with all datas necessary. The object will be created in map space only and will NOT be stored in the cloud
+            </summary>
+            <param name="position"></param>
+            <param name="rotation"></param>
+            <param name="scale"></param>
+            <param name="mapUUID"></param>
+            <param name="bundle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateView(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,System.String,System.String,com.Neogoma.Stardust.Datamodel.Bundle,com.Neogoma.Stardust.API.Persistence.ObjectController.CreationSpace)">
+            <summary>
+            Instantiates a view with all datas necessary. The object will be created in map space only and will NOT be stored in the cloud
             </summary>
             <param name="position">Position of the object</param>
             <param name="rotation">Rotation of the object</param>
             <param name="scale">Scale of the object</param>
+            <param name="metadata">Metadata hold by the object</param>
+            <param name="bundle">Bundle used by the object</param>
+            <param name="mapUUID">UUID of the map containing the object</param>
+            <param name="space">Space in which the project is created</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateView(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,System.String,com.Neogoma.Stardust.Datamodel.Bundle,System.String,UnityEngine.Transform,com.Neogoma.Stardust.API.Persistence.ObjectController.CreationSpace)">
+            <summary>
+            Instantiates a view with all datas necessary. The object will be created in map space only and will NOT be stored in the cloud
+            </summary>
+            <param name="position">Position of the object</param>
+            <param name="rotation">Rotation of the object</param>
+            <param name="scale">Scale of the object</param>
+            <param name="metadata">Metadata hold by the object</param>
             <param name="bundle">Bundle used by the object</param>
             <param name="uuid">UUID of the map containing the object</param>
             <param name="parent">Parent of the object</param>
             <param name="space">Space in which the project is created</param>
             <returns>The created <see cref="T:UnityEngine.GameObject"/></returns>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateInstance(com.Neogoma.Stardust.Datamodel.PersistentObject,UnityEngine.Transform,com.Neogoma.Stardust.API.Persistence.ObjectController.CreationSpace)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateView(com.Neogoma.Stardust.Datamodel.PersistentObject,UnityEngine.Transform,com.Neogoma.Stardust.API.Persistence.ObjectController.CreationSpace)">
             <summary>
             Create instance of the object in scene
             </summary>
@@ -568,7 +593,7 @@
             <param name="parent">Parent of the newly created object</param>
             <param name="space">In what <see cref="T:com.Neogoma.Stardust.API.Persistence.ObjectController.CreationSpace"/> are you giving the data</param>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateAndSaveObject(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,com.Neogoma.Stardust.Datamodel.Session,com.Neogoma.Stardust.Datamodel.Bundle,UnityEngine.Transform,com.Neogoma.Stardust.API.Persistence.ObjectController.CreationSpace)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateViewAndSaveModel(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,com.Neogoma.Stardust.Datamodel.Session,com.Neogoma.Stardust.Datamodel.Bundle)">
             <summary>
             Instanciates the object in scene and saves it in cloud
             </summary>
@@ -580,7 +605,20 @@
             <param name="parent">Parent of the newly created object (can be null)</param>
             <param name="space">In what <see cref="T:com.Neogoma.Stardust.API.Persistence.ObjectController.CreationSpace"/> are you giving the data</param>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.GetGameObjectForModel(com.Neogoma.Stardust.Datamodel.PersistentObject)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateViewAndSaveModel(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,System.String,com.Neogoma.Stardust.Datamodel.Session,com.Neogoma.Stardust.Datamodel.Bundle,UnityEngine.Transform,com.Neogoma.Stardust.API.Persistence.ObjectController.CreationSpace)">
+            <summary>
+            Instanciates the object in scene and saves it in cloud
+            </summary>
+            <param name="position">Position of the object in the map</param>
+            <param name="metadata">Metadata hold by the object</param>
+            <param name="rotation">Rotation of the object in the map</param>
+            <param name="scale">Scale of the object on XYZ axis</param>
+            <param name="bundle">Bundle used by the new instance</param>
+            <param name="session">Session to add the object to</param>
+            <param name="parent">Parent of the newly created object (can be null)</param>
+            <param name="space">In what <see cref="T:com.Neogoma.Stardust.API.Persistence.ObjectController.CreationSpace"/> are you giving the data</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.GetViewForMOdel(com.Neogoma.Stardust.Datamodel.PersistentObject)">
             <summary>
             Returns the <see cref="T:UnityEngine.GameObject"></see> associated with the model
             </summary>
@@ -593,13 +631,13 @@
             </summary>
             <returns><see cref="T:System.Collections.Generic.List`1"/></returns>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.GetAllObjectsInScene">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.GetAllViewsInScene">
             <summary>
             Returns the list of all the <seealso cref="T:UnityEngine.GameObject"/> in scene
             </summary>
             <returns></returns>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.SaveObjectInstance(com.Neogoma.Stardust.Datamodel.PersistentObject)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.SaveModel(com.Neogoma.Stardust.Datamodel.PersistentObject)">
             <summary>
             Saves the persistent object on server
             </summary>
@@ -1147,12 +1185,6 @@
             <summary>
             Scale of the object ON MAP
             </summary>
-        </member>
-        <member name="M:com.Neogoma.Stardust.Datamodel.PersistentObject.GenerateRandomID">
-            <summary>
-            Returns a random name
-            </summary>
-            <returns></returns>
         </member>
         <member name="T:com.Neogoma.Stardust.Datamodel.Session">
             <summary>
