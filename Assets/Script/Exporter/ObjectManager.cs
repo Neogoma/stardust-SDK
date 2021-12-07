@@ -107,14 +107,7 @@ namespace Neogoma.Stardust.Demo.Mapper
 
             Vector3 position = cam.position + cam.forward*forwardCamera;
             Quaternion rot = Quaternion.Euler(0,cam.rotation.eulerAngles.y,0);
-
-            //objectController.CreateViewAndSaveModel(position, rot, Vector3.one, currentSession, selectedBundle, currentParent, ObjectController.CreationSpace.World);
-
-            PersistentObject po = new PersistentObject(position, rot, currentSession.uuid, Vector3.one, selectedBundle);
-            po.metadata = Guid.NewGuid().ToString();
-
-            objectController.CreateView(po, currentParent, ObjectController.CreationSpace.World);
-            objectController.SaveModel(po);
+            objectController.CreateViewAndSaveModel(position, rot, Vector3.one,null, currentSession, selectedBundle, currentParent, ObjectController.CreationSpace.World);            
         }
 
         private void MapDownloadedSucessfully(Session session,GameObject map)
