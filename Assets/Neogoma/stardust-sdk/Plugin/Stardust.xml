@@ -605,6 +605,17 @@
             <param name="parent">Parent of the newly created object (can be null)</param>
             <param name="space">In what <see cref="T:com.Neogoma.Stardust.API.Persistence.ObjectController.CreationSpace"/> are you giving the data</param>
         </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateViewAndSaveModel(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,com.Neogoma.Stardust.Datamodel.Session,com.Neogoma.Stardust.Datamodel.Bundle,UnityEngine.Transform)">
+            <summary>
+            Instanciates the object in scene and saves it in cloud
+            </summary>
+            <param name="position">Position of the object in the map</param>
+            <param name="rotation">Rotation of the object in the map</param>
+            <param name="scale">Scale of the object on XYZ axis</param>
+            <param name="bundle">Bundle used by the new instance</param>
+            <param name="session">Session to add the object to</param>
+            <param name="parent">Parent of the newly created object (can be null)</param>
+        </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateViewAndSaveModel(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,System.String,com.Neogoma.Stardust.Datamodel.Session,com.Neogoma.Stardust.Datamodel.Bundle,UnityEngine.Transform,com.Neogoma.Stardust.API.Persistence.ObjectController.CreationSpace)">
             <summary>
             Instanciates the object in scene and saves it in cloud
