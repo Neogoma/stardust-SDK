@@ -215,6 +215,16 @@
             Event triggered when the latest data upload failed
             </summary>
         </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onBatchReadyToUpdate">
+            <summary>
+            Event triggered when the map is ready to update
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onBatchNotReady">
+            <summary>
+            Event triggered when the map can't update
+            </summary>
+        </member>
         <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onTargetCreatedSucessfully">
             <summary>
             Event triggered when a target was sucessfully created
@@ -267,6 +277,11 @@
         </member>
         <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.Awake">
             <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.SetUpdateBatch">
+            <summary>
+            Setup the update batch
+            </summary>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.GetSupportedEvents">
             <inheritdoc/>
