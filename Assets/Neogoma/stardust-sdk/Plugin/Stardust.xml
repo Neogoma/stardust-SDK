@@ -547,6 +547,13 @@
             Destroy all the objects in memory
             </summary>
         </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.HasView(com.Neogoma.Stardust.Datamodel.PersistentObject)">
+            <summary>
+            checks if a model has a view
+            </summary>
+            <param name="model">model to check</param>
+            <returns>True if the model has a view, false otherwise</returns>
+        </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateView(UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Vector3,System.String,com.Neogoma.Stardust.Datamodel.Bundle)">
             <summary>
             Instantiates a view with all datas necessary. The object will be created in map space only and will NOT be stored in the cloud
@@ -629,7 +636,7 @@
             <param name="parent">Parent of the newly created object (can be null)</param>
             <param name="space">In what <see cref="T:com.Neogoma.Stardust.API.Persistence.ObjectController.CreationSpace"/> are you giving the data</param>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.GetViewForMOdel(com.Neogoma.Stardust.Datamodel.PersistentObject)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.GetViewForModel(com.Neogoma.Stardust.Datamodel.PersistentObject)">
             <summary>
             Returns the <see cref="T:UnityEngine.GameObject"></see> associated with the model
             </summary>
@@ -1181,6 +1188,9 @@
             <param name="position">Update the position</param>
             <param name="rotation">Update the rotation</param>
             <param name="scale">Update the scale</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Datamodel.PersistentObject.Equals(System.Object)">
+            <inheritdoc/>
         </member>
         <member name="P:com.Neogoma.Stardust.Datamodel.PersistentObject.Position">
             <summary>
