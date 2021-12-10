@@ -99,10 +99,6 @@ namespace Neogoma.Stardust.Demo.Mapper
             selectedBundle = objectDictionary[prefabDropdown.value];
         }
 
-
-        private PersistentObject lastPersistent;
-
-
         /// <summary>
         /// Creates and instanciates the selected object 
         /// </summary>
@@ -111,30 +107,8 @@ namespace Neogoma.Stardust.Demo.Mapper
 
             Vector3 position = cam.position + cam.forward*forwardCamera;
             Quaternion rot = Quaternion.Euler(0,cam.rotation.eulerAngles.y,0);
+            objectController.CreateViewAndSaveModel(position, rot, Vector3.one, Guid.NewGuid().ToString(), currentSession, selectedBundle, currentParent, ObjectController.CreationSpace.World);           
             
-            
-            lastPersistent= objectController.CreateViewAndSaveModel(position, rot, Vector3.one, Guid.NewGuid().ToString(), currentSession, selectedBundle, currentParent, ObjectController.CreationSpace.World);           
-            
-        }
-
-        public void Update()
-        {
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-
-               string uuid= Guid.NewGuid().ToString();
-
-                Debug.Log(uuid);
-
-                Debug.Log(lastPersistent.uuid);
-
-                GameObject view = objectController.GetViewForModel(lastPersistent);
-
-                Debug.Log(view);
-
-                lastPersistent.metadata = uuid;
-                objectController.SaveModel(lastPersistent);
-            }
         }
 
         private void MapDownloadedSucessfully(Session session,GameObject map)
