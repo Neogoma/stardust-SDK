@@ -311,7 +311,7 @@
             </summary>
             <param name="emailToNotify">Email to notify when map is ready</param>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.RequestFailed(System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.RequestFailed(System.Int64,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.RequestSucess(System.String,System.String)">
@@ -400,7 +400,7 @@
             Returns the current model used by the displayer
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.Initialize(com.Neogoma.HoboDream.Network.IBundleDownloader{System.String,com.Neogoma.HoboDream.Network.IBundleDownloadListener},com.Neogoma.HoboDream.Network.IOBJFilesDownloader{System.String,com.Neogoma.HoboDream.Network.IObjFilesDownloadListener},com.Neogoma.HoboDream.Network.IHTTPConnector{System.String,com.Neogoma.HoboDream.Network.IJSonRequestListener},com.Neogoma.Stardust.Datamodel.PersistentObject)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.Initialize(com.Neogoma.HoboDream.Network.IBundleDownloader{com.Neogoma.HoboDream.Network.IBundleDownloadListener},com.Neogoma.HoboDream.Network.IOBJFilesDownloader{com.Neogoma.HoboDream.Network.IObjFilesDownloadListener},com.Neogoma.HoboDream.Network.IHTTPConnector{com.Neogoma.HoboDream.Network.IJSonRequestListener},com.Neogoma.Stardust.Datamodel.PersistentObject)">
             <summary>
             Initialize
             </summary>
@@ -434,7 +434,7 @@
         <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.RequestSucess(System.String,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.RequestFailed(System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.RequestFailed(System.Int64,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.ObjectFilesDownloaded(System.String,System.String)">
@@ -703,7 +703,7 @@
         <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.RequestSucess(System.String,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.RequestFailed(System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.RequestFailed(System.Int64,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.BundleIsCached(System.String)">
@@ -850,7 +850,7 @@
         <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestSucess(System.String,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestFailed(System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestFailed(System.Int64,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestProgress(System.Single,System.String)">
@@ -977,7 +977,7 @@
         <member name="M:com.Neogoma.Stardust.API.SessionController.RequestSucess(System.String,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.SessionController.RequestFailed(System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.SessionController.RequestFailed(System.Int64,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.Stardust.API.SessionController.SessionEvent">
@@ -1070,7 +1070,7 @@
         <member name="M:com.Neogoma.Stardust.API.StardustSDK.RequestSucess(System.String,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.StardustSDK.RequestFailed(System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.StardustSDK.RequestFailed(System.Int64,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.Stardust.API.CameraData.ColorExtractor">
@@ -1426,7 +1426,7 @@
             </summary>
             <param name="renderer">New renderer to use</param>
         </member>
-        <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.RequestFailed(System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.RequestFailed(System.Int64,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.Stardust.Navigation.NavigationReady">
