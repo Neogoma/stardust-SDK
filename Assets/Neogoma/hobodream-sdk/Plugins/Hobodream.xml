@@ -743,22 +743,22 @@
             Shoots the object from the starting point
             </summary>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.OBJFilesDownloader.DownloadComplete(System.String,System.String,System.Byte[])">
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.GLTFFilesDownloader.DownloadComplete(System.String,System.String,System.Byte[])">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.OBJFilesDownloader.DownloadObjectFiles(System.String,System.String[])">
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.GLTFFilesDownloader.DownloadObjectFiles(System.String,System.String[])">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.OBJFilesDownloader.DownloadObjectFiles(System.String,System.String,System.String[])">
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.GLTFFilesDownloader.DownloadObjectFiles(System.String,System.String,System.String[])">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.OBJFilesDownloader.DownloadObjectFiles(System.String,System.String,System.String[],System.String[],System.String[])">
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.GLTFFilesDownloader.DownloadObjectFiles(System.String,System.String,System.String[],System.String[],System.String[])">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.OBJFilesDownloader.Logout">
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.GLTFFilesDownloader.RequestFailed(System.Int64,System.String,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.OBJFilesDownloader.RequestFailed(System.String,System.String)">
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.GLTFFilesDownloader.Logout">
             <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`2">
@@ -871,9 +871,8 @@
         <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.UnloadAndCleanupAssets">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.NotifyListenersWithFailed(System.String,System.String[])">
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.NotifyListenersWithFailed(System.Int64,System.String,System.String[])">
             <summary>
-            异常处理
             Error Dispatcher
             </summary>
             <param name="jsonResult"></param>
@@ -944,29 +943,46 @@
             </summary>
             <seealso cref="T:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`2"/>
         </member>
-        <member name="T:com.Neogoma.HoboDream.Network.IOBJFilesDownloader`1">
+        <member name="T:com.Neogoma.HoboDream.Network.IGLTFFilesDownloader`1">
             <summary>
             Downloader t
             </summary>
             <typeparam name="T"></typeparam>
             <typeparam name="L"></typeparam>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IOBJFilesDownloader`1.DownloadObjectFiles(System.String,System.String[])">
+        <member name="M:com.Neogoma.HoboDream.Network.IGLTFFilesDownloader`1.DownloadObjectFiles(System.String,System.String[])">
             <summary>
-            Simple downloader with only the OBJ url, will notify <see cref="M:com.Neogoma.HoboDream.Network.IObjFilesDownloadListener.ObjectFilesDownloaded(System.String,System.String)"/> on sucess
+            Simple downloader with only the file url, will notify <see cref="M:com.Neogoma.HoboDream.Network.IGLTFFilesDownloadListener.ObjectFilesDownloaded(System.String,System.String)"/> on scucess
             </summary>
             <param name="objectUrl">URL of the object to download</param>
             <param name="listenerKeys">Listeners to notify</param>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IOBJFilesDownloader`1.DownloadObjectFiles(System.String,System.String,System.String[])">
+        <member name="M:com.Neogoma.HoboDream.Network.IGLTFFilesDownloader`1.DownloadObjectFilesWithApiKey(System.String,System.String,System.String[])">
             <summary>
-            Simple downloader with object and an identifier (to put in a specific directory), will notify <see cref="M:com.Neogoma.HoboDream.Network.IObjFilesDownloadListener.ObjectFilesDownloaded(System.String,System.String)"/> on sucess
+            
+            </summary>
+            <param name="objectUrl"></param>
+            <param name="apiKey"></param>
+            <param name="listenerKeys"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IGLTFFilesDownloader`1.DownloadObjectFiles(System.String,System.String,System.String[])">
+            <summary>
+            Simple downloader with object and an identifier (to put in a specific directory), will notify <see cref="M:com.Neogoma.HoboDream.Network.IGLTFFilesDownloadListener.ObjectFilesDownloaded(System.String,System.String)"/> on sucess
             </summary>
             <param name="objectUrl">URL of the obj file to download</param>
             <param name="directory">Local directory in <see cref="P:UnityEngine.Application.streamingAssetsPath"/></param>
             <param name="listenerKeys">Listeners to notify</param>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IOBJFilesDownloader`1.DownloadObjectFiles(System.String,System.String,System.String[],System.String[],System.String[])">
+        <member name="M:com.Neogoma.HoboDream.Network.IGLTFFilesDownloader`1.DownloadObjectFilesWithApiKey(System.String,System.String,System.String,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="objectUrl"></param>
+            <param name="apiKey"></param>
+            <param name="directory"></param>
+            <param name="listenerKeys"></param>
+        </member>
+        <member name="M:com.Neogoma.HoboDream.Network.IGLTFFilesDownloader`1.DownloadObjectFiles(System.String,System.String,System.String[],System.String[],System.String[])">
             <summary>
             Downloader that takes an array of string representing .mtl files and textures files URL's
             </summary>
@@ -976,19 +992,30 @@
             <param name="texUrl">Array of string containing url's to the texture files</param>
             <param name="listenerKeys">Listeners to notify</param>
         </member>
-        <member name="T:com.Neogoma.HoboDream.Network.IObjFilesDownloadListener">
+        <member name="M:com.Neogoma.HoboDream.Network.IGLTFFilesDownloader`1.DownloadObjectFilesWithApiKey(System.String,System.String,System.String,System.String[],System.String[],System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="objectUrl"></param>
+            <param name="apiKey"></param>
+            <param name="directory"></param>
+            <param name="matUrl"></param>
+            <param name="texUrl"></param>
+            <param name="listenerKeys"></param>
+        </member>
+        <member name="T:com.Neogoma.HoboDream.Network.IGLTFFilesDownloadListener">
             <summary>
             Listener for OBJ Files download operations
             </summary>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IObjFilesDownloadListener.ObjectFilesDownloaded(System.String,System.String)">
+        <member name="M:com.Neogoma.HoboDream.Network.IGLTFFilesDownloadListener.ObjectFilesDownloaded(System.String,System.String)">
             <summary>
             Triggered when all the files requested have been downloaded.
             </summary>
             <param name="objectPath">The main .obj path file</param>
             <param name="key">The listener key</param>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IObjFilesDownloadListener.DownloadProgress(System.Single,System.String)">
+        <member name="M:com.Neogoma.HoboDream.Network.IGLTFFilesDownloadListener.DownloadProgress(System.Single,System.String)">
             <summary>
             Triggered when download progress updates
             </summary>
@@ -1355,7 +1382,7 @@
         <member name="T:com.Neogoma.HoboDream.Network.IJSonRequestListener">
             <inheritdoc />
              <summary>
-             Interface used to listen the JSON/Text data requests triggered by <see cref="!:IHTTPNotifier&lt;T, L&gt;"/>
+             Interface used to listen the JSON/Text data requests triggered by <see cref="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`1"/>
              </summary>
         </member>
         <member name="M:com.Neogoma.HoboDream.Network.IJSonRequestListener.RequestSucess(System.String,System.String)">
@@ -1432,11 +1459,13 @@
              Interface used to listen the Failed requests
              </summary>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IRequestHandlerListener.RequestFailed(System.String,System.String)">
+        <member name="M:com.Neogoma.HoboDream.Network.IRequestHandlerListener.RequestFailed(System.Int64,System.String,System.String)">
             <summary>
             Called when the request was Failed , the method also communicates which listener was called.
             </summary>
-            <param name="error">String error triggered
+            <param name="errorCode">Code error triggered
+            </param>
+            <param name="error">text of error triggered
             </param>
             <param name="key">String Key of the listener
             </param>
@@ -3932,7 +3961,7 @@
         <member name="M:com.Neogoma.HoboDream.UI.Loading.WebLoadingController.InitOnBuild">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.HoboDream.UI.Loading.WebLoadingController.RequestFailed(System.String,System.String)">
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.WebLoadingController.RequestFailed(System.Int64,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.HoboDream.UI.Loading.WebLoadingController.DoOnDestroy">
@@ -4046,7 +4075,7 @@
             <param name="key">Key used to call the request
             </param>
         </member>
-        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingWebController`2.RequestFailed(System.String,System.String)">
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingWebController`2.RequestFailed(System.Int64,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.HoboDream.UI.Loading.AbstractLoadingController">
@@ -4773,6 +4802,467 @@
             <param name="ray">The ray.</param>
             <param name="point">The point to check distance from the ray.</param>
             <returns>Squared distance from the point to the closest point of the ray.</returns>
+        </member>
+        <member name="T:UnityGLTF.Cache.AssetCache">
+            <summary>
+            Caches data in order to construct a unity object
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.Cache.AssetCache.ImageStreamCache">
+            <summary>
+            Streams to the images to be loaded
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.Cache.AssetCache.ImageCache">
+            <summary>
+            Loaded raw texture data
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.Cache.AssetCache.TextureCache">
+            <summary>
+            Textures to be used for assets. Textures from image cache with samplers applied
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.Cache.AssetCache.MaterialCache">
+            <summary>
+            Cache for materials to be applied to the meshes
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.Cache.AssetCache.BufferCache">
+            <summary>
+            Byte buffers that represent the binary contents that get parsed
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.Cache.AssetCache.MeshCache">
+            <summary>
+            Cache of loaded meshes
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.Cache.AssetCache.AnimationCache">
+            <summary>
+            Cache of loaded animations
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.Cache.AssetCache.NodeCache">
+            <summary>
+            Cache of loaded node objects
+            </summary>
+        </member>
+        <member name="M:UnityGLTF.Cache.AssetCache.#ctor(GLTF.Schema.GLTFRoot)">
+            <summary>
+            Creates an asset cache which caches objects used in scene
+            </summary>
+            <param name="root">A glTF root whose assets will eventually be cached here</param>
+        </member>
+        <member name="M:UnityGLTF.Cache.MaterialCacheData.Unload">
+            <summary>
+            Unloads the materials in this cache.
+            </summary>
+        </member>
+        <member name="M:UnityGLTF.Cache.MeshCacheData.Unload">
+            <summary>
+            Unloads the meshes in this cache.
+            </summary>
+        </member>
+        <member name="T:UnityGLTF.Cache.RefCountedCacheData">
+            <summary>
+            A ref-counted cache data object containing lists of Unity objects that were created for the sake of a GLTF scene/node.
+            This supports counting the amount of refcounts that will dispose of itself
+            </summary>
+        </member>
+        <member name="F:UnityGLTF.Cache.RefCountedCacheData._refCount">
+            <summary>
+            Ref count for this cache data.
+            </summary>
+            <remarks>
+            Initialized to 0. When assigning the cache data to an instantiated GLTF
+            object the count will increase.
+            </remarks>
+        </member>
+        <member name="P:UnityGLTF.Cache.RefCountedCacheData.MeshCache">
+            <summary>
+            Meshes used by this GLTF node.
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.Cache.RefCountedCacheData.MaterialCache">
+            <summary>
+            Materials used by this GLTF node.
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.Cache.RefCountedCacheData.TextureCache">
+            <summary>
+            Textures used by this GLTF node.
+            </summary>
+        </member>
+        <member name="M:UnityGLTF.Cache.TextureCacheData.Unload">
+            <summary>
+            Unloads the textures in this cache.
+            </summary>
+        </member>
+        <member name="T:UnityGLTF.GLTFLoadException">
+            <summary>
+            GLTFLoad exceptions occur during runtime errors through use of the GLTFSceneImporter
+            </summary>
+        </member>
+        <member name="F:UnityGLTF.Extensions.SchemaExtensions.CoordinateSpaceConversionScale">
+            <summary>
+            Define the transformation between Unity coordinate space and glTF.
+            glTF is a right-handed coordinate system, where the 'right' direction is -X relative to
+            Unity's coordinate system.
+            glTF matrix: column vectors, column-major storage, +Y up, +Z forward, -X right, right-handed
+            unity matrix: column vectors, column-major storage, +Y up, +Z forward, +X right, left-handed
+            multiply by a negative X scale to convert handedness
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.Extensions.SchemaExtensions.CoordinateSpaceConversionRequiresHandednessFlip">
+            <summary>
+            Define whether the coordinate space scale conversion above means we have a change in handedness.
+            This is used when determining the conventional direction of rotation - the right-hand rule states
+            that rotations are clockwise in left-handed systems and counter-clockwise in right-handed systems.
+            Reversing the direction of one or three axes of reverses the handedness.
+            </summary>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.GetUnityTRSProperties(GLTF.Schema.Node,UnityEngine.Vector3@,UnityEngine.Quaternion@,UnityEngine.Vector3@)">
+            <summary>
+            Get the converted unity translation, rotation, and scale from a gltf node
+            </summary>
+            <param name="node">gltf node</param>
+            <param name="position">unity translation vector</param>
+            <param name="rotation">unity rotation quaternion</param>
+            <param name="scale">unity scale vector</param>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.SetUnityTransform(GLTF.Schema.Node,UnityEngine.Transform)">
+            <summary>
+            Set a gltf node's converted translation, rotation, and scale from a unity transform
+            </summary>
+            <param name="node">gltf node to modify</param>
+            <param name="transform">unity transform to convert</param>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.GetTRSProperties(UnityEngine.Matrix4x4,UnityEngine.Vector3@,UnityEngine.Quaternion@,UnityEngine.Vector3@)">
+            <summary>
+            Get unity translation, rotation, and scale from a unity matrix
+            </summary>
+            <param name="mat">unity matrix to get properties from</param>
+            <param name="position">unity translation vector</param>
+            <param name="rotation">unity rotation quaternion</param>
+            <param name="scale">unity scale vector</param>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.GetTRSProperties(GLTF.Math.Matrix4x4,UnityEngine.Vector3@,UnityEngine.Quaternion@,UnityEngine.Vector3@)">
+            <summary>
+            Get converted unity translation, rotation, and scale from a gltf matrix
+            </summary>
+            <param name="gltfMat">gltf matrix to get and convert properties from</param>
+            <param name="position">unity translation vector</param>
+            <param name="rotation">unity rotation quaternion</param>
+            <param name="scale">unity scale vector</param>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.GetColumn(GLTF.Math.Matrix4x4,System.UInt32)">
+            <summary>
+            Get a gltf column vector from a gltf matrix
+            </summary>
+            <param name="mat">gltf matrix</param>
+            <param name="columnNum">the specified column vector from the matrix</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.ToUnityQuaternionConvert(GLTF.Math.Quaternion)">
+            <summary>
+            Convert gltf quaternion to a unity quaternion
+            </summary>
+            <param name="gltfQuat">gltf quaternion</param>
+            <returns>unity quaternion</returns>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.ToGltfQuaternionConvert(UnityEngine.Quaternion)">
+            <summary>
+            Convert unity quaternion to a gltf quaternion
+            </summary>
+            <param name="unityQuat">unity quaternion</param>
+            <returns>gltf quaternion</returns>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.ToUnityMatrix4x4Convert(GLTF.Math.Matrix4x4)">
+            <summary>
+            Convert gltf matrix to a unity matrix
+            </summary>
+            <param name="gltfMat">gltf matrix</param>
+            <returns>unity matrix</returns>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.ToGltfMatrix4x4Convert(UnityEngine.Matrix4x4)">
+            <summary>
+            Convert gltf matrix to a unity matrix
+            </summary>
+            <param name="unityMat">unity matrix</param>
+            <returns>gltf matrix</returns>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.ToUnityVector3Convert(GLTF.Math.Vector3)">
+            <summary>
+            Convert gltf Vector3 to unity Vector3
+            </summary>
+            <param name="gltfVec3">gltf vector3</param>
+            <returns>unity vector3</returns>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.ToGltfVector3Convert(UnityEngine.Vector3)">
+            <summary>
+            Convert unity Vector3 to gltf Vector3
+            </summary>
+            <param name="unityVec3">unity Vector3</param>
+            <returns>gltf Vector3</returns>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.FlipTexCoordArrayV(GLTF.AttributeAccessor@)">
+            <summary>
+            Flips the V component of the UV (1-V) to put from glTF into Unity space
+            </summary>
+            <param name="attributeAccessor">The attribute accessor to modify</param>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.FlipTexCoordArrayVAndCopy(UnityEngine.Vector2[])">
+            <summary>
+            Flip the V component of the UV (1-V)
+            </summary>
+            <param name="array">The array to copy from and modify</param>
+            <returns>Copied Vector2 with coordinates in glTF space</returns>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.ConvertVector3CoordinateSpace(GLTF.AttributeAccessor@,GLTF.Math.Vector3)">
+            <summary>
+            Converts vector3 to specified coordinate space
+            </summary>
+            <param name="attributeAccessor">The attribute accessor to modify</param>
+            <param name="coordinateSpaceCoordinateScale">The coordinate space to move into</param>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.ConvertVector3CoordinateSpaceAndCopy(UnityEngine.Vector3[],GLTF.Math.Vector3)">
+            <summary>
+            Converts and copies based on the specified coordinate scale
+            </summary>
+            <param name="array">The array to convert and copy</param>
+            <param name="coordinateSpaceCoordinateScale">The specified coordinate space</param>
+            <returns>The copied and converted coordinate space</returns>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.ConvertVector4CoordinateSpace(GLTF.AttributeAccessor@,GLTF.Math.Vector4)">
+            <summary>
+            Converts vector4 to specified coordinate space
+            </summary>
+            <param name="attributeAccessor">The attribute accessor to modify</param>
+            <param name="coordinateSpaceCoordinateScale">The coordinate space to move into</param>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.ConvertVector4CoordinateSpaceAndCopy(UnityEngine.Vector4[],GLTF.Math.Vector4)">
+            <summary>
+            Converts and copies based on the specified coordinate scale
+            </summary>
+            <param name="array">The array to convert and copy</param>
+            <param name="coordinateSpaceCoordinateScale">The specified coordinate space</param>
+            <returns>The copied and converted coordinate space</returns>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.FlipFaces(GLTF.AttributeAccessor@)">
+            <summary>
+            Rewinds the indicies into Unity coordinate space from glTF space
+            </summary>
+            <param name="attributeAccessor">The attribute accessor to modify</param>
+        </member>
+        <member name="M:UnityGLTF.Extensions.SchemaExtensions.FlipFacesAndCopy(System.Int32[])">
+            <summary>
+            Rewinds the indices from glTF space to Unity space
+            </summary>
+            <param name="triangles">The indices to copy and modify</param>
+            <returns>Indices in glTF space that are copied</returns>
+        </member>
+        <member name="T:UnityGLTF.GLTFComponent">
+            <summary>
+            Component to load a GLTF scene with
+            </summary>
+        </member>
+        <member name="T:UnityGLTF.ValuesConvertion">
+            <summary>
+            Converts gltf animation data to unity
+            </summary>
+        </member>
+        <member name="F:UnityGLTF.GLTFSceneImporter.MaximumLod">
+            <summary>
+            Maximum LOD
+            </summary>
+        </member>
+        <member name="F:UnityGLTF.GLTFSceneImporter.Timeout">
+            <summary>
+            Timeout for certain threading operations
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.GLTFSceneImporter.IsMultithreaded">
+            <summary>
+            Use Multithreading or not.
+            In editor, this is always false. This is to prevent a freeze in editor (noticed in Unity versions 2017.x and 2018.x)
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.GLTFSceneImporter.SceneParent">
+            <summary>
+            The parent transform for the created GameObject
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.GLTFSceneImporter.CreatedObject">
+            <summary>
+            The last created object
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.GLTFSceneImporter.Collider">
+            <summary>
+            Adds colliders to primitive objects when created
+            </summary>
+        </member>
+        <member name="P:UnityGLTF.GLTFSceneImporter.CustomShaderName">
+            <summary>
+            Override for the shader to use on created materials
+            </summary>
+        </member>
+        <member name="F:UnityGLTF.GLTFSceneImporter.KeepCPUCopyOfMesh">
+            <summary>
+            Whether to keep a CPU-side copy of the mesh after upload to GPU (for example, in case normals/tangents need recalculation)
+            </summary>
+        </member>
+        <member name="F:UnityGLTF.GLTFSceneImporter.KeepCPUCopyOfTexture">
+            <summary>
+            Whether to keep a CPU-side copy of the texture after upload to GPU
+            </summary>
+            <remaks>
+            This is is necessary when a texture is used with different sampler states, as Unity doesn't allow setting
+            of filter and wrap modes separately form the texture object. Setting this to false will omit making a copy
+            of a texture in that case and use the original texture's sampler state wherever it's referenced; this is
+            appropriate in cases such as the filter and wrap modes being specified in the shader instead
+            </remaks>
+        </member>
+        <member name="F:UnityGLTF.GLTFSceneImporter.CullFarLOD">
+            <summary>
+            When screen coverage is above threashold and no LOD mesh cull the object
+            </summary>
+        </member>
+        <member name="M:UnityGLTF.GLTFSceneImporter.#ctor(System.String,UnityGLTF.Loader.ILoader,UnityGLTF.AsyncCoroutineHelper)">
+            <summary>
+            Creates a GLTFSceneBuilder object which will be able to construct a scene based off a url
+            </summary>
+            <param name="gltfFileName">glTF file relative to data loader path</param>
+            <param name="externalDataLoader">Loader to load external data references</param>
+            <param name="asyncCoroutineHelper">Helper to load coroutines on a seperate thread</param>
+        </member>
+        <member name="M:UnityGLTF.GLTFSceneImporter.LoadSceneAsync(System.Int32,System.Boolean,System.Action{UnityEngine.GameObject,System.Runtime.ExceptionServices.ExceptionDispatchInfo})">
+            <summary>
+            Loads a glTF Scene into the LastLoadedScene field
+            </summary>
+            <param name="sceneIndex">The scene to load, If the index isn't specified, we use the default index in the file. Failing that we load index 0.</param>
+            <param name="showSceneObj"></param>
+            <param name="onLoadComplete">Callback function for when load is completed</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityGLTF.GLTFSceneImporter.LoadNodeAsync(System.Int32)">
+            <summary>
+            Loads a node tree from a glTF file into the LastLoadedScene field
+            </summary>
+            <param name="nodeIndex">The node index to load from the glTF</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityGLTF.GLTFSceneImporter.LoadMaterialAsync(System.Int32)">
+            <summary>
+            Load a Material from the glTF by index
+            </summary>
+            <param name="materialIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityGLTF.GLTFSceneImporter.InitializeGltfTopLevelObject">
+            <summary>
+            Initializes the top-level created node by adding an instantiated GLTF object component to it,
+            so that it can cleanup after itself properly when destroyed
+            </summary>
+        </member>
+        <member name="M:UnityGLTF.GLTFSceneImporter._LoadScene(System.Int32,System.Boolean)">
+            <summary>
+            Creates a scene based off loaded JSON. Includes loading in binary and image data to construct the meshes required.
+            </summary>
+            <param name="sceneIndex">The bufferIndex of scene in gltf file to load</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnityGLTF.GLTFSceneImporter.NormalizeBoneWeightArray(UnityEngine.Vector4[])">
+            <summary>
+            Ensures each bone weight influences applied to the vertices add up to 1
+            </summary>
+            <param name="weights">Bone weight array</param>
+        </member>
+        <member name="M:UnityGLTF.GLTFSceneImporter.LoadTextureAsync(GLTF.Schema.GLTFTexture,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a texture from a glTF texture
+            </summary>
+            <param name="texture">The texture to load</param>
+            <param name="textureIndex">The index in the texture cache</param>
+            <param name="markGpuOnly">Whether the texture is GPU only, instead of keeping a CPU copy</param>
+            <param name="isLinear">Whether the texture is linear rather than sRGB</param>
+            <returns>The loading task</returns>
+        </member>
+        <member name="M:UnityGLTF.GLTFSceneImporter.GetTexture(System.Int32)">
+            <summary>
+            Gets texture that has been loaded from CreateTexture
+            </summary>
+            <param name="textureIndex">The texture to get</param>
+            <returns>Created texture</returns>
+        </member>
+        <member name="M:UnityGLTF.GLTFSceneImporter.AbsoluteUriPath(System.String)">
+            <summary>
+             Get the absolute path to a gltf uri reference.
+            </summary>
+            <param name="gltfPath">The path to the gltf file</param>
+            <returns>A path without the filename or extension</returns>
+        </member>
+        <member name="M:UnityGLTF.GLTFSceneImporter.AbsoluteFilePath(System.String)">
+            <summary>
+            Get the absolute path a gltf file directory
+            </summary>
+            <param name="gltfPath">The path to the gltf file</param>
+            <returns>A path without the filename or extension</returns>
+        </member>
+        <member name="M:UnityGLTF.GLTFSceneImporter.Cleanup">
+            <summary>
+            Cleans up any undisposed streams after loading a scene or a node.
+            </summary>
+        </member>
+        <member name="T:UnityGLTF.InstantiatedGLTFObject">
+            <summary>
+            Instantiated GLTF Object component that gets added to the root of every GLTF game object created by a scene importer.
+            </summary>
+        </member>
+        <member name="F:UnityGLTF.InstantiatedGLTFObject.cachedData">
+            <summary>
+            Ref-counted cache data for this object.
+            The same instance of this cached data will be used for all copies of this GLTF object,
+            and the data gets cleaned up when the ref counts goes to 0.
+            </summary>
+        </member>
+        <member name="M:UnityGLTF.InstantiatedGLTFObject.Duplicate">
+            <summary>
+            Duplicates the instantiated GLTF object.
+            Note that this should always be called if you intend to create a new instance of a GLTF object, 
+            in order to properly preserve the ref count of the dynamically loaded mesh data, otherwise
+            you will run into a memory leak due to non-destroyed meshes, textures and materials.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:URIHelper.AbsoluteUriPath(System.Uri)">
+            <summary>
+             Get the absolute path to a gltf uri reference.
+            </summary>
+            <param name="uri">The path to the gltf file</param>
+            <returns>A path without the filename or extension</returns>
+        </member>
+        <member name="M:URIHelper.GetDirectoryName(System.String)">
+            <summary>
+            Gets a directory name from a file path
+            </summary>
+            <param name="fullPath">Full path of a file</param>
+            <returns>The name of directory file is in</returns>
+        </member>
+        <member name="M:URIHelper.TryParseBase64(System.String,System.Byte[]@)">
+            <summary>
+            Tries to parse the uri as a base 64 encoded string
+            </summary>
+            <param name="uri">The string that represents the data</param>
+            <param name="bufferData">Returns the deencoded bytes</param>
+        </member>
+        <member name="M:URIHelper.IsBase64Uri(System.String)">
+            <summary>
+            Returns whether the input uri is base64 encoded
+            </summary>
+            <param name="uri">The uri data</param>
+            <returns>Whether the uri is base64</returns>
         </member>
     </members>
 </doc>

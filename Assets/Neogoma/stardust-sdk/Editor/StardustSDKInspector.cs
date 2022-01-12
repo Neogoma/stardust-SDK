@@ -38,6 +38,7 @@ namespace com.Neogoma.Stardust.API.CustomsEditor
                 serializedObject.ApplyModifiedProperties();
                 EditorUtility.SetDirty(target);
 
+
             }
 
             if (string.IsNullOrEmpty(lastApiKey))

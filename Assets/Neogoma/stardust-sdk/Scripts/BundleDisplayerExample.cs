@@ -1,7 +1,8 @@
 ﻿using com.Neogoma.Stardust.API.Persistence;
+using com.Neogoma.Stardust.Datamodel;
 using UnityEngine;
 
-namespace com.Neogoma.Stardust.Bundle
+namespace com.Neogoma.Stardust.Persistence
 {
     /// <summary>
     /// Base extension of <see cref="AbstractBundleDisplayer"/>
@@ -22,7 +23,7 @@ namespace com.Neogoma.Stardust.Bundle
 
         }
         ///<inheritdoc/>
-        protected override void ObjectLoadedSucessfully(GameObject obj)
+        protected override void ObjectLoadedSucessfully(GameObject obj,PersistentObject persistent)
         {
             progressBg.SetActive(false);
         }
@@ -35,7 +36,7 @@ namespace com.Neogoma.Stardust.Bundle
         ///<inheritdoc/>
         protected override void OnDownloadUpdate(float progressEvent)
         {
-
+            Debug.Log(progressEvent);
 
 
         }

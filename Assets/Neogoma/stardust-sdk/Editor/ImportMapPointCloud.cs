@@ -18,7 +18,7 @@ namespace com.Neogoma.Stardust.API.CustomsEditor
         private bool currentlyDownloading = false;
         private static float progressValue;
         private static PCLDisplayer pclDisplayer;
-        private static GameObject previousPointCloud;
+        private GameObject previousPointCloud;
 
         [MenuItem("Stardust SDK/Import point cloud")]
 
