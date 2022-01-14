@@ -1,5 +1,6 @@
 ﻿using com.Neogoma.Stardust.API.Persistence;
 using com.Neogoma.Stardust.Datamodel;
+using Siccity.GLTFUtility;
 using UnityEngine;
 
 namespace com.Neogoma.Stardust.Persistence
@@ -15,7 +16,12 @@ namespace com.Neogoma.Stardust.Persistence
         [Tooltip("GameObject to display when the object is loading")]
         public GameObject progressBg;
 
-        
+        protected override GameObject LoadGLBFile(string filepath)
+        {
+            return Importer.LoadFromFile(filepath);
+        }
+
+
 
         ///<inheritdoc/>
         protected override void ObjectLoadedFailure()

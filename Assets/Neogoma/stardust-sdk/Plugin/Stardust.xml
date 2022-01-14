@@ -453,6 +453,13 @@
             Called when the object is not available on the current platform
             </summary>
         </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.LoadGLBFile(System.String)">
+            <summary>
+            Loads the GLB file
+            </summary>
+            <param name="filepath">Loads the GLB file</param>
+            <returns></returns>
+        </member>
         <member name="T:com.Neogoma.Stardust.API.Persistence.ObjectCacher">
             <summary>
             cache object
