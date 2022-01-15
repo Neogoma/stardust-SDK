@@ -26,7 +26,7 @@ namespace com.Neogoma.Stardust.API.CustomsEditor
 
             if (GUILayout.Button("Open documentation"))
             {
-                Application.OpenURL("https://neogoma.github.io/stardust-SDK/");
+                Application.OpenURL("https://neogoma.github.io/stardust-SDK-doc/");
             }
 
             //EditorGUILayout.PropertyField();
