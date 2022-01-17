@@ -18,7 +18,22 @@ namespace com.Neogoma.Stardust.Persistence
 
         protected override GameObject LoadGLBFile(string filepath)
         {
-            return Importer.LoadFromFile(filepath);
+            ImportSettings settings = new ImportSettings();
+            AnimationClip[] animations;
+            GameObject loadedObject= Importer.LoadFromFile(filepath,settings,out animations,Format.AUTO);
+
+            if (animations.Length > 0)
+            {
+                Animation anim = loadedObject.AddComponent<Animation>();
+                animations[0].legacy = true;
+                anim.AddClip(animations[0], animations[0].name);
+                anim.clip = anim.GetClip(animations[0].name);
+                anim.wrapMode = WrapMode.Loop;
+                anim.Play();
+            }
+
+
+            return loadedObject;
         }
 
 
