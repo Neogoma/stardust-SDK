@@ -1,0 +1,1233 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HobodreamAR</name>
+    </assembly>
+    <members>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.AREventActions">
+            <summary>
+            Action set common to all the AR apps
+            平台中所有的常见普通的事件类型
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.AREventActions.COMMENT_CLICK">
+            <summary>
+            the action of clicking on comment
+            点击在评论上的事件类型
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.AREventActions.CLICK_ON">
+            <summary>
+            the action of clicking on something
+            点击到某些物体上的事件类型
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.AREventActions.SELECT_ITEM">
+            <summary>
+            the action of selecting one item from a list
+            从一个列表中选区一个项目的事件类型
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.AREventActions.ADD_PRODUCTS">
+            <summary>
+            the action of adding product
+            添加产品的事件类型
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.AREventActions.AR_EXPERIENCE_LAUNCH">
+            <summary>
+            the action of launching ar experience
+            开启AR体验的事件类型
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.AREventActions.DETAIL">
+            <summary>
+            the action of detail
+            详情的事件类型
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.AREventActions.PORTAL_ENTER">
+            <summary>
+            the action of enterring protal
+            进入传送门的事件类型
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.AREventActions.PORTAL_EXIT">
+            <summary>
+            the action of exitting from protal
+            从传送门退出的事件类型
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.AREventActions.GOT_MARKER_LIST">
+            <summary>
+            the action of finishing got marker list
+            获取完marder列表的事件类型
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.AREventActions.RESET_SCENE">
+            <summary>
+            the action of reseting the scene
+            重置AR场景的事件类型
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.AREventActions.UPDATE_MESH">
+            <summary>
+            The action of updating a mesh
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.AREventActions.UPDATE_MATERIAL">
+            <summary>
+            The action of updating a material
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.AbstractTouchOnObject">
+            <inheritdoc />
+            <summary>
+            Abstract <see cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/> class to manage the touch for every object displayed in world coordnates
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.AbstractTouchOnObject.DoOnAwake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.AbstractTouchOnObject.Update">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.AbstractTouchOnObject.GetEventType">
+            <summary>
+            The even type triggered by this 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.AbstractTouchOnObject.OnTouch">
+            <summary>
+            Action called when the object is touched
+            当对象被触摸时调用的动作
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.AbstractTouchOnObject.OnHold">
+            <summary>
+            Action called when the object is hold
+            当对象被触摸时调用的动作
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.AbstractTouchOnObject.OnRelease">
+            <summary>
+            Action called when the object is released
+            当对象被触摸时调用的动作
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.CameraRayCaster">
+            <summary>
+            Will run a raycast trough the camera to hit a specific layer<br></br>
+            Requires <see cref="T:UnityEngine.Camera"/>
+            </summary>
+            <seealso cref="T:UnityEngine.MonoBehaviour" />
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.CameraRayCaster.hitLayer">
+            <summary>
+            The layer that should be checked by the raycaster
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.CameraRayCaster.Awake">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.ObjectCreatedEvents">
+            <summary>
+            Class that defines a created object
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.BaseInteractionEvent" />
+            <seealso cref="!:IObjectGeneratorEvents" />
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.ObjectCreatedEvents.#ctor(com.Neogoma.HoboDream.IInteractiveElement,com.Neogoma.HoboDream.InteractiveEventAction)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="source"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.ObjectCreatedEvents.GetCreatedObjects">
+            <summary>
+            get all created objects
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.ObjectCreatedEvents.GetFirstObject">
+            <summary>
+            get the first object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.ParticleTrigger">
+            <summary>
+            Basic monobehavior class that will make it easy to react to a system
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.ParticleTrigger.collideParticleEvent">
+            <summary>
+            particle collision event
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.Portal.AbstractInvisibleAreaScript">
+            <summary>
+            Base Implement of <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/> <br></br>
+            Triggers:<see cref="F:com.Neogoma.Hobodream.ARFramework.AREventActions.PORTAL_ENTER"/>, <see cref="F:com.Neogoma.Hobodream.ARFramework.AREventActions.PORTAL_EXIT"/>
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Framework.BaseTriggerInteractive"/>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.Portal.AbstractInvisibleAreaScript.virtualWorldName">
+            <summary>
+            
+            portal tag
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.Portal.AbstractInvisibleAreaScript.OnEnterPortal">
+            <summary>
+            Event triggered when you enter inside the virtual world
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.Portal.AbstractInvisibleAreaScript.OnExitPortal">
+            <summary>
+            Event triggered when you exit the virtual world
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.Portal.AbstractInvisibleAreaScript.enterPortal">
+            <summary>
+            The enter portal event
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.Portal.AbstractInvisibleAreaScript.exitPortal">
+            <summary>
+            The exit portal event
+            
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.Portal.AbstractInvisibleAreaScript.DoOnAwake">
+            ------------METHODS INHERITED---------------------------///
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.TrigerMoveEvent">
+            <summary>
+            Basic implementation of the trigger move
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.TrigerMoveEvent.#ctor(com.Neogoma.HoboDream.IInteractiveElement,com.Neogoma.HoboDream.InteractiveEventAction,UnityEngine.Transform)">
+            <summary>
+             move event
+            
+            </summary>
+            <param name="source"></param>
+            <param name="type"></param>
+            <param name="targetTrans"></param>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.TrigerMoveEvent.GetTargetTrans">
+            <summary>
+            get the transform you want to send
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.SurfacePainting.LineRendererUpdateDelegate">
+            <summary>    
+            Delegate to manage the line renderer update
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Brush.ColorEvent">
+            <summary>
+            Basic <see cref="T:com.Neogoma.HoboDream.Impl.BaseInteractionEvent"/> to define a color pick event
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Brush.ColorEvent.#ctor(com.Neogoma.HoboDream.IInteractiveElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="source"></param>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Brush.ColorEvent.#ctor(com.Neogoma.HoboDream.IInteractiveElement,UnityEngine.Color)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="source"></param>
+            <param name="color"></param>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Brush.ColorEvent.GetNewColor">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Animation.AnimationController">
+            <summary>
+            this class control animator behaviour
+            <see cref="T:com.Neogoma.HoboDream.Utils.Reset.IResetObjectListener"/> and <see cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Animation.AnimationController.AnimationPlay(System.String)">
+            <summary>
+             play animation by animation name
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Animation.AnimationController.AnimationPlayByValue(System.String)">
+            <summary>
+            play animation by set standardOrder value,
+            使用设置值的方式播放动画片段
+            </summary>
+            <param name="standardOrder">
+            set trigger like "trigger_name",
+            set int like "int_name_8",
+            set float like "float_name_3.14",
+            set bool like "bool_name_false"
+            </param>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Animation.AnimationController.SetUpInit">
+            INHERIED METHODS FROM INTERFACE ///
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ButtonUpdateBrushColor">
+            <summary>
+            Button used to update the brush color,attached to the button
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.UI.Impl.Buttons.NormalBtnScripts" />
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ButtonUpdateBrushColor.pencilColor">
+            <summary>
+            The brush color
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ButtonUpdateBrushColor.colorPicked">
+            <summary>
+            The color picked event
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ButtonUpdateBrushColor.GetButtonEvent">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ButtonUpdateBrushMaterial">
+            <summary>
+            Button used to update the brush materials,attached to a button
+            </summary>
+            <seealso cref="!:com.Neogoma.HoboDream.UI.Buttons.NormalBtnScripts" />
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ButtonUpdateBrushMaterial.newMaterial">
+            <summary>
+            The new material
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ButtonUpdateBrushMesh">
+            <summary>
+            Button used to update the mesh,attached to a button
+            </summary>
+            <seealso cref="!:Coolhobo.AR.Buttons.NormalBtnScripts" />
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ButtonUpdateBrushMesh.newMesh">
+            <summary>
+            The new particle sprite
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ButtonUpdateBrushMesh.meshUpdated">
+            <summary>
+            The mesh updated event
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MeshUpdateEvent">
+            <summary>
+            Event for updating the mesh
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.BaseInteractionEvent" />
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.DragCameraToCreateObjects">
+            <summary>
+             Drag And Paint with Camera,press on screen and move phone camera,attached to a quad before the camera.<br></br>
+             <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElement"/> and <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/> and <see cref="T:com.Neogoma.HoboDream.Utils.Reset.IResetObject"/>.<br></br>
+             
+             Listens to:<seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.COLOR"/> and <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.RESET"/> and <seealso cref="F:com.Neogoma.Hobodream.ARFramework.AREventActions.UPDATE_MATERIAL"/> and <seealso cref="F:com.Neogoma.Hobodream.ARFramework.AREventActions.UPDATE_MESH"/><br></br>
+             
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.DragCameraToCreateObjects.material">
+             <summary>
+             Material to use for drawing
+            
+             </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.DragCameraToCreateObjects.pencilColor">
+            <summary>
+            Color of the pencil
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.DragCameraToCreateObjects.drawingRoot">
+            <summary>
+            Root for putting all the created gameobjects
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.DragCameraToCreateObjects.meshBrush">
+            <summary>
+            Brush grid
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.DragCameraToCreateObjects.MAXIMUM_RAY_CASTING">
+            <summary>
+            The maximum ray casting distance: 1m
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.DragCameraToCreateObjects.Undo">
+            <summary>
+            undo
+            
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.DragCameraToCreateObjects.Redo">
+             <summary>
+            redo
+             
+             </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.FocusController">
+            <summary>
+            <see cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/> that will trigger events in case the object is focus or unfocus. The focus is determined by the <see cref="T:UnityEngine.Collider"/>
+            <br></br>Notify <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.FOCUS"/>, <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.UNFOCUS"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.FocusController.standardColor">
+            <summary>
+            the color of unfocus of the concentric
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.FocusController.focusColor">
+            <summary>
+            the color of focus of the concentric
+            </summary>        
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.FocusController.targetImage">
+            <summary>
+            the image of concentic
+            </summary>        
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.FocusController.targetTag">
+            <summary>
+            Name of the tag to focus
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.FocusController.focusTrigerEvent">
+            <summary>
+            public event will be invoked when the target is focused
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.FocusController.unFocusTrigerEvent" -->
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.FocusController.Start">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.FocusController.FixedUpdate">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.FocusController.DoOnDestroy">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.FocusController.DoOnAwake">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ObjectFocusedEvent">
+            <summary>
+            This event contains which object has been focused by the target
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ObjectFocusedEvent.focusedObject">
+            <summary>
+            Object currendly under target
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicController">
+            <summary>
+            Controller to use the microphone actions, will trigger actions when the reaches a certain threeshold
+            <see cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/> and <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/><br></br>
+            EVENTS TRIGGERED:<br></br>
+            <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.MIC_ENABLE"/><br></br>
+            <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.MIC_DISABLE"/><br></br>
+            <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_ENTER"/><br></br>
+            <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_EXIT"/><br></br>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicController.StartMic">
+            <summary>
+            Method called to start registering the microphone input
+            
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicController.StopMic">
+            <summary>
+            Method called to stop regitering the microphone input
+            调用停止注册麦克风输入的方法
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicMoveController">
+            <summary>
+            Modifies the properties of an object via the mic <br></br>
+            Listens to <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_STAY"/>
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive" />
+            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElementListener" /><br></br>    
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicMoveController.micController">
+            <summary>
+            The mic controller
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicMoveController.GetSupportedEvents">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicMoveController.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicMoveController.DoOnAwake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicMoveController.DoOnDestroy">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicMoveController.MicObjectMove">
+             <summary>
+            control the movement of objects through the mic
+            
+             </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicMoveController.MicObjectRotate">
+            <summary>
+            control the rotation of objects through the mic
+            
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicTriggerAnimation">
+            <summary>
+            Allows the possibility to play an animation by sound
+            <br></br>
+            Listens to <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_STAY"/>
+            </summary>
+            <seealso cref="T:UnityEngine.MonoBehaviour" />
+            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElementListener" />
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicTriggerAnimation.micController">
+            <summary>
+            The mic controller
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicTriggerAnimation.animationController">
+            <summary>
+            The animation controller
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicTriggerAnimation.standardOrder">
+            <summary>
+             play animation by set value,
+            
+            set trigger like "trigger_name",
+            set int like "int_name_8",
+            set float like "float_name_3.14",
+            set bool like "bool_name_false"
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicTriggerAnimation.GetSupportedEvents">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicTriggerAnimation.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.ObjectScaleByMic">
+            <summary>
+            this class is for zoom object by microphone 
+            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/>
+            Listens to <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_STAY"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.ObjectScaleByMic.micController">
+            <summary>
+            The mic controller, the sound value provider
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.ObjectScaleByMic.maxScale">
+            <summary>
+            The maximum scale
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.ObjectScaleByMic.scaleSpeed">
+            <summary>
+            The scale speed
+            
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.ObjectScaleByMic.Awake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.ObjectScaleByMic.GetSupportedEvents">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.ObjectScaleByMic.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ObjectFocusable">
+            <summary>
+            This <see cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/> that defines an object that can be focused<br></br>
+            Notify<br></br><see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.FOCUS"/><br></br><see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.UNFOCUS"/>
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/>
+            <seealso cref="T:com.Neogoma.HoboDream.Framework.IRaycasterObject"/>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ObjectFocusable.standardColor">
+            <summary>
+            Standard color mask
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ObjectFocusable.focusColor">
+            <summary>
+            the color of focus of the concentric
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ObjectFocusable.targetImage">
+            <summary>
+            The target image
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ObjectFocusable.focusTrigerEvent">
+            <summary>
+            public event will be invoked when focus the target
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.ObjectFocusable.unFocusTrigerEvent">
+            <summary>
+            public event will be invoked when the focus losed
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Portal.BaseInvisibleAreaScript">
+            <summary>
+            Base implementation for portal script
+            </summary>
+            <seealso cref="!:IInteractiveElement" /> and <seealso cref="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.AR.Portal.AbstractInvisibleAreaScript"/>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Portal.InvisibleAreaVisionScript">
+            <summary>
+            Script to manage the visibility (or invisiblity of the world)
+            <seealso cref="!:AbstractInvisibleAreaScript"/> and <seealso cref="!:IInteractiveElement"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Portal.InvisibleAreaVisionScript.filter">
+            <summary>
+            Object that acts as glasses to the virtual world, enabled will show the virtual world while disabled will hide it
+            
+            </summary>        
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.ARResetManager">
+            <summary>
+            Simple implementation of AR Reset
+            Listens to : <seealso cref="F:com.Neogoma.Hobodream.ARFramework.AREventActions.RESET_SCENE"/> and <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.RESET"/>
+            Triggers:<seealso cref="F:com.Neogoma.Hobodream.ARFramework.AREventActions.RESET_SCENE"/> and <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.RESET"/>
+            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElement"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.ARResetManager.resetScene">
+            <summary>        
+            Reset Scene event
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.ARResetManager.resetObjects">
+            <summary>
+            
+            Reset Objects event
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.ARResetManager.GetSupportedEvents">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.ARResetManager.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.ARResetManager.DoOnDestroy">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.ARResetManager.DoOnAwake">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.ResetObjectPropertiesController">
+            <summary>
+            
+             this classs Reset Object Properties
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.ResetOrientationSceneController">
+            <summary>
+            
+            this class Reset AR Scene Orientation
+            Listens to : <see cref="F:com.Neogoma.Hobodream.ARFramework.AREventActions.RESET_SCENE"/>
+            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.ResetOrientationSceneController.resetManager">
+            <summary>
+            Reset Manager
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.ResetOrientationSceneController.Awake">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.ResetOrientationSceneController.ResetInteractive">
+            <summary>
+            set the object the same position and rotation as the camera
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.SimpleResetButton">
+             <summary>
+            a notifier script used to choose the button type
+             applied to the reset button
+             <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElement"/> and <seealso cref="T:com.Neogoma.HoboDream.UI.Buttons.AbstractButtonInteractive"/>
+             </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.SimpleResetButton.AREventType">
+            <summary>
+            button event type
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.Reset.SimpleResetButton.arEventType">
+            <summary>
+            button event type
+            
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectScale">
+            <summary>
+            this class define zoom function for object
+            Listens to : <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.FOCUS"/> and <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.UNFOCUS"/>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/> and <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElement"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectScale.scaleSpeed">
+             <summary>
+             the speed of zoom
+            
+             </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectScale.maxScaleVal">
+            <summary>
+            max scale of zoom
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectScale.minScaleVal">
+            <summary>
+            min scale of zoom
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectScale.needFocus">
+            <summary>
+            
+            Whether it needs to be focused before it can rotate
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectTouchToRotate">
+            <summary>
+            this calss is used for controll Rotate by touch slider Screen
+            applied to the object that need to be rotated by touch,combine with <seealso cref="T:com.Neogoma.Hobodream.ARFramework.Utils.TouchClickManager"/> which is applied on camera. <br></br>
+            Listens to:<br></br><seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.START"/> <br></br> <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.STOP"/>
+            <br></br> <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.FOCUS"/> <br></br> <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.UNFOCUS"/> 
+            <br></br> <seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.DRAG"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectTouchToRotate.rotateY">
+            <summary>
+            the switch of rotating just by Y axis
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectTouchToRotate.rotateX">
+            <summary>
+            the switch of rotating just by x axis
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectTouchToRotate.rotateSpeed">
+            <summary>
+            speed of rotate
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectTouchToRotate.maxRotateVal">
+            <summary>
+            max rotate angle value
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectTouchToRotate.needFocus">
+            <summary>
+            
+            Whether it needs to be focused before it can rotate
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectTouchToRotate.rotateScale">
+            <summary>
+            Rotating ratio
+            
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectTouchToRotate.Awake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectTouchToRotate.GetSupportedEvents">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectTouchToRotate.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectTouchToRotate.ClickObject(UnityEngine.Vector3)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.ObjectTouchToRotate.ReleaseObject">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.Rotate">
+            <summary>
+            Rotate the gameobject
+            applied to the object that need to be rotated
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.Rotate.speed">
+            <summary>
+            The speed of the picture when the video is full screen
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.Rotate.axis">
+            <summary>
+            Axis of image rotation
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.Rotate.isWorldSpace">
+            <summary>
+            Determine whether to rotate in space
+            
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.Scale">
+            <summary>
+             this calss is used for scale object,applied to the object that need to be scaled
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.Scale.list">
+            <summary>
+            Scale  Clap list
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.Scale.isLoop">
+            <summary>
+            Is Loop or not
+            
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.RotateScale.Scale.AddTolist(UnityEngine.Vector3,System.Single)">
+            <summary>
+            add scalable object to list
+            </summary>
+            <param name="to">target local scale</param>
+            <param name="speed">scale speed</param>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SoundParticleController">
+            <summary>
+            this monobehavior will use sound to generate particles. It requires a <see cref="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicController"/> in the scene<br></br>
+            Listens <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_ENTER"/>,<see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_STAY"/>,<see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.TRIGGER_EXIT"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SoundParticleController.controller">
+            <summary>
+            The instance of <see cref="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.MicTrigger.MicController"/> in the scene
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SoundParticleController.generationMultiplier">
+            <summary>
+            Particle generation rate doubling, equivalent to scale
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SoundParticleController.forceMultiplier">
+            <summary>
+            Force multiplier with time, it will increase with the amount of time the trigger is active
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SoundParticleController.maxLoudless">
+            <summary>
+            Maximum decibel, the number that affects the maximum value of rateOverTime
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SoundParticleController.Awake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SoundParticleController.GetSupportedEvents">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SoundParticleController.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SurfacePainting.AnchorReferenceManager">
+            <summary>
+            this class manage all anchor reference points
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SurfacePainting.AnchorReferenceManager.anchorPoints">
+            <summary>
+            the list of anchor points        
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SurfacePainting.AnchorReferenceManager.notifierList">
+            <summary>
+            the Generator notifier list
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SurfacePainting.AnchorReferenceManager.Awake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SurfacePainting.AnchorReferenceManager.GetSupportedEvents">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SurfacePainting.AnchorReferenceManager.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SurfacePainting.AnchorReferenceManager.ResetPos">
+            <summary>
+            Resets the position
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SurfacePainting.SurfacePainting">
+            <summary>
+            this class used to paint on surface,applied to the plane that will be paint on
+            combine with <seealso cref="T:com.Neogoma.Hobodream.ARFramework.Utils.TouchClickManager"/>
+            <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElement"/> and <seealso cref="T:com.Neogoma.HoboDream.IInteractiveElementListener"/>
+            Listens to:<seealso cref="F:com.Neogoma.HoboDream.InteractiveEventAction.RESET"/>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SurfacePainting.SurfacePainting.pencilSize">
+            <summary>
+            Size of the pencil
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SurfacePainting.SurfacePainting.pencilColor">
+            <summary>
+            Color of the pencil
+            
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SurfacePainting.SurfacePainting.drawingRoot">
+             <summary>
+             Root for putting all the created gameobjects
+            
+             </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SurfacePainting.SurfacePainting.meshBrush">
+            <summary>
+            Brush grid
+            
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SurfacePainting.SurfacePainting.Undo">
+            <summary>
+            Undo
+            
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.SurfacePainting.SurfacePainting.Redo">
+            <summary>
+            redo 
+            
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.TouchDragObject">
+            <inheritdoc/>
+            <summary>
+            <see cref="T:com.Neogoma.HoboDream.Framework.Interactions.NormalTouchClickObject"/> extension that defines how to drag 
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.AR.TouchDragObject.baseSpeed">
+            <summary>
+            Movement speed
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.Brush.ColorPick">
+            <summary>
+            Color picking system <br></br>
+            Notify <see cref="!:InteractiveEventAction.COLOR"/>
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.Brush.ColorPick.Saturation">
+            <summary>
+            Saturation selection
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.Brush.ColorPick.Hue">
+            <summary>
+            Hue selection
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.Brush.ColorPick.Paint">
+            <summary>
+            Paint selection
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.Brush.ColorPick.pointSaturation">
+            <summary>
+            Point for saturation
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.Brush.ColorPick.pointHue">
+            <summary>
+            Point for hue
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.Brush.ColorPick.OnStaurationClick(com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.Brush.ColorPickClick)">
+             <summary>
+            When the saturation area has been clicked
+             </summary>
+             <param name="sender"></param>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.Brush.ColorPick.UpdateColor">
+            <summary>
+            When the color needs to be updated
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.Brush.ColorPick.OnHueClick(com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.Brush.ColorPickClick)">
+            <summary>
+            When a click on hue happened
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.Brush.ColorPickClick" -->
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.Brush.ColorPickClick.Click">
+            <summary>
+            按钮点击
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.Brush.ColorPickClick.ClickPoint">
+            <summary>
+            点击位置
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.UI.TargetIndicator">
+            <summary>
+            used to indicate the target location on screen
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.UI.TargetIndicator.indicator">
+            <summary>
+            targer indicator icon
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.UI.TargetIndicator.edgeBuffer">
+            <summary>
+            the distance between the icon and screen edge        
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.Impl.UI.TargetIndicator.PointTarget">
+            <summary>
+            Should the indicator point at target
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding">
+            <summary>    
+            Abstract class used to define classes that work with sliding finger on touchscreen
+            </summary>
+            <seealso cref="T:com.Neogoma.HoboDream.Impl.AbstractInteractive"/>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding.delayBetweenMeasurements">
+            <summary>
+            Delay between two measurements
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding.minimumDistance">
+            <summary>
+            Minimum distance to consider a sliding valid
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding.startEvent">
+            <summary>
+            Unity start event
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding.leftEvent">
+            <summary>
+            Unity move left event
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding.rightEvent">
+            <summary>
+            Unity move right event
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding.upEvent">
+            <summary>
+            Unity move up event
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding.downEvent">
+            <summary>
+            Unity move down event
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding.endEvent">
+            <summary>
+            Unity slide end event
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding.OnStart">
+            <summary>
+            Called on Start
+            开始
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding.IsTouchValid(System.Int32,UnityEngine.Vector3)">
+            <summary>
+            手指触摸屏幕：是否有效
+            Finger touch screen: whether Valid
+            </summary>
+            <param name="fingerId"></param>
+            <param name="touchPosition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding.IsMouseValid(UnityEngine.Vector3)">
+            <summary>
+             鼠标点击屏幕：是否有效
+             Mouse click on the screen: whether Valid
+            </summary>
+            <param name="mousePosition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding.OnStartSliding">
+            <summary>
+            Action called when the object  Sart Sliding
+            当对象开始滑动
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding.OnDoSliding(com.Neogoma.Hobodream.ARFramework.Utils.Common.SlideVector,System.Single,System.Single,UnityEngine.Vector3)">
+            <summary>
+            Action called when the object  Sliding
+            当对象滑动时调用的动作
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.Common.AbstractFingerSliding.OnStopSliding(com.Neogoma.Hobodream.ARFramework.Utils.Common.SlideVector,System.Single,System.Single,UnityEngine.Vector3)">
+            <summary>
+            Action called when the object StopSliding
+            当对象停止滑动调用的动作
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.SlideVector">
+            <summary>
+            Slide Vector
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.ScreenSlidingEvent">
+            <summary>
+            UI Drag Interaction Event
+            UI拖拽交互事件
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.Common.UI.UITouchManager">
+            <summary>
+            this manager listen all UI touch event and response them
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.UI.UITouchManager.minimumDurationForHold">
+            <summary>
+            Minimum duration to consider a hold
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.UI.UITouchManager.maximumDurationForDoubleClick">
+            <summary>
+            The maximum duration to consider a double click
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.Common.UI.UITouchManager.minimumDistanceForDragConsideration">
+            <summary>
+            The minimum distance to consider a drag
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.IUIElementTouchBehave">
+            <inheritdoc />
+            <summary>
+            this interface declare common method when touch UI element
+            这个接口声明UI元素被触碰时的常用方法
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.IUIElementTouchBehave.OnClick(UnityEngine.Vector2)">
+            <summary>
+            will be called when user click the screen
+            当用户点击屏幕会被调用
+            </summary>
+            <param name="pos">the click position,点击的位置</param>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.IUIElementTouchBehave.OnDoubleClick(UnityEngine.Vector2)">
+            <summary>
+            will be called when user double click the screen
+            当用户双击屏幕会被调用
+            </summary>
+            <param name="pos">the click position, 点击的位置</param>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.IUIElementTouchBehave.HoldPress(UnityEngine.Vector2)">
+            <summary>
+            will be called when user hold pressing on screen
+            当用户长按屏幕会被调用
+            </summary>
+            <param name="pos">the press position, 长按的位置</param>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.IUIElementTouchBehave.OnRelease(UnityEngine.Vector2)">
+            <summary>
+            will be called when user release his finger from screen
+            当用户从屏幕上释放他的手指时会被调用
+            </summary>
+            <param name="pos">the release position, 释放的位置</param>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.IUIElementTouchBehave.OnDrag(UnityEngine.Vector2,UnityEngine.Vector2)">
+            <summary>
+            will be called when user drag the screen
+            当用户拖动屏幕会被调用
+            </summary>
+            <param name="pos">the drag position, 拖动的位置</param>
+            <param name="deltaPos">the move relative vector per frame, 每帧移动的向量</param>
+        </member>
+        <member name="M:com.Neogoma.Hobodream.ARFramework.Utils.IUIElementTouchBehave.OnTwoDrag(UnityEngine.Vector2,UnityEngine.Vector2)">
+            <summary>
+            will be called when user drag the screen with his two finger
+            当用户用两根手指拖动屏幕会被调用
+            </summary>
+            <param name="pos1">touch position 1, 触点1</param>
+            <param name="pos2">touch position 2, 触点2</param>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.TouchClickManager">
+            <summary>
+            This class is used to manage the click actions. It should be used instead of the abstract touch managers or the normal3dbtnscripts. The idea is to regroup all interactions into one update only.<br></br>
+            In order to interact with this script the <see cref="T:UnityEngine.MonoBehaviour"/> should have an implementation of <see cref="T:com.Neogoma.HoboDream.Framework.ITouchClickObject"/>
+            <br></br>
+            Requires <see cref="T:UnityEngine.Camera"/>
+            <br></br>
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.TouchClickManager.fingerPositionLayer">
+            <summary>
+            The finger position layer
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Hobodream.ARFramework.Utils.TouchClickManager.AREngine">
+            <summary>
+            Type of coordnate system, ARFoundation is in meter but vuforia is whatever the fuck they want it to be
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Hobodream.ARFramework.Utils.TouchClickManager.arEngine">
+            <summary>
+            To select the desired AR engine
+            </summary>
+        </member>
+    </members>
+</doc>

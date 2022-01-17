@@ -19,6 +19,7 @@ namespace com.Neogoma.Stardust.Persistence
         protected override GameObject LoadGLBFile(string filepath)
         {
             ImportSettings settings = new ImportSettings();
+            settings.useLegacyClips = true;
             AnimationClip[] animations;
             GameObject loadedObject= Importer.LoadFromFile(filepath,settings,out animations,Format.AUTO);
 

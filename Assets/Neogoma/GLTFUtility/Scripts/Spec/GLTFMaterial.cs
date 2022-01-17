@@ -7,7 +7,6 @@ using Siccity.GLTFUtility.Converters;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Scripting;
-using Newtonsoft.Json.Linq;
 
 namespace Siccity.GLTFUtility {
 	// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#material
@@ -29,7 +28,6 @@ namespace Siccity.GLTFUtility {
 		public float alphaCutoff = 0.5f;
 		public bool doubleSided = false;
 		public Extensions extensions;
-		public JObject extras;
 
 		public class ImportResult {
 			public Material material;
