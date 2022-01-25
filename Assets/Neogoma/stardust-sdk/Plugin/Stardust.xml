@@ -400,11 +400,10 @@
             Returns the current model used by the displayer
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.Initialize(com.Neogoma.HoboDream.Network.IBundleDownloader{com.Neogoma.HoboDream.Network.IBundleDownloadListener},com.Neogoma.HoboDream.Network.IOBJFilesDownloader{com.Neogoma.HoboDream.Network.IObjFilesDownloadListener},com.Neogoma.HoboDream.Network.IHTTPConnector{com.Neogoma.HoboDream.Network.IJSonRequestListener},com.Neogoma.Stardust.Datamodel.PersistentObject)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.Initialize(com.Neogoma.HoboDream.Network.IGLTFFilesDownloader{com.Neogoma.HoboDream.Network.IGLTFFilesDownloadListener},com.Neogoma.HoboDream.Network.IHTTPConnector{com.Neogoma.HoboDream.Network.IJSonRequestListener},com.Neogoma.Stardust.Datamodel.PersistentObject)">
             <summary>
             Initialize
             </summary>
-            <param name="bundledownloader"></param>
             <param name="objectDownloader"></param>
             <param name="connector"></param>
             <param name="persistenceModel"></param>
@@ -414,22 +413,13 @@
             create gameObject
             </summary>
         </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.DownloadProgress(System.Single,System.String)">
+            <inheritdoc/>
+        </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.Redownload">
             <summary>
             redownload bundle
             </summary>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.BundleIsCached(System.String)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.BundleIsNotCached(UnityEngine.Hash128,System.String)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.BundleLoaded(System.String[],System.Collections.Generic.List{UnityEngine.AssetBundle},System.String)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.DownloadProgress(System.Single,System.String)">
-            <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.RequestSucess(System.String,System.String)">
             <inheritdoc/>
@@ -440,14 +430,12 @@
         <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.ObjectFilesDownloaded(System.String,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.OnDestroy">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.ObjectLoadedSucessfully(UnityEngine.GameObject)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.ObjectLoadedSucessfully(UnityEngine.GameObject,com.Neogoma.Stardust.Datamodel.PersistentObject)">
             <summary>
             Called when the object has sucessfully been created
             </summary>
             <param name="obj">Instance of the object</param>
+            <param name="persistenceModel">Instance of the object</param>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.OnDownloadUpdate(System.Single)">
             <summary>
@@ -464,6 +452,13 @@
             <summary>
             Called when the object is not available on the current platform
             </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.LoadGLBFile(System.String)">
+            <summary>
+            Loads the GLB file
+            </summary>
+            <param name="filepath">Loads the GLB file</param>
+            <returns></returns>
         </member>
         <member name="T:com.Neogoma.Stardust.API.Persistence.ObjectCacher">
             <summary>
@@ -553,9 +548,6 @@
             <summary>
             The datas are provided in unity world space
             </summary>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.Awake">
-            <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.Clean">
             <summary>
@@ -850,10 +842,10 @@
         <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestSucess(System.String,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestFailed(System.Int64,System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestProgress(System.Single,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestProgress(System.Single,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestFailed(System.Int64,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.PositionFoundEvent">
