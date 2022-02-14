@@ -375,6 +375,12 @@
             </summary>
             <param name="quality"><see cref="T:com.Neogoma.Stardust.API.ImageQuality"/> to setup</param>
         </member>
+        <member name="M:com.Neogoma.Stardust.API.ICameraImageProvider.GetCurrentResolution">
+            <summary>
+            Returns the current resolution
+            </summary>
+            <returns>Resolution width/height</returns>
+        </member>
         <member name="T:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer">
             <summary>
             Load bundle abstract prefab extend this class to define your own behaviors
