@@ -755,7 +755,7 @@
         <member name="M:com.Neogoma.HoboDream.Network.Internal.GLTFFilesDownloader.DownloadObjectFiles(System.String,System.String,System.String[],System.String[],System.String[])">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.GLTFFilesDownloader.RequestFailed(System.Int64,System.String,System.String)">
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.GLTFFilesDownloader.RequestFailed(System.Int64,System.String,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.HoboDream.Network.Internal.GLTFFilesDownloader.Logout">
@@ -871,7 +871,7 @@
         <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.UnloadAndCleanupAssets">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.NotifyListenersWithFailed(System.Int64,System.String,System.String[])">
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AssetBundleDownloader.NotifyListenersWithFailed(System.Int64,System.String,System.String,System.String[])">
             <summary>
             Error Dispatcher
             </summary>
@@ -1385,7 +1385,7 @@
              Interface used to listen the JSON/Text data requests triggered by <see cref="T:com.Neogoma.HoboDream.Network.IHTTPNotifier`1"/>
              </summary>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IJSonRequestListener.RequestSucess(System.String,System.String)">
+        <member name="M:com.Neogoma.HoboDream.Network.IJSonRequestListener.RequestSuccess(System.String,System.String)">
             <summary>
             Called when the request was sucessfully completed, the method also communicates which listener was called. Used to manage JSOnResults
             </summary>
@@ -1459,11 +1459,13 @@
              Interface used to listen the Failed requests
              </summary>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.IRequestHandlerListener.RequestFailed(System.Int64,System.String,System.String)">
+        <member name="M:com.Neogoma.HoboDream.Network.IRequestHandlerListener.RequestFailed(System.Int64,System.String,System.String,System.String)">
             <summary>
             Called when the request was Failed , the method also communicates which listener was called.
             </summary>
             <param name="errorCode">Code error triggered
+            </param>
+            <param name="data">Data returned by the request
             </param>
             <param name="error">text of error triggered
             </param>
@@ -3661,7 +3663,7 @@
             Listens: <see cref="F:com.Neogoma.HoboDream.InteractiveEventAction.CLICK"/>
             </summary>
         </member>
-        <member name="M:com.Neogoma.HoboDream.UI.Loading.WebLoadingController.RequestSucess(System.String,System.String)">
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.WebLoadingController.RequestSuccess(System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.HoboDream.UI.Loading.WebLoadingController.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
@@ -3673,7 +3675,7 @@
         <member name="M:com.Neogoma.HoboDream.UI.Loading.WebLoadingController.InitOnBuild">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.HoboDream.UI.Loading.WebLoadingController.RequestFailed(System.Int64,System.String,System.String)">
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.WebLoadingController.RequestFailed(System.Int64,System.String,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.HoboDream.UI.Loading.WebLoadingController.DoOnDestroy">
@@ -3787,7 +3789,7 @@
             <param name="key">Key used to call the request
             </param>
         </member>
-        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingWebController`2.RequestFailed(System.Int64,System.String,System.String)">
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractListLoadingWebController`2.RequestFailed(System.Int64,System.String,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.HoboDream.UI.Loading.AbstractLoadingController">
@@ -3842,7 +3844,7 @@
         <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractWebObjectPoolList`2.UpdateLists(`0[],System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractWebObjectPoolList`2.RequestSucess(System.String,System.String)">
+        <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractWebObjectPoolList`2.RequestSuccess(System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.HoboDream.UI.Loading.AbstractWebObjectPoolList`2.GetURL">

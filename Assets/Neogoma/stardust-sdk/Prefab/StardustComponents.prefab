@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8175614224497136165}
   - component: {fileID: 1035069907851283414}
   - component: {fileID: 5731338970988671222}
+  - component: {fileID: 7577339013444432633}
   m_Layer: 0
   m_Name: StardustComponents
   m_TagString: Untagged
@@ -42,12 +43,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8904686026771092345}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 366263370, guid: 72102dcc4144b604591e875c9dd0570f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ApiKey: 
+  onLoginSuceed:
+    m_PersistentCalls:
+      m_Calls: []
+  onLoginFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onVersionChecked:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8904686026771092338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,12 +91,37 @@ MonoBehaviour:
   m_Script: {fileID: -1171691299, guid: 72102dcc4144b604591e875c9dd0570f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataSentFailure:
+  onMemoryLimitReached:
     m_PersistentCalls:
       m_Calls: []
-  datalimitReached:
+  onMovingTooFast:
     m_PersistentCalls:
       m_Calls: []
+  onEmergencyCut:
+    m_PersistentCalls:
+      m_Calls: []
+  onDataSentFailure:
+    m_PersistentCalls:
+      m_Calls: []
+  onBatchReadyToUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  onBatchNotReady:
+    m_PersistentCalls:
+      m_Calls: []
+  onTargetCreatedSucessfully:
+    m_PersistentCalls:
+      m_Calls: []
+  onTargetCreationFailure:
+    m_PersistentCalls:
+      m_Calls: []
+  onDatalimitReached:
+    m_PersistentCalls:
+      m_Calls: []
+  onRequestProgress:
+    m_PersistentCalls:
+      m_Calls: []
+  capturePointData: 0
 --- !u!114 &1035069907851283414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,12 +134,23 @@ MonoBehaviour:
   m_Script: {fileID: 299082495, guid: 72102dcc4144b604591e875c9dd0570f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPrefab: {fileID: 6088304132979679708, guid: b80427453f01afd469e4248053b12384,
-    type: 3}
-  positionRequestFailed:
+  contentPrefab: {fileID: 0}
+  onMaxRequestReached:
     m_PersistentCalls:
       m_Calls: []
-  mapDownloadFailed:
+  onPositionRequestFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onPositionRequestTimeout:
+    m_PersistentCalls:
+      m_Calls: []
+  onMapDownloadFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelocateProcessing:
+    m_PersistentCalls:
+      m_Calls: []
+  onRequestProgress:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &5731338970988671222
@@ -121,12 +167,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bundleHolder: {fileID: 1726203675028229651, guid: 778bc10877c2bb040876ae380a87cef8,
     type: 3}
-  objectListDownloaded:
+  onObjectListDownloaded:
     m_PersistentCalls:
       m_Calls: []
-  saveFailed:
+  onObjectSavedFailed:
     m_PersistentCalls:
       m_Calls: []
-  objectDeleted:
+  onObjectDeleted:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7577339013444432633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8904686026771092345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 436434454, guid: 72102dcc4144b604591e875c9dd0570f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onMemoryLimitReached:
+    m_PersistentCalls:
+      m_Calls: []
+  onMovingTooFast:
+    m_PersistentCalls:
+      m_Calls: []
+  onEmergencyCut:
+    m_PersistentCalls:
+      m_Calls: []
+  onMapUnavailableEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onUploadUpdateEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onDataLimitReached:
+    m_PersistentCalls:
+      m_Calls: []
+  onMapUploadFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  onMapSaved:
+    m_PersistentCalls:
+      m_Calls: []
+  onFrameCaptured:
     m_PersistentCalls:
       m_Calls: []

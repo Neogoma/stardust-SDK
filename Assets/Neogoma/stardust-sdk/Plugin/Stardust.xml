@@ -19,6 +19,323 @@
             Low quality
             </summary>
         </member>
+        <member name="T:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader">
+            <summary>
+            Abstract class for mapping
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.onDataCapturedSucessfully">
+            <summary>
+            Event triggered when the data was captured sucessfully
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.onMemoryLimitReached">
+            <summary>
+            Event triggered when phone limit has been reached
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.onMovingTooFast">
+            <summary>
+            Event triggered when user moved too fast
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.onEmergencyCut">
+            <summary>
+            Event triggered in case of emergency cut
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.Name">
+            <summary>
+            Returns the session Name
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.Awake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.StartCapturingDatas">
+            <summary>
+            Start capturing frame datas
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.StopCapturingDatas">
+            <summary>
+            Stop capturing frame datas
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.SetupImageProvider(com.Neogoma.Stardust.API.ICameraImageProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.UpdatePicturesTakenCount(System.Int32)">
+            <summary>
+            Updates the number of picture taken
+            </summary>
+            <param name="nbPicturesTaken"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.GetSupportedEvents">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.DoOnAwake">
+            <summary>
+            Method called on awake
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.MemoryWarning">
+            <summary>
+            Called whenever the memory has run out
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.FrameCaptured(UnityEngine.Vector3,UnityEngine.Quaternion,com.Neogoma.Stardust.Datamodel.IntrisicsData,System.Byte[])">
+            <summary>
+            Called when frame has been captured
+            </summary>
+            <param name="lastPosition">Frame position</param>
+            <param name="quaternion">Frame rotation</param>
+            <param name="intrisicsData">Intrisics data</param>
+            <param name="pictureInfo">Frame picture</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.OnStartDataCapture">
+            <summary>
+            Starting the data capture
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.OnStopDataCapture">
+            <summary>
+            Stopping the data capture
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Mapping.OfflineMapper">
+            <summary>
+            Offline mapper system
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.OfflineMapper.onMapUnavailableEvent">
+            <summary>
+            Triggered when requested map is not available on device
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.OfflineMapper.onGlobalUploadUpdateEvent">
+            <summary>
+            Triggered to show the global data upload progress
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.OfflineMapper.onCurrentPackageUploadEvent">
+            <summary>
+            Triggered to show the current package upload progress
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.OfflineMapper.onDataLimitReached">
+            <summary>
+            Triggered when the data upload limit has been reached
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.OfflineMapper.onMapUploadFinished">
+            <summary>
+            Triggered when the map upload is finished
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.OfflineMapper.onMapSaved">
+            <summary>
+            Triggered when the map datas have been saved locally
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.OfflineMapper.onFrameCaptured">
+            <summary>
+            Triggered when a frame has been captured
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.Mapping.OfflineMapper.PicturesTaken">
+            <summary>
+            Current number of pictures taken
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.Mapping.OfflineMapper.Instance">
+            <summary>
+            Instance of <see cref="T:com.Neogoma.Stardust.API.Mapping.OfflineMapper"/>
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.RequestFailed(System.Int64,System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.RequestProgress(System.Single,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.RequestSuccess(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.SaveMapData">
+            <summary>
+            Saves all the offline map data on device
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.UploadMapDatas(System.String)">
+            <summary>
+            Will start uploading the map data from device to cloud
+            </summary>
+            <param name="mapName">Name of the map stored on device</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.GetOfflineMapsOnDevice">
+            <summary>
+            Returns the list of all stored maps on device
+            </summary>
+            <returns>Names of the maps</returns>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.StartNewMap(System.String)">
+            <summary>
+            Creates a new map on device
+            </summary>
+            <param name="name">Name of the map</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.AddNavigationTarget(UnityEngine.Vector3,System.String)">
+            <summary>
+            Add a target to the list
+            </summary>
+            <param name="position">Position of the navigation target</param>
+            <param name="name">Name of the navigation target</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.DeleteLocalMap(System.String)">
+            <summary>
+            Deletes a local map from the device
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.DeleteAllLocalMaps">
+            <summary>
+            Delete all map stored locally
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Mapping.MapDataUploader">
+            <summary>
+            Class used to send sending mapping datas to server. 
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.Instance">
+            <summary>
+            Instance of <see cref="T:com.Neogoma.Stardust.API.Mapping.MapDataUploader"/>
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.CurrentUploadProgres">
+            <summary>
+            Return the current upload progress
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onDataSentSucessfully">
+            <summary>
+            Event triggered when the data was sent sucessfully
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onQueueUpdated">
+            <summary>
+            Event triggered when the queue has been updated
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onDataSentFailure">
+            <summary>
+            Event triggered when the latest data upload failed
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onBatchReadyToUpdate">
+            <summary>
+            Event triggered when the map is ready to update
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onBatchNotReady">
+            <summary>
+            Event triggered when the map can't update
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onTargetCreatedSucessfully">
+            <summary>
+            Event triggered when a target was sucessfully created
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onTargetCreationFailure">
+            <summary>
+            Event triggered when a target creation failed
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onDatalimitReached">
+            <summary>
+            Event triggered when user reached his quota of datas
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onRequestProgress">
+            <summary>
+            Event triggered when the upload progresses
+            </summary>
+        </member>
+        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.capturePointData">
+            <summary>
+            If set to true will capture the point data 
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.HTTPConnector">
+            <summary>
+            Returns the HTTP connector
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.DoOnAwake">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.SetUpdateBatch">
+            <summary>
+            Setup the update batch
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.SaveTarget(UnityEngine.Vector3,System.String)">
+            <summary>
+            Create target with name at designated coordnates. COORDNATES SHOULD BE IN THE MAP SPACE
+            </summary>
+            <param name="position">Position of the target in MAP SPACE</param>
+            <param name="name">Name of the target</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.SaveTargets(com.Neogoma.Stardust.Datamodel.NavigationTarget[])">
+            <summary>
+            Create target with name at designated coordnates. COORDNATES SHOULD BE IN THE MAP SPACE
+            </summary>
+            <param name="allTargets">Position of the target in MAP SPACE</param>
+            <param name="name">Name of the target</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.GenerateMap(System.String)">
+            <summary>
+            
+            s the map
+            </summary>
+            <param name="emailToNotify">Email to notify when map is ready</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.UpdateMap(System.String)">
+            <summary>
+            Updates the map with latest pictures
+            </summary>
+            <param name="emailToNotify">Email to notify when map is ready</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.RequestFailed(System.Int64,System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.RequestSuccess(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.SetSession(com.Neogoma.Stardust.Datamodel.Session)">
+            <summary>
+            Sets the current session
+            </summary>
+            <param name="sessionData"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.RequestProgress(System.Single,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.OnDestroy">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="T:com.Neogoma.Stardust.API.Mapping.EventWithCount">
+            <summary>
+            Event with a picture count
+            </summary>
+        </member>
         <member name="T:com.Neogoma.Stardust.API.AbstractImageDataController">
             <summary>
             Abstract to define a class that is using image and intrisics datas from the camera
@@ -175,177 +492,6 @@
             </summary>
             <returns>byte array of the JPEG data</returns>
         </member>
-        <member name="T:com.Neogoma.Stardust.API.Mapping.MapDataUploader">
-            <summary>
-            Class used to send sending mapping datas to server. 
-            </summary>
-        </member>
-        <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.Instance">
-            <summary>
-            Instance of <see cref="T:com.Neogoma.Stardust.API.Mapping.MapDataUploader"/>
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.useSmoothingFilter">
-            <summary>
-            Check if you want to use a smoothing filter
-            </summary>
-        </member>
-        <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.CurrentUploadProgres">
-            <summary>
-            Return the current upload progress
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onDataCapturedSucessfully">
-            <summary>
-            Event triggered when the data was captured sucessfully
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onDataSentSucessfully">
-            <summary>
-            Event triggered when the data was sent sucessfully
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onQueueUpdated">
-            <summary>
-            Event triggered when the queue has been updated
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onDataSentFailure">
-            <summary>
-            Event triggered when the latest data upload failed
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onBatchReadyToUpdate">
-            <summary>
-            Event triggered when the map is ready to update
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onBatchNotReady">
-            <summary>
-            Event triggered when the map can't update
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onTargetCreatedSucessfully">
-            <summary>
-            Event triggered when a target was sucessfully created
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onTargetCreationFailure">
-            <summary>
-            Event triggered when a target creation failed
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onDatalimitReached">
-            <summary>
-            Event triggered when user reached his quota of datas
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onMemoryLimitReached">
-            <summary>
-            Event triggered when phone limit has been reached
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onMovingTooFast">
-            <summary>
-            Event triggered when user moved too fast
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onEmergencyCut">
-            <summary>
-            Event triggered in case of emergency cut
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.onRequestProgress">
-            <summary>
-            Event triggered when the upload progresses
-            </summary>
-        </member>
-        <member name="F:com.Neogoma.Stardust.API.Mapping.MapDataUploader.capturePointData">
-            <summary>
-            If set to true will capture the point data 
-            </summary>
-        </member>
-        <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.Name">
-            <summary>
-            Returns the session Name
-            </summary>
-        </member>
-        <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.HTTPConnector">
-            <summary>
-            Returns the HTTP connector
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.Awake">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.SetUpdateBatch">
-            <summary>
-            Setup the update batch
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.GetSupportedEvents">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.HandleEvent(com.Neogoma.HoboDream.IInteractionEvent)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.SetupImageProvider(com.Neogoma.Stardust.API.ICameraImageProvider)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.SaveTarget(UnityEngine.Vector3,System.String)">
-            <summary>
-            Create target with name at designated coordnates. COORDNATES SHOULD BE IN THE MAP SPACE
-            </summary>
-            <param name="position">Position of the target in MAP SPACE</param>
-            <param name="name">Name of the target</param>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.GenerateMap(System.String)">
-            <summary>
-            Generates the map
-            </summary>
-            <param name="emailToNotify">Email to notify when map is ready</param>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.UpdateMap(System.String)">
-            <summary>
-            Updates the map with latest pictures
-            </summary>
-            <param name="emailToNotify">Email to notify when map is ready</param>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.RequestFailed(System.Int64,System.String,System.String)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.RequestSucess(System.String,System.String)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.StartSendingData">
-            <summary>
-            Start sending datas to the server
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.StopSendingDatas">
-            <summary>
-            Stop sending datas to the server
-            </summary>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.SetSession(com.Neogoma.Stardust.Datamodel.Session)">
-            <summary>
-            Sets the current session
-            </summary>
-            <param name="sessionData"></param>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.RequestProgress(System.Single,System.String)">
-            <inheritdoc/>
-        </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.OnDestroy">
-            <summary>
-            <inheritdoc/>
-            </summary>
-        </member>
-        <member name="T:com.Neogoma.Stardust.API.Mapping.EventWithCount">
-            <summary>
-            Event with a picture count
-            </summary>
-        </member>
         <member name="T:com.Neogoma.Stardust.API.ICameraImageIntrisicsProvider">
             <summary>
             This class will provide the camera intrisics data in real time.
@@ -427,10 +573,10 @@
             redownload bundle
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.RequestSucess(System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.RequestSuccess(System.String,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.RequestFailed(System.Int64,System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.RequestFailed(System.Int64,System.String,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.ObjectFilesDownloaded(System.String,System.String)">
@@ -675,12 +821,6 @@
             <param name="persistentObject">Object to save</param>
         </member>
         <!-- Badly formed XML comment ignored for member "M:com.Neogoma.Stardust.API.Persistence.ObjectController.CreateObjectInstances(com.Neogoma.Stardust.Datamodel.PersistentObject[],UnityEngine.Transform,com.Neogoma.Stardust.API.Persistence.ObjectController.CreationSpace)" -->
-        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.DeleteAllObjects(System.String)">
-            <summary>
-            Deletes all the objects in db for a map
-            </summary>
-            <param name="name">Map name</param>
-        </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.DeleteInstance(com.Neogoma.Stardust.Datamodel.PersistentObject)">
             <summary>
             Deletes an object in database
@@ -698,10 +838,10 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.RequestSucess(System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.RequestSuccess(System.String,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.RequestFailed(System.Int64,System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.RequestFailed(System.Int64,System.String,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.ObjectController.BundleIsCached(System.String)">
@@ -845,13 +985,13 @@
         <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.GetSupportedEvents">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestSucess(System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestSuccess(System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestProgress(System.Single,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestFailed(System.Int64,System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.RequestFailed(System.Int64,System.String,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.Stardust.API.Relocation.MapRelocationManager.PositionFoundEvent">
@@ -972,10 +1112,10 @@
             Retrieves all sessions that are ready to relocate
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.SessionController.RequestSucess(System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.SessionController.RequestSuccess(System.String,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.SessionController.RequestFailed(System.Int64,System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.SessionController.RequestFailed(System.Int64,System.String,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.Stardust.API.SessionController.SessionEvent">
@@ -1065,10 +1205,10 @@
             <param name="email">Account email</param>
             <param name="password">Account password</param>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.StardustSDK.RequestSucess(System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.StardustSDK.RequestSuccess(System.String,System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.StardustSDK.RequestFailed(System.Int64,System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.API.StardustSDK.RequestFailed(System.Int64,System.String,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.Stardust.API.CameraData.ColorExtractor">
@@ -1403,7 +1543,7 @@
         <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.Awake">
             <inheritdoc/>
         </member>
-        <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.RequestSucess(System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.RequestSuccess(System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.ShowPathToTarget(com.Neogoma.Stardust.Graph.ITarget,System.Single)">
@@ -1424,7 +1564,7 @@
             </summary>
             <param name="renderer">New renderer to use</param>
         </member>
-        <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.RequestFailed(System.Int64,System.String,System.String)">
+        <member name="M:com.Neogoma.Stardust.Navigation.PathFindingManager.RequestFailed(System.Int64,System.String,System.String,System.String)">
             <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.Stardust.Navigation.NavigationReady">

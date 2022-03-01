@@ -1,4 +1,4 @@
-﻿Shader "Coolhobo/PointCloud" {
+﻿Shader "Neogoma/PointCloud" {
 	Properties{
 		point_size("Point Size", Float) = 5
 	}

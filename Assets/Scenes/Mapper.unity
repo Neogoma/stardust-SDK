@@ -3809,8 +3809,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2721487612708369180, guid: c2182c26302397c4ba3b4c8bbf4801a9,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: StopCapturingDatas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721487612708369180, guid: c2182c26302397c4ba3b4c8bbf4801a9,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721487612708369180, guid: c2182c26302397c4ba3b4c8bbf4801a9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader, Stardust
       objectReference: {fileID: 0}
     - target: {fileID: 2721487612708369180, guid: c2182c26302397c4ba3b4c8bbf4801a9,
         type: 3}
@@ -4432,8 +4442,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4089295382738696324, guid: 24ca32dd2189cdc42bf41458e7a57406,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: StartCapturingDatas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089295382738696324, guid: 24ca32dd2189cdc42bf41458e7a57406,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089295382738696324, guid: 24ca32dd2189cdc42bf41458e7a57406,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader, Stardust
       objectReference: {fileID: 0}
     - target: {fileID: 4089295382738696324, guid: 24ca32dd2189cdc42bf41458e7a57406,
         type: 3}
