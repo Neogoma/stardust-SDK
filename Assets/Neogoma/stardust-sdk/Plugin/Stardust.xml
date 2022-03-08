@@ -44,11 +44,6 @@
             Event triggered in case of emergency cut
             </summary>
         </member>
-        <member name="P:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.Name">
-            <summary>
-            Returns the session Name
-            </summary>
-        </member>
         <member name="M:com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader.Awake">
             <inheritdoc/>
         </member>
@@ -296,7 +291,6 @@
             Create target with name at designated coordnates. COORDNATES SHOULD BE IN THE MAP SPACE
             </summary>
             <param name="allTargets">Position of the target in MAP SPACE</param>
-            <param name="name">Name of the target</param>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Mapping.MapDataUploader.GenerateMap(System.String)">
             <summary>
