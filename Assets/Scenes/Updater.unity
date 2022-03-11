@@ -521,33 +521,6 @@ MonoBehaviour:
   pictureSent: {fileID: 1037379124}
   dataLimitReachedText: {fileID: 1417949927}
   mapSelectionDropdown: {fileID: 993867036}
-  mapSelected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 837545704}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1864843387}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!1 &167903132
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,6 +824,81 @@ PrefabInstance:
         type: 3}
       propertyPath: ApiKey
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 837545704}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1864843387}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175614224497136165, guid: 942c79d70961db648b1f8d08938a27af,
+        type: 3}
+      propertyPath: onBatchReadyToUpdate.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8904686026771092344, guid: 942c79d70961db648b1f8d08938a27af,
         type: 3}
@@ -1926,8 +1974,9 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 238537070}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: StartSendingData
+        m_TargetAssemblyTypeName: com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader,
+          Stardust
+        m_MethodName: StartCapturingDatas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2111,7 +2160,43 @@ MonoBehaviour:
     m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 837545704}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1864843387}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 993867036}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!224 &993867037
 RectTransform:
@@ -3685,8 +3770,9 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 238537070}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: StopSendingDatas
+        m_TargetAssemblyTypeName: com.Neogoma.Stardust.API.Mapping.AbstractMapDataUploader,
+          Stardust
+        m_MethodName: StopCapturingDatas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

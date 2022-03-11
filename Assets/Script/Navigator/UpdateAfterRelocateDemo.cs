@@ -48,7 +48,7 @@ namespace Neogoma.Stardust.Demo.Navigator
             //Setup listeners for data upload
             MapDataUploader.Instance.onDataSentSucessfully.AddListener(PictureUploadSucceed);
             MapDataUploader.Instance.onQueueUpdated.AddListener(PictureTaken);
-
+            
             MapDataUploader.Instance.onRequestProgress.AddListener(RequestProgress);
 
             objectManager = GetComponent<ObjectManager>();
@@ -90,6 +90,9 @@ namespace Neogoma.Stardust.Demo.Navigator
 
         private void PictureTaken(int count)
         {
+
+            pictureTakenCount.text = count.ToString();
+
             if (count == 0)
             {
                 dataUploadProgress.fillAmount = 0;

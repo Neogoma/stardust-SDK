@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "HT84T1A03177",
+    "m_SelectedDeviceId": "38db6a30",
     "m_SelectedPackage": {
-        "deviceId": "HT84T1A03177",
+        "deviceId": "38db6a30",
         "name": "com.neogoma.stardustsdksample",
-        "processId": 11334,
+        "processId": 8243,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -51,9 +51,63 @@
             "exited": false
         },
         {
-            "deviceId": "HT84T1A03177",
+            "deviceId": "38db6a30",
             "name": "com.neogoma.stardustsdksample",
-            "processId": 11334,
+            "processId": 2045,
+            "exited": false
+        },
+        {
+            "deviceId": "38db6a30",
+            "name": "com.neogoma.stardustsdksample",
+            "processId": 2053,
+            "exited": false
+        },
+        {
+            "deviceId": "38db6a30",
+            "name": "com.neogoma.stardustsdksample",
+            "processId": 2060,
+            "exited": false
+        },
+        {
+            "deviceId": "38db6a30",
+            "name": "com.neogoma.stardustsdksample",
+            "processId": 2081,
+            "exited": false
+        },
+        {
+            "deviceId": "38db6a30",
+            "name": "com.neogoma.stardustsdksample",
+            "processId": 2070,
+            "exited": false
+        },
+        {
+            "deviceId": "38db6a30",
+            "name": "com.neogoma.stardustsdksample",
+            "processId": 2084,
+            "exited": false
+        },
+        {
+            "deviceId": "38db6a30",
+            "name": "com.neogoma.stardustsdksample",
+            "processId": 2092,
+            "exited": false
+        },
+        {
+            "deviceId": "38db6a30",
+            "name": "com.neogoma.stardustsdksample",
+            "processId": 8241,
+            "exited": false
+        },
+        {
+            "deviceId": "38db6a30",
+            "name": "com.neogoma.stardustsdksample",
+            "processId": 8242,
+            "exited": false
+        },
+        {
+            "deviceId": "38db6a30",
+            "name": "com.neogoma.stardustsdksample",
+            "processId": 8243,
             "exited": false
         }
     ],
