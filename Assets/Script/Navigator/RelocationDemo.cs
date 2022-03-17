@@ -57,7 +57,7 @@ namespace Neogoma.Stardust.Demo.Navigator
             relocationManager.onMapDownloadedSucessfully.AddListener(OnMapDownloaded);
             relocationManager.onMapDownloadStarted.AddListener(OnMapStartDownloading);
             relocationManager.onPositionFound.AddListener(OnPositionMatched);
-            relocationManager.onPositionNotFound.AddListener(OnPositionMatchFailed);
+            relocationManager.onLocationNotFound.AddListener(OnPositionMatchFailed);
             
         }
 

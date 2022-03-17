@@ -58,9 +58,7 @@ namespace com.Neogoma.Stardust.Persistence
         ///<inheritdoc/>
         protected override void OnDownloadUpdate(float progressEvent)
         {
-            Debug.Log(progressEvent);
-
-
+            Debug.Log(gameObject.name + " " + progressEvent);
         }
     }
 }

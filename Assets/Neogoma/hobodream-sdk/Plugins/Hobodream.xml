@@ -781,7 +781,7 @@
             <returns>The specific download handler for the class
             </returns>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`2.GetMethod(System.String)">
+        <member name="M:com.Neogoma.HoboDream.Network.Internal.AbstractHTTPConnector`2.GetWebRequest(System.String,System.String)">
             <summary>
             Returns the method to be used
             </summary>
@@ -1218,7 +1218,7 @@
             Interface that defines a cached system using <see cref="T:com.Neogoma.HoboDream.IInteractiveElement"/>
             </summary>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.ICacheHandler`1.FindCachedData(System.String,UnityEngine.WWWForm,System.Boolean,System.String[])">
+        <member name="M:com.Neogoma.HoboDream.Network.ICacheHandler`1.FindCachedData(System.String,System.String,UnityEngine.WWWForm,System.Boolean,System.String[])">
             <summary>
             Launches a coroutine to retrieve the cached data
             </summary>
@@ -1422,7 +1422,6 @@
             <summary>
             Class used to pass the HTTP request parameters data to different requests in order to retrieve cash
             </summary>
-            <typeparam name="T">Type of listeners</typeparam>
         </member>
         <member name="P:com.Neogoma.HoboDream.Network.RequestDataContainer.URL">
             <summary>
@@ -1432,6 +1431,11 @@
         <member name="P:com.Neogoma.HoboDream.Network.RequestDataContainer.Form">
             <summary>
             Requested url form
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.HoboDream.Network.RequestDataContainer.Token">
+            <summary>
+            Stored api token
             </summary>
         </member>
         <member name="P:com.Neogoma.HoboDream.Network.RequestDataContainer.ListenerKeys">
@@ -1444,7 +1448,7 @@
             Clears all listeners
             </summary>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Network.RequestDataContainer.#ctor(System.String,UnityEngine.WWWForm,System.Boolean,System.String[])">
+        <member name="M:com.Neogoma.HoboDream.Network.RequestDataContainer.#ctor(System.String,System.String,UnityEngine.WWWForm,System.Boolean,System.String[])">
             <summary>
             Constructor
             </summary>
@@ -1452,6 +1456,7 @@
             <param name="form">Form of the request</param>
             <param name="clearListeners">If set to true will cleanup all listeners on end</param>
             <param name="listenerKeys">Listeners ot notify</param>
+            <param name="apiToken">Request API token</param>
         </member>
         <member name="T:com.Neogoma.HoboDream.Network.IRequestHandlerListener">
             <inheritdoc />
@@ -2052,6 +2057,11 @@
             <typeparam name="T">Model of objects managed by this objectpoolmanager
             </typeparam>
         </member>
+        <member name="P:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1.Count">
+            <summary>
+            Count the number of objects in the pool
+            </summary>
+        </member>
         <member name="M:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1.#ctor(UnityEngine.GameObject,UnityEngine.Transform,com.Neogoma.HoboDream.IInteractiveElementListener[])">
             <summary>
             Constructor
@@ -2063,12 +2073,12 @@
             /// <param name="listeners">Objects that will listen to the newly created prefabs
             </param>
         </member>
-        <member name="M:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1.AddItems(`0[])">
+        <member name="M:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1.SetItems(`0[])">
             <summary>
             Create the items in the object pool
             </summary>
             <param name="itemsToSetup">
-            List of items to create
+            List of items to set
             </param>
         </member>
         <member name="M:com.Neogoma.HoboDream.Util.AbstractGameobjectPoolManager`1.AddItem(`0)">
@@ -4231,18 +4241,18 @@
             </summary>
             <returns>True there are less or the same abount of objects in this and its children than numObjectsAllowed.</returns>
         </member>
-        <member name="T:com.Neogoma.Octree.IOctreeCoordnateObject">
+        <member name="T:com.Neogoma.Octree.IOctreeCoordinateObject">
             <summary>
             Interface defining an object that can be put in octree
             </summary>
         </member>
-        <member name="M:com.Neogoma.Octree.IOctreeCoordnateObject.GetCoordnates">
+        <member name="M:com.Neogoma.Octree.IOctreeCoordinateObject.GetCoordinates">
             <summary>
-            Returns the coordnate of the object
+            Returns the coordinate of the object
             </summary>
             <returns></returns>
         </member>
-        <member name="M:com.Neogoma.Octree.IOctreeCoordnateObject.GetColor">
+        <member name="M:com.Neogoma.Octree.IOctreeCoordinateObject.GetColor">
             <summary>
             Returns the color of the object
             </summary>

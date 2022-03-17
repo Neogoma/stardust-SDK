@@ -72,7 +72,7 @@ namespace Neogoma.Stardust.Demo.Navigator
                         locationInstance = GameObject.Instantiate(locationPrefab);
                     }
 
-                    locationInstance.transform.position = target.GetCoordnates();
+                    locationInstance.transform.position = target.GetCoordinates();
                     locationInstance.SetActive(true);
 
                 }
