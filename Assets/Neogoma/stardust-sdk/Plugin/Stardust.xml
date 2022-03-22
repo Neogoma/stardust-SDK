@@ -546,7 +546,7 @@
             Returns the current model used by the displayer
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.Initialize(com.Neogoma.HoboDream.Network.IGLTFFilesDownloader{com.Neogoma.HoboDream.Network.IGLTFFilesDownloadListener},com.Neogoma.HoboDream.Network.IHTTPConnector{com.Neogoma.HoboDream.Network.IJSonRequestListener},com.Neogoma.Stardust.Datamodel.PersistentObject)">
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.Initialize(com.Neogoma.HoboDream.Network.IGLTFFilesDownloader{com.Neogoma.HoboDream.Network.IGLTFFilesDownloadListener},com.Neogoma.HoboDream.Network.IHTTPConnector{com.Neogoma.HoboDream.Network.IJSonRequestListener},com.Neogoma.HoboDream.Network.IHTTPConnector{com.Neogoma.HoboDream.Network.ITextureDownloadListener},com.Neogoma.Stardust.Datamodel.PersistentObject)">
             <summary>
             Initialize
             </summary>
@@ -574,6 +574,9 @@
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.ObjectFilesDownloaded(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.TextureLoaded(System.String,UnityEngine.Texture2D)">
             <inheritdoc/>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Persistence.AbstractBundleDisplayer.ObjectLoadedSucessfully(UnityEngine.GameObject,com.Neogoma.Stardust.Datamodel.PersistentObject)">
