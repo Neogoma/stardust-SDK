@@ -1843,9 +1843,46 @@
             Manages the android permissions
             </summary>
         </member>
+        <member name="T:com.Neogoma.Stardust.Utils.EditorMeshDownloader">
+            <summary>
+            Mesh downloader 
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Utils.EditorMeshDownloader.StatusCode">
+            <summary>
+            Status code return
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Utils.EditorMeshDownloader.Data">
+            <summary>
+            data of the downloaded mesh
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Utils.EditorMeshDownloader.Progress">
+            <summary>
+            Returns the current status of download
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Utils.EditorMeshDownloader.DownloadFinished">
+            <summary>
+            True when the download is finished
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Utils.EditorMeshDownloader.DownloadMesh(System.String,System.String)">
+            <summary>
+            Download the point cloud from cloud
+            </summary>
+            <param name="apiKey"></param>
+            <param name="mapUUID"></param>
+        </member>
         <member name="T:com.Neogoma.Stardust.Utils.EditorPCDownloader">
             <summary>
             Class in editor to download the point cloud
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.Utils.EditorPCDownloader.StatusCode">
+            <summary>
+            Status code of the download
             </summary>
         </member>
         <member name="P:com.Neogoma.Stardust.Utils.EditorPCDownloader.Progress">
