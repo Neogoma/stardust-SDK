@@ -185,17 +185,19 @@
             Saves all the offline map data on device
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.UploadMapDatas(System.String)">
+        <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.UploadMapDatas(System.String,System.Boolean)">
             <summary>
             Will start uploading the map data from device to cloud
             </summary>
             <param name="mapName">Name of the map stored on device</param>
+            <param name="deleteAfterSend">TRUE to delete the map when upload complete, false otherwise</param>
         </member>
-        <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.UploadMapUpdate(com.Neogoma.Stardust.Datamodel.Session)">
+        <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.UploadMapUpdate(com.Neogoma.Stardust.Datamodel.Session,System.Boolean)">
             <summary>
             Will start uploading the map data from device to cloud
             </summary>
             <param name="session">Session object representing the update stored on device</param>
+            <param name="deleteAfterSend">Deletes the map after sending data</param>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.GetOfflineMapFolder">
             <summary>
@@ -265,6 +267,11 @@
         <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.Instance">
             <summary>
             Instance of <see cref="T:com.Neogoma.Stardust.API.Mapping.MapDataUploader"/>
+            </summary>
+        </member>
+        <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.IsOnlineEnabled">
+            <summary>
+            
             </summary>
         </member>
         <member name="P:com.Neogoma.Stardust.API.Mapping.MapDataUploader.CurrentUploadProgres">
