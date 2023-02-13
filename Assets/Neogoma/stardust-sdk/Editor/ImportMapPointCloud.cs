@@ -30,7 +30,6 @@ namespace com.Neogoma.Stardust.API.CustomsEditor
 
         void OnGUI()
         {
-            //EditorGUILayout.BeginVertical();
             mapUUID = EditorGUILayout.TextField("Map ID", mapUUID);
 
             if (currentlyDownloading)
@@ -84,17 +83,34 @@ namespace com.Neogoma.Stardust.API.CustomsEditor
         {
             yield return new WaitUntil(() => pointCloudDownloader.DownloadFinished);
 
+            if (pointCloudDownloader.StatusCode== EditorPCDownloader.STATUS_OKAY) {
+                if (pclDisplayer == null)
+                {
+                    pclDisplayer = new PCLDisplayer(pointCloudMaterial);
 
-
-            if (pclDisplayer == null)
-            {
-                pclDisplayer = new PCLDisplayer(pointCloudMaterial);
-
+                }
+                if (pointCloudDownloader.Points.Count > 0)
+                    previousPointCloud = pclDisplayer.CreatePointCloudMesh(mapUUID, pointCloudDownloader.Points);
             }
+            else
+            {
+                switch (pointCloudDownloader.StatusCode)
+                {
+                    case (404):
+                        EditorUtility.DisplayDialog("Point cloud not found",
+                    "There is no point cloud for selected id.", "Okay");
+                        break;
 
-            if(pointCloudDownloader.Points.Count>0)
-                previousPointCloud = pclDisplayer.CreatePointCloudMesh(mapUUID, pointCloudDownloader.Points);
-
+                    case (403):
+                        EditorUtility.DisplayDialog("Not authorized",
+                    "You can't access this map data, please make sure you have the right subscription.", "Okay");
+                        break;
+                    default:
+                        EditorUtility.DisplayDialog("Server error",
+                    "Something went wrong went retrieving your map.", "Okay");
+                        break;
+                };
+            }
             currentlyDownloading = false;
             EditorUtility.ClearProgressBar();
             Close();

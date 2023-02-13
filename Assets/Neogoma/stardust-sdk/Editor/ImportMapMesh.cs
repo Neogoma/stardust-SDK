@@ -18,7 +18,7 @@ namespace com.Neogoma.Stardust.API.CustomsEditor
         private static string mapUUID;
         private bool currentlyDownloading = false;
         private static float progressValue;
-        private GameObject displayedMesh;
+        private static GameObject displayedMesh;
 
         [MenuItem("Stardust SDK/Import mesh (SME and above)")]
 
@@ -30,7 +30,6 @@ namespace com.Neogoma.Stardust.API.CustomsEditor
 
         void OnGUI()
         {
-            //EditorGUILayout.BeginVertical();
             mapUUID = EditorGUILayout.TextField("Map ID", mapUUID);
 
             if (currentlyDownloading)
@@ -69,14 +68,12 @@ namespace com.Neogoma.Stardust.API.CustomsEditor
 
                     if (displayedMesh != null)
                     {
-                        Debug.Log(displayedMesh.name);
-                        GameObject.Destroy(displayedMesh);
+                        GameObject.DestroyImmediate(displayedMesh);
                     }
 
                     meshDownloader.DownloadMesh(StardustSDK.Instance.ApiKey, mapUUID);
                     EditorCoroutineUtility.StartCoroutineOwnerless(UpdateProgress());
                     EditorCoroutineUtility.StartCoroutineOwnerless(DisplayPointCloudWhenDone());
-
 
                 }
             }
@@ -85,11 +82,37 @@ namespace com.Neogoma.Stardust.API.CustomsEditor
         private IEnumerator DisplayPointCloudWhenDone()
         {
             yield return new WaitUntil(() => meshDownloader.DownloadFinished);
+            
+            EditorUtility.ClearProgressBar();            
 
-            displayedMesh = Importer.LoadFromBytes(meshDownloader.Data);
-            displayedMesh.name ="Mesh "+mapUUID;
-            EditorUtility.ClearProgressBar();
+            if (meshDownloader.StatusCode == EditorMeshDownloader.STATUS_OKAY)
+            {
+                displayedMesh = Importer.LoadFromBytes(meshDownloader.Data);
+                displayedMesh.name = "Mesh " + mapUUID;
+            }
+            else
+            {
+                switch (meshDownloader.StatusCode)
+                {
+                    case (404):
+                        EditorUtility.DisplayDialog("Mesh not found",
+                    "There is no mesh for selected id.", "Okay");
+                        break;
+
+                    case (403):
+                        EditorUtility.DisplayDialog("Not authorized",
+                    "You can't access this map data, please make sure you have the right subscription.", "Okay");
+                        break;
+                    default:
+                        EditorUtility.DisplayDialog("Server error",
+                    "Something went wrong went retrieving your map.", "Okay");
+                        break;
+                };
+            }
+
             Close();
+
+
 
         }
 
