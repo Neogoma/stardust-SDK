@@ -30,7 +30,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.16",
+      "version": "2.0.17",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -39,7 +39,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "1.4.1",
+      "version": "1.5.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -172,7 +172,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.oculus": {
-      "version": "3.0.2",
+      "version": "3.2.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {

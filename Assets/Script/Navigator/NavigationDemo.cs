@@ -39,7 +39,7 @@ namespace Neogoma.Stardust.Demo.Navigator
         private int selectedTargetIndex;
         private Dictionary<int, ITarget> indexToTarget = new Dictionary<int, ITarget>();
         private Transform mainCameraTransform;
-        public List<ITarget> targets;
+        public ITarget[] targets;
 
         private void Start()
         {
@@ -52,7 +52,7 @@ namespace Neogoma.Stardust.Demo.Navigator
 
         private void PositionFound(RelocationResults arg0, CoordinateSystem arg1)
         {
-            targetSelectionDropDown.gameObject.SetActive(targets.Count>0); 
+            targetSelectionDropDown.gameObject.SetActive(targets.Length>0); 
         }
 
         /// <summary>
@@ -84,14 +84,14 @@ namespace Neogoma.Stardust.Demo.Navigator
             }
         }
 
-        private void PathFindingReady(List<ITarget> allTargets)
+        private void PathFindingReady(ITarget[] allTargets)
         {
             targets = allTargets;
             targetSelectionDropDown.ClearOptions();
 
             List<string> allTargetNames = new List<string>();
             allTargetNames.Add("No target");
-            for (int i = 0; i < allTargets.Count; i++)
+            for (int i = 0; i < allTargets.Length; i++)
             {
                 string targetName = allTargets[i].GetTargetName();
                 allTargetNames.Add(targetName);                
