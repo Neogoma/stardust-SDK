@@ -70,7 +70,7 @@ namespace Neogoma.Stardust.Demo.Mapper
                 target.transform.localScale = Vector3.one;
                 target.transform.SetParent(userCreatedParent);
                 
-                mapDataUploader.SaveTarget(pos, name);
+                mapDataUploader.SaveTarget(mapDataUploader.CoordinateSystem.ConvertFromUnityToMapCoordnate(pos), name);
             }
 
 
