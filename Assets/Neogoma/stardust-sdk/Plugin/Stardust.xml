@@ -239,7 +239,7 @@
             <summary>
             Add a target to the list
             </summary>
-            <param name="position">Position of the navigation target</param>
+            <param name="position">Position of the navigation target (IN MAP COORDNATES)</param>
             <param name="name">Name of the navigation target</param>
         </member>
         <member name="M:com.Neogoma.Stardust.API.Mapping.OfflineMapper.DeleteLocalMap(System.String)">
@@ -1269,11 +1269,6 @@
         <member name="M:com.Neogoma.Stardust.API.StardustSDK.RequestFailed(System.Int64,System.String,System.String,System.String)">
             <inheritdoc/>
         </member>
-        <member name="T:com.Neogoma.Stardust.API.CameraData.ColorExtractor">
-            <summary>
-            Class used to extract the camera color of a point passed in parameter
-            </summary>
-        </member>
         <member name="T:com.Neogoma.Stardust.Datamodel.CoordinateSystem">
             <summary>
             Defines a custom coordnate system
@@ -1320,6 +1315,31 @@
             <summary>
             Defines a model that cna be used as a graph node
             </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Datamodel.AbstractDatamodelNode.AddNeighboor(com.Neogoma.Stardust.Graph.IGraphNode)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Datamodel.AbstractDatamodelNode.RemoveNeighboor(com.Neogoma.Stardust.Graph.IGraphNode)">
+            <inheritdoc/>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:com.Neogoma.Stardust.Datamodel.AbstractDatamodelNode.ClearNeighboors" -->
+        <member name="M:com.Neogoma.Stardust.Datamodel.AbstractDatamodelNode.GetColor">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Datamodel.AbstractDatamodelNode.GetDistanceWithNode(com.Neogoma.Stardust.Graph.IGraphNode)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Datamodel.AbstractDatamodelNode.GetNeighboors">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Datamodel.AbstractDatamodelNode.GetNodeId">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Datamodel.AbstractDatamodelNode.GetRotation">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Datamodel.AbstractDatamodelNode.GetCoordinates">
+            <inheritdoc/>
         </member>
         <member name="T:com.Neogoma.Stardust.Datamodel.Array`1">
             <summary>
@@ -1433,10 +1453,11 @@
             Interface to define how to render a path after calculating the navigation
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.Navigation.IPathRenderer.DisplayPath(System.Collections.Generic.List{com.Neogoma.Octree.IOctreeCoordinateObject})">
+        <member name="M:com.Neogoma.Stardust.Navigation.IPathRenderer.DisplayPath(UnityEngine.Vector3,System.Collections.Generic.List{com.Neogoma.Octree.IOctreeCoordinateObject})">
             <summary>
             Displays the path
             </summary>
+            <param name="playerPosition"></param>
             <param name="allNavigationsPoint"></param>
         </member>
         <member name="M:com.Neogoma.Stardust.Navigation.IPathRenderer.ClearPath">
@@ -1480,6 +1501,18 @@
         </member>
         <member name="M:com.Neogoma.Stardust.Navigation.Graph.GameObjectNode.GetNodeId">
             <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Graph.GameObjectNode.RemoveNeighboor(com.Neogoma.Stardust.Graph.IGraphNode)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.Graph.GameObjectNode.ClearNeighboors">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Navigation.NodesObjectPool.CopyNeighboorData(System.Collections.Generic.List{com.Neogoma.Stardust.Graph.IGraphNode})">
+            <summary>
+            Copies the neighboor data from other graph node to this gameobject graph node
+            </summary>
+            <param name="allNodes"></param>
         </member>
         <member name="T:com.Neogoma.Stardust.Navigation.Rendering.ItemRenderData">
             <summary>
@@ -1539,7 +1572,7 @@
             <inheritdoc/>
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.Navigation.Rendering.PathRenderer.DisplayPath(System.Collections.Generic.List{com.Neogoma.Octree.IOctreeCoordinateObject})">
+        <member name="M:com.Neogoma.Stardust.Navigation.Rendering.PathRenderer.DisplayPath(UnityEngine.Vector3,System.Collections.Generic.List{com.Neogoma.Octree.IOctreeCoordinateObject})">
             <summary>
             <inheritdoc/>
             </summary>
@@ -1690,6 +1723,12 @@
         <member name="M:com.Neogoma.Stardust.Graph.BasicGraphNode.AddNeighboor(com.Neogoma.Stardust.Graph.IGraphNode)">
             <inheritdoc/>
         </member>
+        <member name="M:com.Neogoma.Stardust.Graph.BasicGraphNode.RemoveNeighboor(com.Neogoma.Stardust.Graph.IGraphNode)">
+            <inheritdoc/>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.BasicGraphNode.ClearNeighboors">
+            <inheritdoc/>
+        </member>
         <member name="M:com.Neogoma.Stardust.Graph.BasicGraphNode.GetColor">
             <inheritdoc/>
         </member>
@@ -1730,15 +1769,41 @@
             Generate a graph based on an unordered list of nodes. Can also integrate targets to link
             </summary>
         </member>
-        <member name="M:com.Neogoma.Stardust.Graph.GraphGenerator.GenerateGraphWithCurrentTarget(System.Collections.Generic.ICollection{com.Neogoma.Stardust.Graph.IGraphNode},com.Neogoma.Stardust.Graph.ITarget,System.Single,System.Single,com.Neogoma.Stardust.Graph.IGraphNode)">
+        <member name="F:com.Neogoma.Stardust.Graph.GraphGenerator.STEPS_BETWEEN_EACH_GRAPH_SEARCH">
             <summary>
-            Generates the graph based on the provided datas
+            Instead of crossing each node 1 by 1 we use that to accelerate the computing (no need to check 0.3m distances)
             </summary>
-            <param name="originalNodeCollection">Original collection of nodes</param>
-            <param name="target">Target to link</param>
-            <param name="nodeRange">Maximum distance between 2 nodes</param>
-            <param name="minDistanceFilter">Minimum distance between 2 nodes</param>
-            <param name="firstNode">The first node to generate the graph from</param>
+        </member>
+        <member name="F:com.Neogoma.Stardust.Graph.GraphGenerator.MAX_DISTANCE_BETWEEN_GRAPHS">
+            <summary>
+            Setup a maximum distance between graphs to avoid linking stupidly big stuff
+            </summary>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.GraphGenerator.GenerateNavigationablePathGraph(com.Neogoma.Stardust.Datamodel.MappingBatch[],System.Single)">
+            <summary>
+            Create all the nagivationable paths first
+            </summary>
+            <param name="batches">All batches of the map</param>
+            <param name="nodeRange">Max distance between 2 nodes</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.GraphGenerator.AddTargetToGraph(com.Neogoma.Octree.PointOctree{com.Neogoma.Stardust.Graph.IGraphNode},com.Neogoma.Stardust.Graph.IGraphNode,System.Single)">
+            <summary>
+            Add target to the octree graph
+            </summary>
+            <param name="navigationOctree"></param>
+            <param name="target"></param>
+            <param name="nodeRange"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.GraphGenerator.RemoveTargetFromGraph(com.Neogoma.Stardust.Graph.IGraphNode)">
+            <summary>
+            Remove target from the grap
+            </summary>
+            <param name="target"></param>
+        </member>
+        <member name="T:com.Neogoma.Stardust.Graph.GraphGenerator.BatchDistanceData">
+            <summary>
+            Class holding the data for the batch distances
+            </summary>
         </member>
         <member name="T:com.Neogoma.Stardust.Graph.IGraphNode">
             <summary>
@@ -1763,6 +1828,17 @@
             Adds a neighboor to this node
             </summary>
             <param name="node">Neighboor to add</param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.IGraphNode.RemoveNeighboor(com.Neogoma.Stardust.Graph.IGraphNode)">
+            <summary>
+            Removes neighbor from this node
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:com.Neogoma.Stardust.Graph.IGraphNode.ClearNeighboors">
+            <summary>
+            cleans up all the neighboors from this node and also removes this node from the neighboors
+            </summary>
         </member>
         <member name="M:com.Neogoma.Stardust.Graph.IGraphNode.GetNodeId">
             <summary>
@@ -1825,7 +1901,7 @@
         </member>
         <member name="T:com.Neogoma.Stardust.DataRendering.ConvertedPointdata">
             <summary>
-            Converted datas of <see cref="T:com.Neogoma.Stardust.Datamodel.FeaturePoint"/>
+            Converted datas of <see cref="!:FeaturePoint"/>
             </summary>
         </member>
         <member name="M:com.Neogoma.Stardust.DataRendering.ConvertedPointdata.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
