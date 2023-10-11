@@ -252,3 +252,17 @@ The following packages were updated:
   com.unity.xr.arfoundation from version 5.0.3 to 5.0.4
   com.unity.xr.arkit from version 5.0.3 to 5.0.4
   com.unity.xr.oculus from version 3.2.2 to 3.2.3
+
+=== Wed Oct 11 07:56:28 2023
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.ai.navigation from version 1.1.1 to 1.1.4
+  com.unity.ide.visualstudio from version 2.0.17 to 2.0.18
+  com.unity.xr.arcore from version 5.0.4 to 5.0.7
+  com.unity.xr.arfoundation from version 5.0.4 to 5.0.7
+  com.unity.xr.arkit from version 5.0.4 to 5.0.7
+  com.unity.xr.management from version 4.2.1 to 4.4.0
+  com.unity.xr.oculus from version 3.2.3 to 4.0.0
